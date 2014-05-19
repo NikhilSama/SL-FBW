@@ -1,0 +1,416 @@
+/*
+	CSS INDEX
+
+	1.Common Css
+	2.Index page
+	3.Main Admin Page(admin_panel.php)
+	4.UserData.php
+
+*/
+
+
+
+/*----- ------------------------------------
+--------------COMMON CSS----------------
+-------------------------------------------*/
+body
+{
+	height:100% !important;
+	width:100% !important;
+	margin:0px !important;
+}
+html
+{
+	min-height: 100%;
+	width:100%;
+}
+#container
+{
+	height: 100%;
+}
+.topHeader
+{
+	min-height: 50px;
+	width: 100%;
+	position: fixed;
+	background: #243c5a;
+	/* position: relative; */
+	top: 0px;
+	z-index: 9999;
+	box-shadow: 0px 4px 10px #888888;
+}
+.sideBar
+{
+	background-color: #1a2c45;
+	width: 15%;
+	height: 100%;
+	position: fixed;
+	float: left;
+	padding-top: 6%;
+}
+ul#options
+{
+	color: white;
+	list-style-type:none;
+	font-size: 20px;
+	margin: 0px !important;
+}
+ul#options li
+{
+	padding-top: 7%;
+	cursor: pointer;
+	padding: 10px 0px 10px 10px;
+}
+ul#options li a 
+{
+	color: white;
+}
+.topHeader button
+{
+	margin-top: 6px;
+	margin-right: 20px;
+
+}
+.content
+{
+	margin-left: 50px;
+	margin-right:50px;
+	margin-top: 50px;
+	background: #EEE;
+	height:100px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+
+a:hover
+{
+	text-decoration: none !important;
+}
+.selected
+{
+	background-color: white;
+	color: #1a2c45;
+}
+/*----- ------------------------------------
+--------------INDEX PAGE CSS----------------
+-------------------------------------------*/
+
+.top
+{	
+	background-color: #cecece;
+	margin:auto;
+	width:400px;
+	height: 195px;
+	border-radius: 15px;
+	margin-top:20px;
+	text-align: center;
+}
+.input-group
+{
+	width:300px;
+	margin:10px auto;
+}
+.topText
+{
+	font-weight: bold;
+	font-size: 18px;
+	line-height:2em;
+	font-family: Arial;
+}
+.lower
+{
+	height:50px;
+	vertical-align: center;
+	text-align: center;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+h2.loginText
+{
+	color: #233750;
+}
+.lower button
+{	
+	background-color: #233750;
+	vertical-align: center;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 16px;
+}
+#logoImage
+{
+	text-align: center;
+}
+
+span.adminHeader
+{
+	font-size: 20px;
+	color: white;
+	padding-left: 2%;
+}
+
+.loginContainer
+{
+	margin-top: 10%;
+}
+
+.extraPadding
+{
+	padding-top: 8%;
+}
+
+.addsub
+{
+	margin: 1% !important;
+	height: 30px !important;
+}
+
+
+/*----- ------------------------------------
+--------------ADMIN PAGE CSS----------------
+-------------------------------------------*/
+#overlay
+{	
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 500;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255,255,255,0.9);
+}
+
+#moveSubcategory
+{
+	display: none;
+	float: left;
+	position: absolute;
+	width: 25%;
+	z-index: 1000;
+	height: 400px;
+	overflow: auto;
+	box-shadow: 10px 10px 5px #888888;
+	padding: 18px;
+	margin-left: 44%;
+	margin-top: 7%;
+	font-size: 17px;
+}
+#categoryData
+{
+	/* float: right; */
+	margin-top: 2%;
+	margin-left: 3%;
+	width: 33%;
+	margin-left: 22%;
+	margin-right: auto;
+}
+ul.subcategoryItems
+{
+	list-style-type: none;
+}
+ul.subcategoryItems li
+{
+	background-color: #d9d7d7;
+}
+.ui-accordion .ui-accordion-content
+{
+	padding: 0px !important;
+	background: #e4e4e4;
+}
+#accordion
+{
+	margin-top: 15%;
+	float: left;
+	width: 100%;
+}
+.rowItems
+{
+	background-color: #d9d7d7;
+	margin-top: 1%;
+}
+
+.rowItems:first-child
+{
+	margin-top: 3%;
+}
+
+.subName
+{
+	margin-left: 7% !important;
+}
+
+.catName
+{
+	margin-bottom: 2%;
+}
+
+input[name="addCategory"], input[name="addId"]
+{
+	margin: 2%;
+	margin-right: 1%;
+	height: 30px !important;
+}
+
+input[name="addId"]
+{
+	width: 120px;
+}
+
+div#hiddenCategory
+{
+	display: none;
+}
+
+div#hiddenSubcategory
+{
+	display: none;
+}
+
+#hiddenRadio
+{
+	display: none;
+}
+
+/*-----------------------------------------
+-----------USERDATA.PHP CSS---------------
+----------------------------------------*/
+
+#mainContent
+{
+	float: left;
+	width: 85%;
+}
+
+#visitNumber
+{
+	margin-left: 20%;
+	/* margin-right: auto; */
+	float: left;
+	width: 27%;
+	margin-top: 6%;
+	background-color: #e3e3e3;
+	padding: 6px;
+	color: #525252;
+	border: 1px solid #525252;
+}
+.visitTitle
+{
+	font-size: 16px;
+}
+.visitnumber
+{
+	font-size: 30px;
+	margin: 5% 0 4% 0;
+}
+.helvetica
+{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#userData th
+{
+	background: #324f77 !important;
+	color: white !important;
+}
+.dataTables_wrapper
+{
+	float: left !important;
+}
+.installCount
+{
+	text-align: center;
+}
+.pageImg img
+{
+	width: 100px;
+}
+#userData_wrapper
+{
+	width: 100%;
+	/* margin-left: 0%; */
+	float: left;
+}
+#pageData
+{
+	width: 47%;
+	margin-left: -19%;
+	padding: 20px;
+	background-color: #dcdcdc;
+	position: absolute;
+	margin-top: 17px;
+	z-index: 1;
+	display: none;
+}
+.pageData
+{
+	background-color: #c7c7c7;
+	margin-top: 1%;
+}
+.imported, .notImported
+{
+	font-size: 9px !important;
+	color: #344a65 !important;
+	background-repeat: no-repeat;
+}
+.closeImg
+{
+	height: 20px;
+	margin-top: -4%;
+	margin-left: 46%;
+	position: absolute;
+	cursor: pointer;
+}
+.arrowImg
+{
+	position: absolute;
+	margin-top: -7%;
+	margin-left: 3%;
+}
+#tableHeading
+{
+	margin-left: 20%;
+	float: left;
+	/* float: right; */
+	width: 80%;
+}
+span.about.imported
+{
+	background-image: url(../images/about.png);
+}
+span.about.notImported
+{
+	background-image: url(../images/nabout.png);
+}
+span.photos.imported
+{
+	background-image: url(../images/photos.png);
+}
+span.photos.notImported
+{
+	background-image: url(../images/nphotos.png);
+}
+span.events.imported
+{
+	background-image: url(../images/events.png);
+}
+span.events.notImported
+{
+	background-image: url(../images/nevents.png);
+}
+span.posts.imported
+{
+	background-image: url(../images/posts.png);
+}
+span.posts.notImported
+{
+	background-image: url(../images/nposts.png);
+}
+span.videos.imported
+{
+	background-image: url(../images/videos.png);
+}
+span.videos.notImported
+{
+	background-image: url(../images/nvideos.png);
+}
