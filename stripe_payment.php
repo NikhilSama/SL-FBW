@@ -5,7 +5,7 @@
 	try {
 		$customer = Stripe_Customer::create(array(
 			  	"card" => $_POST['id'],
-			  	"plan" => "FBW",
+			  	"plan" => "SNPFBW",
 			  	"email" => $_POST['email']
 		  	)
 		);
