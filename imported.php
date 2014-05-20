@@ -142,6 +142,15 @@
 							    token: function(token, args) {
 							    	console.log(token);
 							    	console.log(args);
+
+							    	$.ajax({
+										url: 'stripe_payment.php',
+										method:"POST",
+										data: token,
+										success: function(res) {
+										    console.log(res);
+										}
+									});
 							      	// Use the token to create the charge with a server-side script.
 							      	// You can access the token ID with `token.id`
 							    }
