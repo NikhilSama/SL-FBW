@@ -44,6 +44,8 @@
 		$subitem_count[ $data['apptab_name'] ] = $data['subitem_count'];
 	}
 	
+	$payment_data = $db->execute_query("SELECT payment_flag from ".PAGE." where page_id=".$_SESSION['pageid']);
+	$payment_flag = $payment_data[0]['payment_flag'];
  ?>
 
 <!doctype html>
@@ -125,33 +127,39 @@
 				<img class="pointer" id="submitList" src="img/import.png" alt="">
 				<a href="ingredients.php"><img src="img/appIng.png" class="appIngredients" alt=""></a>
 
-				<script src="https://checkout.stripe.com/checkout.js"></script>
-				<!-- <button id="customButton" src="img/makePayment.png"></button> -->
-				<a href="#" id="customButton"><img src="img/makePayment.png" alt=""></a>
-				<!-- <a href="payment.php"><img src="img/makePayment.png" alt=""></a> -->
+				<?php 
+					if(! $payment_flag ) { 
+				?>
+						<script src="https://checkout.stripe.com/checkout.js"></script>
+						<!-- <button id="customButton" src="img/makePayment.png"></button> -->
+						<a href="#" id="customButton"><img src="img/makePayment.png" alt=""></a>
+						<!-- <a href="payment.php"><img src="img/makePayment.png" alt=""></a> -->
 
-				<script>
-				  	var handler = StripeCheckout.configure({
-					    key: 'pk_test_idc5V67kywOPFOub6f733v6j',
-					    image: '/square-image.png',
-					    token: function(token, args) {
-					    	console.log(token);
-					    	console.log(token);
-					      	// Use the token to create the charge with a server-side script.
-					      	// You can access the token ID with `token.id`
-					    }
-				  	});
+						<script>
+						  	var handler = StripeCheckout.configure({
+							    key: 'pk_test_idc5V67kywOPFOub6f733v6j',
+							    image: '/square-image.png',
+							    token: function(token, args) {
+							    	console.log(token);
+							    	console.log(token);
+							      	// Use the token to create the charge with a server-side script.
+							      	// You can access the token ID with `token.id`
+							    }
+						  	});
 
-				  	document.getElementById('customButton').addEventListener('click', function(e) {
-					    // Open Checkout with further options
-					    handler.open({
-				      		name: 'SnapLion Site',
-				      		description: 'FBW',
-				      		amount: 2000
-				    	});
-				    	e.preventDefault();
-				  	});
-				</script>
+						  	document.getElementById('customButton').addEventListener('click', function(e) {
+							    // Open Checkout with further options
+							    handler.open({
+						      		name: 'SnapLion Site',
+						      		description: 'FBW',
+						      		amount: 2000
+						    	});
+						    	e.preventDefault();
+						  	});
+						</script>
+				<?php 
+					} 
+				?>
 			</div>
 			
 			<div id="progressbar"></div>

@@ -17,7 +17,6 @@
 	$ingredient_data = getIngredientData($snap_data);
 	$payment_data = $db->execute_query("SELECT payment_flag from ".PAGE." where page_id=".$_SESSION['pageid']);
 	$payment_flag = $payment_data[0]['payment_flag'];
-
 ?>
 
 
@@ -240,9 +239,9 @@
 				</div>  <!-- ingredients form ends -->
 				
 				<?php if(! $payment_flag ) { ?>
-					<div class="paymentLink center">
+					<!-- <div class="paymentLink center">
 						<a href="payment.php"><img src="img/makePayment.png" alt=""></a>
-					</div>
+					</div> -->
 				<?php } ?>
 			</div>
 			
