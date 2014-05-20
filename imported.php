@@ -126,7 +126,8 @@
 				<a href="ingredients.php"><img src="img/appIng.png" class="appIngredients" alt=""></a>
 
 				<script src="https://checkout.stripe.com/checkout.js"></script>
-				<button id="customButton" src="img/makePayment.png"></button>
+				<!-- <button id="customButton" src="img/makePayment.png"></button> -->
+				<a href="#" id="customButton"><img src="img/makePayment.png" alt=""></a>
 				<!-- <a href="payment.php"><img src="img/makePayment.png" alt=""></a> -->
 
 				<script>
