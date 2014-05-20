@@ -141,7 +141,7 @@
 							    image: '/square-image.png',
 							    token: function(token, args) {
 							    	console.log(token);
-							    	console.log(token);
+							    	console.log(args);
 							      	// Use the token to create the charge with a server-side script.
 							      	// You can access the token ID with `token.id`
 							    }
