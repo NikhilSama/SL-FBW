@@ -499,8 +499,8 @@ iframe.appDraw
 }
 #importedPage
 {
-	background-image: url(../img/importedp.png);
-
+	/*background-image: url(../img/importedp.png);*/
+	background-color: #0F1013;
 }
 #importedPage #uninstalledAppPages
 {
