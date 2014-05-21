@@ -460,9 +460,9 @@ iframe.appDraw
 {	
 	position: absolute;
 	right: 55px;
-	width: 306px;
+	width: 260px;
 	top: 174px;
-	height: 489px;
+	height: 390px;
 
 }
 .displayBlock
@@ -508,7 +508,7 @@ iframe.appDraw
 }
 .importList
 {
-	margin-top: 18%;
+	margin-top: 10%;
 	margin-left: 5%;
 }
 .active, .inactive,.imported
