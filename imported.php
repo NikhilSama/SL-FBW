@@ -60,7 +60,7 @@
 	</head>
 	<body>
 	
-	<iframe class="appDraw" id="appPreview" src="<?php echo 'https://clients.snaplion.com/#/?app_id='.$mobapp_id; ?>" frameborder="0"></iframe>
+	<iframe class="appDraw" id="appPreview" src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" frameborder="0"></iframe>
 		<div id="importedPage" class="container-fluid">
 			<div class="importList">
 
