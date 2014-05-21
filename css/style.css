@@ -461,9 +461,9 @@ iframe.appDraw
 	position: absolute;
 	right: 55px;
 	width: 260px;
-	top: 174px;
+	/*top: 174px;*/
 	height: 390px;
-
+	margin-top: 10%
 }
 .displayBlock
 {
