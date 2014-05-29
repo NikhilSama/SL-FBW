@@ -123,7 +123,7 @@
 			
 			<div id="submit-button" class="span5">
 				<!-- <button class="btn btn-primary" id="submitList" type="button">Submit</button> -->
-				<p style="margin-top: 2%;font-size: 15px;" class="normalFont">Using more data and info mean a much better experience to your customers on the app</p>
+				<!-- <p style="margin-top: 2%;font-size: 15px;" class="normalFont">Using more data and info mean a much better experience to your customers on the app</p> -->
 				<img class="pointer" id="submitList" src="img/import.png" alt="">
 				<a href="ingredients.php"><img src="img/appIng.png" class="appIngredients" alt=""></a>
 

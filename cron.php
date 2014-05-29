@@ -12,7 +12,7 @@
 
 	require_once("functions.php");
 
-	$imported_data  = $db->execute_query("SELECT * from ".APPTAB_ID." where flag = 'true' and update_flag = 'true' and (apptab_name = 'Events' or apptab_name = 'Photos' or apptab_name = 'Videos' or apptab_name = 'About' )") ;
+	$imported_data  = $db->execute_query("SELECT * from ".APPTAB_ID." where flag = 'true' and update_flag = 'true' and (apptab_name = 'Events' or apptab_name = 'Photos' or apptab_name = 'Videos' or apptab_name = 'About')") ;
 		// var_dump($imported_data);
 	//checking wheather the imported data is event or photos
 	foreach ($imported_data as $apptab_data) 

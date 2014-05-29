@@ -463,7 +463,7 @@ iframe.appDraw
 	width: 260px;
 	/*top: 174px;*/
 	height: 390px;
-	margin-top: 10%
+	margin-top: 5%
 }
 .displayBlock
 {
@@ -508,7 +508,7 @@ iframe.appDraw
 }
 .importList
 {
-	margin-top: 10%;
+	margin-top: 5%;
 	margin-left: 5%;
 }
 .active, .inactive,.imported
