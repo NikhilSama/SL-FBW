@@ -124,15 +124,15 @@
 			<div id="submit-button" class="span5">
 				<!-- <button class="btn btn-primary" id="submitList" type="button">Submit</button> -->
 				<!-- <p style="margin-top: 2%;font-size: 15px;" class="normalFont">Using more data and info mean a much better experience to your customers on the app</p> -->
-				<img class="pointer" id="submitList" src="img/import.png" alt="">
-				<a href="ingredients.php"><img src="img/appIng.png" class="appIngredients" alt=""></a>
+				<!-- <img class="pointer" id="submitList" src="img/import.png" alt=""> -->
+				<!-- <a href="ingredients.php"><img src="img/appIng.png" class="appIngredients" alt=""></a> -->
 
 				<?php 
 					if(! $payment_flag ) { 
 				?>
 						<script src="https://checkout.stripe.com/checkout.js"></script>
 						<!-- <button id="customButton" src="img/makePayment.png"></button> -->
-						<a href="#" id="customButton"><img src="img/makePayment.png" alt=""></a>
+						<!-- <a href="#" id="customButton"><img src="img/makePayment.png" alt=""></a> -->
 						<!-- <a href="payment.php"><img src="img/makePayment.png" alt=""></a> -->
 
 						<script>
