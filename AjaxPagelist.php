@@ -1,7 +1,5 @@
-
-
 <?php 
-//this is a page to do background processes and return pages on which app is installed and on which app is not installed
+	//this is a page to do background processes and return pages on which app is installed and on which app is not installed
 
 	// session_start();
 	require_once ("include/constants.php");
@@ -18,9 +16,7 @@
 	$uninstalled_page_data = array();
 
 	// Run loop for each page
-	foreach ($pageList['data'] as $page_data) 
-	{	
-
+	foreach ($pageList['data'] as $page_data) {	
 		$pageId = $page_data['id'];
 		$accessTokens[$pageId] = $page_data['access_token']; // Create array of page IDs and access tokens
 		$_SESSION[pageId."_".APPID."_pageTokens"] = $accessTokens; // Save Page Access tokens in Session to be used by AJAX
@@ -35,19 +31,14 @@
 		$token = $token[1];
 		$app_check = json_decode(file_get_contents('https://graph.facebook.com/'.$pageId.'/tabs/'.INSTALLED_APP_ID.'?access_token='.$token));
 
-
 		//if app_check is empty then app is installed else not installed
-		if(!empty($app_check->data))
-		{	
+		if(!empty($app_check->data)) {	
 			//creating an array for the pages on which the app is installed
 			$installed_page_data[] = $page_data;
-			 
-		} else
-		{	
+		} else {	
 			//creating an array for pages on which the app is not installed
 			$uninstalled_page_data[] = $page_data;
 		}
-
 	} //end of loop
 	// print_r($installed_page_data);
 	// print_r($uninstalled_page_data);

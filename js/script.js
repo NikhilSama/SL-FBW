@@ -14,36 +14,31 @@
 var INSTALLED_APP_ID = 573559196064698;
 var pathToController = "AjaxMethods.php";
 
-function sendAjaxRequest(urlName,dataMsg,datatype,successFunction)
-  {
+function sendAjaxRequest(urlName,dataMsg,datatype,successFunction) {
     $.ajax({
-      url: urlName,
-      method:"POST",
-      data: dataMsg,
-      dataType: datatype,
-      success: function(msg)
-      {
-        if(successFunction!="")
-         eval(successFunction)(msg);
-      }
-    });
-  }
+      	url: urlName,
+      	method:"POST",
+      	data: dataMsg,
+      	dataType: datatype,
+		success: function(msg) {
+        	if(successFunction!="")
+         		eval(successFunction)(msg);
+  		}
+	});
+}
   
 var pageTarget = null;
 //to install app on another page
-$(".install-btn").click(function()
-{
+$(".install-btn").click(function() {
 	pageTarget = $(this);
 	var data = new Object();
 	data.action = 'install';
 	data.id = $(this).data('id');
 	data.pname = $(this).data('name');
 	sendAjaxRequest(pathToController,data,'html','checkPageAdded');
-
 });
 
-function checkPageAdded(msg)
-{	
+function checkPageAdded(msg) {	
 	//id returns page id
 	var pageId = pageTarget.data('id');
 	//appId gives app id of the app to be installed
@@ -55,21 +50,18 @@ function checkPageAdded(msg)
 	// console.log(pageTarget.data('id'));
 	//msg returns page access token
 	console.log(msg);
-
 }
 
 
 var submitList = $("#submitList");
 
-$("div.nonimport").on('click',function(){
+$("div.nonimport").on('click',function() {
 	
-	if( $("#submitList").length )
-	{	
+	if( $("#submitList").length ) {	
 		console.log(submitList.length);
 		$(this).toggleClass("active");
 		$(this).toggleClass("inactive");
 	}
-	
 });
 
 progressbar = $( "#progressbar" );
@@ -722,21 +714,17 @@ var uninstalledAppPages = $("#uninstalledAppPages");
 var installedAppPages = $("#installedAppPages");
 var uninstalledAppPage = $(".uninstalledAppPage");
 
-function getPageList(msg)
-{	
+function getPageList(msg) {	
 	console.log(msg);
-	if(msg)
-	{
+	if(msg) {
 		var parseOutput = JSON.parse(msg);
 		console.log(parseOutput);
 		var installed = parseOutput.installed;
 		var uninstalled = parseOutput.uninstalled;
 		// console.log(parseOutput.uninstalled);
-		if(installed.length)
-		{	
+		if(installed.length) {
 			installedAppPages.css("display","block");
-			for(var i = 0; i < installed.length; i++)
-			{
+			for(var i = 0; i < installed.length; i++) {
 				installedPage.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
 				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=100&width=100");
 				installedPage.find("div.pageName span").text(installed[i].name);
@@ -746,22 +734,18 @@ function getPageList(msg)
 			}
 		}
 
-		if(uninstalled.length)
-		{	
+		if(uninstalled.length) {	
 			var message = '';
 			uninstalledAppPages.css("display","block");
-			if( !installed.length )
-			{
+			if( !installed.length ) {
 				uninstalledAppPages.css("margin-top","15%");
 				message  = "Start Building Your First Snaplion App";
-			} else
-			{
+			} else {
 				message = "Build Apps for More Pages";
 			}
 			uninstalledAppPages.find("h4.newAppMessage").text(message);
 
-			for(var k = 0; k < uninstalled.length; k++)
-			{
+			for(var k = 0; k < uninstalled.length; k++) {
 				uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
 				uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=100&width=100");
 				uninstalledPage.find("span.pagename").text(uninstalled[k].name);
@@ -770,19 +754,14 @@ function getPageList(msg)
 				// console.log(innerHtml);
 			}
 
-			if( uninstalled.length > 3 )
-			{
-				if($(".slider").length)
-				{
+			if( uninstalled.length > 3 ) {
+				if($(".slider").length) {
 					$(".slider").flexisel({visibleItems:3,clone:true});
 					$(".nextStepImg").css("margin-left","-2%");
-
 				}
-			} else
-			{
+			} else {
 				$(".uninstalledAppPage").css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
 				$(".nextStepImg").css("margin-left","-14%");
-
 			}
 		}
 		$("#floatingCirclesG").hide();
