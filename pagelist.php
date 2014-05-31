@@ -22,7 +22,6 @@
 		<link href="css/checkbox.css" rel="stylesheet">
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type='text/javascript' src='js/new_script.js'></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.flexisel.js"></script>
 	</head>
@@ -322,6 +321,7 @@
 				}
 			?>
 		</div>
+		<script type='text/javascript' src='js/new_script.js'></script>
 	</body>
 </html>
 <!-- <div id="floatingCirclesG" style="position:absolute; display;block; margin-top: 42%; margin-left: 46%; float: left;">
