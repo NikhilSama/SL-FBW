@@ -28,9 +28,6 @@
 	</head>
 
 	<body>
-		<?php
-			print_r($pageList['data']); exit;
-		?>
 		<div class="fb_maincontainer-cma">
 			<div class="installedApps">
 				<div class="logo"><img src="img/snaplion-logo.png"></div>
