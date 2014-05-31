@@ -29,50 +29,63 @@
 		die();
 	}
 ?>
-<style>
-	@-moz-keyframes f_fadeG{
-	0%{
-	background-color:green}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+		<title>SnapLion FBW</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/checkbox.css" rel="stylesheet">
 
-	100%{
-	background-color:#707070}
+		<style>
+			@-moz-keyframes f_fadeG{
+			0%{
+			background-color:green}
 
-	}
+			100%{
+			background-color:#707070}
 
-	@-webkit-keyframes f_fadeG{
-	0%{
-	background-color:green}
+			}
 
-	100%{
-	background-color:#707070}
+			@-webkit-keyframes f_fadeG{
+			0%{
+			background-color:green}
 
-	}
+			100%{
+			background-color:#707070}
 
-	@-ms-keyframes f_fadeG{
-	0%{
-	background-color:green}
+			}
 
-	100%{
-	background-color:#707070}
+			@-ms-keyframes f_fadeG{
+			0%{
+			background-color:green}
 
-	}
+			100%{
+			background-color:#707070}
 
-	@-o-keyframes f_fadeG{
-	0%{
-	background-color:green}
+			}
 
-	100%{
-	background-color:#707070}
+			@-o-keyframes f_fadeG{
+			0%{
+			background-color:green}
 
-	}
+			100%{
+			background-color:#707070}
 
-	@keyframes f_fadeG{
-	0%{
-	background-color:green}
+			}
 
-	100%{
-	background-color:#707070}
-</style>
+			@keyframes f_fadeG{
+			0%{
+			background-color:green}
+
+			100%{
+			background-color:#707070}
+		</style>
+	</head>
+
+	<body>
+
+
 
 <div id="floatingCirclesG" style="display:none; margin-top: 42%; margin-left: 0%; float: left;">
 	<div class="f_circleG" id="frotateG_01">
@@ -160,3 +173,4 @@
 		echo "You Are Not Authorised to Use This App";
 	}
 ?>
+</body>
