@@ -783,8 +783,6 @@ function getPageList(msg) {
 				}
 			}
 		}
-
-
 		
 		$("#floatingCirclesG").hide();
 		$("#nextStep").css("display","block");
