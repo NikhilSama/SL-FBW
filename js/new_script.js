@@ -771,15 +771,6 @@ function getPageList(msg) {
 
 			if(uninstalled.length) {	
 				installedAppPages.append('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
-			// 	var message = '';
-			// 	uninstalledAppPages.css("display","block");
-			// 	if( !installed.length ) {
-			// 		uninstalledAppPages.css("margin-top","15%");
-			// 		message  = "Start Building Your First Snaplion App";
-			// 	} else {
-			// 		message = "Build Apps for More Pages";
-			// 	}
-			// 	uninstalledAppPages.find("h4.newAppMessage").text(message);
 
 				for(var k = 0; k < uninstalled.length; k++) {
 					console.log(uninstalledPage);
@@ -790,19 +781,7 @@ function getPageList(msg) {
 					var innerHtml = uninstalledPage.html();
 					uninstalledAppPages.append(innerHtml);
 				}
-
-				// if( uninstalled.length > 3 ) {
-				// 	if($(".slider").length) {
-				// 		$(".slider").flexisel({visibleItems:3,clone:true});
-				// 		$(".nextStepImg").css("margin-left","-2%");
-				// 	}
-				// } else {
-				// 	$(".uninstalledAppPage").css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
-				// 	$(".nextStepImg").css("margin-left","-14%");
-				// }
 			}
-
-
 		}
 
 

@@ -217,40 +217,7 @@
 						</div>
 					</div>
 
-					<div class="pagelistContainer">
-						<input type="hidden" id="installedAppId" value="<?php echo INSTALLED_APP_ID; ?>">
-						<div id="installedAppPages" style="display:none;">
-							<h4 class="normalFont">You Are Already Using The App On These Pages</h4>
-						</div>
-						
-						<div id="uninstalledAppPages">
-							<h4 class="newAppMessage normalFont"><!-- message --></h4>
-							<ul style="margin-left:0px;" class="slider"></ul>
-						</div>
-						<?php //include_once('page-section.php'); ?>
-
-
-						<div id="nextStep" style="display:none;">
-							<div class="progressImage">
-								<img class="progressImage1" src="img/progress1.png" alt="">
-							</div>
-
-							<div>
-								<div class="nextStepText">
-									<h3 class="normalFont ">Snaplion's Facebook Wizard</h3>
-									<h5 style="margin-top:-4%;" class="normalFont inlineDisplay">will be installed on your selected Facebook Page</h5>
-								</div>
-								<div class="nextStepImg">
-									<img class="pointer nextStep" src="img/nextStep.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div> 
-
-					<!-- pagelistContainer div ends -->
-
 					<div class="main-strip-pack installedApps" style="display: none;" id="installedAppPages">
-						
 						<div class="main-con" id="uninstalledAppPages">
 						</div>
 					</div>
