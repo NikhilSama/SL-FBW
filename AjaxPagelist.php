@@ -21,7 +21,6 @@
 		$accessTokens[$pageId] = $page_data['access_token']; // Create array of page IDs and access tokens
 		$_SESSION[pageId."_".APPID."_pageTokens"] = $accessTokens; // Save Page Access tokens in Session to be used by AJAX
 
-
 		//check if app is already installed on the the page as page tab
 		//getting the app access token
 		$access_token = file_get_contents('https://graph.facebook.com/oauth/access_token?client_id='.INSTALLED_APP_ID.'&client_secret='.INSTALLED_APP_SECRET.'&grant_type=client_credentials');
@@ -31,13 +30,15 @@
 		$token = $token[1];
 		$app_check = json_decode(file_get_contents('https://graph.facebook.com/'.$pageId.'/tabs/'.INSTALLED_APP_ID.'?access_token='.$token));
 
+		$pageInfo = json_decode(file_get_contents('https://graph.facebook.com/'.$pageId.'?access_token='.$token));
+
 		//if app_check is empty then app is installed else not installed
 		if(!empty($app_check->data)) {	
 			//creating an array for the pages on which the app is installed
-			$installed_page_data[] = $page_data;
+			$installed_page_data[] = $pageInfo;
 		} else {	
 			//creating an array for pages on which the app is not installed
-			$uninstalled_page_data[] = $page_data;
+			$uninstalled_page_data[] = $pageInfo;
 		}
 	} //end of loop
 	// print_r($installed_page_data);

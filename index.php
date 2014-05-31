@@ -135,15 +135,12 @@
 			//also checking if user may have revoked the permissions given to the page
 			$wantPermissions = "email,manage_pages";
 			$permissions = $fbObject->isAuthorized($wantPermissions);
-			if($permissions!="true")
-			{
+			if($permissions!="true") {
 				$fbObject->login($permissions);
 				die();
-			} else
-			{
+			} else {
 				header("location:pagelist.php");
 			}
-			
 		} else {	
 			//unregistered user
 			header("location:home.php");
