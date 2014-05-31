@@ -772,6 +772,7 @@ function getPageList(msg) {
 			}
 
 			console.log(uninstalled.length);
+			console.log(uninstalled);
 			if(uninstalled.length) {	
 				installedAppPages.append('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
 			// 	var message = '';
