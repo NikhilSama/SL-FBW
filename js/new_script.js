@@ -766,6 +766,7 @@ function getPageList(msg) {
 				installedPage.find(".pageName").text(installed[i].name);
 				installedPage.find(".pageCategory").text(installed[i].category);
 				var innerHtml = installedPage.html();
+				console.log(innerHtml);
 				installedAppPages.append(innerHtml);
 			}
 
@@ -779,11 +780,12 @@ function getPageList(msg) {
 					uninstalledPage.find("span.pageName").text(uninstalled[k].name);
 					uninstalledPage.find("span.pageCategory").text(uninstalled[k].category);
 					var innerHtml = uninstalledPage.html();
+					console.log(innerHtml);
 					uninstalledAppPages.append(innerHtml);
 				}
 			}
 		}
-		
+
 		$("#floatingCirclesG").hide();
 		$("#nextStep").css("display","block");
 	} else {
