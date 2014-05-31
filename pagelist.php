@@ -29,7 +29,7 @@
 	<body>
 		<div class="fb_maincontainer-cma">
 
-			<div class="installedApps">
+			<div class="installedApps" style="display: none;">
 				<div class="logo"><img src="img/snaplion-logo.png"></div>
 				<div class="heading-group mt-20">
 					<h2>Congratulations!</h2>
@@ -38,7 +38,7 @@
 				</div>
 			</div>
 
-			<div class="uninstalledApps">
+			<div class="uninstalledApps" style="display: none;">
 				<div class="heading-group">
 					<h4>Choose the Facebook Page for which you want to </h4>
 					<h2>Create the Mobile App on Snaplion</h2>
