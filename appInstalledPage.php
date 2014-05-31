@@ -10,42 +10,53 @@
 	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
 	$page_id = $_GET['id'];
 
+	$pageInfo = $fbObject->api($pageId);
 ?>
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 	<head>
-	    <meta charset="utf-8">
-
-	    <!-- Bootstrap 2.3.2 -->
-	    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-	    <!-- Your CSS -->
-	    <link rel="stylesheet" href="css/style.css">
+		<title>SnapLion Facebook Wizard</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/checkbox.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<div id="appInstalledPage" style="background-image:url(img/cong-bg.png); background-repeat:no-repeat;">
+		<?php
+			echo "<pre>";
+			print_r($pageInfo);
+		?>
+		<div class="app-container">
+			<div class="head-app">
+				<h1>Congtratulations!</h1>
+				<h4>Choose the Facebook Page for which you want to </h4>
+			</div>
 
-			<div class="installedApp" style="margin-top:15%;">
-				<!-- <h2>Congratulation's</h2>
-				<h4 class="normalFont">Snaplion's Facebook Wizard is now installed on your page</h4> -->
-				<img src="img/cong-msg.png" alt="">
-				<div class="uninstalledAppPage">
-					<div class="pagePicture">
-						<img src="<?= 'https://graph.facebook.com/'.$page_id.'/picture?height=100&width=100' ?>" >
+			<div class="pagebox-container">
+				<div class="pagebox" style="margin-left: 260px;">
+					<div class="upper">
+						<img src="<?= 'https://graph.facebook.com/'.$page_id.'/picture?height=100&width=100' ?>" class="icon-img">
 					</div>
-					<div class="unistalledPageName">
-						<span class="pagename"><?= $_GET['name']; ?></span>
+					<div class="lower">
+						<div class="radio-space">
+							<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
+							<label for="radio5" class="css-label radioalign-box"></label>
+						</div>
+						<div class="radio-space-next">
+							<h3><?= $_GET['name']; ?></h3>
+							<h4>Likes - <?php echo $pageInfo['likes']; ?></h4>
+							<h5><?php echo $pageInfo['category']; ?> </h5>
+						</div>
 					</div>
 				</div>
-			</div> <!-- installedApp ends -->
-			
-			<img class="pointer proceedToWizard" src="img/proceed.png" data-id="<?= $page_id; ?>" alt="">
-		</div> <!-- appInstalledPageEnds -->
+			</div>
+
+			<div class="proceed-section">
+				<div class="h-next" style="margin-top:30px;">
+					<a href="#" class="btn-orange proceedToWizard" data-id="<?= $page_id; ?>">PROCEED TO WIZARD</a></div> 
+			</div>
+		</div>
 	</body>
-
-
 
 	<?php 
 		// Facebook JS
@@ -53,7 +64,5 @@
 	?>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type='text/javascript' src='./js/script.js'></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+	<script type='text/javascript' src='js/new_script.js'></script>
 </html>

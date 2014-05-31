@@ -271,7 +271,7 @@ function installApp(msg)
 }
 
 
-$("img.proceedToWizard").on("click",function() {
+$(".proceedToWizard").on("click",function() {
 	var pageId = $(this).data("id");
 	window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
 });
