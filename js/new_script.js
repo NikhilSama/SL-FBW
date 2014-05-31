@@ -761,7 +761,7 @@ function getPageList(msg) {
 				installedAppPages.append('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
 
 				for(var k = 0; k < uninstalled.length; k++) {
-					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
+					// uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
 					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledPage.find("span.pageName").text(uninstalled[k].name);
 					uninstalledPage.find("span.pageCategory").text(uninstalled[k].category);

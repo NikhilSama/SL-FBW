@@ -183,18 +183,19 @@
 				<?php 
 					} 
 				?>		
-
-					<div class="blue-strip" id="hiddenInstalled" style="display: none;">
-						<div class="green-strip-x"><img src="img/tick-big.png"><br>Installed</div>
-						<div class="blue-data installedAppPage" data-id="">
-							<img src="img/user-image.png" class="installedAppImage">
-							<div class="blue-data-text appLinkDiv pointer" data-id="">
-								<h3 class="pageName">New Delhi Eat Out</h3>
-								<h5 class="pageCategory">Restaurants and Bars</h5>
+					<div id="hiddenInstalled" style="display: none;">
+						<div class="blue-strip">
+							<div class="green-strip-x"><img src="img/tick-big.png"><br>Installed</div>
+							<div class="blue-data installedAppPage" data-id="">
+								<img src="img/user-image.png" class="installedAppImage">
+								<div class="blue-data-text appLinkDiv pointer" data-id="">
+									<h3 class="pageName">New Delhi Eat Out</h3>
+									<h5 class="pageCategory">Restaurants and Bars</h5>
+								</div>
 							</div>
-						</div>
-						<a href="#" class="btn-orange buildapp">BUILD APP</a>
-					</div>	
+							<a href="#" class="btn-orange buildapp">BUILD APP</a>
+						</div>	
+					</div>
 
 					<div id="hiddenUninstalled" style="display: none;">
 						<div class="fb_left-cma m0 uninstalledAppPage">
