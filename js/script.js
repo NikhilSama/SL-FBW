@@ -722,48 +722,91 @@ function getPageList(msg) {
 		var installed = parseOutput.installed;
 		var uninstalled = parseOutput.uninstalled;
 		// console.log(parseOutput.uninstalled);
-		if(installed.length) {
-			installedAppPages.css("display","block");
+
+		if(installed.length == 0) {
+			$('.uninstalledApps').show();
+
+			if(uninstalled.length) {	
+				var message = '';
+				uninstalledAppPages.css("display","block");
+				if( !installed.length ) {
+					uninstalledAppPages.css("margin-top","15%");
+					message  = "Start Building Your First Snaplion App";
+				} else {
+					message = "Build Apps for More Pages";
+				}
+				uninstalledAppPages.find("h4.newAppMessage").text(message);
+
+				for(var k = 0; k < uninstalled.length; k++) {
+					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
+					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=100&width=100");
+					uninstalledPage.find("span.pagename").text(uninstalled[k].name);
+					var innerHtml = uninstalledPage.html();
+					uninstalledAppPages.find("ul.slider").append(innerHtml);
+					// console.log(innerHtml);
+				}
+
+				if( uninstalled.length > 3 ) {
+					if($(".slider").length) {
+						$(".slider").flexisel({visibleItems:3,clone:true});
+						$(".nextStepImg").css("margin-left","-2%");
+					}
+				} else {
+					$(".uninstalledAppPage").css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
+					$(".nextStepImg").css("margin-left","-14%");
+				}
+			}
+		} else {
+			$('.installedApps').show();
+
 			for(var i = 0; i < installed.length; i++) {
 				installedPage.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
 				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=100&width=100");
-				installedPage.find("div.pageName span").text(installed[i].name);
+				installedPage.find(".pageName").text(installed[i].name);
+				installedPage.find(".pageCategory").text(installed[i].category);
 				var innerHtml = installedPage.html();
 				installedAppPages.append(innerHtml);
-				// console.log(innerHtml);
-			}
-		}
-
-		if(uninstalled.length) {	
-			var message = '';
-			uninstalledAppPages.css("display","block");
-			if( !installed.length ) {
-				uninstalledAppPages.css("margin-top","15%");
-				message  = "Start Building Your First Snaplion App";
-			} else {
-				message = "Build Apps for More Pages";
-			}
-			uninstalledAppPages.find("h4.newAppMessage").text(message);
-
-			for(var k = 0; k < uninstalled.length; k++) {
-				uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
-				uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=100&width=100");
-				uninstalledPage.find("span.pagename").text(uninstalled[k].name);
-				var innerHtml = uninstalledPage.html();
-				uninstalledAppPages.find("ul.slider").append(innerHtml);
-				// console.log(innerHtml);
 			}
 
-			if( uninstalled.length > 3 ) {
-				if($(".slider").length) {
-					$(".slider").flexisel({visibleItems:3,clone:true});
-					$(".nextStepImg").css("margin-left","-2%");
+
+			
+			if(uninstalled.length) {	
+				installedAppPages.append('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
+			// 	var message = '';
+			// 	uninstalledAppPages.css("display","block");
+			// 	if( !installed.length ) {
+			// 		uninstalledAppPages.css("margin-top","15%");
+			// 		message  = "Start Building Your First Snaplion App";
+			// 	} else {
+			// 		message = "Build Apps for More Pages";
+			// 	}
+			// 	uninstalledAppPages.find("h4.newAppMessage").text(message);
+
+				for(var k = 0; k < uninstalled.length; k++) {
+					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
+					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=100&width=100");
+					uninstalledPage.find("span.pageName").text(uninstalled[k].name);
+					uninstalledPage.find("span.pageCategory").text(uninstalled[k].category);
+					var innerHtml = uninstalledPage.html();
+					uninstalledAppPages.append(innerHtml);
 				}
-			} else {
-				$(".uninstalledAppPage").css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
-				$(".nextStepImg").css("margin-left","-14%");
+
+				// if( uninstalled.length > 3 ) {
+				// 	if($(".slider").length) {
+				// 		$(".slider").flexisel({visibleItems:3,clone:true});
+				// 		$(".nextStepImg").css("margin-left","-2%");
+				// 	}
+				// } else {
+				// 	$(".uninstalledAppPage").css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
+				// 	$(".nextStepImg").css("margin-left","-14%");
+				// }
 			}
+
+
 		}
+
+
+		
 		$("#floatingCirclesG").hide();
 		$("#nextStep").css("display","block");
 	} else {
