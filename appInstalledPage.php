@@ -22,10 +22,6 @@
 	</head>
 
 	<body>
-		<?php
-			echo "<pre>";
-			print_r($pageInfo);
-		?>
 		<div class="app-container">
 			<div class="head-app">
 				<h1>Congtratulations!</h1>
@@ -43,7 +39,7 @@
 							<label for="radio5" class="css-label radioalign-box"></label>
 						</div>
 						<div class="radio-space-next">
-							<h3><?= $_GET['name']; ?></h3>
+							<h3><?php $pageInfo['name']; ?></h3>
 							<h4>Likes - <?php echo $pageInfo['likes']; ?></h4>
 							<h5><?php echo $pageInfo['category']; ?> </h5>
 						</div>
