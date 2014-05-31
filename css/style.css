@@ -507,4 +507,5 @@ label.css-label {
 	margin-left: 80px;
 	overflow-x: hidden;
 	height: 233px;
+	min-height: 93px;
 }
