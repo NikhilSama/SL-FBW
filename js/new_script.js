@@ -758,10 +758,8 @@ function getPageList(msg) {
 			}
 		} else {
 			$('.installedApps').show();
-			console.log(installed.length);
 			for(var i = 0; i < installed.length; i++) {
-				console.log(i);
-				console.log(installed[i]);
+				console.log(installedPage);
 
 				installedPage.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
 				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=100&width=100");
@@ -771,8 +769,6 @@ function getPageList(msg) {
 				installedAppPages.append(innerHtml);
 			}
 
-			console.log(uninstalled.length);
-			console.log(uninstalled);
 			if(uninstalled.length) {	
 				installedAppPages.append('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
 			// 	var message = '';
@@ -786,8 +782,7 @@ function getPageList(msg) {
 			// 	uninstalledAppPages.find("h4.newAppMessage").text(message);
 
 				for(var k = 0; k < uninstalled.length; k++) {
-					console.log(k);
-					console.log(uninstalled[k]);
+					console.log(uninstalledPage);
 					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
 					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=100&width=100");
 					uninstalledPage.find("span.pageName").text(uninstalled[k].name);
