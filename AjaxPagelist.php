@@ -18,6 +18,9 @@
 	// Run loop for each page
 	foreach ($pageList['data'] as $page_data) {	
 		$pageId = $page_data['id'];
+
+		echo "Page ID : " . $pageId;
+		
 		$accessTokens[$pageId] = $page_data['access_token']; // Create array of page IDs and access tokens
 		$_SESSION[pageId."_".APPID."_pageTokens"] = $accessTokens; // Save Page Access tokens in Session to be used by AJAX
 
