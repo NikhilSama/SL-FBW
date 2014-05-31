@@ -9,6 +9,7 @@
 	//Sets Access token got from previous page....
 	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
 
+	$pageOwner = $fbObject->api('me');
 	$pageList = $fbObject->api('me/accounts');
 	//if user is not the admin of any page
 	if(empty($pageList['data'])) {
@@ -39,6 +40,7 @@
 	<body>
 		<?php
 			echo "<pre>";
+			print_r($pageOwner);
 			print_r($pageList);
 		?>
 		<div class="fb_maincontainer-cma">
