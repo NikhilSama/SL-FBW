@@ -29,7 +29,7 @@
 
 	<body>
 		<?php
-			print_r($pageList['data']);
+			print_r($pageList['data']); exit;
 		?>
 		<div class="fb_maincontainer-cma">
 			<div class="installedApps">
