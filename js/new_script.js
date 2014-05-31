@@ -239,6 +239,14 @@ $("body").on("click", "span.toggleradio",function(){
 
 });
 
+$(document).on("click", ".newAppRadio", function(){
+	pageInstall = new Object();
+	pageInstall.action = "install";
+	pageInstall.id = $(this).data("id");
+	pageInstall.pname = $(this).data("name");
+	sendAjaxRequest(pathToController,pageInstall,'html','installApp');
+});
+
 $("img.nextStep").on("click", function(){
 
 	if( !($("span.activeRadio").length) )
@@ -763,6 +771,7 @@ function getPageList(msg) {
 					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledPage.find(".pageName").text(uninstalled[k].name);
 					uninstalledPage.find(".pageCategory").text(uninstalled[k].category);
+					uninstalledPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
 					var innerHtml = uninstalledPage.html();
 					uninstalledAppPages.append(innerHtml);
 				}

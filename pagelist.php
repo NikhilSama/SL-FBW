@@ -204,7 +204,7 @@
 							<div class="strip-gray">
 								<div class="radio-box">
 									<!-- <span class="toggleradio inactiveRadio" data-id="" data-name="" ></span> -->
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox ">
+									<input type="radio" name="radiog_dark" class="css-checkbox newAppRadio" data-id="" data-name="">
 									<label for="radio5" class="css-label radioalign"></label>
 								</div>
 								<div class="rightpart">
