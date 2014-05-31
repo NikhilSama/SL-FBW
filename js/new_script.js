@@ -757,33 +757,28 @@ function getPageList(msg) {
 				}
 			}
 		} else {
-			$('.installedApps').show();
-			for(var i = 0; i < installed.length; i++) {
-				console.log(installedPage);
-
-				installedPage.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
-				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=64&width=64");
-				installedPage.find(".pageName").text(installed[i].name);
-				installedPage.find(".pageCategory").text(installed[i].category);
-				var innerHtml = installedPage.html();
-				console.log(innerHtml);
-				installedAppPages.append(innerHtml);
-			}
-
 			if(uninstalled.length) {	
 				installedAppPages.append('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
 
 				for(var k = 0; k < uninstalled.length; k++) {
-					console.log(uninstalledPage);
 					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
 					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledPage.find("span.pageName").text(uninstalled[k].name);
 					uninstalledPage.find("span.pageCategory").text(uninstalled[k].category);
 					var innerHtml = uninstalledPage.html();
-					console.log(innerHtml);
 					uninstalledAppPages.append(innerHtml);
 				}
 			}
+			
+			for(var i = 0; i < installed.length; i++) {
+				installedPage.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
+				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=64&width=64");
+				installedPage.find(".pageName").text(installed[i].name);
+				installedPage.find(".pageCategory").text(installed[i].category);
+				var innerHtml = installedPage.html();
+				installedAppPages.append(innerHtml);
+			}
+			$('.installedApps').show();
 		}
 
 		$("#floatingCirclesG").hide();
