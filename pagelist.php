@@ -60,133 +60,132 @@
 					</div>
 			<?php
 				} else {
-			?>
-					<?php 
-						//to register user at snaplion
-						//function to send the post request to register user
-						$db = new db_connect();
-						$access_token = $_SESSION[APPID."_accessToken"];
-						$fbid = $fbObject->getFBID();
-						$email_data = $fbObject->api('me?fields=email');
-						$email = $email_data['email'];
+			
+					//to register user at snaplion
+					//function to send the post request to register user
+					$db = new db_connect();
+					$access_token = $_SESSION[APPID."_accessToken"];
+					$fbid = $fbObject->getFBID();
+					$email_data = $fbObject->api('me?fields=email');
+					$email = $email_data['email'];
+					$name = $fbObject->getName();
+					$db->execute_query("SELECT * from ".USERS." where fbid=".$fbid);
+					$login_flag = 0;
+
+					if( !mysql_affected_rows() ) {
+						$data=array("key"=>KEY,"email"=>$email);
+
+						$url = REGISTER_URL;
+						$result = curlreq($data,$url);
+						
+						//decoding the json received after the registeration process
+						$result_array = json_decode($result,true);
+
+						//if user is already registered and entry is not present in database
+						if( !$result_array['result']['status'] ) {
+							$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag) values('{$fbid}','{$name}','{$email}','{$access_token}',1) ");
+							$msg = "Your email ".$email." is aready registered. You can also login at 'snaplion.com'";
+							$login_flag = 1;
+						}
+					} else {
+						$flag_data = $db->execute_query("SELECT message_flag, snaplion_id from ".USERS." where fbid=".$fbid);
+						$flag = $flag_data[0]['message_flag'];
+
+						//if the snaplion_id of the user doesn't exist in the database and the user is an registered user
+						if( !$flag_data[0]['snaplion_id'] ) {
+							$login_flag = 1;
+							$msg = "Your email ".$email." is aready registered. You can login at 'snaplion.com'";
+							$db->execute_query("Update ".USERS." set message_flag = 1 where fbid=".$fbid);
+						}
+						//if no flag means the message has been shown to the user that the user is registered
+						// if( !$flag )
+						// {
+						// 	$msg = "Your email ".$email." is aready registered. You can login at 'snaplion.com'";
+						// 	$db->execute_query("Update ".USERS." set message_flag = 1 where fbid=".$fbid);
+						// }
+						//if already registered
+					}
+
+					//checks if the user is already registered or not
+					if($result_array['result']['status']) {	
+						//this is the case when a user has registered via the facebook app
+
+						//mobapp_id is snaplion id received after user has registered
+						$mobapp_id = $result_array['result']['data']['mobapp_id'];
+						
 						$name = $fbObject->getName();
-						$db->execute_query("SELECT * from ".USERS." where fbid=".$fbid);
-						$login_flag = 0;
+						$snaplion_id = $result_array['result']['data']['user_id'];
+						$ingredient_id = $result_array['result']['data']['ingredient_id'];
+						$sql = "insert into ".USERS."(mobapp_id,snaplion_id,ingredient_id,fbid,name,email,access_token) values('{$mobapp_id}','{$snaplion_id}','{$ingredient_id}','{$fbid}','{$name}','{$email}','{$access_token}')";
+						
+						//setting the value of the session variable to the value of snaplion mobapp_id
+						$_SESSION['mobapp_id'] = $result_array['result']['data']['mobapp_id'];
 
-						if( !mysql_affected_rows() ) {
-							$data=array("key"=>KEY,"email"=>$email);
+						$query_string = "insert into ".APPTAB_ID."(fb_id,mobapp_id,apptab_name,apptab_id,flag) values" ;
 
-							$url = REGISTER_URL;
-							$result = curlreq($data,$url);
+						//creating a string to enter apptab_id and name in the database only if new user is created
+						$apptab_array = $result_array['result']['data']['apptabs'];
+						$k = 0;
+						foreach ($apptab_array as $reg_array) {	
+							//getting apptab_id and apptab_name
+							$apptab_id = $reg_array['Apptab']['id'];
+							$tab_name = $reg_array['Tab']['tabName'];
 							
-							//decoding the json received after the registeration process
-							$result_array = json_decode($result,true);
-
-							//if user is already registered and entry is not present in database
-							if( !$result_array['result']['status'] ) {
-								$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag) values('{$fbid}','{$name}','{$email}','{$access_token}',1) ");
-								$msg = "Your email ".$email." is aready registered. You can also login at 'snaplion.com'";
-								$login_flag = 1;
+							if($k == 0) {
+								$query_string = $query_string."('{$fbid}','{$mobapp_id}','{$tab_name}','{$apptab_id}','false')";
+								$k++;
+							} else {
+								$query_string = $query_string.",('{$fbid}','{$mobapp_id}','{$tab_name}','{$apptab_id}','false')";
 							}
-						} else {
-							$flag_data = $db->execute_query("SELECT message_flag, snaplion_id from ".USERS." where fbid=".$fbid);
-							$flag = $flag_data[0]['message_flag'];
-
-							//if the snaplion_id of the user doesn't exist in the database and the user is an registered user
-							if( !$flag_data[0]['snaplion_id'] ) {
-								$login_flag = 1;
-								$msg = "Your email ".$email." is aready registered. You can login at 'snaplion.com'";
-								$db->execute_query("Update ".USERS." set message_flag = 1 where fbid=".$fbid);
-							}
-							//if no flag means the message has been shown to the user that the user is registered
-							// if( !$flag )
-							// {
-							// 	$msg = "Your email ".$email." is aready registered. You can login at 'snaplion.com'";
-							// 	$db->execute_query("Update ".USERS." set message_flag = 1 where fbid=".$fbid);
-							// }
-							//if already registered
 						}
+						
+						$db->execute_query($sql);
+						$db->execute_query($query_string);
+					}
 
-						//checks if the user is already registered or not
-						if($result_array['result']['status']) {	
-							//this is the case when a user has registered via the facebook app
+					//checks if the user is already registered or not
+					if($result_array['result']['status']) {	
+						//if new user
+						$msg = "Your Account has been successfully created. <br>You can Login at snaplion.com with following access details: <br>User ID: ".$email."<br>Password: snaplion123";
+					}
 
-							//mobapp_id is snaplion id received after user has registered
-							$mobapp_id = $result_array['result']['data']['mobapp_id'];
-							
-							$name = $fbObject->getName();
-							$snaplion_id = $result_array['result']['data']['user_id'];
-							$ingredient_id = $result_array['result']['data']['ingredient_id'];
-							$sql = "insert into ".USERS."(mobapp_id,snaplion_id,ingredient_id,fbid,name,email,access_token) values('{$mobapp_id}','{$snaplion_id}','{$ingredient_id}','{$fbid}','{$name}','{$email}','{$access_token}')";
-							
-							//setting the value of the session variable to the value of snaplion mobapp_id
-							$_SESSION['mobapp_id'] = $result_array['result']['data']['mobapp_id'];
-
-							$query_string = "insert into ".APPTAB_ID."(fb_id,mobapp_id,apptab_name,apptab_id,flag) values" ;
-
-							//creating a string to enter apptab_id and name in the database only if new user is created
-							$apptab_array = $result_array['result']['data']['apptabs'];
-							$k = 0;
-							foreach ($apptab_array as $reg_array) {	
-								//getting apptab_id and apptab_name
-								$apptab_id = $reg_array['Apptab']['id'];
-								$tab_name = $reg_array['Tab']['tabName'];
-								
-								if($k == 0) {
-									$query_string = $query_string."('{$fbid}','{$mobapp_id}','{$tab_name}','{$apptab_id}','false')";
-									$k++;
-								} else {
-									$query_string = $query_string.",('{$fbid}','{$mobapp_id}','{$tab_name}','{$apptab_id}','false')";
-								}
-							}
-							
-							$db->execute_query($sql);
-							$db->execute_query($query_string);
-						}
-
-						//checks if the user is already registered or not
-						if($result_array['result']['status']) {	
-							//if new user
-							$msg = "Your Account has been successfully created. <br>You can Login at snaplion.com with following access details: <br>User ID: ".$email."<br>Password: snaplion123";
-						}
-
-						if($msg) {
-					?>		
-							<div id="coverUp"></div>
-							<div id="confirmMessage">
-								<div id="message">
-									<span class="receivedMessage"><? echo $msg; ?></span>
-									<?php 
-										if($login_flag) {	
-									?>
-											<div id="snaplionLogin">
-												<h4>To proceed please enter your password for snaplion.com</h4>
-												<div class="row-fluid">
-													<span class="span3">Email :</span>
-													<span class="span3"><input type="text" class="email" name="email" value="<?php echo $email; ?>" disabled="disabled"></span>
-												</div>
-												<div class="row-fluid">
-													<span class="span3">Password :</span>
-													<span class="span3"><input style="height:26px;" type="password" placeholder="PASSWORD" name="password" class="password"></span>
-												</div>
-												<div class="slogin row-fluid">
-													<button class="snaplionLogin btn btn-primary">LOGIN</button>
-												</div>
-												
-												<div class="errorMessage">The password entered by you is not correct</div>
+					if($msg) {
+				?>		
+						<div id="coverUp"></div>
+						<div id="confirmMessage">
+							<div id="message">
+								<span class="receivedMessage"><? echo $msg; ?></span>
+								<?php 
+									if($login_flag) {	
+								?>
+										<div id="snaplionLogin">
+											<h4>To proceed please enter your password for snaplion.com</h4>
+											<div class="row-fluid">
+												<span class="span3">Email :</span>
+												<span class="span3"><input type="text" class="email" name="email" value="<?php echo $email; ?>" disabled="disabled"></span>
 											</div>
-									<?php 
-										} else {
-											echo "<button class='closeMessage btn btn-primary'>OK</button>";
-										}
-									?>
-								</div>
+											<div class="row-fluid">
+												<span class="span3">Password :</span>
+												<span class="span3"><input style="height:26px;" type="password" placeholder="PASSWORD" name="password" class="password"></span>
+											</div>
+											<div class="slogin row-fluid">
+												<button class="snaplionLogin btn btn-primary">LOGIN</button>
+											</div>
+											
+											<div class="errorMessage">The password entered by you is not correct</div>
+										</div>
+								<?php 
+									} else {
+										echo "<button class='closeMessage btn btn-primary'>OK</button>";
+									}
+								?>
 							</div>
-					<?php 
-						} 
-					?>		
+						</div>
+				<?php 
+					} 
+				?>		
 
-					<div class="blue-strip" id="hiddenInstalled">
+					<div class="blue-strip" id="hiddenInstalled" style="display: none;">
 						<div class="green-strip-x"><img src="img/tick-big.png"><br>Installed</div>
 						<div class="blue-data installedAppPage" data-id="">
 							<img src="img/user-image.png" class="installedAppImage">
@@ -198,7 +197,7 @@
 						<a href="#" class="btn-orange buildapp">BUILD APP</a>
 					</div>	
 
-					<div id="hiddenUninstalled">
+					<div id="hiddenUninstalled" style="display: none;">
 						<div class="fb_left-cma m0 uninstalledAppPage">
 							<div class="strip-gray">
 								<div class="radio-box">
@@ -246,7 +245,9 @@
 								</div>
 							</div>
 						</div>
-					</div> <!-- pagelistContainer div ends -->
+					</div> 
+
+					<!-- pagelistContainer div ends -->
 
 					<div class="main-strip-pack installedApps" style="display: none;" id="installedAppPages">
 						
