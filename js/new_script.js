@@ -773,6 +773,7 @@ function getPageList(msg) {
 					uninstalledPage.find(".pageCategory").text(uninstalled[k].category);
 					uninstalledPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
 					uninstalledPage.find(".newAppRadio").attr("id", 'radio' + k);
+					uninstalledPage.find(".newAppRadio").next('label').attr("for", 'radio' + k);
 					var innerHtml = uninstalledPage.html();
 					uninstalledAppPages.append(innerHtml);
 				}
