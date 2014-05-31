@@ -28,19 +28,26 @@
 	</head>
 
 	<body>
-		<?php
-			echo "<pre>";
-			print_r($pageOwner);
-			print_r($pageList);
-		?>
 		<div class="fb_maincontainer-cma">
-			<div class="heading-group">
-				<h4>Choose the Facebook Page for which you want to </h4>
-				<h2>Create the Mobile App on Snaplion</h2>
+
+			<div class="installedApps">
+				<div class="logo"><img src="img/snaplion-logo.png"></div>
+				<div class="heading-group mt-20">
+					<h2>Congratulations!</h2>
+					<div class="mb-20 text-center" style="width:100%;">
+					<h4 class="m0 mt-5">Snaplion's Facebook Wizard is now installed on your page, page name!! </h4></div>
+				</div>
 			</div>
-			<div class="username" style="margin:20px 0 0 80px;">
-				<div class="snap_odr-n">Deepak Bansal</div>
-				<div class="tri" style="height:42px;"><img src="img/tri.png"></div>
+
+			<div class="uninstalledApps">
+				<div class="heading-group">
+					<h4>Choose the Facebook Page for which you want to </h4>
+					<h2>Create the Mobile App on Snaplion</h2>
+				</div>
+				<div class="username" style="margin:20px 0 0 80px;">
+					<div class="snap_odr-n"><?php  $pageOwner['name']; ?></div>
+					<div class="tri" style="height:42px;"><img src="img/tri.png"></div>
+				</div>
 			</div>
 			<?php
 				//if user is not the admin of any page
