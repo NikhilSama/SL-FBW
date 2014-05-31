@@ -739,7 +739,7 @@ function getPageList(msg) {
 
 				for(var k = 0; k < uninstalled.length; k++) {
 					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
-					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=100&width=100");
+					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledPage.find("span.pagename").text(uninstalled[k].name);
 					var innerHtml = uninstalledPage.html();
 					uninstalledAppPages.find("ul.slider").append(innerHtml);
