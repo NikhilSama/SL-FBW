@@ -182,13 +182,47 @@
 						</div>
 				<?php 
 					} 
-				?>		
+				?>
+
+					<div class="pagelistContainer">
+						<input type="hidden" id="installedAppId" value="<?php echo INSTALLED_APP_ID; ?>">
+						<div id="installedAppPages" style="display:none;">
+							<h4 class="normalFont">You Are Already Using The App On These Pages</h4>
+						</div>
+						
+						<div id="uninstalledAppPages">
+							<h4 class="newAppMessage normalFont"><!-- message --></h4>
+							<ul style="margin-left:0px;" class="slider"></ul>
+						</div>
+						<?php //include_once('page-section.php'); ?>
+
+
+						<div id="nextStep" style="display:none;">
+							<div class="progressImage">
+								<img class="progressImage1" src="img/progress1.png" alt="">
+							</div>
+
+							<div>
+								
+								<div class="nextStepText">
+									<h3 class="normalFont ">Snaplion's Facebook Wizard</h3>
+									<h5 style="margin-top:-4%;" class="normalFont inlineDisplay">will be installed on your selected Facebook Page</h5>
+								</div>
+								<div class="nextStepImg">
+									<img class="pointer nextStep" src="img/nextStep.png" alt="">
+								</div>
+								
+							</div>
+						</div>
+
+					</div>
+
 					<div id="hiddenInstalled" style="display: none;">
-						<div class="blue-strip">
+						<div class="blue-strip appLinkDiv" data-id="">
 							<div class="green-strip-x"><img src="img/tick-big.png"><br>Installed</div>
 							<div class="blue-data installedAppPage" data-id="">
 								<img src="img/user-image.png" class="installedAppImage">
-								<div class="blue-data-text appLinkDiv pointer" data-id="">
+								<div class="blue-data-text  pointer" data-id="">
 									<h3 class="pageName">New Delhi Eat Out</h3>
 									<h5 class="pageCategory">Restaurants and Bars</h5>
 								</div>
@@ -202,7 +236,7 @@
 							<div class="strip-gray">
 								<div class="radio-box">
 									<!-- <span class="toggleradio inactiveRadio" data-id="" data-name="" ></span> -->
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
+									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox ">
 									<label for="radio5" class="css-label radioalign"></label>
 								</div>
 								<div class="rightpart">
@@ -300,12 +334,14 @@
 
 					<!-- <div style="clear:left;"></div>
 					<hr class="hr-gray"> -->
-					<div class="hgroupnext">
-						<h2>Snaplion's Facebook Wizard </h2>
-						<h4>will be installed on your selected Facebook Page</h4>
-					</div>
-					<div class="button-lower">
-						<a href="#" class="btn-orange">Next</a>
+					<div class="uninstalledApps" style="display: none;width: 100%;">
+						<div class="hgroupnext">
+							<h2>Snaplion's Facebook Wizard </h2>
+							<h4>will be installed on your selected Facebook Page</h4>
+						</div>
+						<div class="button-lower">
+							<a href="#" class="btn-orange">Next</a>
+						</div>
 					</div>
 				
 					<?php 

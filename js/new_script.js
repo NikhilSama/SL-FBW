@@ -223,7 +223,7 @@ $("body").on("click",".appLinkDiv",function(){
 });
 
 
-$("body").on("click","span.toggleradio",function(){
+$("body").on("click", "span.toggleradio",function(){
 
 	if( $(this).hasClass("activeRadio") )
 	{
@@ -767,7 +767,7 @@ function getPageList(msg) {
 					uninstalledAppPages.append(innerHtml);
 				}
 
-				installedAppPages.prepend('<h4 class="install-heading">Install Facebook Wizard for on More Pages?</h4>');
+				installedAppPages.prepend('<h4 class="install-heading">Install Facebook Wizard on your other pages?</h4>');
 			}
 
 			for(var i = 0; i < installed.length; i++) {
