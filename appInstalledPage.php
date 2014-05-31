@@ -10,7 +10,7 @@
 	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
 	$page_id = $_GET['id'];
 
-	$pageInfo = $fbObject->api('me/' . $page_id);
+	$pageInfo = $fbObject->api($page_id);
 ?>
 
 <!DOCTYPE html>
