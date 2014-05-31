@@ -758,7 +758,7 @@ function getPageList(msg) {
 			}
 		} else {
 			$('.installedApps').show();
-
+			console.log(installed.length);
 			for(var i = 0; i < installed.length; i++) {
 				console.log(i);
 				console.log(installed[i]);
