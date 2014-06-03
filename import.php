@@ -131,45 +131,6 @@
 			</div>
 		</div>
 
-		<div class="importList">
-			<div id="pageinfo" class="row-fluid importItems">
-			<!-- checking if the data has already been imported and assigning classes accordingly -->
-				<div class="<?php if(in_array('About',$imports,true)) { echo 'checkboxes alreadyImported'; } else { echo "checkboxes untick "; }?>" data-name="pageinfo"></div>
-				<div class="itemNameInfo">	
-					<h4 class="normalFont">About Us</h4>
-					<h5 class="italics normalFont itemCount">About, Location, Mission</h5>
-				</div>
-			</div> <!-- pageinfo ends -->
-				
-			<div id="posts" class="row-fluid importItems"    >
-				<div class="<?php if(in_array('Fan Wall',$imports,true)) { echo 'checkboxes alreadyImported'; } else { echo "checkboxes untick "; }?>" data-name="posts"></div>
-				<div class="itemNameInfo">	
-					<h4 class="normalFont">Posts</h4>
-				</div>
-			</div> <!--posts ends -->
-
-			<div id="albums" class="row-fluid importItems" >
-				<div class="<?php if(in_array('Photos',$imports,true)) { echo 'checkboxes alreadyImported'; } else { echo "checkboxes untick "; }?>" data-name="photos"></div>
-				<div class="itemNameInfo">	
-					<h4 class="normalFont">Photos</h4>
-				</div>
-			</div> <!--photos ends -->
-
-			<div id="events" class="row-fluid importItems" >
-				<div class="<?php if(in_array('Events',$imports,true)) { echo 'checkboxes alreadyImported'; } else { echo "checkboxes untick ";  } ?>" data-name="events"></div>
-				<div class="itemNameInfo">	
-					<h4 class="normalFont">Events</h4>
-				</div>
-			</div> <!-- events ends -->
-			
-			<div id="videos" class="row-fluid importItems">
-				<div class="<?php if(in_array('Videos',$imports,true)) { echo 'checkboxes alreadyImported'; } else { echo "checkboxes untick";  } ?>" data-name="videos"></div>
-				<div class="itemNameInfo">
-					<h4 class="normalFont">Videos</h4>
-				</div>
-			</div>
-		</div>
-
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 		<script src="js/new_script.js"></script>
