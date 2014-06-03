@@ -45,9 +45,9 @@
 	$albums = $fbObject->api('/' . $page_id . '/albums?limit=500&&offset=0');
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
-	// foreach ($albums['data'] as $album) {
-	// 	$photoCount += $album['count'];
-	// }
+	foreach ($albums['data'] as $album) {
+		$photoCount += $album['count'];
+	}
 
 	$events = $fbObject->api('/' . $page_id . '/events?limit=500&&offset=0');
 	$eventCount = count($events['data']);
@@ -70,11 +70,11 @@
 <body>
 
 	<?php
-		echo "Album Count : " $albumCount . "<br/>";
-		echo "Photo Count : " $photoCount . "<br/>";
-		echo "Event Count : " $eventCount . "<br/>";
-		echo "Post Count : " $postCount . "<br/>";
-		echo "Video Count : " $videoCount . "<br/>";
+		// echo "Album Count : " $albumCount . "<br/>";
+		// echo "Photo Count : " $photoCount . "<br/>";
+		// echo "Event Count : " $eventCount . "<br/>";
+		// echo "Post Count : " $postCount . "<br/>";
+		// echo "Video Count : " $videoCount . "<br/>";
 	?>
 
 	<div class="fb_maincontainer">
