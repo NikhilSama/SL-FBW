@@ -652,8 +652,6 @@ function getPageList(msg) {
 		// console.log(parseOutput.uninstalled);
 
 		if(installed.length == 0) {
-			$('.uninstalledApps').show();
-
 			if(uninstalled.length) {	
 				var message = '';
 				
@@ -667,7 +665,7 @@ function getPageList(msg) {
 
 				for(var k = 0; k < uninstalled.length; k++) {
 					console.log(uninstalled[k]);
-					
+
 					uninstalledNewPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledNewPage.find(".pageName").text(uninstalled[k].name);
 					uninstalledNewPage.find(".pageCategory").text(uninstalled[k].category);
@@ -680,6 +678,8 @@ function getPageList(msg) {
 					uninstalledNewAppPages.append(innerHtml);
 				}
 			}
+
+			$('.uninstalledApps').show();
 		} else {
 			if(uninstalled.length) {	
 				for(var k = 0; k < uninstalled.length; k++) {

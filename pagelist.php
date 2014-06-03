@@ -28,7 +28,10 @@
 
 	<body>
 		<div class="fb_maincontainer-cma">
-
+<?php
+	echo "<pre>";
+	print_r($pageOwner);
+?>
 			<div class="installedApps" style="display: none;width:100%;">
 				<div class="logo"><img src="img/snaplion-logo.png"></div>
 				<div class="heading-group mt-20">
