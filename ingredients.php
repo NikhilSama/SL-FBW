@@ -25,7 +25,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/style_old.css">
 		<!-- <link rel="stylesheet" href="css/ingredients.css"> -->
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 		<link rel="stylesheet" href="css/jquery.Jcrop.css">
