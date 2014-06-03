@@ -131,7 +131,7 @@
 		                    </div>
 		                </div>
 
-		                <div class="upload_image_box home_screen">
+		                <!-- <div class="upload_image_box home_screen">
 		                    <div class="text">
 		                        <h4 class="box_header">
 		                            Home <span>Screen</span>
@@ -150,10 +150,10 @@
 
 		                    <div class="preview" id="home_preview">
 		                        <div class="dummy_image_wrapper">
-		                            <img src="<?php if($ingredient_data['home_screen']){ echo $ingredient_data['home_screen']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['home_screen']){ echo "style='width: 100%;height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px; width:324px; '"; } ?>data-value="<?php if($ingredient_data['home_screen']){echo 1;} else {echo 0;} ?>" alt="" class="homedummy_image">
+		                            <img src="<?php //if($ingredient_data['home_screen']){ echo $ingredient_data['home_screen']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['home_screen']){ echo "style='width: 100%;height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px; width:324px; '"; } ?>data-value="<?php if($ingredient_data['home_screen']){echo 1;} else {echo 0;} ?>" alt="" class="homedummy_image">
 		                        </div>
 		                    </div>
-		                </div>
+		                </div> -->
 
 					</div>
 				</div> <!-- ingredients images ends -->
@@ -244,9 +244,6 @@
 					</div> -->
 				<?php } ?>
 			</div>
-			
-				
-				
 		</div> <!-- container-fluid ends -->
 		<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -254,36 +251,28 @@
 		<script src="js/script.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script>
-
-			$(document).ready(function(){
-
+			$(document).ready(function() {
 				var count = 0;
-				$(".required").each(function(){
-					if( $(this).val().trim() != "" )
-					{	
+				$(".required").each(function() {
+					if( $(this).val().trim() != "" ) {	
 						count++;
 					}
 				});
 				
-				if( count == $(".required").length )
-				{
+				if( count == $(".required").length ) {
 					$("div.paymentLink").css("display","block");
 				}
-
 
 				filepicker.setKey('AQ5G20QvTseVecjZm1aswz');
 				
 				//functions to upload the image of icon and splash image and then sending ajax request to check the dimensions of the image
-				$(".iconUpload").click(function(){
-					filepicker.pick(function(InkBlob){
-
-							
+				$(".iconUpload").click(function() {
+					filepicker.pick(function(InkBlob) {
 						filepicker.stat(InkBlob, {width: true, height: true},
 						 function(metadata){
 						   console.log(JSON.stringify(metadata));
 
-						   if(metadata.width >= 1024 && metadata.height >= 1024)
-						   {
+						   if(metadata.width >= 1024 && metadata.height >= 1024) {
 							 //   	iconUpload = new Object();
 								// iconUpload.url = InkBlob.url;
 								// iconUpload.action = "uploadImage";
@@ -303,13 +292,10 @@
 								iconObject.target_element = 'iconImage';
 								iconObject.input_field = '';
 					  			crop(InkBlob,iconObject);
-						  	} else
-						  	{
+						  	} else {
 						  		alert("The App Icon dimesnions are not correct. Minimum size required 1024x1024 PX");
 						  	}
 						});
-
-						
 					});
 
 					$("#filepicker_dialog_container").css('top','300px');
@@ -321,8 +307,7 @@
 						function(metadata){
 						   // console.log(JSON.stringify(metadata));
 
-						   if(metadata.width >= 640 && metadata.height >= 1136)
-						   {
+						   if(metadata.width >= 640 && metadata.height >= 1136) {
 								// splashUpload = new Object();
 								// splashUpload.url = InkBlob.url;
 								// splashUpload.action = "uploadImage";
@@ -337,42 +322,40 @@
 								splashObject.target_element = 'splashScreen';
 								splashObject.input_field = '';
 					  			crop(InkBlob,splashObject);
-					  		} else
-						  	{
+					  		} else {
 						  		alert("The Splash Screen dimesnions are not correct. Minimum size required 640x1136 PX");
 						  	}
 						});
 					});
 					$("#filepicker_dialog_container").css('top','600px');
-
 				});
 
-				$(".home-upload").click(function() {
-					filepicker.pick(function(InkBlob){
-						filepicker.stat(InkBlob, {width: true, height: true},
-						 function(metadata){
-						   // console.log(JSON.stringify(metadata));
+				// $(".home-upload").click(function() {
+				// 	filepicker.pick(function(InkBlob){
+				// 		filepicker.stat(InkBlob, {width: true, height: true},
+				// 		 function(metadata){
+				// 		   // console.log(JSON.stringify(metadata));
 
-						   if(metadata.width >= 640 && metadata.height >= 1136)
-						   {
+				// 		   if(metadata.width >= 640 && metadata.height >= 1136)
+				// 		   {
 
-								var homeObject = new Object();
-								homeObject.min_width = 640;
-								homeObject.true_width = metadata.width;
-								homeObject.min_height = 1136;
-								homeObject.true_height = metadata.height;
-								homeObject.target_element = 'homeScreen';
-								homeObject.input_field = '';
-					  			crop(InkBlob,homeObject);
-					  		} else
-						  	{
-						  		alert("The Home Screen dimesnions are not correct. Minimum size required 640x1136 PX");
-						  	}
-						});
-					});
-					$("#filepicker_dialog_container").css('top','1150px');
+				// 				var homeObject = new Object();
+				// 				homeObject.min_width = 640;
+				// 				homeObject.true_width = metadata.width;
+				// 				homeObject.min_height = 1136;
+				// 				homeObject.true_height = metadata.height;
+				// 				homeObject.target_element = 'homeScreen';
+				// 				homeObject.input_field = '';
+				// 	  			crop(InkBlob,homeObject);
+				// 	  		} else
+				// 		  	{
+				// 		  		alert("The Home Screen dimesnions are not correct. Minimum size required 640x1136 PX");
+				// 		  	}
+				// 		});
+				// 	});
+				// 	$("#filepicker_dialog_container").css('top','1150px');
 
-				});
+				// });
 
 			});
 		</script>
