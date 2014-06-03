@@ -59,17 +59,18 @@
 
 	<body>
 		
-		<?php
-			// echo "Album Count : " $albumCount . "<br/>";
-			// echo "Photo Count : " $photoCount . "<br/>";
-			// echo "Event Count : " $eventCount . "<br/>";
-			// echo "Post Count : " $postCount . "<br/>";
-			// echo "Video Count : " $videoCount . "<br/>";
-		?>
+		
 
 
 		<div class="fb_maincontainer">
 			<div class="fb_left">
+				<?php
+					echo "Album Count : " $albumCount . "<br/>";
+					echo "Photo Count : " $photoCount . "<br/>";
+					echo "Event Count : " $eventCount . "<br/>";
+					echo "Post Count : " $postCount . "<br/>";
+					echo "Video Count : " $videoCount . "<br/>";
+				?>
 				<div class="snap_odr">Snaplion Order App Page</div>
 				<div class="fb_left-inner">
 					<div class="strip-12 import-radio">
