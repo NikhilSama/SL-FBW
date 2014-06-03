@@ -71,17 +71,12 @@
 
 <body>
 	<div class="fb_maincontainer">
-		<?php
-			echo "<pre>";
-			print_r($pageInfo);
-			exit;
-		?>
 		<iframe src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" 
 			frameborder="0" style="height: 390px; width: 220px;margin-top: 65px;padding-right: 27px;float: right;">
 		</iframe>
 
 		<div class="fb_left">
-			<div class="snap_odr">Snaplion Order App Page</div>
+			<div class="snap_odr"><?php echo $pageInfo['name']; ?></div>
 			<div class="fb_left-inner">
 				<div class="strip-12">
 					<div class="strip-green"><img src="img/tick.png"><br>Imported</div>

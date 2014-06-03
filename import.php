@@ -61,7 +61,7 @@
 	<body>
 		<div class="fb_maincontainer">
 			<div class="fb_left">
-				<div class="snap_odr">Snaplion Order App Page</div>
+				<div class="snap_odr"><?php echo $pageInfo['name']; ?></div>
 				<div class="fb_left-inner">
 					<div class="strip-12 import-radio">
 						<div class="strip-green gradient-white fontcolor checkalign">
