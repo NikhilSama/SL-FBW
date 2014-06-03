@@ -339,8 +339,7 @@ $("img.finish").on("click",function(e){
 		//alert(message)
 	} else if( ! (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {	
 		circleLoader.css({"display":"none"});
-		alert("Please Upload missing images");
-		alert("Please Upload missing images");
+		alert("Please Upload missing images");		
 	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {
 		var appIngredients = new Object();
 		appIngredients.param = "submitIngredients";
