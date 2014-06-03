@@ -72,6 +72,7 @@ if(progressbar.length) {
 var imageIngredients = $("img.appIngredients");
 var responseText = $("#responsetext");
 submitList.on("click", function(){
+	console.log(" Import Clicked");
 	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select atleast one item to submit");
 	} else {
@@ -93,10 +94,10 @@ submitList.on("click", function(){
 	}
 });
 
-$('body').on('click', '.laterImport', function(event){
+$("body").on("click", ".laterImport", function(event){
 	event.preventDefault();
-
-	submitList.trigger('click');
+console.log("Later Import Clicked");
+	submitList.trigger("click");
 });
 
 function importSuccess(msg) {	
