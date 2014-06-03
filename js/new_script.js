@@ -339,7 +339,8 @@ $("img.finish").on("click",function(e){
 		//alert(message)
 	} else if( ! (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {	
 		circleLoader.css({"display":"none"});
-		alert("Please Upload missing images");		
+		alert("Please Upload missing images");
+		alert("Please Upload missing images");
 	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {
 		var appIngredients = new Object();
 		appIngredients.param = "submitIngredients";
@@ -478,8 +479,7 @@ function crop(blob, obj) {
 							// console.log("SCALED", new_InkBlob, getS3StoragePath());
 							console.log("SCALED", new_InkBlob);
 
-							if(target_element == 'splashScreen')
-							{	
+							if(target_element == 'splashScreen') {	
 								splashUpload = new Object();
 								splashUpload.url = new_InkBlob.url;
 								splashUpload.action = "uploadImage";
@@ -492,8 +492,7 @@ function crop(blob, obj) {
 								dummyImage.css({"width":"324px","height":"450px","margin-top":"0px","margin-left":"0px","top":"0px","left":"0px"});
 								dummyImage.attr("data-value","1");
 
-							} else if(target_element == "iconImage" )
-							{
+							} else if(target_element == "iconImage" ) {
 								iconUpload = new Object();
 								iconUpload.url = new_InkBlob.url;
 								iconUpload.action = "uploadImage";
@@ -507,8 +506,7 @@ function crop(blob, obj) {
 								console.log(iconImage.data("value"));
 								iconImage.attr("data-value","1");
 
-							} else if(target_element == 'homeScreen')
-							{	
+							} else if(target_element == 'homeScreen') {	
 								homeUpload = new Object();
 								homeUpload.url = new_InkBlob.url;
 								homeUpload.action = "uploadImage";
@@ -523,7 +521,6 @@ function crop(blob, obj) {
 
 							}
 							circleLoader.css("display","none");
-							
 						}
 					);
 				});
