@@ -113,7 +113,8 @@ $("body").on("click", ".laterImport", function(event){
 		// imageIngredients.css("display","none");
 		// progressbar.css("display","block");
 		// responseText.css("display","none");
-		FB.Canvas.setSize({width:800,height:800});
+		FB.Canvas.setSize({width:800, height:800});
+		window.location = "imported.php";
 	}
 });
 
