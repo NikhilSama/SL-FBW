@@ -72,7 +72,6 @@ if(progressbar.length) {
 var imageIngredients = $("img.appIngredients");
 var responseText = $("#responsetext");
 submitList.on("click", function(){
-	console.log(" Import Clicked");
 	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select atleast one item to submit");
 	} else {
@@ -96,8 +95,26 @@ submitList.on("click", function(){
 
 $("body").on("click", ".laterImport", function(event){
 	event.preventDefault();
-console.log("Later Import Clicked");
-	submitList.trigger("click");
+
+	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
+		alert("Please select atleast one item to submit");
+	} else {
+		itemList = {pageinfo:0,events : 0,posts: 0,photos:0, videos:0}  //creating a new object
+
+		$("input[type=checkbox]:checked.importSection").each(function() {
+			var value = $(this).attr("name");
+			//setting values to the object
+			itemList[value] = 1;
+		});
+
+		// console.log(itemList);
+		sendAjaxRequest("importprogress.php", itemList, 'text', 'importSuccess');
+		// submitList.css("display","none");
+		// imageIngredients.css("display","none");
+		// progressbar.css("display","block");
+		// responseText.css("display","none");
+		FB.Canvas.setSize({width:800,height:800});
+	}
 });
 
 function importSuccess(msg) {	
