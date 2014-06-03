@@ -35,6 +35,10 @@
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
+		echo "Photo Count : " . $album['count'] . "<br/>";
+		echo "<pre>";
+		print_r($album);
+		
 		$photoCount += $album['count'];
 	}
 
