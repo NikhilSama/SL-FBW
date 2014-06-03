@@ -20,6 +20,8 @@
 
 	$page_id = $_SESSION['pageid'];
 
+	$pageInfo = $fbObject->api('/' . $page_id);
+
 	$db = new db_connect();
 	$fbid = $fbObject->getFBID();
 	//getting apptab ids to get what data has already been extracted
@@ -61,14 +63,19 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<title>fb</title>
-<link href="css/style.css" rel="stylesheet">
-<link href="css/checkbox.css" rel="stylesheet">
-</head>
+	<head>
+		<title>SnapLion Facebook Wizard</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/checkbox.css" rel="stylesheet">
+	</head>
 
 <body>
 	<div class="fb_maincontainer">
+		<?php
+			echo "<pre>";
+			print_r($pageInfo);
+			exit;
+		?>
 		<iframe src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" 
 			frameborder="0" style="height: 390px; width: 220px;margin-top: 65px;padding-right: 27px;float: right;">
 		</iframe>

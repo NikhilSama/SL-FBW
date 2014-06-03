@@ -19,6 +19,7 @@
 	}
 
 	$page_id = $_SESSION['pageid'];
+	$pageInfo = $fbObject->api('/' . $page_id);
 	$db = new db_connect();
 	$fbid = $fbObject->getFBID();
 	//getting apptab ids to get what data has already been extracted
