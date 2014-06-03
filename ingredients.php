@@ -360,12 +360,10 @@
 			});
 		</script>
 		<script src="js/jquery.Jcrop.js"></script>
-		
 		<?php 
-		// Facebook JS
-		echo $fbObject->getFBScript();
+			// Facebook JS
+			echo $fbObject->getFBScript();
 		?>
-
 	</body>
 	
 </html>
