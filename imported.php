@@ -46,9 +46,6 @@
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
-		echo "Photo Count : " . $album['count'] . "<br/>";
-		echo "<pre>";
-		print_r($album);
 		$photoCount += $album['count'];
 	}
 
@@ -72,18 +69,10 @@
 
 <body>
 	<div class="fb_maincontainer">
-		<iframe class="appDraw" id="appPreview" src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" frameborder="0">
+		<iframe class="appDraw" id="appPreview" src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" frameborder="0" style="height: 390px; width: 220px;">
 		</iframe>
 
 		<div class="fb_left">
-			<?php
-				echo "Album Count : " . $albumCount . "<br/>";
-				echo "Photo Count : " . $photoCount . "<br/>";
-				echo "Event Count : " . $eventCount . "<br/>";
-				echo "Post Count : " . $postCount . "<br/>";
-				echo "Video Count : " . $videoCount . "<br/>";
-			?>
-
 			<div class="snap_odr">Snaplion Order App Page</div>
 			<div class="fb_left-inner">
 				<div class="strip-12">
@@ -102,7 +91,7 @@
 					<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
 					<div class="strip-blue">
 						<span class="blue-text">Post</span>
-						<span class="strip-blue-text">Total Post - 28</span>
+						<span class="strip-blue-text">Total Post - <?php echo $postCount; ?></span>
 					</div>
 					<div class="strip-white">
 						<input type="checkbox" class="css-checkbox" id="checkbox2"  checked=""/>
@@ -114,7 +103,7 @@
 					<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
 					<div class="strip-blue">
 						<span class="blue-text">Photos</span>
-						<span class="strip-blue-text">1 Albums, 1 Photos</span>
+						<span class="strip-blue-text"><?php echo $albumCount; ?> Albums, <?php echo $photoCount; ?> Photos</span>
 					</div>
 					<div class="strip-white">
 						<input type="checkbox" class="css-checkbox" id="checkbox3"  checked=""/>
@@ -126,7 +115,7 @@
 					<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
 					<div class="strip-blue">
 						<span class="blue-text">Events</span>
-						<span class="strip-blue-text">Total Events - 00</span>
+						<span class="strip-blue-text">Total Events - <?php echo $eventCount; ?></span>
 					</div>
 					<div class="strip-white">
 						<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
@@ -138,7 +127,7 @@
 					<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
 					<div class="strip-blue">
 						<span class="blue-text">Videos</span>
-						<span class="strip-blue-text">Total Videos - 00</span>
+						<span class="strip-blue-text">Total Videos - <?php echo $videoCount; ?></span>
 					</div>
 					<div class="strip-white">
 						<input type="checkbox" class="css-checkbox" id="checkbox5"  checked=""/>
@@ -152,7 +141,6 @@
 			</div>
 			<div><hr class="hr-gray"></div>
 			<div class="button-box"><a href="#" class="btn-gray">Build Apps for More Pages?</a></div>
-			
 		</div>
 		
 		<div class="fb_left">

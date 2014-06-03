@@ -35,10 +35,6 @@
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
-		echo "Photo Count : " . $album['count'] . "<br/>";
-		echo "<pre>";
-		print_r($album);
-		
 		$photoCount += $album['count'];
 	}
 
@@ -62,19 +58,8 @@
 	</head>
 
 	<body>
-		
-		
-
-
 		<div class="fb_maincontainer">
 			<div class="fb_left">
-				<?php
-					echo "Album Count : " . $albumCount . "<br/>";
-					echo "Photo Count : " . $photoCount . "<br/>";
-					echo "Event Count : " . $eventCount . "<br/>";
-					echo "Post Count : " . $postCount . "<br/>";
-					echo "Video Count : " . $videoCount . "<br/>";
-				?>
 				<div class="snap_odr">Snaplion Order App Page</div>
 				<div class="fb_left-inner">
 					<div class="strip-12 import-radio">
@@ -96,7 +81,7 @@
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Post</span>
-							<span class="strip-blue-text fontcolor">Total Post - 28</span>
+							<span class="strip-blue-text fontcolor">Total Post - <?php echo $postCount; ?></span>
 						</div>
 						<div class="strip-white dalign">&nbsp;</div>
 					</div>
@@ -108,7 +93,7 @@
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Photos</span>
-							<span class="strip-blue-text fontcolor">1 Albums, 1 Photos</span>
+							<span class="strip-blue-text fontcolor"><?php echo $albumCount; ?> Albums, <?php echo $photoCount; ?> Photos</span>
 						</div>
 						<div class="strip-white dalign">&nbsp;</div>
 					</div>
@@ -120,7 +105,7 @@
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Events</span>
-							<span class="strip-blue-text fontcolor">Total Events - 00</span>
+							<span class="strip-blue-text fontcolor">Total Events - <?php echo $eventCount; ?></span>
 						</div>
 						<div class="strip-white dalign">&nbsp;</div>
 					</div>
@@ -132,7 +117,7 @@
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Videos</span>
-							<span class="strip-blue-text fontcolor">Total Videos - 00</span>
+							<span class="strip-blue-text fontcolor">Total Videos - <?php echo $videoCount; ?></span>
 						</div>
 						<div class="strip-white dalign">&nbsp;</div>
 					</div>
@@ -144,11 +129,6 @@
 				<div class="button-box"><a href="#" class="btn-gray">Build Apps for More Pages?</a></div>
 			</div>
 		</div>
-
-
-
-
-
 
 		<div class="importList">
 			<div id="pageinfo" class="row-fluid importItems">
