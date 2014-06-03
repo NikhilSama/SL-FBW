@@ -244,8 +244,8 @@
 					?>
 						<div class="strip-12 import-radio">
 							<div class="strip-green gradient-white fontcolor checkalign">
-								<input type="checkbox" class="css-checkbox importSection" id="checkbox4" name="videos" />
-								<label for="checkbox4" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+								<input type="checkbox" class="css-checkbox importSection" id="checkbox5" name="videos" />
+								<label for="checkbox5" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 							</div>
 							<div class="strip-blue gradient-white">
 								<span class="blue-text fontcolor">Videos</span>
