@@ -22,15 +22,15 @@ class db_connect
 	{
 
 		$this->connHandler=mysql_connect(SERVER,USERNAME,PASSWORD);
-		if($this->connHandler)
-		{
+		if($this->connHandler) {
 			$this->dbHandler = mysql_select_db(DB,$this->connHandler);
 			mysql_query ("set character_set_results='utf8'");
 			if(!$this->dbHandler)
 				echo "Could not connect to DB ".DB;
-		}
-		else
+		} else {
 			echo "Could not connect to server.";
+		}
+		
 		mysql_set_charset('utf8');
 	}
 	//Returns a two dimensional array
