@@ -906,8 +906,7 @@ $post_count = 0;
 	} //extract_video_data function ends
 
 		//to send the post request 
-	function submitData($data)
-	{	
+	function submitData($data) {
 		// var_dump($data);
 		// die("hello");
 		global $item_count;
@@ -921,6 +920,7 @@ $post_count = 0;
 		        'content' => http_build_query($data),
 		    ),
 		);
+
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
 		$result_data = json_decode($result,true);
@@ -930,10 +930,8 @@ $post_count = 0;
 		$item_count['output'] = $result_data['result']['status'];
 		print_r(json_encode($item_count));
 		// print_r($result_data['result']['status']);
-		if( !$result_data['result']['status'] )
-		{	
+		if( !$result_data['result']['status'] ) {	
 			//if data has not been posted then stop the further execution
 			die();
 		}
-		
 	}

@@ -8,12 +8,7 @@
 	$fbObject = new FBMethods();
 	//Sets Access token got from previous page....
 	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
-
 	$pageList = $fbObject->api('me/accounts');
-	
-?>
-
-<?php
 	
 	$events = array();
 	$posts = array();
@@ -33,8 +28,7 @@
 	// var_dump($apptab_data);
 	
 	$apptabs = array();
-	foreach ($apptab_data as $apptab)
-	{	
+	foreach ($apptab_data as $apptab) {	
 		$apptabs[$apptab['apptab_name']] = $apptab['apptab_id'];
 	}
 	
@@ -48,25 +42,17 @@
 	
 	include_once('import_functions.php');
 
-	if($_SERVER['REQUEST_METHOD'] == 'POST')
-	{
-		
+	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//looping through the array to find out the selected options
-		foreach ($_POST as $key => $value) 
-		{
-			if($value == 1)
-			{
-				
-				switch($key)
-				{	
-
+		foreach ($_POST as $key => $value) {
+			if($value == 1) {
+				switch($key) {
 					case "pageinfo":
 						$keyvalues[] = "About";
 						$pageinfo = $fbObject->api($page_id."?fields=name,description,location,cover");
 						//getting the url of the thumbnail
 						$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
 						extract_page_info($pageinfo,$picture_small,$apptabs,$page_id);
-
 					break;
 
 					case "events":
@@ -74,7 +60,6 @@
 						$keyvalues[] = "Events";
 						extract_event_data($event_data,$apptabs);
 						//print_r($events);
-
 					break;
 
 					case "posts":
@@ -96,46 +81,43 @@
 						$keyvalues[] = "Videos";
 						$video_data = $fbObject->api($page_id."?fields=videos.fields(id,description,from,source,icon,picture,created_time)");
 						extract_video_data($video_data,$apptabs);
-
+					break;
 				} //switch case ends
-
 			}	
 		} //loop ends
 	}
 
-	
 	$section = array();
 	// checking if arrays are empty or not and if not adding them to the section array
 	global $section;
-	if(!empty($bio) )
-	{	
+	if(!empty($bio) ) {
 		$section['Bio'] = $bio;
 	}
-	if( !empty($location) )
-	{	
+
+	if( !empty($location) ) {	
 		$section['Location'] = $location;
 	}
-	if(!empty($events) )
-	{	
+
+	if(!empty($events) ) {	
 		$section['Event'] = $events;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$event_count." where page_id=".$page_id." and apptab_name='Events' ");
 		$item_count['events'] = $event_count;
 	}
-	if( !empty($albums) )
-	{	
+
+	if( !empty($albums) ) {	
 		$section['Album'] = $albums;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
 		$item_count['album'] = $album_count;
 		$item_count['photo'] = $photo_count;
 	}
-	if( !empty($posts) )
-	{	
+
+	if( !empty($posts) ) {	
 		$section['Post'] = $posts;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$post_count." where page_id=".$page_id." and apptab_name='Fan Wall' ");
 		$item_count['posts'] = $post_count;
 	}
-	if( !(empty($videos)) )
-	{
+
+	if( !(empty($videos)) ) {
 		$section['Video'] = $videos;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$video_count." where page_id=".$page_id." and apptab_name='Videos' ");
 		$item_count['videos'] = $video_count;
@@ -147,10 +129,8 @@
 	$data['mobapp_id'] = $mobapp_id;
 	$data['section'] = $section;
 	
-	
 	submitData($data);
 	// die();
-
 
 	//prepare string to set flags = true for data that has been imported
 	$update_query = "update ".APPTAB_ID." set flag = 'true', timestamp = NOW() where page_id=".$page_id." and apptab_name in ('".implode("','", $keyvalues)."')";
@@ -158,7 +138,5 @@
 	
 	// print_r($string);
 	
-	$db->execute_query($update_query);
-
-	
+	$db->execute_query($update_query);	
 ?>

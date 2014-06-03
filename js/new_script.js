@@ -56,7 +56,6 @@ function checkPageAdded(msg) {
 var submitList = $("#submitList");
 
 $("div.nonimport").on('click',function() {
-	
 	if( $("#submitList").length ) {	
 		console.log(submitList.length);
 		$(this).toggleClass("active");
@@ -65,8 +64,7 @@ $("div.nonimport").on('click',function() {
 });
 
 progressbar = $( "#progressbar" );
-if(progressbar.length)
-{
+if(progressbar.length) {
 	$( "#progressbar" ).progressbar({
       value: false
 	});
@@ -74,37 +72,28 @@ if(progressbar.length)
 var imageIngredients = $("img.appIngredients");
 var responseText = $("#responsetext");
 submitList.on("click", function(){
-
-	if(! ($("div.tick").length) )
-	{
+	if(! ($("input[type=checkbox]:checked").length) ) {
 		alert("Please select atleast one item to submit");
-	} else
-	{
-
+	} else {
 		itemList = {pageinfo:0,events : 0,posts: 0,photos:0, videos:0}  //creating a new object
 
-		$("div.tick").each(function(){
-
-			var value = $(this).data("name")
+		$("input[type=checkbox]:checked").each(function() {
+			var value = $(this).attr("name");
 			//setting values to the object
 			itemList[value] = 1;
-
 		});
+
 		// console.log(itemList);
-		sendAjaxRequest("importprogress.php",itemList,'text','importSuccess');
-		submitList.css("display","none");
-		imageIngredients.css("display","none");
-		progressbar.css("display","block");
-		responseText.css("display","none");
+		sendAjaxRequest("importprogress.php", itemList, 'text', 'importSuccess');
+		// submitList.css("display","none");
+		// imageIngredients.css("display","none");
+		// progressbar.css("display","block");
+		// responseText.css("display","none");
 		FB.Canvas.setSize({width:800,height:800});
 	}
-
 });
 
-
-
-function importSuccess(msg)
-{	
+function importSuccess(msg) {	
 	progressbar.css("display","none");
 	responseText.css("display","block");
 	imageIngredients.css("display","block");

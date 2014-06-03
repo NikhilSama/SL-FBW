@@ -65,7 +65,7 @@
 				<div class="fb_left-inner">
 					<div class="strip-12 import-radio">
 						<div class="strip-green gradient-white fontcolor checkalign">
-							<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
+							<input type="checkbox" class="css-checkbox" id="checkbox1" name="pageinfo" />
 							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 						</div>
 						<div class="strip-blue gradient-white">
@@ -77,8 +77,8 @@
 
 					<div class="strip-12 import-radio">
 						<div class="strip-green gradient-white fontcolor checkalign">
-							<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							<input type="checkbox" class="css-checkbox" id="checkbox2" name="posts" />
+							<label for="checkbox2" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Post</span>
@@ -89,8 +89,8 @@
 
 					<div class="strip-12 import-radio">
 						<div class="strip-green gradient-white fontcolor checkalign">
-							<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							<input type="checkbox" class="css-checkbox" id="checkbox3" name="photos" />
+							<label for="checkbox3" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Photos</span>
@@ -101,8 +101,8 @@
 
 					<div class="strip-12 import-radio">
 						<div class="strip-green gradient-white fontcolor checkalign">
-							<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							<input type="checkbox" class="css-checkbox" id="checkbox4" name="events" />
+							<label for="checkbox4" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Events</span>
@@ -113,8 +113,8 @@
 
 					<div class="strip-12 import-radio">
 						<div class="strip-green gradient-white fontcolor checkalign">
-							<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							<input type="checkbox" class="css-checkbox" id="checkbox5" name="videos" />
+							<label for="checkbox5" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 						</div>
 						<div class="strip-blue gradient-white">
 							<span class="blue-text fontcolor">Videos</span>
