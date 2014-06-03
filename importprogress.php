@@ -98,20 +98,20 @@
 		$section['Location'] = $location;
 	}
 
-	if(!empty($events) ) {	
+	if(!empty($events) ) {
 		$section['Event'] = $events;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$event_count." where page_id=".$page_id." and apptab_name='Events' ");
 		$item_count['events'] = $event_count;
 	}
 
-	if( !empty($albums) ) {	
+	if( !empty($albums) ) {
 		$section['Album'] = $albums;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
 		$item_count['album'] = $album_count;
 		$item_count['photo'] = $photo_count;
 	}
 
-	if( !empty($posts) ) {	
+	if( !empty($posts) ) {
 		$section['Post'] = $posts;
 		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$post_count." where page_id=".$page_id." and apptab_name='Fan Wall' ");
 		$item_count['posts'] = $post_count;

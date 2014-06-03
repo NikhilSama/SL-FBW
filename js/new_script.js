@@ -75,7 +75,7 @@ submitList.on("click", function(){
 	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select atleast one item to submit");
 	} else {
-		itemList = {pageinfo:0,events : 0,posts: 0,photos:0, videos:0}  //creating a new object
+		itemList = {pageinfo : 0, events : 0, posts : 0, photos : 0, videos : 0}  //creating a new object
 
 		$("input[type=checkbox]:checked.importSection").each(function() {
 			var value = $(this).attr("name");
@@ -96,10 +96,10 @@ submitList.on("click", function(){
 $("body").on("click", ".laterImport", function(event){
 	event.preventDefault();
 
-	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
-		alert("Please select atleast one item to submit");
+	if(! ($(this).parents('.strip-12').find("input[type=checkbox]:checked.importSection").length) ) {
+		alert("Please select checkbox first");
 	} else {
-		itemList = {pageinfo:0,events : 0,posts: 0,photos:0, videos:0}  //creating a new object
+		itemList = {pageinfo : 0, events : 0, posts : 0, photos : 0, videos : 0}  //creating a new object
 
 		$("input[type=checkbox]:checked.importSection").each(function() {
 			var value = $(this).attr("name");

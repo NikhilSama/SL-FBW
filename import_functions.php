@@ -930,8 +930,8 @@ $post_count = 0;
 		$item_count['output'] = $result_data['result']['status'];
 		print_r(json_encode($item_count));
 		// print_r($result_data['result']['status']);
-		if( !$result_data['result']['status'] ) {	
-			//if data has not been posted then stop the further execution
-			die();
-		}
+		// if( !$result_data['result']['status'] ) {	
+		// 	//if data has not been posted then stop the further execution
+		// 	die();
+		// }
 	}
