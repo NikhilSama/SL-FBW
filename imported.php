@@ -43,9 +43,20 @@
 	$payment_flag = $payment_data[0]['payment_flag'];
 
 	$albums = $fbObject->api('/' . $page_id . '/albums?limit=500&&offset=0');
+	$albumCount = count($albums['data']);
+	$photoCount = 0;
+	foreach ($albums['data'] as $album) {
+		$photoCount += $album['count'];
+	}
+
 	$events = $fbObject->api('/' . $page_id . '/events?limit=500&&offset=0');
+	$eventCount = count($events['data']);
+
 	$posts = $fbObject->api('/' . $page_id . '/posts?limit=500&&offset=0');
+	$postCount = count($posts['data']);
+
 	$videos = $fbObject->api('/' . $page_id . '/videos?limit=500&&offset=0');
+	$videoCount = count($videos['data']);
 ?>
 
 <!DOCTYPE html>
@@ -59,13 +70,13 @@
 <body>
 
 	<?php
-		echo "<pre>";
-		print_r($albums);
-		print_r($events);
-		print_r($posts);
-		print_r($videos);
+		echo "Album Count : " $albumCount . "<br/>";
+		echo "Photo Count : " $photoCount . "<br/>";
+		echo "Event Count : " $eventCount . "<br/>";
+		echo "Post Count : " $postCount . "<br/>";
+		echo "Video Count : " $videoCount . "<br/>";
 	?>
-		
+
 	<div class="fb_maincontainer">
 		<iframe class="appDraw" id="appPreview" src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" frameborder="0">
 		</iframe>
