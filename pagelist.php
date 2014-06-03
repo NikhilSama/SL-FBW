@@ -28,10 +28,6 @@
 
 	<body>
 		<div class="fb_maincontainer-cma">
-<?php
-	echo "<pre>";
-	print_r($pageOwner);
-?>
 			<div class="installedApps" style="display: none;width:100%;">
 				<div class="logo"><img src="img/snaplion-logo.png"></div>
 				<div class="heading-group mt-20">
@@ -47,7 +43,7 @@
 					<h2>Create the Mobile App on Snaplion</h2>
 				</div>
 				<div class="username" style="margin:20px 0 0 80px;">
-					<div class="snap_odr-n"><?php  $pageOwner['name']; ?></div>
+					<div class="snap_odr-n"><?php echo $pageOwner['name']; ?></div>
 					<div class="tri" style="height:42px;"><img src="img/tri.png"></div>
 				</div>
 			</div>
