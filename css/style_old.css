@@ -563,7 +563,7 @@ div.untick
 }
 div.tick
 {
-	background-image: url(../img/tick.png);
+	background-image: url(../img/tick_old.png);
 
 }
 div.alreadyImported
