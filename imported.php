@@ -79,66 +79,187 @@
 			<div class="fb_left">
 				<div class="snap_odr"><?php echo $pageInfo['name']; ?></div>
 				<div class="fb_left-inner">
-					<div class="strip-12">
-						<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
-						<div class="strip-blue">
-							<span class="blue-text">About Us</span>
-							<span class="strip-blue-text">About, Location, Mission</span>
+					<!-- About Section -->
+					<?php 
+						if(in_array('About',$imports,true)) {
+					?>
+						<div class="strip-12">
+							<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
+							<div class="strip-blue">
+								<span class="blue-text">About Us</span>
+								<span class="strip-blue-text">About, Location, Mission</span>
+							</div>
+							<div class="strip-white">
+								<input type="checkbox" class="css-checkbox autoUpdate" id="checkbox1" name="pageinfo" 
+								<?php echo ($update_data['About'] == 'true' ) ? 'checked' : ''; ?> data-id=<?php echo $page_id; ?> data-name="About"/>
+								<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+							</div>
 						</div>
-						<div class="strip-white">
-							<input type="checkbox" class="css-checkbox" id="checkbox1"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+					<?php
+						} else {
+					?>
+						<div class="strip-12 import-radio">
+							<div class="strip-green gradient-white fontcolor checkalign">
+								<input type="checkbox" class="css-checkbox importSection" id="checkbox1" name="pageinfo" />
+								<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							</div>
+							<div class="strip-blue gradient-white">
+								<span class="blue-text fontcolor">About Us</span>
+								<span class="strip-blue-text fontcolor">About, Location, Mission</span>
+							</div>
+							<div class="strip-white dalign">
+								<a href="#" class="btn-orange btn-small laterImport">IMPORT</a>
+							</div>
 						</div>
-					</div>
+					<?php
+						}
+					?>
+					
+					<!-- Post Section -->
+					<?php 
+						if(in_array('Fan Wall', $imports, true)) {
+					?>
+						<div class="strip-12">
+							<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
+							<div class="strip-blue">
+								<span class="blue-text">Post</span>
+								<span class="strip-blue-text">Total Post - <?php echo $postCount; ?></span>
+							</div>
+							<div class="strip-white">
+								<input type="checkbox" class="css-checkbox autoUpdate" id="checkbox2" name="posts"
+								<?php echo ($update_data['Fan Wall'] == 'true' ) ? 'checked' : ''; ?> data-id=<?php echo $page_id; ?> data-name="Fan Wall" />
+								<label for="checkbox2" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+							</div>
+						</div>
+					<?php
+						} else {
+					?>
+						<div class="strip-12 import-radio">
+							<div class="strip-green gradient-white fontcolor checkalign">
+								<input type="checkbox" class="css-checkbox importSection" id="checkbox2" name="posts" />
+								<label for="checkbox2" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							</div>
+							<div class="strip-blue gradient-white">
+								<span class="blue-text fontcolor">Post</span>
+								<span class="strip-blue-text fontcolor">Total Post - <?php echo $item_count['Fan Wall']; ?></span>
+							</div>
+							<div class="strip-white dalign">
+								<a href="#" class="btn-orange btn-small laterImport">IMPORT</a>
+							</div>
+						</div>
+					<?php
+						}
+					?>
 
-					<div class="strip-12">
-						<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
-						<div class="strip-blue">
-							<span class="blue-text">Post</span>
-							<span class="strip-blue-text">Total Post - <?php echo $postCount; ?></span>
+					<!-- Photos Section -->
+					<?php 
+						if(in_array('Photos', $imports, true)) {
+					?>
+						<div class="strip-12">
+							<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
+							<div class="strip-blue">
+								<span class="blue-text">Photos</span>
+								<span class="strip-blue-text"><?php echo $item_count['Photos']; ?> Albums, <?php echo $subitem_count['Photos']; ?> Photos</span>
+							</div>
+							<div class="strip-white">
+								<input type="checkbox" class="css-checkbox autoUpdate" id="checkbox3" name="photos"
+								<?php echo ($update_data['Photos'] == 'true' ) ? 'checked' : ''; ?> data-id=<?php echo $page_id; ?> data-name="Photos" />
+								<label for="checkbox3" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+							</div>
 						</div>
-						<div class="strip-white">
-							<input type="checkbox" class="css-checkbox" id="checkbox2"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+					<?php
+						} else {
+					?>
+						<div class="strip-12 import-radio">
+							<div class="strip-green gradient-white fontcolor checkalign">
+								<input type="checkbox" class="css-checkbox importSection" id="checkbox3" name="photos" />
+								<label for="checkbox3" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							</div>
+							<div class="strip-blue gradient-white">
+								<span class="blue-text fontcolor">Photos</span>
+								<span class="strip-blue-text fontcolor"><?php echo $albumCount; ?> Albums, <?php echo $photoCount; ?> Photos</span>
+							</div>
+							<div class="strip-white dalign">
+								<a href="#" class="btn-orange btn-small laterImport">IMPORT</a>
+							</div>
 						</div>
-					</div>
+					<?php
+						}
+					?>
 
-					<div class="strip-12">
-						<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
-						<div class="strip-blue">
-							<span class="blue-text">Photos</span>
-							<span class="strip-blue-text"><?php echo $albumCount; ?> Albums, <?php echo $photoCount; ?> Photos</span>
+					<!-- Events Section -->
+					<?php 
+						if(in_array('Events', $imports, true)) {
+					?>
+						<div class="strip-12">
+							<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
+							<div class="strip-blue">
+								<span class="blue-text">Events</span>
+								<span class="strip-blue-text">Total Events - <?php echo $item_count['Events']; ?></span>
+							</div>
+							<div class="strip-white">
+								<input type="checkbox" class="css-checkbox autoUpdate" id="checkbox4" name="events"
+								<?php echo ($update_data['Events'] == 'true' ) ? 'checked' : ''; ?> data-id=<?php echo $page_id; ?> data-name="Events" />
+								<label for="checkbox4" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+							</div>
 						</div>
-						<div class="strip-white">
-							<input type="checkbox" class="css-checkbox" id="checkbox3"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+					<?php
+						} else {
+					?>
+						<div class="strip-12 import-radio">
+							<div class="strip-green gradient-white fontcolor checkalign">
+								<input type="checkbox" class="css-checkbox importSection" id="checkbox4" name="events" />
+								<label for="checkbox4" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							</div>
+							<div class="strip-blue gradient-white">
+								<span class="blue-text fontcolor">Events</span>
+								<span class="strip-blue-text fontcolor">Total Events - <?php echo $eventCount; ?></span>
+							</div>
+							<div class="strip-white dalign">
+								<a href="#" class="btn-orange btn-small laterImport">IMPORT</a>
+							</div>
 						</div>
-					</div>
+					<?php
+						}
+					?>
 
-					<div class="strip-12">
-						<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
-						<div class="strip-blue">
-							<span class="blue-text">Events</span>
-							<span class="strip-blue-text">Total Events - <?php echo $eventCount; ?></span>
+					<!-- Events Section -->
+					<?php 
+						if(in_array('Videos', $imports, true)) {
+					?>
+						<div class="strip-12">
+							<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
+							<div class="strip-blue">
+								<span class="blue-text">Videos</span>
+								<span class="strip-blue-text">Total Videos - <?php echo $item_count['Videos']; ?></span>
+							</div>
+							<div class="strip-white">
+								<input type="checkbox" class="css-checkbox autoUpdate" id="checkbox5" name="videos"
+								<?php echo ( $update_data['Videos'] == 'true' ) ? 'checked' : ''; ?> data-id=<?php echo $page_id; ?> data-name="Videos" />
+								<label for="checkbox5" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+							</div>
 						</div>
-						<div class="strip-white">
-							<input type="checkbox" class="css-checkbox" id="checkbox4"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
+					<?php
+						} else {
+					?>
+						<div class="strip-12 import-radio">
+							<div class="strip-green gradient-white fontcolor checkalign">
+								<input type="checkbox" class="css-checkbox importSection" id="checkbox4" name="videos" />
+								<label for="checkbox4" name="checkbox1_lbl" class="css-label lite-green-check"></label>
+							</div>
+							<div class="strip-blue gradient-white">
+								<span class="blue-text fontcolor">Videos</span>
+								<span class="strip-blue-text fontcolor">Total Videos - <?php echo $videoCount; ?></span>
+							</div>
+							<div class="strip-white dalign">
+								<a href="#" class="btn-orange btn-small laterImport">IMPORT</a>
+							</div>
 						</div>
-					</div>
-
-					<div class="strip-12">
-						<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
-						<div class="strip-blue">
-							<span class="blue-text">Videos</span>
-							<span class="strip-blue-text">Total Videos - <?php echo $videoCount; ?></span>
-						</div>
-						<div class="strip-white">
-							<input type="checkbox" class="css-checkbox" id="checkbox5"  checked=""/>
-							<label for="checkbox1" name="checkbox1_lbl" class="css-label lite-green-check">Auto update</label>
-						</div>
-					</div>	
+					<?php
+						}
+					?>
 				</div>
+
 				<div class="button-group">
 					<a href="ingredients.php" class="btn-orange">App Ingredients</a>
 					<?php 

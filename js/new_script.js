@@ -72,12 +72,12 @@ if(progressbar.length) {
 var imageIngredients = $("img.appIngredients");
 var responseText = $("#responsetext");
 submitList.on("click", function(){
-	if(! ($("input[type=checkbox]:checked").length) ) {
+	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select atleast one item to submit");
 	} else {
 		itemList = {pageinfo:0,events : 0,posts: 0,photos:0, videos:0}  //creating a new object
 
-		$("input[type=checkbox]:checked").each(function() {
+		$("input[type=checkbox]:checked.importSection").each(function() {
 			var value = $(this).attr("name");
 			//setting values to the object
 			itemList[value] = 1;
@@ -93,19 +93,22 @@ submitList.on("click", function(){
 	}
 });
 
+$('body').on('click', '.laterImport', function(event){
+	event.preventDefault();
+
+	submitList.trigger('click');
+});
+
 function importSuccess(msg) {	
-	progressbar.css("display","none");
-	responseText.css("display","block");
-	imageIngredients.css("display","block");
+	// progressbar.css("display","none");
+	// responseText.css("display","block");
+	// imageIngredients.css("display","block");
 	var output = JSON.parse(msg);
 	console.log(output);
-	if(output['output'] == 1)
-	{	
+	if(output['output'] == 1) {	
 		// console.log("hello");
-		for(var key in output) 
-		{
-	    	switch(key)
-	    	{
+		for(var key in output) {
+	    	switch(key) {
 	    		case 'events':
 	    			$("#events").find("h5.itemCount").removeClass("displayNone").addClass("displayBlock").text("Total Events - "+output['events']);
 	    		break;
@@ -121,60 +124,46 @@ function importSuccess(msg) {
 	    	}
 		}
 
-		if(! $("img.appIngredients").length )
-		{
+		if(! $("img.appIngredients").length ) {
 			window.location = "imported.php";
 		}
-		
-		
 		
 		responseText.html("<p>Your data was posted successfully</p>");
 		responseText.css("border","1px solid green");
 			
 		submitList.css("display","block");
 		imageIngredients.css("display","block");
-		$("div.tick").each(function(){
-
+		$("div.tick").each(function() {
 			$(this).removeClass("tick");
 			$(this).addClass("alreadyImported");
 			$(this).siblings().children(".right").removeClass("unUpdate").addClass("autoUpdate");
 			//setting values to the object
-
 		});
-		if( $(".alreadyImported").length == $(".checkboxes").length )
-		{
+
+		if( $(".alreadyImported").length == $(".checkboxes").length ) {
 			submitList.css("display","none");
 		}
-	} else 
-	{	
+	} else {	
 		//if there was an error while posting
 		responseText.html("<p>There was an error while posting your data, please check that if you have any items relating to this category</p>");
 		responseText.css("border","1px solid red");
 		submitList.css("display","block");
 	}
-	
 }
 
-$("body").on("click","div.tick, div.untick", function(){
-	if( (progressbar).css("display") == "block" )
-	{
-		return
-	} else
-	{
+$("body").on("click","div.tick, div.untick", function() {
+	if( (progressbar).css("display") == "block" ) {
+		return;
+	} else {
 		$(this).toggleClass("untick");
 		$(this).toggleClass("tick");
 	}
-	
 });
 
-$("button.closeMessage").on('click', function(){
-	
+$("button.closeMessage").on('click', function() {
 	$("#confirmMessage").css("display","none");
 	$("div#coverUp").css("display","none");
 });
-
-
-
 
 $("button.snaplionLogin").on('click', function(){
 	$("#floatingCirclesG").css({"display":"block","z-index":"1010"});
@@ -184,26 +173,21 @@ $("button.snaplionLogin").on('click', function(){
 	userLogin.email = $("input[name='email']").val();
 	userLogin.password = $("input[name='password']").val();
 	sendAjaxRequest(pathToController,userLogin,'html','checkLogin');
-
 });
 
-function checkLogin(msg)
-{	
+function checkLogin(msg) {	
 	$("#floatingCirclesG").css("display","none");
 	console.log(msg);
 	msg = msg.trim();
-	if(msg == "error")
-	{
+	if(msg == "error") {
 		//showing the error message when wrong password is entered
 		$(".errorMessage").css("display","block");
-	} else if(msg == "success")
-	{	
+	} else if(msg == "success") {	
 		//hiding the login divs when user has entered a valid password
 		$("#confirmMessage").css("display","none");
 		$("div#coverUp").css("display","none");
 	}
 }
-
 
 $(document).on("click", "div.appLinkDiv",function(){
 	//getting the page id of the div clicked upon
@@ -211,21 +195,15 @@ $(document).on("click", "div.appLinkDiv",function(){
 	window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
 });
 
-
 $("body").on("click", "span.toggleradio",function(){
-
-	if( $(this).hasClass("activeRadio") )
-	{
+	if( $(this).hasClass("activeRadio") ) {
 		$(this).removeClass("activeRadio");
 		$(this).addClass("inactiveRadio");
-	} else
-	{
+	} else {
 		$("span.toggleradio").removeClass("activeRadio").addClass("inactiveRadio");
 		$(this).toggleClass("inactiveRadio");
 		$(this).toggleClass("activeRadio");
-
 	}
-
 });
 
 $(document).on("click", ".newAppRadio", function(){
@@ -238,11 +216,9 @@ $(document).on("click", ".newAppRadio", function(){
 
 $("img.nextStep").on("click", function(){
 
-	if( !($("span.activeRadio").length) )
-	{
+	if( !($("span.activeRadio").length) ) {
 		alert("Please Select Atleast One Page To Install App on");
-	} else 
-	{	
+	} else {	
 		$("#floatingCirclesG").css("display","block");
 		pageInstall = new Object();
 		pageInstall.action = "install";
@@ -252,130 +228,100 @@ $("img.nextStep").on("click", function(){
 	}
 });
 
-function installApp(msg)
-{	
+function installApp(msg) {	
 	$("#floatingCirclesG").css("display","none");
 	console.log(msg);
 	window.location = "appInstalledPage.php?id="+pageInstall.id+"&name="+pageInstall.pname ;
 }
-
 
 $(".proceedToWizard").on("click",function() {
 	var pageId = $(this).data("id");
 	window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
 });
 
-
 //setting the auto update preferences for the user
-$("body").on("click","span.autoUpdate, span.nonUpdate", function(){
-
-	$(this).toggleClass("autoUpdate");
-	$(this).toggleClass("nonUpdate");
-
+$("body").on("click", "input[type=checkbox].autoUpdate", function(){
 	var autoUpdate = new Object();
-	if( $(this).hasClass("autoUpdate") )
-	{	
-
+	if( $(this).is(':checked')) {
 		autoUpdate.action = "addUpdate";
-		
-	} else if( $(this).hasClass("nonUpdate") )
-	{
-
+	} else {
 		autoUpdate.action = "removeUpdate";
 	}
+
 	autoUpdate.id = $(this).data("id");
 	autoUpdate.name = $(this).data("name");
 	autoUpdate.param = "changePreference";
 	//sending the ajax update to change the user preference of auto update
-	sendAjaxRequest(pathToController,autoUpdate,'html','preferenceChanged');
+	sendAjaxRequest(pathToController, autoUpdate, 'html', 'preferenceChanged');
 });
 
-
-function preferenceChanged(msg)
-{
+function preferenceChanged(msg) {
 
 }
 
-$("body").on("click","span.unUpdate", function(){
+// $("body").on("click","span.unUpdate", function(){
+// 	//checking if the sibling of the parent of the span is an already imported item list
+// 	//this script runs on page load when span may have unUpdate class but the item may have been already imported
+// 	if( $(this).parent().siblings("div.alreadyImported").length ) {
+// 		$(this).removeClass("unUpdate");
+// 		$(this).addClass("autoUpdate");
 
-	//checking if the sibling of the parent of the span is an already imported item list
-	//this script runs on page load when span may have unUpdate class but the item may have been already imported
-	if( $(this).parent().siblings("div.alreadyImported").length )
-	{	
-
-		$(this).removeClass("unUpdate");
-		$(this).addClass("autoUpdate");
-
-		var autoUpdate = new Object();
-		autoUpdate.action = "addUpdate";
-		autoUpdate.id = $(this).data("id");
-		autoUpdate.name = $(this).data("name");
-		autoUpdate.param = "changePreference";
-		sendAjaxRequest(pathToController,autoUpdate,'html','preferenceChanged');
-	}
-
-	
-
-});
-
-
+// 		var autoUpdate = new Object();
+// 		autoUpdate.action = "addUpdate";
+// 		autoUpdate.id = $(this).data("id");
+// 		autoUpdate.name = $(this).data("name");
+// 		autoUpdate.param = "changePreference";
+// 		sendAjaxRequest(pathToController,autoUpdate,'html','preferenceChanged');
+// 	}
+// });
 
 var iconImage = $("img.iconImage");
 var dummyImage = $("img.dummy_image");
 var homedummyImage = $("img.homedummy_image");
 var circleLoader = $("#floatingCirclesG");
 
-
 $("img.finish").on("click",function(e){
 	circleLoader.css({"display":"block","z-index":"100","top":"500px","margin-left":"40%"});
 	var message = '';
 	$("label.error.danger").remove();
 	$(".required").each(function(){
-		if( $(this).val().trim() == "" )
-		{	
+		if( $(this).val().trim() == "" ) {	
 			console.log($(this).val())
 			message = "Please enter all the fields";
 			$(this).after("<label class='error danger' for='"+$(this).attr('id')+"''>This field is required</label>");
 		}
 	});
 
-	if( $("#appName").val().match(/^[\w -]{0,12}$/) == null ){
+	if( $("#appName").val().match(/^[\w -]{0,12}$/) == null ) {
 		message = "No Special Characters Allowed. Max Length 12";
 		$("#appName").after("<label class='error danger' for='"+$(this).attr('id')+"''>"+message+"</label>");
 	} 
 
-	if( $("#appTitle").val().match(/^[\w -]{0,100}$/) == null ){
+	if( $("#appTitle").val().match(/^[\w -]{0,100}$/) == null ) {
 		message = "No Special Characters Allowed. Max Length 100";
 		$("#appTitle").after("<label class='error danger' for='"+$(this).attr('id')+"''>"+message+"</label>");
 	}
-	if( $("#keyWords").val().match(/^[\w -,]{0,100}$/) == null ){
+	if( $("#keyWords").val().match(/^[\w -,]{0,100}$/) == null ) {
 		message = "No Special Characters Allowed. Max Length 100";
 		$("#keyWords").after("<label class='error danger' for='"+$(this).attr('id')+"''>"+message+"</label>");
 	}
-	if( $("#appDescription").val().length > 1000 ){
+	if( $("#appDescription").val().length > 1000 ) {
 		message = "Max Length 1000";
 		$("#appDescription").after("<label class='error danger' for='"+$(this).attr('id')+"''>"+message+"</label>");
 	}
 	
-	if( $(".url_validate").val() && $(".url_validate").val().match(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/) == null )
-	{	
+	if( $(".url_validate").val() && $(".url_validate").val().match(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/) == null ) {
 		message = "Please enter a valid URL";
 		$(".url_validate").after("<label class='error danger' for='"+$(this).attr('id')+"''>"+message+"</label>");
-
 	}
 
-	if(message)
-	{	
+	if(message) {	
 		circleLoader.css({"display":"none"});
 		//alert(message)
-	} else if( ! (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1" && homedummyImage.attr("data-value") == "1") )
-	{	
+	} else if( ! (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1" && homedummyImage.attr("data-value") == "1") ) {	
 		circleLoader.css({"display":"none"});
-		alert("Please Upload missing images");
-
-		
-	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1" && homedummyImage.attr("data-value") == "1") )
-	{
+		alert("Please Upload missing images");		
+	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1" && homedummyImage.attr("data-value") == "1") ) {
 		var appIngredients = new Object();
 		appIngredients.param = "submitIngredients";
 		appIngredients.name = $("#appName").val();
@@ -388,57 +334,41 @@ $("img.finish").on("click",function(e){
 		sendAjaxRequest(pathToController,appIngredients,'html','ingredientsDataSent');
 		e.stopPropagation();
 	}
-
 });
 
-function ingredientsDataSent(msg)
-{	
+function ingredientsDataSent(msg) {	
 	circleLoader.css({"display":"none"});
 	console.log(msg);
-	if(msg == 1)
-	{
+	if(msg == 1) {
 		alert("Data has been uploaded successfully");
-		if( $(".paymentLink").length )
-		{
+		if( $(".paymentLink").length ) {
 			window.location = "payment.php";
-		} else
-		{
+		} else {
 			window.location = "imported.php";
 		}
-		
-
-	} else
-	{
+	} else {
 		alert("There was an error while submitting your data");
 	}
 }
 
-$(".add-gloss").on("click", function(){
-
+$(".add-gloss").on("click", function() {
 	var appGloss = new Object();
 	appGloss.param = "appGloss";
 
-	if( $(".add-gloss").is(":checked") )
-	{
-		appGloss.value = 1;
-		
-	} else
-	{
+	if( $(".add-gloss").is(":checked") ) {
+		appGloss.value = 1; 
+	} else {
 		appGloss.value = 0;
 	}
 
 	sendAjaxRequest(pathToController,appGloss,'html','checkGloss');
 });
 
-function checkGloss(msg)
-{
-	if(msg == 1)
-	{
+function checkGloss(msg) {
+	if(msg == 1) {
 		console.log("App gloss updated");
 	}
 }
-
-
 
 function getURLfromInkBlob (blob) {
 	return 'http://static.snaplion.com/'+blob.key;
@@ -453,8 +383,7 @@ function getS3StoragePath () {
 	}	
 }
 
-function crop(blob, obj)
-{
+function crop(blob, obj) {
 	console.log(blob);
 	var min_height = obj.min_height,
 	min_width = obj.min_width,
@@ -585,19 +514,17 @@ function crop(blob, obj)
 	});
 }
 
-function sizeCheck(msg)
-{		
-	if(msg.trim() != 1)
-	{
+function sizeCheck(msg) {		
+	if(msg.trim() != 1) {
 		alert("There was an error while uploading the image.");
 	}
 }
- function hideLoader()
- {
- 	
- }
 
-$("form.payment").on("submit",function(e){
+function hideLoader() {
+ 	
+}
+
+$("form.payment").on("submit",function(e) {
 	var userName = $("input[name='card_holder_name']");
 	var address1 = $("input[name='street_address']");
 	var city = $("input[name='city']");
@@ -606,55 +533,48 @@ $("form.payment").on("submit",function(e){
 	var email = $("input[name='email']");
 
 	var message = '';
-	if( userName.val().match(/^[\w -]{3,30}$/) == null ) 
-	{	
+	if( userName.val().match(/^[\w -]{3,30}$/) == null ) {	
 		message = "Please Enter a Valid Name";
 		// alert("Please Enter a Valid Name");
 		userName.addClass("errorMessage");
 	}
 
-	if(address1.val().trim() == '')
-	{	
+	if(address1.val().trim() == '') {	
 		message = "Please Enter a valid Billing Address";
 		// alert("Please Enter a valid Billing Address");
 		address1.addClass("errorMessage");	
 		// address1.after("<span class='error danger'>"+message+"</span>");
 	}
 
-	if( city.val().match(/^[\w -]{2,30}$/) == null )
-	{	
+	if( city.val().match(/^[\w -]{2,30}$/) == null ) {	
 		message = "Please Enter a Valid City Name";
 		// alert("Please Enter a Valid City Name");
 		city.addClass("errorMessage");	
 		// city.after("<span class='error danger'>"+message+"</span>");
 	}
 
-	if( state.val().match(/^[\w -]{2,30}$/) == null )
-	{	
+	if( state.val().match(/^[\w -]{2,30}$/) == null ) {	
 		message = "Please Enter a Valid State Name";
 		// alert("Please Enter a Valid State Name");
 		state.addClass("errorMessage");	
 		// state.after("<span class='error danger'>"+message+"</span>");
 	}
 
-	if( country.val().match(/^[\w -]{2,30}$/) == null )
-	{	
+	if( country.val().match(/^[\w -]{2,30}$/) == null ) {
 		message = "Please Enter a Valid Country Name";
 		// alert("Please Enter a Valid Country Name");
 		country.addClass("errorMessage");	
 		// country.after("<span class='error danger'>"+message+"</span>");
 	}
 
-	if( email.val().match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) == null )
-	{	
+	if( email.val().match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) == null ) {	
 		message = "Please Enter a Valid Email Address";
 		// alert("Please Enter a Valid Email Address");
 		email.addClass("errorMessage");	
 		// email.after("<span class='error danger'>"+message+"</span>");
 	}
 
-	if(message)
-	{	
+	if(message) {
 		alert("Please Enter all the Fields in Proper Format");
 		e.preventDefault();
 		e.stopPropagation();
@@ -662,8 +582,7 @@ $("form.payment").on("submit",function(e){
 });
 
 $("form.payment .required").on("keyup",function(){
-	if($(this).val() != '')
-	{
+	if($(this).val() != '') {
 		$(this).removeClass("errorMessage");
 	}
 });
@@ -671,37 +590,31 @@ $("form.payment .required").on("keyup",function(){
 var hiddenInfoDiv = $("#helpInformation");
 var hiddenInfoText = $("#helpInformation .tooltipInner");
 
-$("img.helpText").mouseenter(function(){
-
+$("img.helpText").mouseenter(function() {
 	checkMouseEnter(".has-tip","right",$(this));
-
 }).mouseleave(function(){
 	hiddenInfoDiv.css("display","none");
 	hiddenInfoText.html("");
 });
 
 $("img.imageHelpText").mouseenter(function(){
-
-
 	checkMouseEnter(".has-tooltip","left",$(this));
-
 }).mouseleave(function(){
 	hiddenInfoDiv.css("display","none");
 	hiddenInfoText.html("");
 });
 
 //in this function we have to give hints to the user for the app ingredients
-function checkMouseEnter(selectedClass,side,movedOver)
-{
+function checkMouseEnter(selectedClass,side,movedOver) {
 	var text = movedOver.siblings(selectedClass).attr("title");
 	hiddenInfoText.html(text);
 	movedOver.parent().append(hiddenInfoDiv);
-	if(side == "left")
-	{
+	if(side == "left") {
 		hiddenInfoDiv.css({"left":"200px","right":"auto"});
 	} else {
 		hiddenInfoDiv.css({"right":"2px","left":"auto"});
 	}
+
 	hiddenInfoDiv.css("display","block");
 }
 
