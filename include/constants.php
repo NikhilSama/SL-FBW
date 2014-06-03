@@ -4,12 +4,20 @@
 //------PREFERABLY KEEP CONSTANTS NAME UPPERCASE----
 
 //Required ... Without these the app wont run...
+// define("APPID","573559196064698");
+// define("APPSECRET","1ac4f42d2be503264089571d6929b515");
+// define("APPDIR","https://zecross.net/fb/snaplionfbw/");
+// define("APPNAMESPACE","snaplionfbw");
+// define("PAGEID","526001477410636");
+// define("PAGENAMESPACE","zecrossapptest");
+
 define("APPID","573559196064698");
 define("APPSECRET","1ac4f42d2be503264089571d6929b515");
-define("APPDIR","https://zecross.net/fb/snaplionfbw/");
+define("APPDIR","https://fbw.snaplion.com/");
 define("APPNAMESPACE","snaplionfbw");
-define("PAGEID","526001477410636");
-define("PAGENAMESPACE","zecrossapptest");
+define("PAGEID","700276449993386");
+define("PAGENAMESPACE","deepakpizzadelivery2");
+
 
 
 //Needed for sendNotification method... 
@@ -19,10 +27,15 @@ define("APPACCESSTOKEN","");
 
 //----DATABASE CONNECTIVITY PARAMETERS-----
 //Online
-define("SERVER","pdb12.awardspace.com");
-define("USERNAME","1025453_snaplion");
-define("PASSWORD","SL#2014DBtest");
-define("DB","1025453_snaplion");
+// define("SERVER","pdb12.awardspace.com");
+// define("USERNAME","1025453_snaplion");
+// define("PASSWORD","SL#2014DBtest");
+// define("DB","1025453_snaplion");
+
+define("SERVER","snaplion.cck6cwihhy4y.ap-southeast-1.rds.amazonaws.com");
+define("USERNAME","root");
+define("PASSWORD","Sn@pDr@g0n6743");
+define("DB","SnapLion_FBW");
 
 
 //defining constants for the app to be installed on the other page

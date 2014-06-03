@@ -1,0 +1,135 @@
+.radio, .checkbox {
+	min-height: 20px;
+	padding-left: 20px;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input 
+{
+	background-color: #eee;
+	border: 1px solid rgba(144, 145, 146, 0.35);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.image_section textarea, .image_section input[type="text"], .image_section input[type="password"], .image_section input[type="datetime"], .image_section input[type="datetime-local"], .image_section input[type="date"], .image_section input[type="month"], .image_section input[type="time"], .image_section input[type="week"], .image_section input[type="number"], .image_section input[type="email"], .image_section input[type="url"], .image_section input[type="search"], .image_section input[type="tel"], .image_section input[type="color"], .image_section .uneditable-input 
+{
+	padding: 10px 10px;
+	height: 35px;
+}
+
+
+.btn.btn-upload 
+{
+	background: white;
+	color: #8c8c8c;
+	text-shadow: none;
+	text-transform: capitalize;
+	font-weight: 300;
+	border: 1px solid #bfbfbf;
+	height: 30px;
+	width: 90px;
+	padding: 0;
+	position: relative;
+	line-height: 30px;
+	padding-left: 30px;
+	text-align: center;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.btn:hover, .btn:focus 
+{
+	color: #333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+}
+
+		/* Main Content */
+.main_content .upload_image_box 
+{
+	border: 1px solid #ccc;
+	overflow: hidden;
+	margin-left: 20px;
+}
+
+.main_content .upload_image_box .text 
+{
+	background: #eee;
+	border-right: 1px solid #ccc;
+	height: 163px;
+	margin-left: 0;
+	padding: 10px;
+	padding-left: 30px;
+}
+
+.main_content .upload_image_box .text .box_header 
+{
+	text-transform: uppercase;
+	font-weight: 300;
+	margin-top: 30px;
+	font-size: 22px;
+}
+
+.main_content .upload_image_box .text .upload_button_wrapper 
+{
+	margin-top: 20px;
+}
+
+/* Ingredients */
+.ingredients .upload_image_box 
+{
+	margin-left: 0;
+	margin-bottom: 20px;
+	border-color: #ccc;
+}
+
+.ingredients .upload_image_box .text 
+{
+	height: 150px;
+	padding-left: 30px;
+	border-bottom: 1px solid #ccc;
+	border-right: none;
+}
+
+.ingredients .upload_image_box .text .box_header 
+{
+	margin-top: 20px;
+	text-align: left;
+}
+
+.ingredients .upload_image_box .radio 
+{
+	position: relative;
+	padding: 20px 30px;
+}
+
+.ingredients .upload_image_box.splash_screen .text 
+{
+	height: 120px;
+	padding-bottom: 30px;
+}
+
+.ingredients .upload_image_box .preview 
+{
+	background: #fff;
+	min-height: 250px;
+	height: 450px;
+}
+
+.ingredients .upload_image_box .preview .dummy_image 
+{
+	position: relative;
+	top: 150px;
+	left: 90px;
+}
