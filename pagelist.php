@@ -219,85 +219,34 @@
 						</div>
 					</div>
 
+					<div id="hiddenUninstalledNew" style="display: none;">
+						<div class="fb_left-cma">
+							<div class="strip-gray">
+								<div class="radio-box">
+									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox newAppRadio" data-id="" data-name="">
+									<label for="radio5" class="css-label radioalign"></label>
+								</div>
+								<div class="rightpart">
+									<div class="user-image"><img src="img/user-image.png" class="uninstalledAppImage"></div>
+									<div class="strip-hgroup">
+										<h4 class="pagename pageName">New Delhi Eat Out</h4>
+										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
+									</div>
+									<div class="likes">
+										10,451 likes
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 					<div class="main-strip-pack installedApps" style="display: none;" id="installedAppPages">
 						<div class="main-con" id="uninstalledAppPages">
 						</div>
 					</div>
 
-					<div class="main-strip-pack uninstalledApps" style="display: none;">
-						<div class="fb_left-cma">
-							<div class="strip-gray">
-								<div class="radio-box">
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
-									<label for="radio5" class="css-label radioalign"></label>
-								</div>
-								<div class="rightpart">
-									<div class="user-image"><img src="img/user-image.png"></div>
-									<div class="strip-hgroup">
-										<h4 class="pagename">New Delhi Eat Out</h4>
-										<h5 class="cata-name">Restaurants and Bars</h5>
-									</div>
-									<div class="likes">
-										10,451 likes
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="fb_left-cma">
-							<div class="strip-gray">
-								<div class="radio-box">
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
-									<label for="radio5" class="css-label radioalign"></label>
-								</div>
-								<div class="rightpart">
-									<div class="user-image"><img src="img/user-image.png"></div>
-									<div class="strip-hgroup">
-										<h4 class="pagename">New Delhi Eat Out</h4>
-										<h5 class="cata-name">Restaurants and Bars</h5>
-									</div>
-									<div class="likes">
-										10,451 likes
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="fb_left-cma">
-							<div class="strip-gray">
-								<div class="radio-box">
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
-									<label for="radio5" class="css-label radioalign"></label>
-								</div>
-								<div class="rightpart">
-									<div class="user-image"><img src="img/user-image.png"></div>
-									<div class="strip-hgroup">
-										<h4 class="pagename">New Delhi Eat Out</h4>
-										<h5 class="cata-name">Restaurants and Bars</h5>
-									</div>
-									<div class="likes">
-										10,451 likes
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="fb_left-cma">
-							<div class="strip-gray">
-								<div class="radio-box">
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
-									<label for="radio5" class="css-label radioalign"></label>
-								</div>
-								<div class="rightpart">
-									<div class="user-image"><img src="img/user-image.png"></div>
-									<div class="strip-hgroup">
-										<h4 class="pagename">New Delhi Eat Out</h4>
-										<h5 class="cata-name">Restaurants and Bars</h5>
-									</div>
-									<div class="likes">
-										10,451 likes
-									</div>
-								</div>
-							</div>
-						</div>
-
+					<div class="main-strip-pack uninstalledApps" style="display: none;" id="uninstalledNewAppPages">
+						
 					</div>
 
 					<!-- <div style="clear:left;"></div>

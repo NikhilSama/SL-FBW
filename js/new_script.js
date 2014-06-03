@@ -635,7 +635,10 @@ function checkMouseEnter(selectedClass,side,movedOver) {
 
 var installedPage = $("#hiddenInstalled");
 var uninstalledPage = $("#hiddenUninstalled");
+var uninstalledNewPage = $("#hiddenUninstalledNew");
 var uninstalledAppPages = $("#uninstalledAppPages");
+
+var uninstalledNewAppPages = $("#uninstalledNewAppPages");
 var installedAppPages = $("#installedAppPages");
 var uninstalledAppPage = $("#uninstalledAppPage");
 
@@ -653,7 +656,7 @@ function getPageList(msg) {
 
 			if(uninstalled.length) {	
 				var message = '';
-				uninstalledAppPages.css("display","block");
+				
 				if( !installed.length ) {
 					uninstalledAppPages.css("margin-top","15%");
 					message  = "Start Building Your First Snaplion App";
@@ -663,22 +666,18 @@ function getPageList(msg) {
 				uninstalledAppPages.find("h4.newAppMessage").text(message);
 
 				for(var k = 0; k < uninstalled.length; k++) {
-					uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
-					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
-					uninstalledPage.find("span.pagename").text(uninstalled[k].name);
-					var innerHtml = uninstalledPage.html();
-					uninstalledAppPages.find("ul.slider").append(innerHtml);
-					// console.log(innerHtml);
-				}
-
-				if( uninstalled.length > 3 ) {
-					if($(".slider").length) {
-						$(".slider").flexisel({visibleItems:3,clone:true});
-						$(".nextStepImg").css("margin-left","-2%");
-					}
-				} else {
-					$(".uninstalledAppPage").css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
-					$(".nextStepImg").css("margin-left","-14%");
+					console.log(uninstalled[k]);
+					
+					uninstalledNewPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
+					uninstalledNewPage.find(".pageName").text(uninstalled[k].name);
+					uninstalledNewPage.find(".pageCategory").text(uninstalled[k].category);
+					uninstalledNewPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
+					uninstalledNewPage.find(".newAppRadio").attr("id", 'radio' + k);
+					uninstalledNewPage.find(".newAppRadio").next('label').attr("for", 'radio' + k);
+					uninstalledNewPage.find(".likes").text(uninstalled[k].likes + ' likes');
+					
+					var innerHtml = uninstalledNewPage.html();
+					uninstalledNewAppPages.append(innerHtml);
 				}
 			}
 		} else {
