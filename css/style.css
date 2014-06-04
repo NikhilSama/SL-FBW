@@ -368,6 +368,14 @@ label.css-label {
 	margin: 10px 0 0 20px;
 	font-weight: 200;
 }
+.cata-likes {
+	font-size: 12px;
+	color: #767676;
+	font-family: 'CalibriItalic';
+	margin: 5px 0 0 20px;
+	font-weight: 200;
+	line-height: 12px;
+}
 .strip-hgroup {
 	width: 380px;
 }
