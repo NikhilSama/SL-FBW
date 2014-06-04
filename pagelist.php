@@ -286,12 +286,15 @@
 	    		$(document).on('click', '#retryPermissions', function(event){
 	    			event.preventDefault();
 
-	    			checkPermissions();	
+	    			console.log("Retry Clicked Starts");
+	    			checkPermissions();
+	    			console.log("Retry Clicked Ends");
 	    		});
 
 	    		$(document).on('click', '#cancelPermissions', function(event){
 	    			event.preventDefault();
 	    			
+	    			console.log("Cancel Clicked Starts");
 	    			window.location='http://facebook.com';
 	    		});
 	    	});
