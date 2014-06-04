@@ -166,7 +166,7 @@
 
 				                    <div class="preview" id="splash_preview">
 				                        <div class="dummy_image_wrapper">
-				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?>" <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:216px; height:383px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
+				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?>" <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:216px; height:383px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?> data-value="<?php if($ingredient_data['appSplashImage']){echo '1';} else {echo '0';} ?>" alt="" class="dummy_image">
 				                        </div>
 				                    </div>
 			                	</div>
