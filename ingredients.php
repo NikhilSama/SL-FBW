@@ -406,7 +406,7 @@
 						});
 					});
 
-					$("#filepicker_dialog_container").css('top','300px');
+					$("#filepicker_dialog_container").css('top','100px');
 				});
 
 				$(".splash-upload").click(function() {
@@ -435,7 +435,7 @@
 						  	}
 						});
 					});
-					$("#filepicker_dialog_container").css('top','600px');
+					$("#filepicker_dialog_container").css('top','100px');
 				});
 			});
 		</script>
