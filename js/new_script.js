@@ -13,6 +13,7 @@
 
 var INSTALLED_APP_ID = 573559196064698;
 var pathToController = "AjaxMethods.php";
+var circleLoader = $("#loadingCircle");
 
 function sendAjaxRequest(urlName,dataMsg,datatype,successFunction) {
     $.ajax({
@@ -226,6 +227,8 @@ $("body").on("click", "span.toggleradio",function(){
 });
 
 $(document).on("click", ".selectedAppInstall", function(){
+	circleLoader.show();
+
 	var selectedRadio = $('input[type=radio]:checked.newAppRadio');
 	if(selectedRadio.length) {
 		pageInstall = new Object();
@@ -253,8 +256,7 @@ $("img.nextStep").on("click", function(){
 });
 
 function installApp(msg) {	
-	$("#floatingCirclesG").css("display","none");
-	console.log(msg);
+	circleLoader.hide();
 	window.location = "appInstalledPage.php?id="+pageInstall.id+"&name="+pageInstall.pname ;
 }
 
@@ -302,7 +304,6 @@ function preferenceChanged(msg) {
 var iconImage = $("img.iconImage");
 var dummyImage = $("img.dummy_image");
 var homedummyImage = $("img.homedummy_image");
-var circleLoader = $("#loadingCircle");
 
 $(".ingredientFinish").on("click",function(e){
 	circleLoader.css({"display":"block","z-index":"100","top":"500px","margin-left":"40%"});
