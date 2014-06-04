@@ -47,7 +47,7 @@
 			// Facebook JS
 			echo $fbObject->getFBScript();
 		?>
-		<script type='text/javascript' src='./js/fbscript.js'></script>
+		<script type='text/javascript' src='js/fbscript.js'></script>
 	</body>
 	<script>
 		$("#slideshow > div:gt(0)").hide();
@@ -61,12 +61,10 @@
 		    .appendTo('#slideshow');
 		},  3000);
 
-		$(document).ready(function(){
-	    	$("#floatingCirclesG").hide();	
-	    });
-	    document.getElementById('checkPerms').onclick = function() {
-	    	$("#floatingCirclesG").show();
-	      checkPermissions();
-	    };
+		$(document).on('click', '#checkPerms', function(event){
+			event.preventDefault();
+
+			checkPermissions();
+		});
 	</script>
 </html>
