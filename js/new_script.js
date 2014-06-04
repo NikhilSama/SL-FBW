@@ -305,7 +305,7 @@ function preferenceChanged(msg) {
 // });
 
 var iconImage = $("img.iconImage");
-var dummyImage = $("img.dummy_image");
+var dummyImage = $("img.dummyImage");
 var homedummyImage = $("img.homedummy_image");
 
 $(".ingredientFinish").on("click",function(e){
