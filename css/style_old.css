@@ -1371,7 +1371,7 @@ h4 small {
 }
 .text2 h4 {
 	font-size: 14px !important;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	font-weight: 200;
 }
 .span-6 {

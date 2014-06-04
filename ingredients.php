@@ -56,7 +56,7 @@
 			                    <div class="text">
 			                    	<div class="app-icon-data">
 				                        <h4 class="box_header">
-				                            App <span>Icon</span>
+				                            APP <span>ICON</span>
 				                            <img src="img/help.png" class="helpText2 tooltipRight"  rel="tooltip" title="App icon is the small icon image that shows up on your phone along with app name.  When you tap on this icon image, your app will load on the phone." id="blah">
 				                            <br>
 				                            <small>(JPEG/JPG, 1024PX * 1024PX)</small>
@@ -144,7 +144,7 @@
 				                    <div class="text2" >
 				                    	<div class="left_section_text">
 				                    		<h4 class="box_header">
-					                            loading <span>Screen</span>
+					                            LOADING <span>SCREEN</span>
 					                            
 					                        		<img src="img/help.png" class="helpText2 tooltipRight"  rel="tooltipl" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen." id="blah">
 					                            <br>
