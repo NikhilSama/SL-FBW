@@ -371,7 +371,7 @@
 					$("div.paymentLink").css("display","block");
 				}
 
-				filepicker.setKey('AQ5G20QvTseVecjZm1aswz');
+				filepicker.setKey("AY8AuvW64QIqfiOKzeK5yz");
 				
 				//functions to upload the image of icon and splash image and then sending ajax request to check the dimensions of the image
 				$(".iconUpload").click(function() {
