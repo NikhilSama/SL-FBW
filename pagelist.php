@@ -51,7 +51,11 @@
 				//if user is not the admin of any page
 				if(!isset($pageOwner['email'])) {
 			?>
-					<div><h2>We need your email to create your mobile app account.</h2></div>
+					<div>
+						<h2>We need your email to create your mobile app account. Please click ok when facebook asks for permissions.</h2>
+						<a href="#" class="btn-orange" id="retryPermissions">Retry</a>
+						<a href="#" class="btn-orange" id="cancelPermissions">Cancel</a>
+					</div>
 			<?php
 				} elseif(empty($pageList['data'])) {
 			?>
@@ -276,6 +280,22 @@
 			?>
 		</div>
 		<script type='text/javascript' src='js/new_script.js'></script>
+		<script type='text/javascript' src='js/fbscript.js'></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+	    		$(document).on('click', '#retryPermissions', function(event){
+	    			event.preventDefault();
+
+	    			checkPermissions();	
+	    		});
+
+	    		$(document).on('click', '#cancelPermissions', function(event){
+	    			event.preventDefault();
+	    			
+	    			window.location='http://facebook.com';
+	    		});
+	    	});
+		</script>
 	</body>
 </html>
 <!-- <div id="floatingCirclesG" style="position:absolute; display;block; margin-top: 42%; margin-left: 46%; float: left;">
