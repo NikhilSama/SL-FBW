@@ -265,10 +265,6 @@
 						</div>
 					</div>
 				
-					<?php 
-						// Facebook JS
-						echo $fbObject->getFBScript();
-					?>
 					<script>
 						$(document).ready(function(){
 				    		var obj = new Object();
@@ -279,6 +275,10 @@
 				}
 			?>
 		</div>
+		<?php 
+			// Facebook JS
+			echo $fbObject->getFBScript();
+		?>
 		<script type='text/javascript' src='js/new_script.js'></script>
 		<script type='text/javascript' src='js/fbscript.js'></script>
 		<script type="text/javascript">
