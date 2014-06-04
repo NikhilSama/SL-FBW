@@ -34,6 +34,7 @@
 	
 	//getting the mobapp_id of the page
 	$mobapp = $db->execute_query("SELECT m_app_id FROM " .PAGE. " WHERE page_id = ".$page_id);
+	print_r($mobapp);exit;
 	// var_dump($mobapp);
 	$mobapp_id = $mobapp[0]['m_app_id'];
 
