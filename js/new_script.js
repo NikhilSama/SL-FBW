@@ -99,11 +99,11 @@ submitList.on("click", function(){
 $("body").on("click", ".laterImport", function(event){
 	event.preventDefault();
 
-	circleLoader.show();
-
 	if(! ($(this).parents('.strip-12').find("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select checkbox first");
 	} else {
+		circleLoader.show();
+
 		itemList = {pageinfo : 0, events : 0, posts : 0, photos : 0, videos : 0}  //creating a new object
 
 		$("input[type=checkbox]:checked.importSection").each(function() {
@@ -120,6 +120,8 @@ $("body").on("click", ".laterImport", function(event){
 		// responseText.css("display","none");
 		FB.Canvas.setSize({width:800, height:800});
 		window.location = "imported.php";
+
+		circleLoader.hide();
 	}
 });
 
