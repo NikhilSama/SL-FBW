@@ -144,81 +144,8 @@
 			<div class="ingredientsForm ingredients row-fluid">
 				<form class="form" id="IngredientChangeForm" method="post">
 					<h4 class="app-ing">App ingredients</h4>
-
-
-
-
-
-
-						<!-- <div id="image_container" class="span11 offset1">
-							
-
-			                <div class="upload_image_box splash_screen">
-			                    <div class="text">
-			                        <h4 class="box_header">
-			                            Splash <span>Screen</span>
-			                            <br>
-			                            <small>(JPEG/JPG, MIN 640PX * 1136PX)</small>
-			                        </h4>
-
-			                        <div class="upload_button_wrapper">
-			                            <a href="#" class="splash-upload" data-input-field-id="appSplashImage" data-cropping="true" data-cropping-min-width="640" data-cropping-min-height="1136" data-preview-id="splash_preview"><img class="splashImage" src="img/upload.png" alt=""></a>
-			                            <img src="img/help.png" class="imageHelpText" alt="">
-										
-			                            <span class="has-tooltip" data-toggle="tooltip" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen."></span>
-			                        </div>
-			                    </div>
-
-			                    <div class="preview" id="splash_preview">
-			                        <div class="dummy_image_wrapper">
-			                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:324px; height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
-			                        </div>
-			                    </div>
-			                </div>
-						</div> -->
-
-
-
 					<div id="images" class="span-6">
-						<div id="image_container" class="span11 offset1">
-
-							<!-- <div class="upload_image_box app_icon">
-			                    <div class="text">
-			                        <h4 class="box_header">
-			                            App <span>Icon</span>
-			                            <br>
-			                            <small>(JPEG/JPG, MIN 1024PX * 1024PX)</small>
-			                        </h4>
-									
-			                        <div class="upload_button_wrapper">
-			                            <a href="#" class="iconUpload" data-input-field-id="app_icon"  data-cropping="true" data-cropping-min-width="1024" data-cropping-min-height="1024" data-preview-id="app_icon_preview"><img src="img/upload.png" alt=""></a>
-			                            <img src="img/help.png" class="imageHelpText" alt="">
-
-								
-			                            <span class="has-tooltip" data-toggle="tooltip" title="App icon is the small icon image that shows up on your phone along with app name.  When you tap on this icon image, your app will load on the phone.">
-			                            </i></span>
-			                        </div>
-			                    </div>
-
-			                    <div class="radio">
-			                        <div id="app_icon_preview">
-			                        	<img class="iconImage" style="width:120px" src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" >
-			                        </div>
-			                        <div class="gloss">
-				                        <label>
-				                            <input type="checkbox" class="add-gloss">
-				                            Apply Gloss to App icon <br>(iPhone Only)
-				                        </label>
-			                        </div>
-			                    </div>
-			                </div> -->
-
-
-
-
-
-
-
+						<div class="span11 offset1 image_container">
 							<div class="upload_image_box app_icon">
 			                    <div class="text">
 			                    	<div class="app-icon-data">
@@ -238,12 +165,6 @@
 			                    		<img src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" style="width:102px;" class="iconImage">
 			                    	</div>
 			                    </div>
-
-			                   <!--  <div class="radio">
-			                        <div id="app_icon_preview">
-			                        	<img class="iconImage" style="width:120px" src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" >
-			                        </div>
-			                    </div> -->
 			                </div>
 			                <div class="row field">
 	                        	<div class="span10 offset1 ml-22">
@@ -307,7 +228,7 @@
 					</div> <!-- ingredients images ends -->
 					
 					<div id="fields"  class="span-6-right ingredients_form">
-						<div id="image_container" class="span12">
+						<div class="span12 image_container">
 							<div style="display:none;">
 								<input type="hidden" name="_method" value="PUT"/>
 							</div>
@@ -339,10 +260,11 @@
 
 				                    <div class="preview" id="splash_preview">
 				                        <div class="dummy_image_wrapper">
-				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:324px; height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
+				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?>" <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:216px; height:383px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
 				                        </div>
 				                    </div>
 			                	</div>
+
 		                    </fieldset>
 						</div>
 					</div>  <!-- ingredients form ends -->
