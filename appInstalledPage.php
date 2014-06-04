@@ -25,7 +25,7 @@
 		<div class="app-container">
 			<div class="head-app">
 				<h1>Congtratulations!</h1>
-				<h4>You are now ready to build an awesome mobile app for <?php $pageInfo['name']; ?>!!</h4>
+				<h4>You are now ready to build an awesome mobile app for <?php echo $pageInfo['name']; ?>!!</h4>
 			</div>
 
 			<div class="pagebox-container">
@@ -37,7 +37,7 @@
 						<div class="radio-space">
 						</div>
 						<div class="radio-space-next">
-							<h3><?php $pageInfo['name']; ?></h3>
+							<h3><?php echo $pageInfo['name']; ?></h3>
 							<h4>Likes - <?php echo $pageInfo['likes']; ?></h4>
 							<h5><?php echo $pageInfo['category']; ?> </h5>
 						</div>
