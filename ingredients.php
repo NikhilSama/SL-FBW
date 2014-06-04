@@ -57,7 +57,7 @@
 			                    	<div class="app-icon-data">
 				                        <h4 class="box_header">
 				                            App <span>Icon</span>
-				                            <img src="img/help.png" class="helpText2"  rel="tooltip" title="Key active" id="blah">
+				                            <img src="img/help.png" class="helpText2"  rel="tooltip" title="App icon is the small icon image that shows up on your phone along with app name.  When you tap on this icon image, your app will load on the phone." id="blah">
 				                            <br>
 				                            <small>(JPEG/JPG, 1024PX * 1024PX)</small>
 				                        </h4>
@@ -79,7 +79,7 @@
 	                        	</div>
 
 	                        	<div class="tooltip_wrapper">
-	                        		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+	                        		<img src="img/help.png" class="helpText"  rel="tooltip" title="This is the name of your mobile app that appears below the app icon on the phone screen. Maximum 12 Characters." id="blah">
 	                            	<span data-tooltip class="has-tip" data-width="200px" title="This is the name of your mobile app that appears below the app icon on the phone screen. Maximum 12 Characters."><!-- <i class="icon-question-sign"></i> --></span>   
 	                        	</div>
 	                   		</div>
@@ -91,7 +91,7 @@
 		                        </div>
 
 		                        <div class="tooltip_wrapper">
-		                        	<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                        	<img src="img/help.png" class="helpText"  rel="tooltip" title="This is the title of your mobile app that appears on iTunes/Android store. Maximum 100 Characters" id="blah">
 		                            <span data-tooltip class="has-tip" data-width="200px" title="This is the title of your mobile app that appears on iTunes/Android store. Maximum 100 Characters"><!-- <i class="icon-question-sign"></i> --></span> 
 		                        </div>
 		                    </div>
@@ -102,7 +102,7 @@
 		                        	<textarea id="appDescription"  placeholder="App Description" required class="input-block-level span10 required" maxlength="4000" minlength="10" cols="30" rows="3" ><?php if($ingredient_data['description']) {echo $ingredient_data['description'];} ?></textarea>
 		                        </div>
 		                    	<div class="tooltip_wrapper">
-		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="This is the description of your mobile app that appears on iTunes/Android store. Maximum 1000 Characters" id="blah">
 		                            <span data-tooltip class="has-tip" data-width="200px" title="This is the description of your mobile app that appears on iTunes/Android store. Maximum 1000 Characters"><!-- <i class="icon-question-sign"> --></i></span>  
 		                    	</div>
 		                    </div>
@@ -114,7 +114,7 @@
 		                    	</div>
 
 		                    	<div class="tooltip_wrapper">
-		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="This is the app's website URL" id="blah">
 		                        	<span data-tooltip class="has-tip" data-width="200px" title="This is the app's website URL"><!-- <i class="icon-question-sign"> --></i></span>
 		                    	</div>
 		                	</div>
@@ -126,7 +126,7 @@
 		                        </div>
 
 		                        <div class="tooltip_wrapper">
-		                        	<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                        	<img src="img/help.png" class="helpText"  rel="tooltip" title="This list of keywords will enable people to search and find your app on the iTunes and Android store.  Enter a list of all the search terms that you feel users might search for when looking for your app" id="blah">
 		                            <span data-tooltip class="has-tip" data-width="200px" title="This list of keywords will enable people to search and find your app on the iTunes and Android store.  Enter a list of all the search terms that you feel users might search for when looking for your app"><!-- <i class="icon-question-sign"> --></i></span>
 		                        </div>  
 		                    </div>
@@ -146,7 +146,7 @@
 				                    		<h4 class="box_header">
 					                            loading <span>Screen</span>
 					                            
-					                        		<img src="img/help.png" class="helpText2"  rel="tooltip" title="Key active" id="blah">
+					                        		<img src="img/help.png" class="helpText2"  rel="tooltip" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen." id="blah">
 					                            <br>
 					                            <small>(JPEG/JPG, 640PX * 1136PX)</small>
 				                        	</h4>
