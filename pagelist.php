@@ -78,9 +78,6 @@
 						//decoding the json received after the registeration process
 						$result_array = json_decode($result,true);
 						
-						echo "<pre>";
-						print_r($result_array);
-
 						//if user is already registered and entry is not present in database
 						if( !$result_array['result']['status'] ) {
 							$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag) values('{$fbid}','{$name}','{$email}','{$access_token}',1) ");
