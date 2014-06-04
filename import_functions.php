@@ -928,7 +928,8 @@ $post_count = 0;
 		//status tells if the data has been posted or not
 		// print_r($item_count);
 		$item_count['output'] = $result_data['result']['status'];
-		print_r(json_encode($item_count));
+		// print_r(json_encode($item_count));
+		echo http_build_query($data);
 		// print_r($result_data['result']['status']);
 		// if( !$result_data['result']['status'] ) {	
 		// 	//if data has not been posted then stop the further execution
