@@ -53,80 +53,65 @@
     
     // Function that checks needed user permissions
     var checkPermissions = function() {
-      
-      FB.getLoginStatus(function(response) 
-       {
-        //If authorized...
-       if(response.status=="connected")
-        {
-         token = response.authResponse.accessToken;
+        FB.getLoginStatus(function(response) {
+            //If authorized...
+            if(response.status=="connected") {
+                token = response.authResponse.accessToken;
+                FB.api('/me/permissions', function(response) {
+                    var permsArray = response.data[0];
+                    var permsToPrompt = [];
+                    for (var i in permsNeeded) {
+                        if (permsArray[permsNeeded[i]] == null) {
+                            permsToPrompt.push(permsNeeded[i]);
+                        }
+                    }
+                    
+                    if (permsToPrompt.length > 0) {
+                        permsToPrompt.join(',');
+                        promptForPerms(permsToPrompt);
+                    } else {
 
-            FB.api('/me/permissions', function(response) {
-                var permsArray = response.data[0];
+                        console.log("Not Permissted");
 
+                        // window.location='pagelist.php';
+                    }
+                });
+            } else if (response.status === 'not_authorized') { //user is not authorized... Ask for permissions...
+                //loggin in...
                 var permsToPrompt = [];
-                for (var i in permsNeeded) 
-                {
-                  if (permsArray[permsNeeded[i]] == null) 
-                  {
+                for (var i in permsNeeded) {
                     permsToPrompt.push(permsNeeded[i]);
-                  }
                 }
-                
-                if (permsToPrompt.length > 0) 
-                {
-                    permsToPrompt.join(',');
-                  promptForPerms(permsToPrompt);
-                } else 
-                {
-                  window.location='pagelist.php';
-                }
-          });
-       }
-    //user is not authorized... Ask for permissions...
-       else if (response.status === 'not_authorized') 
-       {
-        //loggin in...
-
-         var permsToPrompt = [];
-            for (var i in permsNeeded) {
-              
-                permsToPrompt.push(permsNeeded[i]);
-            }
             
-            if (permsToPrompt.length > 0) {
-                permsToPrompt.join(',');
-              promptForPerms(permsToPrompt);
-            } else {
-              window.location='pagelist.php';
+                if (permsToPrompt.length > 0) {
+                    permsToPrompt.join(',');
+                    promptForPerms(permsToPrompt);
+                } else {
+                    console.log("Not Permissted 2");
+                    // window.location='pagelist.php';
+                }
+            } else { //Not logged in in fb....
+                alert("Please log in FB");
             }
-          
-       }
-       //Not logged in in fb....
-       else 
-         alert("Please log in FB");
-      });
-
-     
+        });
     };
     
     // Re-prompt user for missing permissions
     var promptForPerms = function(perms) {
         FB.login(function(response) {
           console.log(response);
-          window.location='pagelist.php';
+          // window.location='pagelist.php';
+          console.log("Permissted ");
         }, {scope: perms.join(',')});
     };
 
     var removePermissions = function(perms) {
-      FB.api(
-          {
+        FB.api({
             method: 'auth.revokeExtendedPermission',
-            perm: perms.join(',')
-          },
-          function(response) {
-            console.log(response);
-          }
-      ); 
+                perm: perms.join(',')
+            },
+            function(response) {
+                console.log(response);
+            }
+        ); 
     };
-
