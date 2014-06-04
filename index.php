@@ -150,7 +150,7 @@
 		?>
 				<div class="you-r">
 		        	<h3 style="text-align:center;"><img src="http://www.snaplion.com/landingpages/logoTheme.png"></h3>
-		               You Are Not Authorised to Use This App
+		            <h3 style="text-align:center;">You Are Not Authorised to Use This App. Get in touch with us at <a href="mailto:contact@snaplion.com" >contact@snaplion.com</a> to create your own App.</h3>
 		       	</div>
 		<?php
 			}
