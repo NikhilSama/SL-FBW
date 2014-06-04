@@ -278,7 +278,7 @@
 			$(document).ready(function(){
 			    $("[rel=tooltip]").tooltip({ placement: 'right'});
 
-			    $("[rel=tooltipl]").tooltip({ placement: 'left'});
+			    $("[rel=tooltipl]").tooltip({ placement: 'bottom'});
 			});
 		</script>
 	</body>
