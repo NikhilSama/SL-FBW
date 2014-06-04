@@ -99,6 +99,8 @@ submitList.on("click", function(){
 $("body").on("click", ".laterImport", function(event){
 	event.preventDefault();
 
+	circleLoader.show();
+
 	if(! ($(this).parents('.strip-12').find("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select checkbox first");
 	} else {
