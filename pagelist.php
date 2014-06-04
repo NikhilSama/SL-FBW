@@ -58,7 +58,6 @@
 					</div>
 			<?php
 				} else {
-			
 					//to register user at snaplion
 					//function to send the post request to register user
 					$db = new db_connect();
@@ -78,6 +77,9 @@
 						
 						//decoding the json received after the registeration process
 						$result_array = json_decode($result,true);
+						
+						echo "<pre>";
+						print_r($result_array);
 
 						//if user is already registered and entry is not present in database
 						if( !$result_array['result']['status'] ) {
