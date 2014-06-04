@@ -493,9 +493,8 @@ function crop(blob, obj) {
 								// dummyImage.onload = hideLoader();
 								//attch here a function to handle the checking if the image has been sent to snaplion server without any error
 								dummyImage.attr("src",new_InkBlob.url);
-								dummyImage.css({"width":"324px","height":"450px","margin-top":"0px","margin-left":"0px","top":"0px","left":"0px"});
+								// dummyImage.css({"width":"216px","height":"383px","margin-top":"0px","margin-left":"0px","top":"0px","left":"0px"});
 								dummyImage.attr("data-value","1");
-
 							} else if(target_element == "iconImage" ) {
 								iconUpload = new Object();
 								iconUpload.url = new_InkBlob.url;
@@ -506,10 +505,9 @@ function crop(blob, obj) {
 								// iconImage.onload = hideLoader();
 								//attch here a function to handle the checking if the image has been sent to snaplion server without any error
 								iconImage.attr("src",new_InkBlob.url);
-								iconImage.css({"width":"120px","height":"120px"});
+								// iconImage.css({"width":"102px","height":"102px"});
 								console.log(iconImage.data("value"));
 								iconImage.attr("data-value","1");
-
 							} else if(target_element == 'homeScreen') {	
 								homeUpload = new Object();
 								homeUpload.url = new_InkBlob.url;
