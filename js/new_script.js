@@ -225,12 +225,17 @@ $("body").on("click", "span.toggleradio",function(){
 	}
 });
 
-$(document).on("click", ".newAppRadio", function(){
-	pageInstall = new Object();
-	pageInstall.action = "install";
-	pageInstall.id = $(this).data("id");
-	pageInstall.pname = $(this).data("name");
-	sendAjaxRequest(pathToController,pageInstall,'html','installApp');
+$(document).on("click", "#selectedAppInstall", function(){
+	var selectedRadio = $('input[type=radio]:checked.newAppRadio');
+	if(selectedRadio.length) {
+		pageInstall = new Object();
+		pageInstall.action = "install";
+		pageInstall.id = selectedRadio.data("id");
+		pageInstall.pname = selectedRadio.data("name");
+		sendAjaxRequest(pathToController, pageInstall, 'html', 'installApp');	
+	} else {
+		alert("Please Select Atleast One Page To Install App on");
+	}
 });
 
 $("img.nextStep").on("click", function(){
@@ -695,6 +700,8 @@ function getPageList(msg) {
 				}
 
 				installedAppPages.prepend('<h4 class="install-heading">Install Facebook Wizard on your other pages?</h4>');
+
+				$('.uninstalledAppsNext').show();
 			}
 
 			for(var i = 0; i < installed.length; i++) {

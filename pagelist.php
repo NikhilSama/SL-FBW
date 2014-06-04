@@ -252,13 +252,13 @@
 
 					<!-- <div style="clear:left;"></div>
 					<hr class="hr-gray"> -->
-					<div class="uninstalledApps" style="display: none;width: 100%;">
+					<div class="uninstalledApps uninstalledAppsNext" style="display: none;width: 100%;">
 						<div class="hgroupnext">
 							<h2>Snaplion's Facebook Wizard </h2>
 							<h4>will be installed on your selected Facebook Page</h4>
 						</div>
 						<div class="button-lower">
-							<a href="#" class="btn-orange">Next</a>
+							<a href="#" class="btn-orange" id="selectedAppInstall">Next</a>
 						</div>
 					</div>
 				
