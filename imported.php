@@ -328,7 +328,7 @@
 				$(document).on('click', '#customButtonWithoutPayment', function(event){
 					event.preventDefault();
 
-					alert('Your app is not ready to be submitted please fill up ingredients first.');
+					alert('Your app is not ready to be submitted please fill up App Ingredients first.');
 				});
 
 				$(document).on('click', '.appIngredients', function(event){
