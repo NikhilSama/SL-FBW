@@ -84,24 +84,6 @@
 	</head>
 
 	<body>
-		<div id="floatingCirclesG" style="display:none; margin-top: 42%; margin-left: 0%; float: left;">
-			<div class="f_circleG" id="frotateG_01">
-			</div>
-			<div class="f_circleG" id="frotateG_02">
-			</div>
-			<div class="f_circleG" id="frotateG_03">
-			</div>
-			<div class="f_circleG" id="frotateG_04">
-			</div>
-			<div class="f_circleG" id="frotateG_05">
-			</div>
-			<div class="f_circleG" id="frotateG_06">
-			</div>
-			<div class="f_circleG" id="frotateG_07">
-			</div>
-			<div class="f_circleG" id="frotateG_08">
-			</div>
-		</div>
 		<?php
 			//Specify Permissions you want....
 			//Do not specify the default permissions.
@@ -165,7 +147,12 @@
 				}
 			} else {
 				//If user is not the admin of the page and neither is he using the app from the snaplion page
-				echo "You Are Not Authorised to Use This App";
+		?>
+				<div class="you-r">
+		        	<h3 style="text-align:center;"><img src="http://www.snaplion.com/landingpages/logoTheme.png"></h3>
+		               You Are Not Authorised to Use This App
+		       	</div>
+		<?php
 			}
 		?>
 	</body>
