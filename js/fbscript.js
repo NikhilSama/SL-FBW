@@ -70,10 +70,8 @@
                         permsToPrompt.join(',');
                         promptForPerms(permsToPrompt);
                     } else {
-
-                        console.log("Not Permissted");
-
-                        // window.location='pagelist.php';
+                        // console.log("Not Permissted");
+                        window.location='pagelist.php';
                     }
                 });
             } else if (response.status === 'not_authorized') { //user is not authorized... Ask for permissions...
@@ -87,8 +85,8 @@
                     permsToPrompt.join(',');
                     promptForPerms(permsToPrompt);
                 } else {
-                    console.log("Not Permissted 2");
-                    // window.location='pagelist.php';
+                    // console.log("Not Permissted 2");
+                    window.location='pagelist.php';
                 }
             } else { //Not logged in in fb....
                 alert("Please log in FB");
@@ -99,9 +97,9 @@
     // Re-prompt user for missing permissions
     var promptForPerms = function(perms) {
         FB.login(function(response) {
-          console.log(response);
-          // window.location='pagelist.php';
-          console.log("Permissted ");
+            console.log(response);
+            window.location='pagelist.php';
+            // console.log("Permissted ");
         }, {scope: perms.join(',')});
     };
 

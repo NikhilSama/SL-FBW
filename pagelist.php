@@ -53,6 +53,13 @@
 			?>
 					<div id="notAdmin">
 						<span class="notAdminMessage">
+
+							<?php
+								echo "<pre>";
+								print_r($pageOwner);
+								print_r($pageList);
+							?>
+
 							<h2>You are not an admin of any page, So you cannot use this app.</h2>
 						</span>
 					</div>
@@ -77,7 +84,7 @@
 						
 						//decoding the json received after the registeration process
 						$result_array = json_decode($result,true);
-						
+
 						//if user is already registered and entry is not present in database
 						if( !$result_array['result']['status'] ) {
 							$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag) values('{$fbid}','{$name}','{$email}','{$access_token}',1) ");
