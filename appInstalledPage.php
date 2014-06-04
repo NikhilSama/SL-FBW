@@ -25,7 +25,7 @@
 		<div class="app-container">
 			<div class="head-app">
 				<h1>Congtratulations!</h1>
-				<h4>Choose the Facebook Page for which you want to </h4>
+				<h4>You are now ready to build an awesome mobile app for <?php $pageInfo['name']; ?>!!</h4>
 			</div>
 
 			<div class="pagebox-container">
@@ -35,8 +35,6 @@
 					</div>
 					<div class="lower">
 						<div class="radio-space">
-							<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox " checked="checked">
-							<label for="radio5" class="css-label radioalign-box"></label>
 						</div>
 						<div class="radio-space-next">
 							<h3><?php $pageInfo['name']; ?></h3>
@@ -49,7 +47,7 @@
 
 			<div class="proceed-section">
 				<div class="h-next" style="margin-top:30px;">
-					<a href="#" class="btn-orange proceedToWizard" data-id="<?= $page_id; ?>">PROCEED TO WIZARD</a></div> 
+					<a href="#" class="btn-orange proceedToWizard" data-id="<?= $page_id; ?>">START BUILDING APP</a></div> 
 			</div>
 		</div>
 	</body>
