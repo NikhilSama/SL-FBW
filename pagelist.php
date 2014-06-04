@@ -290,6 +290,7 @@
 	    		$(document).on('click', '#retryPermissions', function(event){
 	    			event.preventDefault();
 
+	    			$('#loadingCircle').show();
 	    			checkPermissions();
 	    		});
 

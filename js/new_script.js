@@ -647,6 +647,7 @@ var uninstalledAppPage = $("#uninstalledAppPage");
 
 function getPageList(msg) {	
 	console.log(msg);
+	circleLoader.show();
 	if(msg) {
 		var parseOutput = JSON.parse(msg);
 		console.log(parseOutput);
@@ -715,7 +716,7 @@ function getPageList(msg) {
 			$('.installedApps').show();
 		}
 
-		$("#floatingCirclesG").hide();
+		circleLoader.hide();
 		$("#nextStep").css("display","block");
 	} else {
 		window.location = "pagelist.php";
