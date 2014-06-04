@@ -8,72 +8,65 @@
 	$fbObject = new FBMethods();
 	//Sets Access token got from previous page....
 	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
-
-
 ?>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 	<head>
-	    <meta charset="utf-8">
-
-	    <!-- Bootstrap 2.3.2 -->
-	    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-	    <!-- Your CSS -->
-	    <link rel="stylesheet" href="css/style.css">
-
-	    <style>
-
-
-</style>
+		<title>SnapLion Facebook Wizard</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/checkbox.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 	</head>
+
 	<body>
-	<div id="snaplion_logo">	
-		<img id="checkPerms" src="img/button.png" alt="">
-		<div id="floatingCirclesG" style="display:none; margin-top: 42%; margin-left: 0%; float: left;">
-			<div class="f_circleG" id="frotateG_01">
+		<div class="starting-container">
+			<div class="starting-lower">
+				<h4>Facebook Wizard</h4>
+				<h3>Now Build Your Mobile App </h3>
+				<h5>	From Your Facebook Page<br>
+					In <span>Minutes</span></h5>
+				<a href="#" class="btn-orange" id="checkPerms">GET STARTED </a>		
 			</div>
-			<div class="f_circleG" id="frotateG_02">
+			<div id="slideshow">
+				<div>
+					<img src="img/photo-1.png">
+				</div>
+				<div>
+					<img src="img/photo-2.png">
+				</div>
+				<div>
+					<img src="img/photo-3.png">
+				</div>
+				<div>
+					<img src="img/photo-4.png">
+				</div>
 			</div>
-			<div class="f_circleG" id="frotateG_03">
-			</div>
-			<div class="f_circleG" id="frotateG_04">
-			</div>
-			<div class="f_circleG" id="frotateG_05">
-			</div>
-			<div class="f_circleG" id="frotateG_06">
-			</div>
-			<div class="f_circleG" id="frotateG_07">
-			</div>
-			<div class="f_circleG" id="frotateG_08">
-			</div>
-		</div> 
-	</div>
+		</div>
 		<?php 
 			// Facebook JS
 			echo $fbObject->getFBScript();
 		?>
 		<script type='text/javascript' src='./js/fbscript.js'></script>
-		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
-	<script>
-		/*document.getElementById("login").onclick = function() {
-      FB.login(function(response) {
-        console.log(response);
-      }, {scope: permsNeeded.join(',')});
-    };*/
-
-    $(document).ready(function(){
-    	$("#floatingCirclesG").hide();	
-    });
-    document.getElementById('checkPerms').onclick = function() 
-    {
-    	$("#floatingCirclesG").show();
-      checkPermissions();
-    };
-
-    /*document.getElementById('removePerms').onclick = function() {
-      removePermissions(['read_stream']);
-    };*/
-    </script>
 	</body>
+	<script>
+		$("#slideshow > div:gt(0)").hide();
+
+		setInterval(function() { 
+		  $('#slideshow > div:first')
+		    .fadeOut(1000)
+		    .next()
+		    .fadeIn(1000)
+		    .end()
+		    .appendTo('#slideshow');
+		},  3000);
+
+		$(document).ready(function(){
+	    	$("#floatingCirclesG").hide();	
+	    });
+	    document.getElementById('checkPerms').onclick = function() {
+	    	$("#floatingCirclesG").show();
+	      checkPermissions();
+	    };
+	</script>
 </html>
