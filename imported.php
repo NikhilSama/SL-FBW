@@ -267,7 +267,7 @@
 					?>
 							<script src="https://checkout.stripe.com/checkout.js"></script>
 							<!-- <button id="customButton" src="img/makePayment.png"></button> -->
-							<a href="#" id="customButton" class="btn-orange">Make Payment</a>
+							<a href="#" id="customButton" class="btn-orange">Submit App</a>
 							<!-- <a href="payment.php"><img src="img/makePayment.png" alt=""></a> -->
 
 							<script>

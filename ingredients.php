@@ -11,14 +11,10 @@
 	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
 
 	$db = new db_connect();
-
 	$snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
 	//function to get ingredients data
 	$ingredient_data = getIngredientData($snap_data);
-	$payment_data = $db->execute_query("SELECT payment_flag from ".PAGE." where page_id=".$_SESSION['pageid']);
-	$payment_flag = $payment_data[0]['payment_flag'];
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -29,28 +25,10 @@
 		<!-- <link rel="stylesheet" href="css/ingredients.css"> -->
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 		<link rel="stylesheet" href="css/jquery.Jcrop.css">
-		<title>Document</title>
+		<title>SnapLion Facebook Wizard</title>
 	</head>
 
 	<body>
-		<div id="floatingCirclesG" style="display:none; margin-left: 20%; position:absolute; ">
-			<div class="f_circleG" id="frotateG_01">
-			</div>
-			<div class="f_circleG" id="frotateG_02">
-			</div>
-			<div class="f_circleG" id="frotateG_03">
-			</div>
-			<div class="f_circleG" id="frotateG_04">
-			</div>
-			<div class="f_circleG" id="frotateG_05">
-			</div>
-			<div class="f_circleG" id="frotateG_06">
-			</div>
-			<div class="f_circleG" id="frotateG_07">
-			</div>
-			<div class="f_circleG" id="frotateG_08">
-			</div>
-		</div>
 		<div id="ingredientsPage" class="container-fluid main_content">
 
 			<div id="crop_modal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="crop_modal_header" aria-hidden="true">
@@ -65,98 +43,14 @@
 					<button class="btn btn-primary btn-disabled"  disabled="true">Loading image...</button>
 				</div>
 			</div>
-			
 
-			<div id="helpInformation">
-				<div class="tooltipArrow"></div>
-				<div class="tooltipInner"></div>
-			</div>
+
+
+
 
 			<div class="ingredientsForm ingredients row-fluid">
 
-				<div id="images" class="span6">
-					<div id="image_container" class="span11 offset1">
-						<div class="upload_image_box app_icon">
-		                    <div class="text">
-		                        <h4 class="box_header">
-		                            App <span>Icon</span>
-		                            <br>
-		                            <small>(JPEG/JPG, MIN 1024PX * 1024PX)</small>
-		                        </h4>
-								
-		                        <div class="upload_button_wrapper">
-		                            <a href="#" class="iconUpload" data-input-field-id="app_icon"  data-cropping="true" data-cropping-min-width="1024" data-cropping-min-height="1024" data-preview-id="app_icon_preview"><img src="img/upload.png" alt=""></a>
-		                            <img src="img/help.png" class="imageHelpText" alt="">
-
-							
-		                            <span class="has-tooltip" data-toggle="tooltip" title="App icon is the small icon image that shows up on your phone along with app name.  When you tap on this icon image, your app will load on the phone."><!-- <i class="icon-question-sign"> --></i></span>
-		                        </div>
-		                    </div>
-
-		                    <div class="radio">
-		                        <div id="app_icon_preview">
-		                        	<img class="iconImage" style="width:120px" src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" >
-		                        </div>
-		                        <div class="gloss">
-			                        <label>
-			                            <input type="checkbox" class="add-gloss">
-			                            Apply Gloss to App icon <br>(iPhone Only)
-			                        </label>
-		                        </div>
-		                    </div>
-
-		                </div>
-
-		                <div class="upload_image_box splash_screen">
-		                    <div class="text">
-		                        <h4 class="box_header">
-		                            Splash <span>Screen</span>
-		                            <br>
-		                            <small>(JPEG/JPG, MIN 640PX * 1136PX)</small>
-		                        </h4>
-
-		                        <div class="upload_button_wrapper">
-		                            <a href="#" class="splash-upload" data-input-field-id="appSplashImage" data-cropping="true" data-cropping-min-width="640" data-cropping-min-height="1136" data-preview-id="splash_preview"><img class="splashImage" src="img/upload.png" alt=""></a>
-		                            <img src="img/help.png" class="imageHelpText" alt="">
-									
-		                            <span class="has-tooltip" data-toggle="tooltip" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen."></span>
-		                            
-		                        </div>
-		                    </div>
-
-		                    <div class="preview" id="splash_preview">
-		                        <div class="dummy_image_wrapper">
-		                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:324px; height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
-		                        </div>
-		                    </div>
-		                </div>
-
-		                <!-- <div class="upload_image_box home_screen">
-		                    <div class="text">
-		                        <h4 class="box_header">
-		                            Home <span>Screen</span>
-		                            <br>
-		                            <small>(JPEG/JPG, MIN 640PX * 1136PX)</small>
-		                        </h4>
-
-		                        <div class="upload_button_wrapper">
-		                            <a href="#" class="home-upload" data-input-field-id="appHomeImage" data-cropping="true" data-cropping-min-width="640" data-cropping-min-height="1136" data-preview-id="home_preview"><img class="homeImage" src="img/upload.png" alt=""></a>
-		                            <img src="img/help.png" class="imageHelpText" alt="">
-
-		                            <span class="has-tooltip" data-toggle="tooltip" title="Home is the first screen that shows when a user opens your app"></span>
-		                            
-		                        </div>
-		                    </div>
-
-		                    <div class="preview" id="home_preview">
-		                        <div class="dummy_image_wrapper">
-		                            <img src="<?php //if($ingredient_data['home_screen']){ echo $ingredient_data['home_screen']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['home_screen']){ echo "style='width: 100%;height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px; width:324px; '"; } ?>data-value="<?php if($ingredient_data['home_screen']){echo 1;} else {echo 0;} ?>" alt="" class="homedummy_image">
-		                        </div>
-		                    </div>
-		                </div> -->
-
-					</div>
-				</div> <!-- ingredients images ends -->
+				
 					
 				<div id="fields"  class="span6 ingredients_form">
 					<div id="image_container" class="span12">
@@ -237,14 +131,223 @@
 		                </form>
 					</div>
 				</div>  <!-- ingredients form ends -->
-				
-				<?php if(! $payment_flag ) { ?>
-					<!-- <div class="paymentLink center">
-						<a href="payment.php"><img src="img/makePayment.png" alt=""></a>
-					</div> -->
-				<?php } ?>
+			</div>
+
+
+
+
+			<div class="ingredientsForm ingredients row-fluid">
+				<form class="form" id="IngredientChangeForm" method="post">
+					<h4 class="app-ing">App ingredients</h4>
+
+
+
+
+
+
+						<!-- <div id="image_container" class="span11 offset1">
+							
+
+			                <div class="upload_image_box splash_screen">
+			                    <div class="text">
+			                        <h4 class="box_header">
+			                            Splash <span>Screen</span>
+			                            <br>
+			                            <small>(JPEG/JPG, MIN 640PX * 1136PX)</small>
+			                        </h4>
+
+			                        <div class="upload_button_wrapper">
+			                            <a href="#" class="splash-upload" data-input-field-id="appSplashImage" data-cropping="true" data-cropping-min-width="640" data-cropping-min-height="1136" data-preview-id="splash_preview"><img class="splashImage" src="img/upload.png" alt=""></a>
+			                            <img src="img/help.png" class="imageHelpText" alt="">
+										
+			                            <span class="has-tooltip" data-toggle="tooltip" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen."></span>
+			                        </div>
+			                    </div>
+
+			                    <div class="preview" id="splash_preview">
+			                        <div class="dummy_image_wrapper">
+			                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:324px; height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
+			                        </div>
+			                    </div>
+			                </div>
+						</div> -->
+
+
+
+					<div id="images" class="span-6">
+						<div id="image_container" class="span11 offset1">
+
+							<!-- <div class="upload_image_box app_icon">
+			                    <div class="text">
+			                        <h4 class="box_header">
+			                            App <span>Icon</span>
+			                            <br>
+			                            <small>(JPEG/JPG, MIN 1024PX * 1024PX)</small>
+			                        </h4>
+									
+			                        <div class="upload_button_wrapper">
+			                            <a href="#" class="iconUpload" data-input-field-id="app_icon"  data-cropping="true" data-cropping-min-width="1024" data-cropping-min-height="1024" data-preview-id="app_icon_preview"><img src="img/upload.png" alt=""></a>
+			                            <img src="img/help.png" class="imageHelpText" alt="">
+
+								
+			                            <span class="has-tooltip" data-toggle="tooltip" title="App icon is the small icon image that shows up on your phone along with app name.  When you tap on this icon image, your app will load on the phone.">
+			                            </i></span>
+			                        </div>
+			                    </div>
+
+			                    <div class="radio">
+			                        <div id="app_icon_preview">
+			                        	<img class="iconImage" style="width:120px" src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" >
+			                        </div>
+			                        <div class="gloss">
+				                        <label>
+				                            <input type="checkbox" class="add-gloss">
+				                            Apply Gloss to App icon <br>(iPhone Only)
+				                        </label>
+			                        </div>
+			                    </div>
+			                </div> -->
+
+
+
+
+
+
+
+							<div class="upload_image_box app_icon">
+			                    <div class="text">
+			                    	<div class="app-icon-data">
+				                        <h4 class="box_header">
+				                            App <span>Icon</span>
+				                            <img src="img/help.png" class="helpText2"  rel="tooltip" title="Key active" id="blah">
+				                            <br>
+				                            <small>(JPEG/JPG, 1024PX * 1024PX)</small>
+				                        </h4>
+
+				                        <div class="upload_button_wrapper">
+				                            <a href="#" class="iconUpload" data-input-field-id="app_icon"  data-cropping="true" data-cropping-min-width="1024" data-cropping-min-height="1024" data-preview-id="app_icon_preview"><img src="img/upload.png" alt=""></a>									
+				                            <span class="has-tooltip" data-toggle="tooltip" title="App icon is the small icon image that shows up on your phone along with app name.  When you tap on this icon image, your app will load on the phone."><!-- <i class="icon-question-sign"> --></i></span>
+				                        </div>
+			                        </div>
+			                        <div class="app-icon-show">
+			                    		<img src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" style="width:102px;" class="iconImage">
+			                    	</div>
+			                    </div>
+
+			                   <!--  <div class="radio">
+			                        <div id="app_icon_preview">
+			                        	<img class="iconImage" style="width:120px" src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" >
+			                        </div>
+			                    </div> -->
+			                </div>
+			                <div class="row field">
+	                        	<div class="span10 offset1 ml-22">
+	                        		<label for="IngredientName">App Icon Name</label>
+	                        		<input required id="appName" value="" placeholder="App Name" class="input-block-level span10 required" maxlength="12" minlength="3" type="text" id="IngredientName"/>
+	                        	</div>
+
+	                        	<div class="tooltip_wrapper">
+	                        		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+	                            	<span data-tooltip class="has-tip" data-width="200px" title="This is the name of your mobile app that appears below the app icon on the phone screen. Maximum 12 Characters."><!-- <i class="icon-question-sign"></i> --></span>   
+	                        	</div>
+	                   		</div>
+
+		                    <div class="row field">
+		                        <div class="span10 offset1 ml-22">
+		                        	<label for="IngredientTitle">App Store Title</label>
+		                        	<input id="appTitle" required  value=""  placeholder="App Title" class="input-block-level span10 required" maxlength="100" minlength="5" type="text" id="IngredientTitle"/>
+		                        </div>
+
+		                        <div class="tooltip_wrapper">
+		                        	<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                            <span data-tooltip class="has-tip" data-width="200px" title="This is the title of your mobile app that appears on iTunes/Android store. Maximum 100 Characters"><!-- <i class="icon-question-sign"></i> --></span> 
+		                        </div>
+		                    </div>
+			                    
+		                    <div class="row field">
+		                        <div class="span10 offset1 ml-22">
+		                        	<label for="IngredientDescription">App Description</label>
+		                        	<textarea id="appDescription"  placeholder="App Description" required class="input-block-level span10 required" maxlength="4000" minlength="10" cols="30" rows="3" ></textarea>
+		                        </div>
+		                    	<div class="tooltip_wrapper">
+		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                            <span data-tooltip class="has-tip" data-width="200px" title="This is the description of your mobile app that appears on iTunes/Android store. Maximum 1000 Characters"><!-- <i class="icon-question-sign"> --></i></span>  
+		                    	</div>
+		                    </div>
+				                    
+		                    <div class="row field">
+		                        <div class="span10 offset1 ml-22">
+		                        	<label for="IngredientAppOfficialWebsite">Website URL</label>
+		                        	<input id="appUrl" required  value="" type="url" placeholder="App Website URL" class="input-block-level span10 url url_validate" id=""/>
+		                    	</div>
+
+		                    	<div class="tooltip_wrapper">
+		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                        	<span data-tooltip class="has-tip" data-width="200px" title="This is the app's website URL"><!-- <i class="icon-question-sign"> --></i></span>
+		                    	</div>
+		                	</div>
+				                    
+		                    <div class="row field">
+		                        <div class="span10 offset1 ml-22">
+		                        	<label for="IngredientAppKeywords">App Keywords</label>
+		                        	<input id="keyWords" required  value="<?php if($ingredient_data['appKeywords']) {echo $ingredient_data['appKeywords'];} ?>"  placeholder="App Keywords" class="input-block-level span10 required" maxlength="255" type="text" value="" id="IngredientAppKeywords"/>
+		                        </div>
+
+		                        <div class="tooltip_wrapper">
+		                        	<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
+		                            <span data-tooltip class="has-tip" data-width="200px" title="This list of keywords will enable people to search and find your app on the iTunes and Android store.  Enter a list of all the search terms that you feel users might search for when looking for your app"><!-- <i class="icon-question-sign"> --></i></span>
+		                        </div>  
+		                    </div>
+		                </div>
+					</div> <!-- ingredients images ends -->
+					
+					<div id="fields"  class="span-6-right ingredients_form">
+						<div id="image_container" class="span12">
+							<div style="display:none;">
+								<input type="hidden" name="_method" value="PUT"/>
+							</div>
+
+							<fieldset>
+								<div class="upload_image_box splash_screen splashscreen-size mb-0">
+				                    <div class="text2" >
+				                    	<div class="left_section_text">
+				                    		<h4 class="box_header">
+					                            loading <span>Screen</span>
+					                            
+					                        		<img src="img/help.png" class="helpText2"  rel="tooltip" title="Key active" id="blah">
+					                            <br>
+					                            <small>(JPEG/JPG, 640PX * 1136PX)</small>
+				                        	</h4>
+
+				                    	</div>
+				                    	<div class="right_section_text">
+				                    		<div class="upload_button_wrapper">
+					                            <a href="#" class="splash-upload" data-input-field-id="appSplashImage" data-cropping="true" data-cropping-min-width="640" data-cropping-min-height="1136" data-preview-id="splash_preview"><img class="splashImage" src="img/upload.png" alt=""></a>
+					                           <!--  <img src="img/help.png" class="imageHelpText" alt=""> -->
+												
+					                            <span class="has-tooltip" data-toggle="tooltip" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen."></span>
+					                            
+					                        </div>
+				                    	</div>
+				                        
+				                    </div>
+
+				                    <div class="preview" id="splash_preview">
+				                        <div class="dummy_image_wrapper">
+				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'img/dummy_image.jpg'; ?> " <?php if($ingredient_data['appSplashImage']){ echo "style='width: 100%; width:324px; height:450px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;'"; } ?>data-value="<?php if($ingredient_data['appSplashImage']){echo 1;} else {echo 0;} ?>" alt="" class="dummy_image">
+				                        </div>
+				                    </div>
+			                	</div>
+		                    </fieldset>
+						</div>
+					</div>  <!-- ingredients form ends -->
+					<div class="span12 text-center mb-10">
+						<button type="button" class="btn btn-large btn-primary">Save</button>
+					</div>
+				</form>
 			</div>
 		</div> <!-- container-fluid ends -->
+
 		<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -329,34 +432,6 @@
 					});
 					$("#filepicker_dialog_container").css('top','600px');
 				});
-
-				// $(".home-upload").click(function() {
-				// 	filepicker.pick(function(InkBlob){
-				// 		filepicker.stat(InkBlob, {width: true, height: true},
-				// 		 function(metadata){
-				// 		   // console.log(JSON.stringify(metadata));
-
-				// 		   if(metadata.width >= 640 && metadata.height >= 1136)
-				// 		   {
-
-				// 				var homeObject = new Object();
-				// 				homeObject.min_width = 640;
-				// 				homeObject.true_width = metadata.width;
-				// 				homeObject.min_height = 1136;
-				// 				homeObject.true_height = metadata.height;
-				// 				homeObject.target_element = 'homeScreen';
-				// 				homeObject.input_field = '';
-				// 	  			crop(InkBlob,homeObject);
-				// 	  		} else
-				// 		  	{
-				// 		  		alert("The Home Screen dimesnions are not correct. Minimum size required 640x1136 PX");
-				// 		  	}
-				// 		});
-				// 	});
-				// 	$("#filepicker_dialog_container").css('top','1150px');
-
-				// });
-
 			});
 		</script>
 		<script src="js/jquery.Jcrop.js"></script>
@@ -364,7 +439,10 @@
 			// Facebook JS
 			echo $fbObject->getFBScript();
 		?>
+		<script>
+			$(document).ready(function(){
+			    $("[rel=tooltip]").tooltip({ placement: 'top'});
+			});
+		</script>
 	</body>
-	
 </html>
-

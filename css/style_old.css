@@ -563,7 +563,7 @@ div.untick
 }
 div.tick
 {
-	background-image: url(../img/tick_old.png);
+	background-image: url(../img/tick.png);
 
 }
 div.alreadyImported
@@ -655,9 +655,7 @@ div.untick ~ div.itemNameInfo
 
 .ingredientsForm
 {
-	margin-top: 18%;
-	/* color: white; */
-	padding-top: 23px;
+	padding-top:0;
 	margin-left: auto;
 	width: 90%;
 	margin-right: auto;
@@ -706,20 +704,21 @@ button.finish
 	text-transform: uppercase;
 	font-weight: 300;
 	margin-top: 30px;
-	font-size: 22px;
+	font-size: 16px;
 }
 
 .main_content .upload_image_box .text .upload_button_wrapper 
 {
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 /* Ingredients */
 .ingredients .upload_image_box 
 {
 	margin-left: 0;
-	margin-bottom: 12px;
+	margin-bottom: 30px;
 	border-color: #ccc;
+	width: 340px;
 }
 
 .ingredients .upload_image_box .text 
@@ -728,12 +727,23 @@ button.finish
 	padding-left: 30px;
 	border-bottom: 1px solid #ccc;
 	border-right: none;
+	min-height: 101px;
+}
+.ingredients .upload_image_box .text2 
+{
+	height: auto;
+	padding-left: 30px;
+	border-bottom: 1px solid #ccc;
+	border-right: none;
+	min-height: 122px;
+	background-color: #EEE;
 }
 
 .ingredients .upload_image_box .text .box_header 
 {
-	margin-top: 20px;
+	margin-top: 0;
 	text-align: left;
+	font-size: 14px;
 }
 
 .ingredients .upload_image_box .radio 
@@ -744,15 +754,14 @@ button.finish
 
 .ingredients .upload_image_box.splash_screen .text 
 {
-	height: 120px;
-	padding-bottom: 30px;
+	padding-bottom: 0;
 }
 
 .ingredients .upload_image_box .preview 
 {
 	background: #fff;
 	min-height: 250px;
-	height: 450px;
+	height: 383px;
 }
 
 .ingredients .upload_image_box .preview .dummy_image,.ingredients .upload_image_box .preview .homedummy_image  
@@ -869,7 +878,7 @@ input.orangebut
 .helpText
 {
 	margin-left: -5%;
-	margin-top: 7%;
+	margin-top: 30px;
 }
 
 /*--------------------------------*/
@@ -1325,4 +1334,64 @@ line-height: 14px;
 #filepicker_dialog_container
 {
 	/*top: 300px !important;*/
+}
+h4 small {
+	font-size: 10px;
+}
+.app-icon-data {
+	width: 152px;
+	float: left;
+}
+.app-icon-show {
+	float: right;
+}
+.left_section_text {
+	width: 177px;
+	float: left;
+}
+.right_section_text {
+	width: 120px;
+	float: left;
+	margin-right: 10px;
+}
+.app-ing {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+.save-btn {
+	margin-right: 50px;
+	margin-bottom: 10px;
+	float: right;
+}
+.splashscreen-size {
+	width: 216px !important;
+	float: right;
+	margin-right: 50px;
+}
+.text2 h4 {
+	font-size: 14px !important;
+	text-transform: uppercase;
+	font-weight: 200;
+}
+.span-6 {
+	width: 410px !important;
+	float: left !important;
+}
+.span-6-right {
+	width: 288px !important;
+	float: right !important;
+}
+.ml-22{
+	margin-left: 22px !important;
+}
+.mb-10{
+	margin-bottom: 10px;
+}
+.mb-0{
+	margin-bottom: 0 !important;
+}
+.helpText2 {
+	margin-left: 20px;
 }
