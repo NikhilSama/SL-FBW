@@ -265,7 +265,7 @@
 				</div>
 
 				<div class="button-group">
-					<a href="ingredients.php" class="btn-orange">App Ingredients</a>
+					<a href="ingredients.php" class="btn-orange appIngredients">App Ingredients</a>
 					<?php 
 						if(! $payment_flag && $ingredients_flag) { 
 					?>
@@ -329,6 +329,10 @@
 					event.preventDefault();
 
 					alert('Your app is not ready to be submitted please fill up ingredients first.');
+				});
+
+				$(document).on('click', '.appIngredients', function(event){
+					$('#loadingCircle').show();
 				});
 
 				$(".importItems").each(function(){

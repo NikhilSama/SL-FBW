@@ -29,7 +29,7 @@
 	</head>
 
 	<body>
-		<div class="loader-bg-main" id="loadingCircle">
+		<div class="loader-bg-main" id="loadingCircle" style="position: relative;">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
 		</div>
 		<div id="ingredientsPage" class="container-fluid main_content">
