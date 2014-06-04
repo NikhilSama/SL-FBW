@@ -927,6 +927,7 @@ $post_count = 0;
 
 		//status tells if the data has been posted or not
 		// print_r($item_count);
+		print_r($result_data);
 		$item_count['output'] = $result_data['result']['status'];
 		print_r(json_encode($item_count));
 		// print_r($result_data['result']['status']);
