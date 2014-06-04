@@ -670,6 +670,7 @@ function getPageList(msg) {
 
 				var uninstalledNewPageHtml = uninstalledNewPage.html();
 				for(var k = 0; k < uninstalled.length; k++) {
+					console.log(uninstalledNewPageHtml);
 					uninstalledNewPageHtml.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledNewPageHtml.find(".pageName").text(uninstalled[k].name);
 					uninstalledNewPageHtml.find(".pageCategory").text(uninstalled[k].category);
