@@ -34,8 +34,6 @@
 						<img src="<?= 'https://graph.facebook.com/'.$page_id.'/picture?height=100&width=100' ?>" class="icon-img">
 					</div>
 					<div class="lower">
-						<div class="radio-space">
-						</div>
 						<div class="radio-space-next">
 							<h3><?php echo $pageInfo['name']; ?></h3>
 							<h4>Likes - <?php echo $pageInfo['likes']; ?></h4>
