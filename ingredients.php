@@ -33,7 +33,7 @@
 			<div class="loader-bg-main" id="loadingCircle">
 				<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
 			</div>
-		
+
 			<div id="crop_modal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="crop_modal_header" aria-hidden="true">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -265,6 +265,8 @@
 					});
 					$("#filepicker_dialog_container").css('top','100px');
 				});
+				
+				$('#loadingCircle').hide();
 			});
 		</script>
 		<script src="js/jquery.Jcrop.js"></script>
