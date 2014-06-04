@@ -49,20 +49,13 @@
 			</div>
 			<?php
 				//if user is not the admin of any page
-				if(empty($pageList['data'])) {
+				if(!isset($pageOwner['email'])) {
 			?>
-					<div id="notAdmin">
-						<span class="notAdminMessage">
-
-							<?php
-								echo "<pre>";
-								print_r($pageOwner);
-								print_r($pageList);
-							?>
-
-							<h2>You are not an admin of any page, So you cannot use this app.</h2>
-						</span>
-					</div>
+					<div><h2>We need your email to create your mobile app account.</h2></div>
+			<?php
+				} elseif(empty($pageList['data'])) {
+			?>
+					<div><h2>You are not an admin of any page, So you cannot use this app.</h2></div>
 			<?php
 				} else {
 					//to register user at snaplion
