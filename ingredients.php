@@ -146,7 +146,7 @@
 				                    		<h4 class="box_header">
 					                            loading <span>Screen</span>
 					                            
-					                        		<img src="img/help.png" class="helpText2 tooltipRight"  rel="tooltip" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen." id="blah">
+					                        		<img src="img/help.png" class="helpText2 tooltipRight"  rel="tooltipl" title="Splash Screen (also called Loading Image) is the first screen that opens up (albeit for a few seconds) at the time of app launch.  This screen stays open for a few seconds only while your app loads, then dissapears as your app takes over the phone screen." id="blah">
 					                            <br>
 					                            <small>(JPEG/JPG, 640PX * 1136PX)</small>
 				                        	</h4>
@@ -277,6 +277,8 @@
 		<script>
 			$(document).ready(function(){
 			    $("[rel=tooltip]").tooltip({ placement: 'right'});
+
+			    $("[rel=tooltipl]").tooltip({ placement: 'left'});
 			});
 		</script>
 	</body>
