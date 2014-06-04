@@ -181,7 +181,7 @@
 	if( isset($_POST['param']) && $_POST['param'] == "submitIngredients" ) {
 		$snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
 
-		$db->execute_query( "UPDATE ".PAGE." set ingredients_flag=1 where page_id=".$page_id);
+		$db->execute_query( "UPDATE ".PAGE." set ingredients_flag=1 where page_id=".$_SESSION['pageid']);
 		//creating the array for submitting the data 
 		$ingredients_data = array(
 			"key"                => KEY,
