@@ -48,7 +48,7 @@
 
 
 
-			<div class="ingredientsForm ingredients row-fluid">
+			<!-- <div class="ingredientsForm ingredients row-fluid">
 
 				
 					
@@ -71,7 +71,8 @@
 
 		                        	<div class="tooltip_wrapper">
 		                        		<img src="img/help.png" class="helpText" alt="">
-		                            	<span data-tooltip class="has-tip" data-width="200px" title="This is the name of your mobile app that appears below the app icon on the phone screen. Maximum 12 Characters."><!-- <i class="icon-question-sign"></i> --></span>   
+		                            	<span data-tooltip class="has-tip" data-width="200px" title="This is the name of your mobile app that appears below the app icon on the phone screen. Maximum 12 Characters.">
+		                            	</span>   
 		                        	</div>
 
 		                   		</div>
@@ -84,7 +85,8 @@
 
 			                        <div class="tooltip_wrapper">
 			                        	<img src="img/help.png" class="helpText" alt="">
-			                            <span data-tooltip class="has-tip" data-width="200px" title="This is the title of your mobile app that appears on iTunes/Android store. Maximum 100 Characters"><!-- <i class="icon-question-sign"></i> --></span> 
+			                            <span data-tooltip class="has-tip" data-width="200px" title="This is the title of your mobile app that appears on iTunes/Android store. Maximum 100 Characters">
+			                            </span> 
 			                        </div>
 			                    </div>
 		                    
@@ -95,7 +97,8 @@
 			                        </div>
 			                    	<div class="tooltip_wrapper">
 			                    		<img src="img/help.png" class="helpText" alt="">
-			                            <span data-tooltip class="has-tip" data-width="200px" title="This is the description of your mobile app that appears on iTunes/Android store. Maximum 1000 Characters"><!-- <i class="icon-question-sign"> --></i></span>  
+			                            <span data-tooltip class="has-tip" data-width="200px" title="This is the description of your mobile app that appears on iTunes/Android store. Maximum 1000 Characters">
+			                            </i></span>  
 			                    	</div>
 
 			                    </div>
@@ -108,7 +111,8 @@
 
 			                    	<div class="tooltip_wrapper">
 			                    		<img src="img/help.png" class="helpText" alt="">
-			                        	<span data-tooltip class="has-tip" data-width="200px" title="This is the app's website URL"><!-- <i class="icon-question-sign"> --></i></span>
+			                        	<span data-tooltip class="has-tip" data-width="200px" title="This is the app's website URL">
+			                        	</i></span>
 			                    	</div>
 			                	</div>
 			                    
@@ -120,7 +124,8 @@
 
 			                        <div class="tooltip_wrapper">
 			                        	<img src="img/help.png" class="helpText" alt="">
-			                            <span data-tooltip class="has-tip" data-width="200px" title="This list of keywords will enable people to search and find your app on the iTunes and Android store.  Enter a list of all the search terms that you feel users might search for when looking for your app"><!-- <i class="icon-question-sign"> --></i></span>
+			                            <span data-tooltip class="has-tip" data-width="200px" title="This list of keywords will enable people to search and find your app on the iTunes and Android store.  Enter a list of all the search terms that you feel users might search for when looking for your app">
+			                            </i></span>
 			                        </div>  
 			                    </div>
 		                    
@@ -130,9 +135,9 @@
 		                    </fieldset>
 		                </form>
 					</div>
-				</div>  <!-- ingredients form ends -->
+				</div> 
 			</div>
-
+ -->
 
 
 
