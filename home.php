@@ -16,14 +16,17 @@
 		<title>SnapLion Facebook Wizard</title>
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/checkbox.css" rel="stylesheet">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
 	</head>
 
 	<body>
+		<div class="loader-bg-main">
+			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+		</div>
 		<div class="starting-container">
 			<div class="starting-lower">
-				<h4>Facebook Wizard</h4>
-				<h3>Now Build Your Mobile App </h3>
+				<h4>Mobile App Builder</h4>
+				<h3>Build an iPhone & Android Mobile App</h3>
 				<h5>	From Your Facebook Page<br>
 					In <span>Minutes</span></h5>
 				<a href="#" class="btn-orange" id="checkPerms">GET STARTED </a>		
