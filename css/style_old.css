@@ -649,8 +649,7 @@ div.untick ~ div.itemNameInfo
 {
 	background-image: url(../img/ingredients.png);
 	background-repeat: no-repeat;
-	min-height: 1200px;
-
+	/*min-height: 1200px;*/
 }
 
 .ingredientsForm

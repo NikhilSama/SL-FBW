@@ -44,103 +44,6 @@
 				</div>
 			</div>
 
-
-
-
-
-			<!-- <div class="ingredientsForm ingredients row-fluid">
-
-				
-					
-				<div id="fields"  class="span6 ingredients_form">
-					<div id="image_container" class="span12">
-						<form class="form" id="IngredientChangeForm" method="post">
-							<div style="display:none;">
-								<input type="hidden" name="_method" value="PUT"/>
-							</div>
-
-							<fieldset>
-		                    	
-								<h3 class="appInfo normalFont"><span class="greyFont">App</span> <span class="blueFont">Information</span></h3>
-		                    	<div class="row field">
-		                        	<div class="span10 offset1">
-		                        		<label for="IngredientName">App Icon Name</label>
-		                        		<input required id="appName" value="<?php if($ingredient_data['name']) {echo $ingredient_data['name'];} ?>" placeholder="App Name" class="input-block-level span10 required" maxlength="12" minlength="3" type="text" id="IngredientName"/>
-		                        		
-		                        	</div>
-
-		                        	<div class="tooltip_wrapper">
-		                        		<img src="img/help.png" class="helpText" alt="">
-		                            	<span data-tooltip class="has-tip" data-width="200px" title="This is the name of your mobile app that appears below the app icon on the phone screen. Maximum 12 Characters.">
-		                            	</span>   
-		                        	</div>
-
-		                   		</div>
-
-			                    <div class="row field">
-			                        <div class="span10 offset1">
-			                        	<label for="IngredientTitle">App Store Title</label>
-			                        	<input id="appTitle" required  value="<?php if($ingredient_data['title']) {echo $ingredient_data['title'];} ?>"  placeholder="App Title" class="input-block-level span10 required" maxlength="100" minlength="5" type="text" id="IngredientTitle"/>
-			                        </div>
-
-			                        <div class="tooltip_wrapper">
-			                        	<img src="img/help.png" class="helpText" alt="">
-			                            <span data-tooltip class="has-tip" data-width="200px" title="This is the title of your mobile app that appears on iTunes/Android store. Maximum 100 Characters">
-			                            </span> 
-			                        </div>
-			                    </div>
-		                    
-			                    <div class="row field">
-			                        <div class="span10 offset1">
-			                        	<label for="IngredientDescription">App Description</label>
-			                        	<textarea id="appDescription"  placeholder="App Description" required class="input-block-level span10 required" maxlength="4000" minlength="10" cols="30" rows="6" ><?php if($ingredient_data['description']) {echo $ingredient_data['description'];} ?></textarea>
-			                        </div>
-			                    	<div class="tooltip_wrapper">
-			                    		<img src="img/help.png" class="helpText" alt="">
-			                            <span data-tooltip class="has-tip" data-width="200px" title="This is the description of your mobile app that appears on iTunes/Android store. Maximum 1000 Characters">
-			                            </i></span>  
-			                    	</div>
-
-			                    </div>
-			                    
-			                    <div class="row field">
-			                        <div class="span10 offset1">
-			                        	<label for="IngredientAppOfficialWebsite">Website URL</label>
-			                        	<input id="appUrl" required  value="<?php if($ingredient_data['appOfficialWebsite']) {echo $ingredient_data['appOfficialWebsite'];} else echo "http://" ?>" type="url" placeholder="App Website URL" class="input-block-level span10 url url_validate" id="IngredientAppOfficialWebsite"/>
-			                    	</div>
-
-			                    	<div class="tooltip_wrapper">
-			                    		<img src="img/help.png" class="helpText" alt="">
-			                        	<span data-tooltip class="has-tip" data-width="200px" title="This is the app's website URL">
-			                        	</i></span>
-			                    	</div>
-			                	</div>
-			                    
-			                    <div class="row field">
-			                        <div class="span10 offset1">
-			                        	<label for="IngredientAppKeywords">App Keywords</label>
-			                        	<input id="keyWords" required  value="<?php if($ingredient_data['appKeywords']) {echo $ingredient_data['appKeywords'];} ?>"  placeholder="App Keywords" class="input-block-level span10 required" maxlength="255" type="text" value="" id="IngredientAppKeywords"/>
-			                        </div>
-
-			                        <div class="tooltip_wrapper">
-			                        	<img src="img/help.png" class="helpText" alt="">
-			                            <span data-tooltip class="has-tip" data-width="200px" title="This list of keywords will enable people to search and find your app on the iTunes and Android store.  Enter a list of all the search terms that you feel users might search for when looking for your app">
-			                            </i></span>
-			                        </div>  
-			                    </div>
-		                    
-		                    	<div class="submit">
-		                    		<img class="pointer finish" src="img/finish.png" alt="">
-		                    	</div>
-		                    </fieldset>
-		                </form>
-					</div>
-				</div> 
-			</div>
- -->
-
-
-
 			<div class="ingredientsForm ingredients row-fluid">
 				<form class="form" id="IngredientChangeForm" method="post">
 					<h4 class="app-ing">App ingredients</h4>
@@ -169,7 +72,7 @@
 			                <div class="row field">
 	                        	<div class="span10 offset1 ml-22">
 	                        		<label for="IngredientName">App Icon Name</label>
-	                        		<input required id="appName" value="" placeholder="App Name" class="input-block-level span10 required" maxlength="12" minlength="3" type="text" id="IngredientName"/>
+	                        		<input required id="appName" value="<?php if($ingredient_data['name']) {echo $ingredient_data['name'];} ?>" placeholder="App Name" class="input-block-level span10 required" maxlength="12" minlength="3" type="text" id="IngredientName"/>
 	                        	</div>
 
 	                        	<div class="tooltip_wrapper">
@@ -181,7 +84,7 @@
 		                    <div class="row field">
 		                        <div class="span10 offset1 ml-22">
 		                        	<label for="IngredientTitle">App Store Title</label>
-		                        	<input id="appTitle" required  value=""  placeholder="App Title" class="input-block-level span10 required" maxlength="100" minlength="5" type="text" id="IngredientTitle"/>
+		                        	<input id="appTitle" required  value="<?php if($ingredient_data['title']) {echo $ingredient_data['title'];} ?>"  placeholder="App Title" class="input-block-level span10 required" maxlength="100" minlength="5" type="text" id="IngredientTitle"/>
 		                        </div>
 
 		                        <div class="tooltip_wrapper">
@@ -193,7 +96,7 @@
 		                    <div class="row field">
 		                        <div class="span10 offset1 ml-22">
 		                        	<label for="IngredientDescription">App Description</label>
-		                        	<textarea id="appDescription"  placeholder="App Description" required class="input-block-level span10 required" maxlength="4000" minlength="10" cols="30" rows="3" ></textarea>
+		                        	<textarea id="appDescription"  placeholder="App Description" required class="input-block-level span10 required" maxlength="4000" minlength="10" cols="30" rows="3" ><?php if($ingredient_data['description']) {echo $ingredient_data['description'];} ?></textarea>
 		                        </div>
 		                    	<div class="tooltip_wrapper">
 		                    		<img src="img/help.png" class="helpText"  rel="tooltip" title="Key active" id="blah">
@@ -204,7 +107,7 @@
 		                    <div class="row field">
 		                        <div class="span10 offset1 ml-22">
 		                        	<label for="IngredientAppOfficialWebsite">Website URL</label>
-		                        	<input id="appUrl" required  value="" type="url" placeholder="App Website URL" class="input-block-level span10 url url_validate" id=""/>
+		                        	<input id="appUrl" required  value="<?php if($ingredient_data['appOfficialWebsite']) {echo $ingredient_data['appOfficialWebsite'];} else echo "http://" ?>" type="url" placeholder="App Website URL" class="input-block-level span10 url url_validate" id=""/>
 		                    	</div>
 
 		                    	<div class="tooltip_wrapper">
@@ -269,7 +172,7 @@
 						</div>
 					</div>  <!-- ingredients form ends -->
 					<div class="span12 text-center mb-10">
-						<button type="button" class="btn btn-large btn-primary">Save</button>
+						<button type="button" class="btn btn-large btn-primary ingredientFinish">Save</button>
 					</div>
 				</form>
 			</div>

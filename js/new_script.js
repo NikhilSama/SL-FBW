@@ -304,7 +304,7 @@ var dummyImage = $("img.dummy_image");
 var homedummyImage = $("img.homedummy_image");
 var circleLoader = $("#floatingCirclesG");
 
-$("img.finish").on("click",function(e){
+$(".ingredientFinish").on("click",function(e){
 	circleLoader.css({"display":"block","z-index":"100","top":"500px","margin-left":"40%"});
 	var message = '';
 	$("label.error.danger").remove();
