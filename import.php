@@ -137,6 +137,11 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 		<script src="js/new_script.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#loadingCircle').hide();
+			});
+		</script>
 		<?php 
 			// Facebook JS
 			echo $fbObject->getFBScript();
