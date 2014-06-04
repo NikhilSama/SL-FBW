@@ -225,7 +225,7 @@ $("body").on("click", "span.toggleradio",function(){
 	}
 });
 
-$(document).on("click", "#selectedAppInstall", function(){
+$(document).on("click", ".selectedAppInstall", function(){
 	var selectedRadio = $('input[type=radio]:checked.newAppRadio');
 	if(selectedRadio.length) {
 		pageInstall = new Object();
@@ -684,32 +684,33 @@ function getPageList(msg) {
 
 			$('.uninstalledApps').show();
 		} else {
-			if(uninstalled.length) {	
+			if(uninstalled.length) {
+				var uninstalledNewPageHtml = uninstalledPage.clone();
+
 				for(var k = 0; k < uninstalled.length; k++) {
 					// uninstalledPage.find("div.unistalledPageName span.toggleradio").attr("data-id",uninstalled[k].id).attr("data-name",uninstalled[k].name);
-					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
-					uninstalledPage.find(".pageName").text(uninstalled[k].name);
-					uninstalledPage.find(".pageCategory").text(uninstalled[k].category);
-					uninstalledPage.find(".pageLikes").text(uninstalled[k].likes + ' likes');
-					uninstalledPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
-					uninstalledPage.find(".newAppRadio").attr("id", 'radio' + k);
-					uninstalledPage.find(".newAppRadio").next('label').attr("for", 'radio' + k);
-					var innerHtml = uninstalledPage.html();
+					uninstalledNewPageHtml.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
+					uninstalledNewPageHtml.find(".pageName").text(uninstalled[k].name);
+					uninstalledNewPageHtml.find(".pageCategory").text(uninstalled[k].category);
+					uninstalledNewPageHtml.find(".pageLikes").text(uninstalled[k].likes + ' likes');
+					uninstalledNewPageHtml.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
+					uninstalledNewPageHtml.find(".newAppRadio").attr("id", 'radio' + k);
+					uninstalledNewPageHtml.find(".newAppRadio").next('label').attr("for", 'radio' + k);
+					var innerHtml = uninstalledNewPageHtml.html();
 					uninstalledAppPages.append(innerHtml);
 				}
 
 				installedAppPages.prepend('<h4 class="install-heading">Install Facebook Wizard on your other pages?</h4>');
-
-				$('.uninstalledAppsNext').show();
 			}
 
+			var installedPageHtml = installedPage.clone();
 			for(var i = 0; i < installed.length; i++) {
-				installedPage.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
-				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=64&width=64");
-				installedPage.find(".pageName").text(installed[i].name);
-				installedPage.find(".pageCategory").text(installed[i].category);
-				installedPage.find(".pageLikes").text(installed[i].likes + ' likes');
-				var innerHtml = installedPage.html();
+				installedPageHtml.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
+				installedPageHtml.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=64&width=64");
+				installedPageHtml.find(".pageName").text(installed[i].name);
+				installedPageHtml.find(".pageCategory").text(installed[i].category);
+				installedPageHtml.find(".pageLikes").text(installed[i].likes + ' likes');
+				var innerHtml = installedPageHtml.html();
 				installedAppPages.prepend(innerHtml);
 			}
 

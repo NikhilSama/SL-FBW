@@ -214,7 +214,7 @@
 										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
 										<h6 class="cata-likes pageLikes">10,451 likes</h6>
 									</div>
-									<a href="#" class="btn-orange buildapp">INSTALL</a>
+									<a href="#" class="btn-orange buildapp selectedAppInstall">INSTALL</a>
 								</div>
 							</div>
 						</div>
@@ -258,7 +258,7 @@
 							<h4>will be installed on your selected Facebook Page</h4>
 						</div>
 						<div class="button-lower">
-							<a href="#" class="btn-orange" id="selectedAppInstall">Next</a>
+							<a href="#" class="btn-orange selectedAppInstall">Next</a>
 						</div>
 					</div>
 				
