@@ -1394,3 +1394,27 @@ h4 small {
 .helpText2 {
 	margin-left: 20px;
 }
+
+
+.loader-bg {
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -20px;
+	margin-top: -20px;
+}
+
+.loader-bg-main {
+	background-color: #000;
+	opacity: 0.8;
+	float: left;
+	height: 497px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}

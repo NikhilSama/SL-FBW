@@ -22,6 +22,9 @@
 	</head>
 
 	<body>
+		<div class="loader-bg-main" id="loadingCircle">
+			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+		</div>
 		<div class="app-container">
 			<div class="head-app">
 				<h1>Congtratulations!</h1>

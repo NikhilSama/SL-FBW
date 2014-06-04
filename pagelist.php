@@ -27,6 +27,9 @@
 	</head>
 
 	<body>
+		<div class="loader-bg-main" id="loadingCircle">
+			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+		</div>
 		<div class="fb_maincontainer-cma">
 			<div class="installedApps" style="display: none;width:100%;">
 				<div class="logo"><img src="img/snaplion-logo.png"></div>

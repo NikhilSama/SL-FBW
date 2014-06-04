@@ -59,6 +59,9 @@
 	</head>
 
 	<body>
+		<div class="loader-bg-main" id="loadingCircle">
+			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+		</div>
 		<div class="fb_maincontainer">
 			<div class="fb_left">
 				<div class="snap_odr"><?php echo $pageInfo['name']; ?></div>

@@ -72,6 +72,9 @@
 	</head>
 
 	<body>
+		<div class="loader-bg-main" id="loadingCircle">
+			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+		</div>
 		<div class="fb_maincontainer">
 			<iframe src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" 
 				frameborder="0" style="height: 390px; width: 220px;margin-top: 65px;padding-right: 27px;float: right;">

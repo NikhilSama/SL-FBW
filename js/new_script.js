@@ -302,7 +302,7 @@ function preferenceChanged(msg) {
 var iconImage = $("img.iconImage");
 var dummyImage = $("img.dummy_image");
 var homedummyImage = $("img.homedummy_image");
-var circleLoader = $("#floatingCirclesG");
+var circleLoader = $("#loadingCircle");
 
 $(".ingredientFinish").on("click",function(e){
 	circleLoader.css({"display":"block","z-index":"100","top":"500px","margin-left":"40%"});
