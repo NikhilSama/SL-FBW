@@ -668,7 +668,7 @@ function getPageList(msg) {
 				}
 				uninstalledAppPages.find("h4.newAppMessage").text(message);
 
-				var uninstalledNewPageHtml = uninstalledNewPage.html();
+				var uninstalledNewPageHtml = uninstalledNewPage.find('.fb_left-cma').clone();
 				for(var k = 0; k < uninstalled.length; k++) {
 					console.log(uninstalledNewPageHtml);
 					uninstalledNewPageHtml.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
