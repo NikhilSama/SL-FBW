@@ -204,8 +204,8 @@
 							<div class="strip-gray">
 								<div class="radio-box">
 									<!-- <span class="toggleradio inactiveRadio" data-id="" data-name="" ></span> -->
-									<input type="radio" name="radiog_dark" class="css-checkbox newAppRadio" data-id="" data-name="">
-									<label for="radio5" class="css-label radioalign"></label>
+									<input type="radio" name="radiog_dark" class="css-checkbox newAppRadio" data-id="" data-name="" id="radio">
+									<label for="radio" class="css-label radioalign"></label>
 								</div>
 								<div class="rightpart">
 									<div class="user-image pagePicture"><img src="img/user-image.png" class="uninstalledAppImage"></div>
@@ -224,8 +224,8 @@
 						<div class="fb_left-cma">
 							<div class="strip-gray">
 								<div class="radio-box">
-									<input type="radio" name="radiog_dark" id="radio5" class="css-checkbox newAppRadio" data-id="" data-name="">
-									<label for="radio5" class="css-label radioalign"></label>
+									<input type="radio" name="radiog_dark" id="radio" class="css-checkbox newAppRadio" data-id="" data-name="">
+									<label for="radio" class="css-label radioalign"></label>
 								</div>
 								<div class="rightpart">
 									<div class="user-image"><img src="img/user-image.png" class="uninstalledAppImage"></div>
