@@ -664,15 +664,14 @@ function getPageList(msg) {
 				uninstalledAppPages.find("h4.newAppMessage").text(message);
 
 				for(var k = 0; k < uninstalled.length; k++) {
-					console.log(uninstalled[k]);
 
 					uninstalledNewPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledNewPage.find(".pageName").text(uninstalled[k].name);
 					uninstalledNewPage.find(".pageCategory").text(uninstalled[k].category);
+					uninstalledNewPage.find(".pageLikes").text(uninstalled[k].likes + ' likes');
 					uninstalledNewPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
 					uninstalledNewPage.find(".newAppRadio").attr("id", 'radio' + k);
 					uninstalledNewPage.find(".newAppRadio").next('label').attr("for", 'radio' + k);
-					uninstalledNewPage.find(".likes").text(uninstalled[k].likes + ' likes');
 					
 					var innerHtml = uninstalledNewPage.html();
 					uninstalledNewAppPages.append(innerHtml);
@@ -687,6 +686,7 @@ function getPageList(msg) {
 					uninstalledPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
 					uninstalledPage.find(".pageName").text(uninstalled[k].name);
 					uninstalledPage.find(".pageCategory").text(uninstalled[k].category);
+					uninstalledPage.find(".pageLikes").text(uninstalled[k].likes + ' likes');
 					uninstalledPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
 					uninstalledPage.find(".newAppRadio").attr("id", 'radio' + k);
 					uninstalledPage.find(".newAppRadio").next('label').attr("for", 'radio' + k);
@@ -702,6 +702,7 @@ function getPageList(msg) {
 				installedPage.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=64&width=64");
 				installedPage.find(".pageName").text(installed[i].name);
 				installedPage.find(".pageCategory").text(installed[i].category);
+				installedPage.find(".pageLikes").text(installed[i].likes + ' likes');
 				var innerHtml = installedPage.html();
 				installedAppPages.prepend(innerHtml);
 			}

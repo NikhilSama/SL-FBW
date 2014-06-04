@@ -192,6 +192,7 @@
 								<div class="blue-data-text  pointer" data-id="">
 									<h3 class="pageName">New Delhi Eat Out</h3>
 									<h5 class="pageCategory">Restaurants and Bars</h5>
+									<h6 class="pageLikes">10,451 likes</h6>
 								</div>
 							</div>
 							<a href="#" class="btn-orange buildapp">BUILD APP</a>
@@ -211,6 +212,7 @@
 									<div class="strip-hgroup unistalledPageName">
 										<h4 class="pagename pageName">New Delhi Eat Out</h4>
 										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
+										<h6 class="cata-name pageLikes">10,451 likes</h6>
 									</div>
 									<a href="#" class="btn-orange buildapp">INSTALL</a>
 								</div>
@@ -231,7 +233,7 @@
 										<h4 class="pagename pageName">New Delhi Eat Out</h4>
 										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
 									</div>
-									<div class="likes">
+									<div class="likes pageLikes">
 										10,451 likes
 									</div>
 								</div>
