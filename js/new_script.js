@@ -669,17 +669,17 @@ function getPageList(msg) {
 				uninstalledAppPages.find("h4.newAppMessage").text(message);
 
 				var uninstalledNewPageHtml = uninstalledNewPage.html();
-				console.log(uninstalledNewPageHtml);
 				for(var k = 0; k < uninstalled.length; k++) {
-					uninstalledNewPage.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
-					uninstalledNewPage.find(".pageName").text(uninstalled[k].name);
-					uninstalledNewPage.find(".pageCategory").text(uninstalled[k].category);
-					uninstalledNewPage.find(".pageLikes").text(uninstalled[k].likes + ' likes');
-					uninstalledNewPage.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
-					uninstalledNewPage.find(".newAppRadio").attr("id", 'radio' + k);
-					uninstalledNewPage.find(".newAppRadio").next('label').attr("for", 'radio' + k);
+					uninstalledNewPageHtml.find("img.uninstalledAppImage").attr("src","https://graph.facebook.com/"+uninstalled[k].id+"/picture?height=64&width=64");
+					uninstalledNewPageHtml.find(".pageName").text(uninstalled[k].name);
+					uninstalledNewPageHtml.find(".pageCategory").text(uninstalled[k].category);
+					uninstalledNewPageHtml.find(".pageLikes").text(uninstalled[k].likes + ' likes');
+					uninstalledNewPageHtml.find(".newAppRadio").attr("data-id", uninstalled[k].id).attr("data-name", uninstalled[k].name);
+					uninstalledNewPageHtml.find(".newAppRadio").attr("id", 'radio' + k);
+					uninstalledNewPageHtml.find(".newAppRadio").next('label').attr("for", 'radio' + k);
 					
-					var innerHtml = uninstalledNewPage.html();
+					var innerHtml = uninstalledNewPageHtml;
+					console.log(uninstalledNewPageHtml);
 					uninstalledNewAppPages.append(innerHtml);
 				}
 			}
