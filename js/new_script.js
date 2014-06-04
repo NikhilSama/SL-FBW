@@ -76,6 +76,7 @@ submitList.on("click", function(){
 	if(! ($("input[type=checkbox]:checked.importSection").length) ) {
 		alert("Please select atleast one item to submit");
 	} else {
+		circleLoader.show();
 		itemList = {pageinfo : 0, events : 0, posts : 0, photos : 0, videos : 0}  //creating a new object
 
 		$("input[type=checkbox]:checked.importSection").each(function() {
@@ -169,6 +170,7 @@ function importSuccess(msg) {
 		responseText.css("border","1px solid red");
 		submitList.css("display","block");
 	}
+	circleLoader.hide();
 }
 
 $("body").on("click","div.tick, div.untick", function() {
