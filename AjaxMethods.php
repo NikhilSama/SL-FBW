@@ -38,6 +38,7 @@
 
 	if(isset($_POST['action']) && $_POST['action']=='install') {
 		global $db;
+		echo pageId;
 		$pageTokens = $_SESSION[pageId."_".APPID."_pageTokens"];
 		global $fbObject;
 		$fbObject->api($_POST['id'].'/tabs', 'POST', array(
