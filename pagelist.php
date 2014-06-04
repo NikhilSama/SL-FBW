@@ -219,7 +219,7 @@
 									<div class="strip-hgroup unistalledPageName">
 										<h4 class="pagename pageName">New Delhi Eat Out</h4>
 										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
-										<h6 class="cata-likes pageLikes">10,451 likes</h6>
+										<h6 class="cata-likes pageLikes pageLikesUn">10,451 likes</h6>
 									</div>
 									<a href="#" class="btn-orange buildapp selectedAppInstall">INSTALL</a>
 								</div>
@@ -238,7 +238,7 @@
 									<div class="user-image"><img src="img/user-image.png" class="uninstalledAppImage"></div>
 									<div class="strip-hgroup">
 										<h4 class="pagename pageName">New Delhi Eat Out</h4>
-										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
+										<h5 class="cata-name pageCategory pageLikesUn">Restaurants and Bars</h5>
 									</div>
 									<div class="likes pageLikes">
 										10,451 likes

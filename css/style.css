@@ -392,9 +392,9 @@ label.css-label {
 }
 .cata-likes {
 	font-size: 12px;
-	color: #767676;
+	color: #fff;
 	font-family: 'CalibriItalic';
-	margin: 5px 0 0 20px;
+	margin: 0px 0 10px 30px;
 	font-weight: 200;
 	line-height: 12px;
 }
@@ -885,4 +885,7 @@ label.css-label {
 	top: 0;
 	width: 100%;
 	z-index: 100;
+}
+.pageLikesUn{
+	color: #767676;
 }
