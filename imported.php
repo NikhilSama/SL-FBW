@@ -295,8 +295,8 @@
 							  	document.getElementById('customButton').addEventListener('click', function(e) {
 								    // Open Checkout with further options
 								    handler.open({
-							      		name: 'SnapLion Site',
-							      		description: 'FBW',
+							      		name: 'SnapLion',
+							      		description: 'Mobile App Wizard',
 							      		amount: 2000
 							    	});
 							    	e.preventDefault();
