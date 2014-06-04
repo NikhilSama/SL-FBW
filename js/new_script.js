@@ -22,6 +22,7 @@ function sendAjaxRequest(urlName,dataMsg,datatype,successFunction) {
       	data: dataMsg,
       	dataType: datatype,
 		success: function(msg) {
+			console.log(msg);
         	if(successFunction!="")
          		eval(successFunction)(msg);
   		}
