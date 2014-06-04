@@ -336,6 +336,7 @@
 						count++;
 					}
 				});
+
 				if( count == $(".importItems").length ) {
 					$("#submitList").css("display","none");
 				}
@@ -350,6 +351,8 @@
 					uninstalledAppPage.css({"width":"25%","display":"inline-block","margin-right": "2%","float":"left"});
 					$(".nextStepImg").css("margin-left","-14%");
 				}
+
+				$('#loadingCircle').hide();
 			});
 		</script>
 
