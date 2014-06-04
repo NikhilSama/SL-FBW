@@ -355,7 +355,7 @@ $(".ingredientFinish").on("click",function(e){
 		appIngredients.keywords = $("#keyWords").val();
 		console.log(appIngredients);
 		e.preventDefault();
-		sendAjaxRequest(pathToController,appIngredients,'html','ingredientsDataSent');
+		sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
 		e.stopPropagation();
 	}
 });

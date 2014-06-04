@@ -41,8 +41,9 @@
 		$subitem_count[ $data['apptab_name'] ] = $data['subitem_count'];
 	}
 	
-	$payment_data = $db->execute_query("SELECT payment_flag from ".PAGE." where page_id=".$_SESSION['pageid']);
+	$payment_data = $db->execute_query("SELECT payment_flag, ingredients_flag from ".PAGE." where page_id=".$_SESSION['pageid']);
 	$payment_flag = $payment_data[0]['payment_flag'];
+	$ingredients_flag = $payment_data[0]['ingredients_flag'];
 
 	$albums = $fbObject->api('/' . $page_id . '/albums?limit=500&&offset=0');
 	$albumCount = count($albums['data']);
@@ -263,7 +264,7 @@
 				<div class="button-group">
 					<a href="ingredients.php" class="btn-orange">App Ingredients</a>
 					<?php 
-						if(! $payment_flag ) { 
+						if(! $payment_flag && $ingredients_flag) { 
 					?>
 							<script src="https://checkout.stripe.com/checkout.js"></script>
 							<!-- <button id="customButton" src="img/makePayment.png"></button> -->
@@ -302,7 +303,11 @@
 							  	});
 							</script>
 					<?php 
-						} 
+						} elseif(!$payment_flag) {
+					?>
+							<a href="#" id="customButtonWithoutPayment" class="btn-orange">Submit App</a>
+					<?php
+						}
 					?>
 				</div>
 				<div><hr class="hr-gray"></div>
@@ -316,6 +321,13 @@
 		//checking if all the items have been imported and then
 			$(document).ready(function(){
 				var count = 0;
+
+				$(document).on('click', '#customButtonWithoutPayment', function(event){
+					event.preventDefault();
+
+					alert('Your app is not ready to be submitted please fill up ingredients first.');
+				});
+
 				$(".importItems").each(function(){
 					if(  $(this).children(".checkboxes").hasClass("alreadyImported") ) {
 						count++;
