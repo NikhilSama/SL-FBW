@@ -68,7 +68,7 @@
 				                        </div>
 			                        </div>
 			                        <div class="app-icon-show">
-			                    		<img src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" style="width:102px;" class="iconImage">
+			                    		<img src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } else echo 'img/dummy_image.jpg'; ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} else {echo 0;} ?>" style="width:102px;" class="iconImage">
 			                    	</div>
 			                    </div>
 			                </div>
