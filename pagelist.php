@@ -52,7 +52,9 @@
 				if(!isset($pageOwner['email'])) {
 			?>
 					<div>
-						<h2>We need your email to create your mobile app account. Please click ok when facebook asks for permissions.</h2>
+						<h2>
+							We need your email to create your mobile app account. Please click ok when facebook asks for <br/>
+							permissions.</h2>
 						<a href="#" class="btn-orange" id="retryPermissions">Retry</a>
 						<a href="#" class="btn-orange" id="cancelPermissions">Cancel</a>
 					</div>
