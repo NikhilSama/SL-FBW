@@ -308,7 +308,7 @@ var dummyImage = $("img.dummy_image");
 var homedummyImage = $("img.homedummy_image");
 
 $(".ingredientFinish").on("click",function(e){
-	circleLoader.css({"display":"block","z-index":"100","top":"500px","margin-left":"40%"});
+	circleLoader.show();
 	var message = '';
 	$("label.error.danger").remove();
 	$(".required").each(function(){
@@ -361,6 +361,7 @@ $(".ingredientFinish").on("click",function(e){
 		sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
 		e.stopPropagation();
 	}
+	circleLoader.hide();
 });
 
 function ingredientsDataSent(msg) {	
@@ -376,6 +377,7 @@ function ingredientsDataSent(msg) {
 	} else {
 		alert("There was an error while submitting your data");
 	}
+	circleLoader.hide();
 }
 
 $(".add-gloss").on("click", function() {
