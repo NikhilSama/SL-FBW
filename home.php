@@ -32,18 +32,20 @@
 					In <span>Minutes</span></h5>
 				<a href="#" class="btn-orange" id="checkPerms">GET STARTED </a>		
 			</div>
-			<div id="slideshow">
-				<div>
-					<img src="img/photo-1.png">
-				</div>
-				<div>
-					<img src="img/photo-2.png">
-				</div>
-				<div>
-					<img src="img/photo-3.png">
-				</div>
-				<div>
-					<img src="img/photo-4.png">
+			<div class="slider-container">
+				<div id="slideshow">
+					<div>
+						<img src="img/photo-1.png">
+					</div>
+					<div>
+						<img src="img/photo-2.png">
+					</div>
+					<div>
+						<img src="img/photo-3.png">
+					</div>
+					<div>
+						<img src="img/photo-4.png">
+					</div>
 				</div>
 			</div>
 		</div>

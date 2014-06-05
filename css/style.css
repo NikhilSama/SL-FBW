@@ -850,13 +850,13 @@ label.css-label {
 	border-radius: 6px;
 }
 
-#slideshow { 
+/*#slideshow { 
     margin: 84px 0 0 100px;
 	position: relative;
 	width: 178px;
 	height: 305px; 
 }
-
+*/
 #slideshow > div { 
     position: absolute; 
     top: 12px; 
@@ -901,7 +901,7 @@ label.css-label {
 }
 
 .receivedMessage{
-	width: 100%;
+	width: 627px;
 	float: left;
 	clear: none;
 	color: #FFF;
@@ -923,4 +923,11 @@ label.css-label {
 .mt-10{
 	margin-top: 10px;
 	padding: 10px 20px;
+}
+.slider-container {
+	margin: 84px 82px;
+	position: relative;
+	width: 178px;
+	height: 305px;
+	float: right;
 }
