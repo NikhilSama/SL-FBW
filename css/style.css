@@ -899,3 +899,15 @@ label.css-label {
 	font-size: 32px;
 	width: 100%;
 }
+
+.receivedMessage{
+	width: 779px;
+	float: left;
+	clear: none;
+	color: #FFF;
+	text-align: center;
+	font-family: "DIN";
+	line-height: 20px;
+	background-color: #000;
+	padding: 10px;
+}
