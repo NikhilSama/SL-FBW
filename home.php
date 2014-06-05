@@ -54,9 +54,8 @@
 		<script type='text/javascript' src='js/fbscript.js'></script>
 	</body>
 	<script>
-		var iframeElem = window.parent.document.getElementsByTagName('iframe');
-		console.log(iframeElem);
-		iframeElem.css('width', '850px');
+		// var iframeElem = window.parent.document.getElementsByTagName('iframe');
+		// iframeElem.css('width', '850px');
 
 		$("#slideshow > div:gt(0)").hide();
 		$('#loadingCircle').hide();
