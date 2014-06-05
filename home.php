@@ -19,11 +19,12 @@
 		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
 	</head>
 
-	<body style="margin: 0 !important;background-color: #000;">
-		<div class="loader-bg-main" id="loadingCircle">
-			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
-		</div>
+	<body style="margin: 0 !important;background-color: #0d1114;">
 		<div class="starting-container">
+			<div class="loader-bg-main" id="loadingCircle">
+				<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+			</div>
+			
 			<div class="starting-lower">
 				<h4>Mobile App Builder</h4>
 				<h3>Build an iPhone & Android Mobile App</h3>
