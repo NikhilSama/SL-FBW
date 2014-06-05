@@ -140,7 +140,16 @@
 				?>		
 						<div class="loader-bg-main" id="loadingCircle">
 							<div class="loader-bg">
-								<span class="receivedMessage"><? echo $msg; ?></span>
+								<span class="receivedMessage">
+									<?php echo $msg; ?>
+									<?php
+										if(!$login_flag) {
+									?>
+											<a href="#" class="closeMessage btn-orange">OK</a>
+									<?php
+										}
+									?>
+								</span>
 								<?php 
 									if($login_flag) {	
 								?>
@@ -161,8 +170,6 @@
 											<div class="errorMessage">The password entered by you is not correct</div>
 										</div>
 								<?php 
-									} else {
-										echo '<a href="#" class="closeMessage btn-orange">OK</a>';
 									}
 								?>
 							</div>

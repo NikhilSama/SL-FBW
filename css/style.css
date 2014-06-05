@@ -901,7 +901,7 @@ label.css-label {
 }
 
 .receivedMessage{
-	width: 779px;
+	width: 100%;
 	float: left;
 	clear: none;
 	color: #FFF;
@@ -910,4 +910,7 @@ label.css-label {
 	line-height: 20px;
 	background-color: #000;
 	padding: 10px;
+	border-radius: 10px;
+	margin-left: 95px;
+	font-weight: 200;
 }
