@@ -36,16 +36,26 @@
 				//if user is not the admin of any page
 				if(!isset($pageOwner['email'])) {
 			?>
-					<div>
-						<h2>
-							We need your email to create your mobile app account. Please click ok when facebook asks for permissions.</h2>
-						<a href="#" class="btn-orange" id="retryPermissions">Retry</a>
-						<a href="#" class="btn-orange" id="cancelPermissions">Cancel</a>
+					<div class="loader-bg-main">
+						<div class="loader-bg-msg">
+							<span class="receivedMessage">
+								We need your email to create your mobile app account. Please click ok when facebook asks for permissions.
+								<br/>
+								<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
+								<a href="#" class="btn-orange mt-10" id="cancelPermissions">Cancel</a>
+							</span>
+						</div>
 					</div>
 			<?php
 				} elseif(empty($pageList['data'])) {
 			?>
-					<div><h2>You are not an admin of any page, So you cannot use this app.</h2></div>
+					<div class="loader-bg-main">
+						<div class="loader-bg-msg">
+							<span class="receivedMessage">
+								You are not an admin of any page, So you cannot use this app.
+							</span>
+						</div>
+					</div>
 			<?php
 				} else {
 					//to register user at snaplion
@@ -307,25 +317,9 @@
 	    			
 	    			window.top.location.href = 'https://www.facebook.com/';
 	    		});
+
+	    		$('#loadingCircle').hide();
 	    	});
 		</script>
 	</body>
 </html>
-<!-- <div id="floatingCirclesG" style="position:absolute; display;block; margin-top: 42%; margin-left: 46%; float: left;">
-	<div class="f_circleG" id="frotateG_01">
-	</div>
-	<div class="f_circleG" id="frotateG_02">
-	</div>
-	<div class="f_circleG" id="frotateG_03">
-	</div>
-	<div class="f_circleG" id="frotateG_04">
-	</div>
-	<div class="f_circleG" id="frotateG_05">
-	</div>
-	<div class="f_circleG" id="frotateG_06">
-	</div>
-	<div class="f_circleG" id="frotateG_07">
-	</div>
-	<div class="f_circleG" id="frotateG_08">
-	</div>
-</div>  -->
