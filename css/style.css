@@ -111,7 +111,7 @@ label.css-label {
 	min-height: 543px;
 }
 .fb_maincontainer-cma {
-	width:810px;
+	width:800px;
 	min-height: 543px;
 	background-color: #0f1013;
 }	
@@ -387,14 +387,14 @@ label.css-label {
 	font-size: 15px;
 	color: #767676;
 	font-family: 'CalibriItalic';
-	margin: 10px 0 0 20px;
+	margin: 5px 0 0 20px;
 	font-weight: 200;
 }
 .cata-likes {
 	font-size: 12px;
 	color: #fff;
 	font-family: 'CalibriItalic';
-	margin: 0px 0 10px 30px;
+	margin: 0 0 0 20px;
 	font-weight: 200;
 	line-height: 12px;
 }
@@ -414,7 +414,7 @@ label.css-label {
 	background-color: #fff;
 }
 .rightpart {
-	padding: 6px 0 6px 10px;
+	padding: 6px 0 0 10px;
 	width: 608px;
 }
 .radioalign {
@@ -556,8 +556,9 @@ label.css-label {
 	width: 667px;
 	margin-left: 80px;
 	overflow-x: hidden;
-	height: 233px;
+	max-height: 234px;
 	min-height: 93px;
+	overflow-y: auto;
 }
 
 .app-container {
@@ -888,6 +889,7 @@ label.css-label {
 }
 .pageLikesUn{
 	color: #767676;
+	margin-left: 20px !important;
 }
 
 .you-r {
