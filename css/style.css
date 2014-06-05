@@ -114,6 +114,7 @@ label.css-label {
 	width:800px;
 	min-height: 543px;
 	background-color: #0f1013;
+	position: relative;
 }	
 .fb_left {
 	width: 490px;
