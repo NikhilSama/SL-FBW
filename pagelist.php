@@ -33,9 +33,6 @@
 			</div>
 
 			<?php
-				echo "<pre>";
-				print_r($pageOwner);
-
 				//if user is not the admin of any page
 				if(!isset($pageOwner['email'])) {
 			?>
@@ -322,7 +319,7 @@
 	    		$(document).on('click', '#cancelPermissions', function(event){
 	    			event.preventDefault();
 	    			
-	    			window.top.location.href = 'https://www.facebook.com/';
+	    			window.top.location.href = 'https://www.facebook.com/' + <?php echo PAGENAMESPACE; ?>;
 	    		});
 
 	    		$(document).on('click', '#exitPageTab', function(event){
