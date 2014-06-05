@@ -91,10 +91,10 @@
 							$result = curlreq($data,$url);
 							
 							//decoding the json received after the registeration process
-							$result_array = json_decode($result,true);
+							$resultArr = json_decode($result,true);
 							
-							if($result_array['result']['status'] ) {
-								$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag, snaplion_id) values('{$fbid}','{$name}','{$email}','{$access_token}',1,". $result_array['result']['user_id'] .") ");
+							if($resultArr['result']['status'] ) {
+								$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag, snaplion_id) values('{$fbid}','{$name}','{$email}','{$access_token}',1,". $resultArr['result']['user_id'] .") ");
 								// $msg = "Your email ".$email." is aready registered. You can also login at 'snaplion.com'";
 								$login_flag = 1;
 							}
