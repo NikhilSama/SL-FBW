@@ -85,9 +85,19 @@
 
 						//if user is already registered and entry is not present in database
 						if( !$result_array['result']['status'] ) {
-							$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag) values('{$fbid}','{$name}','{$email}','{$access_token}',1) ");
-							$msg = "Your email ".$email." is aready registered. You can also login at 'snaplion.com'";
-							$login_flag = 1;
+
+							$data=array("key"=>KEY,"email"=>$email);
+							$url = CHK_USER;
+							$result = curlreq($data,$url);
+							
+							//decoding the json received after the registeration process
+							$result_array = json_decode($result,true);
+							
+							if($result_array['result']['status'] ) {
+								$db->execute_query("INSERT into ".USERS."(fbid,name,email,access_token,message_flag, snaplion_id) values('{$fbid}','{$name}','{$email}','{$access_token}',1,". $result_array['result']['user_id'] .") ");
+								// $msg = "Your email ".$email." is aready registered. You can also login at 'snaplion.com'";
+								$login_flag = 1;
+							}
 						}
 					} else {
 						$flag_data = $db->execute_query("SELECT message_flag, snaplion_id from ".USERS." where fbid=".$fbid);
@@ -166,9 +176,9 @@
 									?>
 								</span>
 								<?php 
-									if($login_flag) {	
+									// if($login_flag) {	
 								?>
-										<div id="snaplionLogin">
+										<!-- <div id="snaplionLogin">
 											<h4>To proceed please enter your password for snaplion.com</h4>
 											<div class="row-fluid">
 												<span class="span3">Email :</span>
@@ -183,9 +193,9 @@
 											</div>
 											
 											<div class="errorMessage">The password entered by you is not correct</div>
-										</div>
+										</div> -->
 								<?php 
-									}
+									// }
 								?>
 							</div>
 						</div>
