@@ -805,10 +805,11 @@ label.css-label {
 
 .starting-container {
 	min-height: 462px;
-	width: 722px;
+	width: 730px;
 	background-color: #0e1723;
 	padding: 40px 40px;
 	background: url(../img/fbstarting.jpg) no-repeat;
+	position: relative;
 }
 
 .starting-lower {
@@ -880,7 +881,7 @@ label.css-label {
 	background-color: #000;
 	opacity: 0.95;
 	float: left;
-	height: 497px;
+	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
