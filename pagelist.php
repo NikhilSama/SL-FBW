@@ -53,8 +53,9 @@
 					<div class="loader-bg-main">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
-								<img src="img/oops.png">
-								You are not an admin of any page, So you can't use this !!
+								<img src="img/oops.png" width="150">
+								You are not an admin of any page currently. 
+								<br/>Once you become an admin, visit us again !!
 								<br/>
 								<a href="#" class="btn-orange mt-10" id="exitPageTab">Exit</a>
 							</span>
