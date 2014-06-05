@@ -804,8 +804,8 @@ label.css-label {
 }
 
 .starting-container {
-	min-height: 720px;
-	width: 730px;
+	min-height: 462px;
+	width: 722px;
 	background-color: #0e1723;
 	padding: 40px 40px;
 	background: url(../img/fbstarting.jpg) no-repeat;

@@ -19,7 +19,7 @@
 		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
 	</head>
 
-	<body>
+	<body style="margin: 0 !important;background-color: #000;">
 		<div class="loader-bg-main" id="loadingCircle">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
 		</div>
