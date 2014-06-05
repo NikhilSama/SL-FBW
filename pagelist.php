@@ -208,14 +208,14 @@
 						<div class="heading-group mt-20">
 							<h2>Congratulations!</h2>
 							<div class="mb-20 text-center" style="width:100%;">
-							<h4 class="m0 mt-5">Snaplion's Facebook Wizard is now installed on your page, page name!! </h4></div>
+							<h4 class="m0 mt-5">Mobile App Wizard is now installed on your page, Lets get started !! </h4></div>
 						</div>
 					</div>
 
 					<div class="uninstalledApps" style="display: none;width:100%;">
 						<div class="heading-group">
 							<h4>Choose the Facebook Page for which you want to </h4>
-							<h2>Create the Mobile App on Snaplion</h2>
+							<h2>Create a Mobile App</h2>
 						</div>
 						<div class="username" style="margin:20px 0 0 80px;">
 							<div class="snap_odr-n"><?php echo $pageOwner['name']; ?></div>
