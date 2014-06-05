@@ -33,13 +33,17 @@
 			</div>
 
 			<?php
+				echo "<pre>";
+				print_r($pageOwner);
+
 				//if user is not the admin of any page
 				if(!isset($pageOwner['email'])) {
 			?>
 					<div class="loader-bg-main">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
-								We need your email to create your mobile app account. Please click ok when facebook asks for permissions.
+								We need your email to create your mobile app account. 
+								<br/>Please click ok when facebook asks for permissions.
 								<br/>
 								<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
 								<a href="#" class="btn-orange mt-10" id="cancelPermissions">Cancel</a>
@@ -52,7 +56,10 @@
 					<div class="loader-bg-main">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
-								You are not an admin of any page, So you cannot use this app.
+								<img src="img/oops.png">
+								You are not an admin of any page, So you can't use this !!
+								<br/>
+								<a href="#" class="btn-orange mt-10" id="exitPageTab">Exit</a>
 							</span>
 						</div>
 					</div>
@@ -313,6 +320,12 @@
 	    		});
 
 	    		$(document).on('click', '#cancelPermissions', function(event){
+	    			event.preventDefault();
+	    			
+	    			window.top.location.href = 'https://www.facebook.com/';
+	    		});
+
+	    		$(document).on('click', '#exitPageTab', function(event){
 	    			event.preventDefault();
 	    			
 	    			window.top.location.href = 'https://www.facebook.com/';
