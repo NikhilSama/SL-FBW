@@ -60,7 +60,6 @@
 		// iframeElem.css('width', '850px');
 
 		$("#slideshow > div:gt(0)").hide();
-		$('#loadingCircle').hide();
 		setInterval(function() { 
 		  $('#slideshow > div:first')
 		    .fadeOut(1000)
@@ -76,5 +75,6 @@
 			$('#loadingCircle').show();
 			checkPermissions();
 		});
+		$('#loadingCircle').hide();
 	</script>
 </html>
