@@ -55,6 +55,7 @@
 	</body>
 	<script>
 		var iframeElem = window.parent.document.getElementsByTagName('iframe');
+		console.log(iframeElem);
 		iframeElem.css('width', '850px');
 
 		$("#slideshow > div:gt(0)").hide();
