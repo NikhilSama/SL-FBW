@@ -53,7 +53,7 @@
 					<div class="loader-bg-main">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
-								<img src="img/oops.png" width="150">
+								<img src="img/oops.png" width="150"><br/>
 								You are not an admin of any page currently. 
 								<br/>Once you become an admin, visit us again !!
 								<br/>
