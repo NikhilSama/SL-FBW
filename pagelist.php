@@ -139,7 +139,7 @@
 					if($msg) {
 				?>		
 						<div class="loader-bg-main" id="loadingCircle">
-							<div class="loader-bg">
+							<div class="loader-bg-msg">
 								<span class="receivedMessage">
 									<?php echo $msg; ?>
 									<?php

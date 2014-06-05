@@ -914,3 +914,9 @@ label.css-label {
 	margin-left: 95px;
 	font-weight: 200;
 }
+
+.loader-bg-msg {
+	position: absolute;
+	top: 50%;
+	margin-top: -80px;
+}
