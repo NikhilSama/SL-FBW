@@ -26,7 +26,7 @@
 		<script src="js/jquery.flexisel.js"></script>
 	</head>
 
-	<body>
+	<body style="margin: 0 !important;">
 		<div class="fb_maincontainer-cma">
 			<div class="loader-bg-main" id="loadingCircle">
 				<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>

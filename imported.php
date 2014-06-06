@@ -71,7 +71,7 @@
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	</head>
 
-	<body>
+	<body style="margin: 0 !important;">
 		<div class="loader-bg-main" id="loadingCircle">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
 		</div>
