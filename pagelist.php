@@ -225,7 +225,7 @@
 
 					<input type="hidden" id="installedAppId" value="<?php echo INSTALLED_APP_ID; ?>">
 					<div id="hiddenInstalled" style="display: none;">
-						<div class="blue-strip appLinkDiv" data-id="">
+						<div class="blue-strip">
 							<div class="green-strip-x"><img src="img/tick-big.png"><br>Installed</div>
 							<div class="blue-data installedAppPage" data-id="">
 								<img src="img/user-image.png" class="installedAppImage">
@@ -235,7 +235,7 @@
 									<h6 class="cata-likes pageLikes">10,451 likes</h6>
 								</div>
 							</div>
-							<a href="#" class="btn-orange buildapp">BUILD APP</a>
+							<a href="#" class="btn-orange buildapp appLinkDiv" data-id="">BUILD APP</a>
 						</div>	
 					</div>
 
@@ -305,6 +305,7 @@
 					<script>
 						$(document).ready(function(){
 				    		var obj = new Object();
+				    		$('#loadingCircle').show();
 				    		sendAjaxRequest('AjaxPagelist.php',obj,'html','getPageList');
 				    	});
 					</script>

@@ -216,10 +216,11 @@ function checkLogin(msg) {
 	}
 }
 
-$(document).on("click", "div.appLinkDiv",function(){
+$(document).on("click", "a.appLinkDiv",function(){
 	//getting the page id of the div clicked upon
 	var pageId = $(this).data("id");
-	window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
+	// window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
+	window.location = "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank";
 });
 
 $("body").on("click", "span.toggleradio",function(){
@@ -269,7 +270,8 @@ function installApp(msg) {
 
 $(".proceedToWizard").on("click",function() {
 	var pageId = $(this).data("id");
-	window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
+	// window.open( "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank");
+	window.location = "https://www.facebook.com/"+pageId+"?id="+pageId+"&sk=app_"+INSTALLED_APP_ID,"_blank";
 });
 
 //setting the auto update preferences for the user
@@ -714,7 +716,7 @@ function getPageList(msg) {
 
 			var installedPageHtml = installedPage.clone();
 			for(var i = 0; i < installed.length; i++) {
-				installedPageHtml.find("div.installedAppPage,div.appLinkDiv").attr("data-id",installed[i].id);
+				installedPageHtml.find("div.installedAppPage, a.appLinkDiv").attr("data-id",installed[i].id);
 				installedPageHtml.find("img.installedAppImage").attr("src","https://graph.facebook.com/"+installed[i].id+"/picture?height=64&width=64");
 				installedPageHtml.find(".pageName").text(installed[i].name);
 				installedPageHtml.find(".pageCategory").text(installed[i].category);
@@ -727,7 +729,6 @@ function getPageList(msg) {
 		}
 
 		circleLoader.hide();
-		$("#nextStep").css("display","block");
 	} else {
 		window.location = "pagelist.php";
 	}
