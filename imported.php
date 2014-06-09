@@ -276,7 +276,7 @@
 
 							<script>
 							  	var handler = StripeCheckout.configure({
-								    key: 'pk_test_idc5V67kywOPFOub6f733v6j',
+								    key: 'pk_test_8Bz7OsUYFmfnDABGPQrEdcdS',
 								    image: 'img/snaplion_round_logo.jpg',
 								    token: function(token, args) {
 								    	console.log(token);
