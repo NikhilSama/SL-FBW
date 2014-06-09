@@ -282,7 +282,7 @@
 								    	console.log(token);
 								    	console.log(args);
 
-								    	$('#loadingCircle').show();
+								    	// $('#loadingCircle').show();
 										var stripePayment 		= new Object();
 										//getting the email id and password
 										stripePayment.param 	= 'stripePayment';
