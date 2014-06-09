@@ -295,7 +295,7 @@
 									      	method	: 'POST',
 									      	data	: stripePayment,
 									      	dataType: 'html',
-											success: function(response) {
+											success	: function(response) {
 												console.log(response);
 												var res = JSON.parse(response);
 												if(res['result']['status']) {
