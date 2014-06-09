@@ -339,8 +339,6 @@
 	    			
 	    			window.top.location.href = 'https://www.facebook.com/';
 	    		});
-
-	    		$('#loadingCircle').hide();
 	    	});
 		</script>
 	</body>
