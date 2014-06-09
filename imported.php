@@ -282,7 +282,7 @@
 								    	console.log(token);
 								    	console.log(args);
 
-								    	// $('#loadingCircle').show();
+								    	$('#loadingCircle').show();
 										var stripePayment 		= new Object();
 										//getting the email id and password
 										stripePayment.param 	= 'stripePayment';
@@ -290,24 +290,24 @@
 										stripePayment.mobapp_id = "<?php echo $mobapp_id; ?>";
 										stripePayment.page_id = "<?php echo $page_id; ?>";
 
-										// $.ajax({
-									 //      	url		: 'AjaxMethods.php',
-									 //      	method	: 'POST',
-									 //      	data	: stripePayment,
-									 //      	dataType: 'html',
-										// 	success	: function(response) {
-										// 		console.log(response);
-										// 		var res = JSON.parse(response);
-										// 		if(res['result']['status']) {
-										// 			alert(res['result']['message']);
-										// 			$('#customButton').hide();
-										// 		} else {
-										// 			alert(res['result']['message']);
-										// 		}
-										// 		console.log(res);
-										// 		$('#loadingCircle').hide();
-									 //  		}
-										// });
+										$.ajax({
+									      	url		: 'AjaxMethods.php',
+									      	method	: 'POST',
+									      	data	: stripePayment,
+									      	dataType: 'html',
+											success	: function(response) {
+												console.log(response);
+												var res = JSON.parse(response);
+												if(res['result']['status']) {
+													alert(res['result']['message']);
+													$('#customButton').hide();
+												} else {
+													alert(res['result']['message']);
+												}
+												console.log(res);
+												$('#loadingCircle').hide();
+									  		}
+										});
 								    }
 							  	});
 
