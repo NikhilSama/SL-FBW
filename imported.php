@@ -296,6 +296,7 @@
 									      	data	: stripePayment,
 									      	dataType: 'html',
 											success: function(response) {
+												console.log(response);
 												var res = JSON.parse(response);
 												if(res['status']) {
 													alert(res['message']);
@@ -303,6 +304,7 @@
 												} else {
 													alert(res['message']);
 												}
+												console.log(res);
 												$('#loadingCircle').hide();
 									  		}
 										});
