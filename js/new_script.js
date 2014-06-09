@@ -657,12 +657,10 @@ var uninstalledNewAppPages = $("#uninstalledNewAppPages");
 var installedAppPages = $("#installedAppPages");
 var uninstalledAppPage = $("#uninstalledAppPage");
 
-function getPageList(msg) {	
-	console.log(msg);
+function getPageList(msg) {
 	circleLoader.show();
 	if(msg) {
 		var parseOutput = JSON.parse(msg);
-		console.log(parseOutput);
 		var installed = parseOutput.installed;
 		var uninstalled = parseOutput.uninstalled;
 		// console.log(parseOutput.uninstalled);
