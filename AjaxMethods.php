@@ -210,4 +210,29 @@
 
 		submitIngredientData($ingredients_data);
 	}
+
+	if(isset($_POST['param']) && $_POST['param'] == 'stripePayment' ) {
+		//verifying the user login
+		$paymentData = array( 
+			"key"=>KEY, 
+			"token" => $_POST['token'], 
+			"moabpp_id"=>$_POST['mobapp_id'] 
+		);
+
+		$url = STRIPE_PAYMENT;
+		// sending curl request to verify user
+		$result = curlreq($paymentData, $url);
+
+		// creating an associative array of the json received after sending the post request
+		$result_array = json_decode($result,true);
+		// var_dump($result_array);
+		// die();
+		//checking if the given password matched the username listed with the password
+		if( $result_array['result']['status'] ) {
+			//updating the user table with the snaplion id received
+			$db->execute_query("UPDATE " . PAGE . " set payment_flag = 1 where page_id= " . $_POST['page_id']);
+		}
+
+		echo $result;
+	}
 ?>

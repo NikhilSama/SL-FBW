@@ -50,6 +50,7 @@ define("ADD_APP_URL","http://api.snaplion.com/users/create_app.json");
 define("ADD_INGREDIENTS_URL","http://api.snaplion.com/users/add_ingredient.json");
 define("GET_INGREDIENTS_URL","http://api.snaplion.com/users/app_ingredients.json");
 define("SID_URL","http://api.snaplion.com/users/existing_user_login.json");
+define("STRIPE_PAYMENT","http://api.snaplion.com/orders/stripe_recurring_payment.json");
 define("CHK_USER","http://api.snaplion.com/users/check_user.json");
 
 //Further define more constants here like TABLE names or any other info

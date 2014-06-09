@@ -282,16 +282,30 @@
 								    	console.log(token);
 								    	console.log(args);
 
-								    	$.ajax({
-											url: 'stripe_payment.php',
-											method:"POST",
-											data: token,
-											success: function(res) {
-											    console.log(res);
-											}
+								    	$('#loadingCircle').show();
+										var stripePayment 		= new Object();
+										//getting the email id and password
+										stripePayment.param 	= 'stripePayment';
+										stripePayment.token 	= token.id;
+										stripePayment.mobapp_id = "<?php echo $mobapp_id; ?>";
+										stripePayment.page_id = "<?php echo $page_id; ?>";
+
+										$.ajax({
+									      	url		: 'AjaxMethods.php',
+									      	method	: 'POST',
+									      	data	: stripePayment,
+									      	dataType: 'html',
+											success: function(response) {
+												var res = JSON.parse(response);
+												if(res['status']) {
+													alert(res['message']);
+													$('#customButton').hide();
+												} else {
+													alert(res['message']);
+												}
+												$('#loadingCircle').hide();
+									  		}
 										});
-								      	// Use the token to create the charge with a server-side script.
-								      	// You can access the token ID with `token.id`
 								    }
 							  	});
 
