@@ -298,11 +298,11 @@
 											success: function(response) {
 												console.log(response);
 												var res = JSON.parse(response);
-												if(res['status']) {
-													alert(res['message']);
+												if(res['result']['status']) {
+													alert(res['result']['message']);
 													$('#customButton').hide();
 												} else {
-													alert(res['message']);
+													alert(res['result']['message']);
 												}
 												console.log(res);
 												$('#loadingCircle').hide();

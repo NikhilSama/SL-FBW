@@ -216,7 +216,7 @@
 		$paymentData = array( 
 			"key"=>KEY, 
 			"token" => $_POST['token'], 
-			"moabpp_id"=>$_POST['mobapp_id'] 
+			"mobapp_id"=>$_POST['mobapp_id'] 
 		);
 
 		$url = STRIPE_PAYMENT;
