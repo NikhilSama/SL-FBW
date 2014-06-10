@@ -710,7 +710,7 @@ function getPageList(msg) {
 					uninstalledAppPages.append(innerHtml);
 				}
 
-				installedAppPages.prepend('<h4 class="install-heading">Install Facebook Wizard on your other pages?</h4>');
+				installedAppPages.prepend('<h4 class="install-heading">Install Facebook Wizard on your ' + uninstalled.length + ' other pages?</h4>');
 			}
 
 			var installedPageHtml = installedPage.clone();
