@@ -77,7 +77,7 @@
 		</div>
 		<div class="fb_maincontainer">
 			<iframe src="<?php echo 'https://fbwsimulator.snaplion.com/#/?app_id='.$mobapp_id; ?>" 
-				frameborder="0" style="height: 390px; width: 220px;margin-top: 65px;padding-right: 27px;float: right;">
+				frameborder="0" style="height: 390px; width: 220px;margin-top: 65px;padding-right: 29px;float: right;">
 			</iframe>
 
 			<div class="fb_left">
