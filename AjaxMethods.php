@@ -112,6 +112,8 @@
 			}
 			print_r($app_id);
 			$pageProfilePic = $fbObject->api($page_id."/picture?redirect=0&height=200&type=normal&width=200");
+			print_r($pageProfilePic);
+			exit;
 
 			$new_app_data = array("key"=>KEY,"user_id"=>$snaplion_id,"category_id"=>$app_id,'profile_pic' => $pageProfilePic);
 			$url = ADD_APP_URL;
