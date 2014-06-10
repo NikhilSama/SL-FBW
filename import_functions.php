@@ -425,14 +425,16 @@ $post_count = 0;
 	            	$event['ticketURL'] = $event_info['ticket_uri'];
 	            }
 
-	            if( !empty($event_info['pic']) ) 
-	            {
-	            	$event['imgThumb'] = $event_info['pic'];
-	            }       
 	            if( !empty($event_info['pic_big']) ) 
 	            {
-	            	$event['img'] = $event_info['pic_big'];
-	            }       
+	            	$event['imgThumb'] = $event_info['pic_big'];
+	            }
+	                   
+	            if( !empty($event_info['pic_cover']) ) 
+	            {
+	            	$event['img'] = $event_info['pic_cover']['source'];
+	            }
+
 	            // $event['imgThumb'] = ( !empty($events['']) ) ? $events[''] : ''; 
 	            $events[] = $event;
 			}
