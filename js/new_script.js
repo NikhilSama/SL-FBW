@@ -175,7 +175,7 @@ function importSuccess(msg) {
 		responseText.css("border","1px solid red");
 		submitList.css("display","block");
 	}
-	circleLoader.hide();
+	// circleLoader.hide();
 }
 
 $("body").on("click","div.tick, div.untick", function() {
