@@ -667,7 +667,7 @@ function getPageList(msg) {
 		var parseOutput = JSON.parse(msg);
 		var installed = parseOutput.installed;
 		var uninstalled = parseOutput.uninstalled;
-		// console.log(parseOutput.uninstalled);
+		console.log(parseOutput);
 
 		if(installed.length == 0) {
 			if(uninstalled.length) {	
