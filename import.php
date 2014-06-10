@@ -127,7 +127,7 @@
 					</div>
 				</div>
 				<div class="button-group">
-					<a href="#" class="btn-orange" style="width:360px;" id="submitList">IMPORT TO SNAPLION</a>
+					<a href="#" class="btn-orange" style="width:360px;" id="submitList">IMPORT TO APP</a>
 				</div>
 				<div><hr class="hr-gray"></div>
 				<div class="button-box"><a href="#" class="btn-gray">Build Apps for More Pages?</a></div>
