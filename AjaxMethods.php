@@ -111,8 +111,9 @@
 				$app_id = 1000;
 			}
 			print_r($app_id);
+			$pageProfilePic = $fbObject->api($page_id."/picture?redirect=0&height=200&type=normal&width=200");
 
-			$new_app_data = array("key"=>KEY,"user_id"=>$snaplion_id,"category_id"=>$app_id);
+			$new_app_data = array("key"=>KEY,"user_id"=>$snaplion_id,"category_id"=>$app_id,'profile_pic' => $pageProfilePic['url']);
 			$url = ADD_APP_URL;
 			//sending the post request to0 create a new app with the existing user
 			$result = curlreq($new_app_data,$url);
