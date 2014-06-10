@@ -238,7 +238,7 @@ $("body").on("click", "span.toggleradio",function(){
 $(document).on("click", ".selectedAppInstall", function(){
 	circleLoader.show();
 
-	$(this).parents('.uninstalledAppPage').find('.newAppRadio').prop('checked', true);;
+	$(this).parents('.uninstalledAppPage').find('.newAppRadio').prop('checked', true);
 	var selectedRadio = $('input[type=radio]:checked.newAppRadio');
 	// if(selectedRadio.length) {
 
