@@ -189,6 +189,7 @@ $("body").on("click","div.tick, div.untick", function() {
 
 $(".closeMessage").on('click', function() {
 	$("#confirmMessage").css("display","none");
+	$(".closeMessageOverlay").css("display","none");
 	$("div#coverUp").css("display","none");
 });
 

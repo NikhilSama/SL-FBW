@@ -163,7 +163,7 @@
 
 					if($msg) {
 				?>		
-						<div class="loader-bg-main">
+						<div class="loader-bg-main closeMessageOverlay">
 							<div class="loader-bg-msg">
 								<span class="receivedMessage">
 									<?php echo $msg; ?>
@@ -339,6 +339,10 @@
 	    			
 	    			window.top.location.href = 'https://www.facebook.com/';
 	    		});
+
+	    		$(document).on('click', ".closeMessage", function() {
+					$(".closeMessageOverlay").css("display","none");
+				});
 	    	});
 		</script>
 	</body>

@@ -607,14 +607,14 @@ label.css-label {
 	width: 182px;
 	height: 190px;
 	background-color: #f8f8f8;
-	margin-top: 60px;
+	/*margin-top: 60px;*/
 	margin-right: 40px;
 }
 .pagebox .upper {
 	height: 130px;
 	width: 182px;
 }
-.pagebox .lower {
+/*.pagebox*/ .lower {
 	height: 60px;
 	width: 182px;
 	background-color: #1c8fc5;
