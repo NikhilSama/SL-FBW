@@ -427,7 +427,11 @@ $post_count = 0;
 
 	            if( !empty($event_info['pic']) ) 
 	            {
-	            	$event['img'] = $event_info['pic'];
+	            	$event['imgThumb'] = $event_info['pic'];
+	            }       
+	            if( !empty($event_info['pic_big']) ) 
+	            {
+	            	$event['img'] = $event_info['pic_big'];
 	            }       
 	            // $event['imgThumb'] = ( !empty($events['']) ) ? $events[''] : ''; 
 	            $events[] = $event;

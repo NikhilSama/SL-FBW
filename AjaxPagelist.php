@@ -31,6 +31,7 @@
 		$app_check = json_decode(file_get_contents('https://graph.facebook.com/'.$pageId.'/tabs/'.INSTALLED_APP_ID.'?access_token='.$token));
 
 		$pageInfo = json_decode(file_get_contents('https://graph.facebook.com/'.$pageId.'?access_token='.$token));
+		$pageProfilePic = json_decode(file_get_contents('https://graph.facebook.com/'.$pageId.'/picture?redirect=0&height=200&type=normal&width=200&access_token='.$token));
 
 		//if app_check is empty then app is installed else not installed
 		if(!empty($app_check->data)) {	

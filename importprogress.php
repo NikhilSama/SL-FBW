@@ -56,7 +56,7 @@
 					break;
 
 					case "events":
-						$event_data = $fbObject->fql("SELECT name,eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
+						$event_data = $fbObject->fql("SELECT name,eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic,pic_big FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
 						$keyvalues[] = "Events";
 						extract_event_data($event_data,$apptabs);
 						//print_r($events);
