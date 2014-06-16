@@ -1,22 +1,22 @@
 <?php 
 	// require_once ("header.php");
 
-	if(!isset($_SESSION[APPID."_accessToken"]))
-	header("location:index.php");
+	// if(!isset($_SESSION[APPID."_accessToken"]))
+	// header("location:index.php");
 	
 	// require_once("ingredient-functions.php");
-	//Picks Default Configuration
-	$fbObject = new FBMethods();
-	//Sets Access token got from previous page....
-	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
+	// //Picks Default Configuration
+	// $fbObject = new FBMethods();
+	// //Sets Access token got from previous page....
+	// $fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
 
-	$db = new db_connect();
-	$snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
-	//function to get ingredients data
-	$ingredient_data = getIngredientData($snap_data);
+	// $db = new db_connect();
+	// $snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
+	// //function to get ingredients data
+	// $ingredient_data = getIngredientData($snap_data);
 
-	echo "<pre>";
-	print_r($ingredient_data);exit;
+echo "hhhhh";
+exit;
 ?>
 
 <!doctype html>
