@@ -1,8 +1,9 @@
 <?php 
 	require_once ("header.php");
 
-	if(!isset($_SESSION[APPID."_accessToken"]))
-	header("location:index.php");
+	if(!isset($_SESSION[APPID."_accessToken"])) {
+		header("location:index.php");	
+	}
 	
 	require_once("ingredient-functions.php");
 	//Picks Default Configuration
@@ -14,8 +15,9 @@
 	$snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
 	echo "<pre>";
 	print_r($snap_data);
+	exit;
 	//function to get ingredients data
-	$ingredient_data = getIngredientData($snap_data);
+	// $ingredient_data = getIngredientData($snap_data);
 ?>
 
 <!doctype html>
