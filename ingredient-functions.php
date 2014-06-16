@@ -1,41 +1,37 @@
 <?php  
-function getIngredientData($snap_data)
-{
-	$mobapp_id = $snap_data[0]['m_app_id'];
-	$ingredient_id = $snap_data[0]['ingredient_id'];
+	function getIngredientData($snap_data) {
+		$mobapp_id = $snap_data[0]['m_app_id'];
+		$ingredient_id = $snap_data[0]['ingredient_id'];
 
-	$submit_data = array(
-		"mobapp_id" => $mobapp_id,
-		"key" => KEY
+		$submit_data = array(
+			"mobapp_id" => $mobapp_id,
+			"key" => KEY
+			);
+
+		$url = GET_INGREDIENTS_URL;
+
+		// use key 'http' even if you send the request to https://...
+		$options = array(
+		    'http' => array(
+		        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+		        'method'  => 'POST',
+		        'content' => http_build_query($submit_data),
+		    ),
 		);
+		$context  = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
+		$result_data = json_decode($result,true);
 
-	$url = GET_INGREDIENTS_URL;
-
-	// use key 'http' even if you send the request to https://...
-	$options = array(
-	    'http' => array(
-	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-	        'method'  => 'POST',
-	        'content' => http_build_query($submit_data),
-	    ),
-	);
-	$context  = stream_context_create($options);
-	$result = file_get_contents($url, false, $context);
-	$result_data = json_decode($result,true);
-
-	//var_dump($result_data['result']['status']);
-	if( $result_data['result']['status'] )
-	{	
-		return $result_data['result']['data'];
-	} else
-	{
-		return "error";
+		//var_dump($result_data['result']['status']);
+		if( $result_data['result']['status'] ) {	
+			return $result_data['result']['data'];
+		} else {
+			return "error";
+		}
 	}
-}
 
 
-	function extractImageUpload($snap_data,$url,$param)
-	{	
+	function extractImageUpload($snap_data,$url,$param) {	
 		global $ingredient_data;
 		global $fbObject;
 		global $db;
@@ -70,8 +66,7 @@ function getIngredientData($snap_data)
 	}
 
 
-	function submitIngredientData($ingredient_data)
-	{
+	function submitIngredientData($ingredient_data) {
 		$url = ADD_INGREDIENTS_URL;
 		
 		// use key 'http' even if you send the request to https://...
@@ -87,5 +82,4 @@ function getIngredientData($snap_data)
 		$result_data = json_decode($result,true);
 
 		echo $result_data['result']['status'];
-
 	}
