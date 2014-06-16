@@ -1,10 +1,10 @@
 <?php 
-	require_once ("header.php");
+	// require_once ("header.php");
 
 	if(!isset($_SESSION[APPID."_accessToken"]))
 	header("location:index.php");
 	
-	require_once("ingredient-functions.php");
+	// require_once("ingredient-functions.php");
 	//Picks Default Configuration
 	$fbObject = new FBMethods();
 	//Sets Access token got from previous page....
