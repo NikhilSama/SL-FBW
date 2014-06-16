@@ -14,6 +14,9 @@
 	$snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
 	//function to get ingredients data
 	$ingredient_data = getIngredientData($snap_data);
+
+	echo "<pre>";
+	print_r($ingredient_data);exit;
 ?>
 
 <!doctype html>
