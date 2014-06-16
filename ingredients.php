@@ -7,9 +7,9 @@
 	
 	require_once("ingredient-functions.php");
 	//Picks Default Configuration
-	$fbObject = new FBMethods();
-	//Sets Access token got from previous page....
-	$fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
+	// $fbObject = new FBMethods();
+	// //Sets Access token got from previous page....
+	// $fbObject->setAccessToken($_SESSION[APPID."_accessToken"]);
 
 	$db = new db_connect();
 	$snap_data = $db->execute_query( "SELECT ingredient_id, m_app_id from ".PAGE." where page_id=".$_SESSION['pageid'] );
@@ -182,6 +182,105 @@
 			</div>
 		</div> <!-- container-fluid ends -->
 
-		
+		<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="js/new_script.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var count = 0;
+				$(".required").each(function() {
+					if( $(this).val().trim() != "" ) {	
+						count++;
+					}
+				});
+				
+				if( count == $(".required").length ) {
+					$("div.paymentLink").css("display","block");
+				}
+
+				filepicker.setKey("AY8AuvW64QIqfiOKzeK5yz");
+				
+				//functions to upload the image of icon and splash image and then sending ajax request to check the dimensions of the image
+				$(".iconUpload").click(function() {
+					filepicker.pick(function(InkBlob) {
+						filepicker.stat(InkBlob, {width: true, height: true},
+						 function(metadata){
+						   console.log(JSON.stringify(metadata));
+
+						   if(metadata.width >= 1024 && metadata.height >= 1024) {
+							 //   	iconUpload = new Object();
+								// iconUpload.url = InkBlob.url;
+								// iconUpload.action = "uploadImage";
+								// iconUpload.param = "iconUpload";
+								// sendAjaxRequest(pathToController,iconUpload,'html','sizeCheck');
+
+								// iconImage.attr("src",iconUpload.url);
+								// iconImage.css({"width":"120px","height":"120px"});
+								// iconImage.data("value","1");
+							 	// console.log(InkBlob.url);
+
+							  	var iconObject = new Object();
+								iconObject.min_width = 1024;
+								iconObject.true_width = metadata.width;
+								iconObject.min_height = 1024;
+								iconObject.true_height = metadata.height;
+								iconObject.target_element = 'iconImage';
+								iconObject.input_field = '';
+					  			crop(InkBlob,iconObject);
+						  	} else {
+						  		alert("The App Icon dimesnions are not correct. Minimum size required 1024x1024 PX");
+						  	}
+						});
+					});
+
+					$("#filepicker_dialog_container").css('top','100px');
+				});
+
+				$(".splash-upload").click(function() {
+					filepicker.pick(function(InkBlob){
+						filepicker.stat(InkBlob, {width: true, height: true},
+						function(metadata){
+						   // console.log(JSON.stringify(metadata));
+
+						   if(metadata.width >= 640 && metadata.height >= 1136) {
+								// splashUpload = new Object();
+								// splashUpload.url = InkBlob.url;
+								// splashUpload.action = "uploadImage";
+								// splashUpload.param = "splashUpload";
+								// sendAjaxRequest(pathToController,splashUpload,'html','sizeCheck');
+
+								var splashObject = new Object();
+								splashObject.min_width = 640;
+								splashObject.true_width = metadata.width;
+								splashObject.min_height = 1136;
+								splashObject.true_height = metadata.height;
+								splashObject.target_element = 'splashScreen';
+								splashObject.input_field = '';
+					  			crop(InkBlob,splashObject);
+					  		} else {
+						  		alert("The Splash Screen dimesnions are not correct. Minimum size required 640x1136 PX");
+						  	}
+						});
+					});
+					$("#filepicker_dialog_container").css('top','100px');
+				});
+				
+				$('#loadingCircle').hide();
+			});
+		</script>
+		<script src="js/jquery.Jcrop.js"></script>
+		<?php 
+			// Facebook JS
+			echo $fbObject->getFBScript();
+		?>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    $("[rel=tooltip]").tooltip({ placement: 'right'});
+
+			    $("[rel=tooltipl]").tooltip({ placement: 'bottom'});
+			});
+		</script>
 	</body>
 </html>
