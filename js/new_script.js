@@ -369,23 +369,15 @@ $(".ingredientFinish").on("click",function(e){
 		appIngredients.url = $("#appUrl").val();
 		appIngredients.keywords = $("#keyWords").val();
 
-		console.log(dummyImage.attr("data-value"));
 		if(dummyImage.attr("data-value") != "1") {
-			console.log("Splash Image : " + dummyImage.attr("data-value"));
 			appIngredients.appSplashImage = 'http://static.snaplion.com/snaplionfbw/640-1136.png';
 		}
 		
-		console.log(iconImage.attr("data-value"));
 		if(iconImage.attr("data-value") != "1") {
-			console.log("Icon Image : " + iconImage.attr("data-value"));
 			appIngredients.app_icon = 'http://static.snaplion.com/snaplionfbw/1024x1024.png';
 		}
-
-		console.log(appIngredients);
-		alert("Without Images");
-		// sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
-		// e.stopPropagation();
-
+		sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
+		e.stopPropagation();
 	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {
 		var appIngredients = new Object();
 		appIngredients.param = "submitIngredients";
