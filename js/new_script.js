@@ -357,8 +357,28 @@ $(".ingredientFinish").on("click",function(e){
 		circleLoader.css({"display":"none"});
 		//alert(message)
 	} else if( ! (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {	
-		circleLoader.css({"display":"none"});
-		alert("Please Upload missing images");		
+		// circleLoader.css({"display":"none"});
+		// alert("Please Upload missing images");
+		var appIngredients = new Object();
+		appIngredients.param = "submitIngredients";
+		appIngredients.name = $("#appName").val();
+		appIngredients.title = $("#appTitle").val();
+		appIngredients.description = $("#appDescription").val();
+		appIngredients.url = $("#appUrl").val();
+		appIngredients.keywords = $("#keyWords").val();
+
+		if(dummyImage.attr("data-value") != "1") {
+			appIngredients.appSplashImage = 'http://static.snaplion.com/snaplionfbw/640-1136.png';
+		}
+
+		if(iconImage.attr("data-value") != "1") {
+			appIngredients.app_icon = 'http://static.snaplion.com/snaplionfbw/1024x1024.png';
+		}
+
+		e.preventDefault();
+		sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
+		e.stopPropagation();
+
 	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {
 		var appIngredients = new Object();
 		appIngredients.param = "submitIngredients";
