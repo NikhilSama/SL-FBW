@@ -184,6 +184,15 @@
 
 		$db->execute_query( "UPDATE ".PAGE." set ingredients_flag=1 where page_id=".$_SESSION['pageid']);
 		//creating the array for submitting the data 
+		$ingredientsImgData = array();
+		if(isset($_POST['appSplashImage'])) {
+			$ingredientsImgData['appSplashImage'] = $_POST['appSplashImage'];
+		}
+		
+		if(isset($_POST['app_icon'])) {
+			$ingredientsImgData['app_icon'] = $_POST['app_icon'];
+		}
+
 		$ingredients_data = array(
 			"key"                => KEY,
 			"id"                 => $snap_data[0]['ingredient_id'],
@@ -194,6 +203,8 @@
 			"appOfficialWebsite" => $_POST['url'],
 			"appKeywords"        => $_POST['keywords']
 		);
+
+		$ingredients_data = array_merge($ingredients_data, $ingredientsImgData);
 
 		submitIngredientData($ingredients_data);
 	}
