@@ -37,6 +37,8 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/checkbox.css" rel="stylesheet">
 
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 		<style>
 			@-moz-keyframes f_fadeG{
 			0%{
@@ -151,7 +153,18 @@
 				<div class="you-r">
 		        	<h3 style="text-align:center;"><img src="http://www.snaplion.com/landingpages/logoTheme.png"></h3>
 		            <h5 style="text-align:center;">You are not authorised to use this App. Get in touch with us at <a href="mailto:contact@snaplion.com" >contact@snaplion.com</a> to create your own App.</h3>
+		            <br/><a href="#" class="btn-orange mt-10" id="exitPageTab">Exit</a>
 		       	</div>
+
+		       	<script type="text/javascript">
+					$(document).ready(function(){
+			    		$(document).on('click', '#exitPageTab', function(event){
+			    			event.preventDefault();
+			    			
+			    			window.top.location.href = 'https://www.facebook.com/';
+			    		});
+			    	});
+				</script>
 		<?php
 			}
 		?>
