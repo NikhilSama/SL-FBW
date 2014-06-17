@@ -39,8 +39,8 @@ define("DB","SnapLion_FBW");
 
 
 //defining constants for the app to be installed on the other page
-define("INSTALLED_APP_ID","573559196064698");
-define("INSTALLED_APP_SECRET","1ac4f42d2be503264089571d6929b515");
+define("INSTALLED_APP_ID","246750998846919");
+define("INSTALLED_APP_SECRET","a98e7828b95952d24b2ae69eb7a93f62");
 
 //api key for snaplion
 define("KEY","MMKSKAIzaSyA7bjgLuOCUMMKSK5BiLpMMKSK9KyuN0ynwBhiKCZ3RoMMKSK");
