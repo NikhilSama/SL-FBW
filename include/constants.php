@@ -11,8 +11,8 @@
 // define("PAGEID","526001477410636");
 // define("PAGENAMESPACE","zecrossapptest");
 
-define("APPID","573559196064698");
-define("APPSECRET","1ac4f42d2be503264089571d6929b515");
+define("APPID","246750998846919");
+define("APPSECRET","a98e7828b95952d24b2ae69eb7a93f62");
 define("APPDIR","https://fbw.snaplion.com/");
 define("APPNAMESPACE","snaplionfbw");
 define("PAGEID","700276449993386");
