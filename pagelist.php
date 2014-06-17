@@ -159,7 +159,7 @@
 					//checks if the user is already registered or not
 					if($result_array['result']['status']) {	
 						//if new user
-						$msg = "Your Account has been successfully created. <br>You can Login at snaplion.com with following access details: <br>User ID: ".$email."<br>Password: snaplion123";
+						$msg = "Your Account has been successfully created. <br>You can Login at www.snaplion.com with following access details: <br>User ID: ".$email."<br>Password: snaplion123";
 					}
 
 					if($msg) {
