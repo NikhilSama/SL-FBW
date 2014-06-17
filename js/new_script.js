@@ -371,11 +371,13 @@ $(".ingredientFinish").on("click",function(e){
 
 		console.log(dummyImage.attr("data-value"));
 		if(dummyImage.attr("data-value") != "1") {
+			console.log("Splash Image : " + dummyImage.attr("data-value"));
 			appIngredients.appSplashImage = 'http://static.snaplion.com/snaplionfbw/640-1136.png';
 		}
 		
 		console.log(iconImage.attr("data-value"));
 		if(iconImage.attr("data-value") != "1") {
+			console.log("Icon Image : " + iconImage.attr("data-value"));
 			appIngredients.app_icon = 'http://static.snaplion.com/snaplionfbw/1024x1024.png';
 		}
 
