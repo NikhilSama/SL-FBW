@@ -61,6 +61,7 @@
 	<body style="margin: 0 !important;">
 		<div class="loader-bg-main" id="loadingCircle">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+			<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -100px;margin-top: 50px;">Please be patient, this will take a minute.</span>
 		</div>
 		<div class="fb_maincontainer">
 			<div class="fb_left">
