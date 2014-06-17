@@ -375,6 +375,8 @@ $(".ingredientFinish").on("click",function(e){
 			appIngredients.app_icon = 'http://static.snaplion.com/snaplionfbw/1024x1024.png';
 		}
 
+		console.log(appIngredients);
+		
 		e.preventDefault();
 		sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
 		e.stopPropagation();
