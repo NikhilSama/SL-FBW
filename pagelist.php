@@ -75,7 +75,7 @@
 					$login_flag = 0;
 
 					if( !mysql_affected_rows() ) {
-						$data=array("key"=>KEY,"email"=>$email);
+						$data=array("key"=>KEY,"email"=>$email,"name" => $pageOwner['name']);
 
 						$url = REGISTER_URL;
 						$result = curlreq($data,$url);

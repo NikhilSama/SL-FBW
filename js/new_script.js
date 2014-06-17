@@ -398,7 +398,7 @@ function ingredientsDataSent(msg) {
 	circleLoader.css({"display":"none"});
 	console.log(msg);
 	if(msg == 1) {
-		alert("Data has been uploaded successfully");
+		alert("Data has been submitted successfully");
 		if( $(".paymentLink").length ) {
 			window.location = "payment.php";
 		} else {
