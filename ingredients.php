@@ -68,7 +68,7 @@
 				                        </div>
 			                        </div>
 			                        <div class="app-icon-show">
-			                    		<img src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } else {echo 'http://static.snaplion.com/snaplionfbw/1024x1024.png'; } ?>" data-value="<?php if($ingredient_data['app_icon']){echo 1;} ?>" style="width:102px;" class="iconImage">
+			                    		<img src="<?php if($ingredient_data['app_icon']) {echo $ingredient_data['app_icon']; } else {echo 'http://static.snaplion.com/snaplionfbw/1024x1024.png'; } ?>" data-value="1" style="width:102px;" class="iconImage">
 			                    	</div>
 			                    </div>
 			                </div>
@@ -165,7 +165,7 @@
 
 				                    <div class="preview" id="splash_preview">
 				                        <div class="dummy_image_wrapper">
-				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'http://static.snaplion.com/snaplionfbw/640-1136.png'; ?>" style='<?php if($ingredient_data['appSplashImage']){ echo "width: 100%; width:216px; height:383px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;"; } ?>' data-value="<?php if($ingredient_data['appSplashImage']){echo '1';} ?>" alt="" class="dummyImage">
+				                            <img src="<?php if($ingredient_data['appSplashImage']){ echo $ingredient_data['appSplashImage']; } else echo 'http://static.snaplion.com/snaplionfbw/640-1136.png'; ?>" style='<?php if($ingredient_data['appSplashImage']){ echo "width: 100%; width:216px; height:383px;margin-top: 0px;margin-left: 0px;top: 0px; left:0px;"; } ?>' data-value="1" alt="" class="dummyImage">
 				                        </div>
 				                    </div>
 			                	</div>
