@@ -171,7 +171,7 @@
 									<?php
 										if(!$login_flag) {
 									?>
-											<br/><a href="#" class="closeMessage btn-orange mt-10">OK</a>
+											<br/><a href="#" class="closeMessage btn-orange mt-10">Continue</a>
 									<?php
 										}
 									?>
