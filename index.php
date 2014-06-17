@@ -152,8 +152,8 @@
 		?>
 				<div class="you-r">
 		        	<h3 style="text-align:center;"><img src="http://www.snaplion.com/landingpages/logoTheme.png"></h3>
-		            <h5 style="text-align:center;">You are not authorised to use this App. Get in touch with us at <a href="mailto:contact@snaplion.com" >contact@snaplion.com</a> to create your own App.</h3>
-		            <br/><a href="#" class="btn-orange mt-10" id="exitPageTab">Exit</a>
+		            <h5 style="text-align:center;font-weight: 200;color: #808080;font-family: 'din';line-height: 26px;font-size: 22px;">You are not authorised to use this App. Get in touch with us at <a href="mailto:contact@snaplion.com" >contact@snaplion.com</a> to create your own App.</h3>
+		            <h6 style="text-align:center;margin:0;"><a href="#" class="btn-orange mt-10" id="exitPageTab">Exit</a></h6>
 		       	</div>
 
 		       	<script type="text/javascript">
