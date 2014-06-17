@@ -15,8 +15,8 @@ define("APPID","246750998846919");
 define("APPSECRET","a98e7828b95952d24b2ae69eb7a93f62");
 define("APPDIR","https://fbw.snaplion.com/");
 define("APPNAMESPACE","snaplionfbw");
-define("PAGEID","700276449993386");
-define("PAGENAMESPACE","deepakpizzadelivery2");
+define("PAGEID","276289829151798");
+define("PAGENAMESPACE","SnapLion");
 
 
 
