@@ -761,6 +761,7 @@ button.finish
 	background: #fff;
 	min-height: 250px;
 	height: 383px;
+	position: relative;
 }
 
 .ingredients .upload_image_box .preview .dummy_image,.ingredients .upload_image_box .preview .homedummy_image  
@@ -1417,4 +1418,11 @@ h4 small {
 	top: 0;
 	width: 100%;
 	z-index: 100;
+}
+
+.dummy_image_wrapper{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -50px -60px;
 }
