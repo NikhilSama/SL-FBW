@@ -370,7 +370,7 @@ $(".ingredientFinish").on("click",function(e){
 		appIngredients.keywords = $("#keyWords").val();
 
 		if(dummyImage.attr("data-value") != "1") {
-			appIngredients.appSplashImage = 'http://static.snaplion.com/snaplionfbw/640-1136.png';
+			appIngredients.appSplashImage = 'http://static.snaplion.com/snaplionfbw/loadingScreen.png';
 		}
 		
 		if(iconImage.attr("data-value") != "1") {
