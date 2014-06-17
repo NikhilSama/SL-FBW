@@ -319,6 +319,8 @@ var dummyImage = $("img.dummyImage");
 var homedummyImage = $("img.homedummy_image");
 
 $(".ingredientFinish").on("click",function(e){
+	e.preventDefault();
+
 	circleLoader.show();
 	var message = '';
 	$("label.error.danger").remove();
@@ -367,19 +369,20 @@ $(".ingredientFinish").on("click",function(e){
 		appIngredients.url = $("#appUrl").val();
 		appIngredients.keywords = $("#keyWords").val();
 
+		console.log(dummyImage.attr("data-value"));
 		if(dummyImage.attr("data-value") != "1") {
 			appIngredients.appSplashImage = 'http://static.snaplion.com/snaplionfbw/640-1136.png';
 		}
-
+		
+		console.log(iconImage.attr("data-value"));
 		if(iconImage.attr("data-value") != "1") {
 			appIngredients.app_icon = 'http://static.snaplion.com/snaplionfbw/1024x1024.png';
 		}
 
 		console.log(appIngredients);
-		
-		e.preventDefault();
-		sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
-		e.stopPropagation();
+		alert("Without Images");
+		// sendAjaxRequest(pathToController, appIngredients, 'html', 'ingredientsDataSent');
+		// e.stopPropagation();
 
 	} else if( (dummyImage.attr("data-value") == "1" && iconImage.attr("data-value") == "1") ) {
 		var appIngredients = new Object();
