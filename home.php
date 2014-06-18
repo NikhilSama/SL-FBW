@@ -23,7 +23,7 @@
 		<div class="starting-container">
 			<div class="loader-bg-main" id="loadingCircle">
 				<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
-				<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">Please be patient, this will take a minute.</span>
+				<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">Please be patient, this may take a minute.</span>
 			</div>
 
 			<div class="starting-lower">
