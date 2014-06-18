@@ -1006,7 +1006,7 @@ label.css-label {
     width: 210px;
     height: 210px;
     color: #fff;
-    background: url(img/pop-pricing-bg.png) no-repeat;
+    background: url(../img/pop-pricing-bg.png) no-repeat;
     background-position: 30px 16px;
     background-color: #17518b;
 }
@@ -1029,7 +1029,7 @@ label.css-label {
     padding:0;
 }
 .pop-lower-right li {
-    background: url(img/pricing-li.png) no-repeat;
+    background: url(../img/pricing-li.png) no-repeat;
     padding-left: 30px;
     font-family: 'din';
     font-size: 13px;
