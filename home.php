@@ -72,7 +72,7 @@
         <p>We will convert your Facebook page into a slick and interactive mobile app in minutes.<br>
         These apps will be available to download from the Apple and Google Play app stores.</p> 
 
-        <p class="mb-20">You will be able to engage your fans / customers through your own custom branded mobile app !!</p>
+        <!-- <p class="mb-20">You will be able to engage your fans / customers through your own custom branded mobile app !!</p> -->
 
         <div class="pop-lower">
             <div class="pop-lower-left">
