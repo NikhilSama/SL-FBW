@@ -83,7 +83,7 @@
                 <ul>
                     
                     <li>
-                        <a href="#" class="btn btn2 btn-primary  btn-large" style="position:relative;">One Native iPhone app and One Native Android App
+                        <a href="#" class="btn btn2 btn-primary  btn-large" style="position:relative;">One Native iPhone App and One Native Android App
                             <div class="tool-tip slideIn top">
                                 <!-- <span style="float:left;margin-left:50px;">One Android App  </span>   <span style="float:right;margin-right:50px;">  One iPhone app</span><br> -->
 
@@ -118,7 +118,7 @@
                         </a> 
                     </li> 
 
-                    <li> <a href="#" class="btn btn2 btn-primary  btn-large" style="position:relative;">Unlimited access to App Content Management System and our Mobile App Builder on Facebook. 
+                    <li> <a href="#" class="btn btn2 btn-primary  btn-large" style="position:relative;">Unlimited access to App Content Management System  on www.snaplion.com and our Mobile App Builder on Facebook. 
                         <!-- <div class="tool-tip slideIn top">
                                 <p>on <a href="http://www.snaplion.com/" target="_blank">www.snaplion.com</a> 
                                 </p>
