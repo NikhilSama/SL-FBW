@@ -989,14 +989,14 @@ label.css-label {
 }
 .white_content h6 {
     font-size: 18px;
-    font-family: 'din-bold';
+    font-family: 'DIN';
     color: #226fa9;
     text-align: center;
     margin: 0;
 }
 .white_content p {
     font-size: 12px;
-   /* font-family: 'myriad-pro';*/
+    font-family: 'calibri';
     color: #575757;
     text-align: center;
 }
