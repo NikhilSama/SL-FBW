@@ -951,8 +951,8 @@ label.css-label {
 .white_content {
     display: none;
     position: absolute;
-    top: 10%;
-    left: 25%;
+    top: 5%;
+    left: 5%;
     width: 730px;
     /*height: 470px;*/
     background-color: white;
