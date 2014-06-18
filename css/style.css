@@ -1040,11 +1040,11 @@ label.css-label {
 }
 .doller-price {
     font-size: 80px;
-    font-family: 'din-black';
+    font-family: 'din';
 }
 .doller-month{
     font-size: 20px;
-    font-family: 'din-regular';
+    font-family: 'dinlight';
 }
 .doller-pop {
     float: left;
