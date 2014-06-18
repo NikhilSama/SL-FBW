@@ -986,6 +986,7 @@ label.css-label {
     font-family: 'din';
     color: #252e3f;
     text-align: center;
+    margin-bottom: 10px;
 }
 .white_content h6 {
     font-size: 18px;
@@ -1004,7 +1005,7 @@ label.css-label {
     padding: 20px;
     float: left;
     width: 210px;
-    height: 210px;
+    height: 310px;
     color: #fff;
     background: url(../img/pop-pricing-bg.png) no-repeat;
     background-position: 30px 16px;
@@ -1021,8 +1022,8 @@ label.css-label {
     color: #FFF;
     width: 440px;
     min-height: 190px;
-    height: 190px;
-    overflow: auto;
+    height: 290px;
+    /*overflow: auto;*/
 
 }
 .pop-lower-right ul {
