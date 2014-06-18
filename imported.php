@@ -331,7 +331,7 @@
 					?>
 				</div>
 				<div><hr class="hr-gray"></div>
-				<div class="button-box"><a href="#" class="btn-gray">Build Apps for More Pages?</a></div>
+				<div class="button-box"><a href="pagelist.php" class="btn-gray">Build Apps for More Pages?</a></div>
 			</div>
 		</div>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
