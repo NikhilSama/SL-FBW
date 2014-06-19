@@ -564,7 +564,7 @@ label.css-label {
 
 .app-container {
 	min-height: 720px;
-	width: 730px;
+	/*width: 730px;*/
 	background-color: #0e1723;
 	padding: 40px 60px;
 	background: url(../img/bg-fb.png) no-repeat;
@@ -587,7 +587,7 @@ label.css-label {
 	text-align: center;
 }
 .head-app {
-	width: 100%
+	/*width: 100%*/
 } 
 .head-app h2 {
 	font-size: 38px;
@@ -679,7 +679,7 @@ label.css-label {
 	margin-top: 60px;
 }
 .proceed-section {
-	width: 100%;
+	/*width: 100%;*/
 	padding-left: 240px;
 }
 
