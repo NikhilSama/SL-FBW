@@ -65,7 +65,8 @@
 
 
 
-		<div id="light" class="white_content"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style. display='none';document.getElementById('fade').style.display='none'">
+	<div id="light" class="white_content">
+        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style. display='none';document.getElementById('fade').style.display='none'">
         <img src="img/close-button.png" class="closebutton"></a>
         <h1>Convert your Facebook Page to a Mobile App</h1>
         <h6>Your fans are all mobile. So should you !!</h6>
