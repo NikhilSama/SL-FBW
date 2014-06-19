@@ -395,7 +395,8 @@ $(".ingredientFinish").on("click",function(e){
 });
 
 function ingredientsDataSent(msg) {	
-	circleLoader.css({"display":"none"});
+	// circleLoader.css({"display":"none"});
+	circleLoader.show();
 	console.log(msg);
 	if(msg == 1) {
 		alert("Data has been submitted successfully");
