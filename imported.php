@@ -332,12 +332,11 @@
 				</div>
 				<div><hr class="hr-gray"></div>
 				<div class="button-box"><a href="pagelist.php" class="btn-gray">Build Apps for More Pages?</a></div>
-
-				<br><br><br><br>
-					<a href = "javascript:void(0)" 
-						onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
-						style="font-size: 14px;font-family: 'dinlight';font-weight: 200;width: 326px;line-height: 19px;margin-top: 100px;color: #fff;">Pricing ?</a>
 			</div>
+
+			<br><br><br><br>
+			<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
+				style="font-size: 14px;font-family: 'dinlight';font-weight: 200;width: 326px;line-height: 19px;margin-top: 100px;color: #fff;">Pricing ?</a>
 		</div>
 
 		<div id="light" class="white_content">
@@ -429,7 +428,7 @@
 	    
 	    <div id="fade" class="black_overlay"></div>
 
-	    
+
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 		<script src="js/new_script.js"></script>

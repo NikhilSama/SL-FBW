@@ -132,12 +132,11 @@
 				</div>
 				<div><hr class="hr-gray"></div>
 				<div class="button-box"><a href="pagelist.php" class="btn-gray">Build Apps for More Pages?</a></div>
-
-				<br><br><br><br>
-				<a href = "javascript:void(0)" 
-						onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
-						style="font-size: 14px;font-family: 'dinlight';font-weight: 200;width: 326px;line-height: 19px;margin-top: 100px;color: #fff;">Pricing ?</a>
 			</div>
+
+			<br><br><br><br>
+			<a href="javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
+			style="font-size: 14px;font-family: 'dinlight';font-weight: 200;width: 326px;line-height: 19px;margin-top: 100px;color: #fff;">Pricing ?</a>
 		</div>
 
 
