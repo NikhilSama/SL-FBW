@@ -294,12 +294,6 @@ $photo_count = 0;
 $event_count = 0;
 $post_count = 0;
 
-	function log($logData) {
-		// $fp = fopen('logs/fb.log', "a+");
-		// fwrite($fp, $logData);
-		// fclose($fp);
-	}
-
 	//function to send post request
 	function curlreq($data,$url)
 	{
@@ -432,8 +426,7 @@ $post_count = 0;
 	{	
 		// file_put_contents("data.txt", json_encode($pageinfo));    
 		//works
-		log($pageinfo);
-
+		
 		global $mobapp_id;
 		//make fbobject , bio array and location global in  order to make it accessible inside function
 		global $fbObject;
