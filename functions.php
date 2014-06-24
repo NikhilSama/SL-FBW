@@ -439,6 +439,7 @@ $post_count = 0;
 		if( !empty($pageinfo['description']) ) 
 		{
 			$info['content'] = $pageinfo['description'];
+			$info['original_data'] = $pageinfo;
 		}
 
 		// $info['img'] = "http://graph.facebook.com/".$page_id."/picture?height=300&width=600";
@@ -455,7 +456,6 @@ $post_count = 0;
 
 		$info['mobapp_id'] = $mobapp_id;
 		$info['apptab_id'] = $apptabs['About'];
-		$info['original_data'] = $pageinfo;
 		$bio[] = $info;
 
 		// file_put_contents("data.txt", json_encode($info));
