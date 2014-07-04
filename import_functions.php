@@ -578,6 +578,8 @@ $post_count = 0;
 		if( !empty($pageinfo['description']) ) 
 		{
 			$info['content'] = $pageinfo['description'];
+		} else {
+			$info['content'] = $pageinfo['about'];
 		}
 
 		// $info['img'] = "https://graph.facebook.com/".$page_id."/picture?height=300&width=600";
@@ -638,7 +640,9 @@ $post_count = 0;
 		if( !empty($pageinfo['location']['phone']) ) 
 		{
 			$location_info['phone'] = $pageinfo['location']['phone'];
-		} 
+		} elseif(!empty($pageinfo['phone'])) {
+			$location_info['phone'] = $pageinfo['phone'];
+		}
 
 		if( !empty($pageinfo['location']['latitude']) ) 
 		{
