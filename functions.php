@@ -435,11 +435,10 @@ $post_count = 0;
 		global $countries;
 		$info = array();
 		
-		
+		$info['original_data'] = $pageinfo;
 		if( !empty($pageinfo['description']) ) 
 		{
 			$info['content'] = $pageinfo['description'];
-			$info['original_data'] = $pageinfo;
 		}
 
 		// $info['img'] = "http://graph.facebook.com/".$page_id."/picture?height=300&width=600";
