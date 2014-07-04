@@ -87,7 +87,8 @@
 		    			if( in_array('About', $imported_data )  )
 		    			{	
 
-		    				$pageinfo = $fbObject->api($page_id."?fields=description,location,picture.type(large)");
+		    				// $pageinfo = $fbObject->api($page_id."?fields=description,location,picture.type(large)");
+		    				$pageinfo = $fbObject->api($page_id);
 							//getting the url of the thumbnail
 							$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
 							// file_put_contents("data.txt", json_encode($pageinfo));
