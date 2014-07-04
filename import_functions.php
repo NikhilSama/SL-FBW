@@ -574,7 +574,7 @@ $post_count = 0;
 		$info = array();
 		
 		// print_r($pageinfo);
-		
+		$info['original_data'] = $pageinfo;
 		if( !empty($pageinfo['description']) ) 
 		{
 			$info['content'] = $pageinfo['description'];
