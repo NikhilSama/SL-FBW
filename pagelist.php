@@ -229,7 +229,7 @@
 						<div class="blue-strip">
 							<div class="green-strip-x"><img src="img/tick-big.png"><br>Installed</div>
 							<div class="blue-data installedAppPage" data-id="">
-								<img src="img/user-image.png" class="installedAppImage">
+								<img src="img/user-image.png" class="installedAppImage" style="height:64px !important; width:64px !important;">
 								<div class="blue-data-text  pointer" data-id="">
 									<h3 class="pageName">New Delhi Eat Out</h3>
 									<h5 class="pageCategory">Restaurants and Bars</h5>
@@ -249,7 +249,9 @@
 									<label for="radio" class="css-label radioalign"></label>
 								</div>
 								<div class="rightpart">
-									<div class="user-image pagePicture"><img src="img/user-image.png" class="uninstalledAppImage"></div>
+									<div class="user-image pagePicture">
+										<img src="img/user-image.png" class="uninstalledAppImage" style="height:64px !important; width:64px !important;">
+									</div>
 									<div class="strip-hgroup unistalledPageName">
 										<h4 class="pagename pageName">New Delhi Eat Out</h4>
 										<h5 class="cata-name pageCategory">Restaurants and Bars</h5>
@@ -269,7 +271,9 @@
 									<label for="radio" class="css-label radioalign"></label>
 								</div>
 								<div class="rightpart">
-									<div class="user-image"><img src="img/user-image.png" class="uninstalledAppImage"></div>
+									<div class="user-image">
+										<img src="img/user-image.png" class="uninstalledAppImage" style="height:64px !important; width:64px !important;">
+									</div>
 									<div class="strip-hgroup">
 										<h4 class="pagename pageName">New Delhi Eat Out</h4>
 										<h5 class="cata-name pageCategory pageLikesUn">Restaurants and Bars</h5>
