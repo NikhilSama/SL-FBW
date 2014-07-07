@@ -116,7 +116,11 @@
 			$db->execute_query("UPDATE ".VISIT." set visit=".$visit_number." where id=1");
 
 			//storing the page id where app is being run
-			$_SESSION[ 'pageid'] =  $request['page']['id'];
+			$_SESSION['pageid'] =  $request['page']['id'];
+
+			echo "<pre>";
+			print_r($request);
+			print_r($_SESSION);
 
 			if($_SESSION['pageid'] == PAGEID) {
 				//checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
@@ -148,8 +152,6 @@
 					header("location:import.php");
 				}
 			} else {
-				echo "<pre>";
-				print_r($request);
 				//If user is not the admin of the page and neither is he using the app from the snaplion page
 		?>
 				<div class="you-r">
