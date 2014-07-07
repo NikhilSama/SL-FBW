@@ -50,6 +50,8 @@
 					</div>
 			<?php
 				} elseif(empty($pageList['data'])) {
+					echo "<pre>";
+					print_r($pageList);
 			?>
 					<div class="loader-bg-main">
 						<div class="loader-bg-msg">
