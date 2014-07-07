@@ -118,10 +118,6 @@
 			//storing the page id where app is being run
 			$_SESSION['pageid'] =  $request['page']['id'];
 
-			echo "<pre>";
-			print_r($request);
-			print_r($_SESSION);
-
 			if($_SESSION['pageid'] == PAGEID) {
 				//checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
 				$fbid = $fbObject->getFBID();
