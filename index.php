@@ -148,6 +148,8 @@
 					header("location:import.php");
 				}
 			} else {
+				echo "<pre>";
+				print_r($request);
 				//If user is not the admin of the page and neither is he using the app from the snaplion page
 		?>
 				<div class="you-r">
