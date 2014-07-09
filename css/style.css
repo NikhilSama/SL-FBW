@@ -448,7 +448,10 @@ label.css-label {
 	margin-top: 20px;
 }
 .main-strip-pack {
-
+	max-height: 312px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 750px;
 }
 .strip-white label.css-label {
 	background-image: url(../img/lite-green-check.png) !important;
