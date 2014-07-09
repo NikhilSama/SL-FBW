@@ -291,7 +291,7 @@
 						</div>
 					</div>
 
-					<div class="main-strip-pack uninstalledApps" style="display: none;max-height: 312px;overflow: scroll;" id="uninstalledNewAppPages">
+					<div class="main-strip-pack uninstalledApps" style="display: none;" id="uninstalledNewAppPages">
 						
 					</div>
 
