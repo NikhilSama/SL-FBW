@@ -32,20 +32,20 @@
 		$imports[] = $data['apptab_name'];
 	}
 
-	$albums = $fbObject->api('/' . $page_id . '/albums?limit=500&&offset=0');
+	$albums = $fbObject->api('/' . $page_id . '/albums?limit=250&&offset=0');
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
 		$photoCount += $album['count'];
 	}
 
-	$events = $fbObject->api('/' . $page_id . '/events?limit=500&&offset=0');
+	$events = $fbObject->api('/' . $page_id . '/events?limit=250&&offset=0');
 	$eventCount = count($events['data']);
 
-	$posts = $fbObject->api('/' . $page_id . '/posts?limit=500&&offset=0');
+	$posts = $fbObject->api('/' . $page_id . '/posts?limit=250&&offset=0');
 	$postCount = count($posts['data']);
 
-	$videos = $fbObject->api('/' . $page_id . '/videos?limit=500&&offset=0');
+	$videos = $fbObject->api('/' . $page_id . '/videos?limit=250&&offset=0');
 	$videoCount = count($videos['data']);
 ?>
 
