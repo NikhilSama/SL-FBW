@@ -34,9 +34,13 @@
 					<a href="#" class="btn-orange" id="checkPerms">GET STARTED </a>
 
 					<br><br><br><br>
-					<a href = "javascript:void(0)" 
+                    <a href="javascript:void(0)" 
+                        onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block';" 
+                        class="btn-gray">Pricing ?</a>
+
+					<!-- <a href = "javascript:void(0)" 
 						onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
-						style="font-size: 14px;font-family: 'dinlight';font-weight: 200;width: 326px;line-height: 19px;margin-top: 100px;color: #fff;">Pricing ?</a>	
+						style="font-size: 14px;font-family: 'dinlight';font-weight: 200;width: 326px;line-height: 19px;margin-top: 100px;color: #fff;">Pricing ?</a>	 -->
 			</div>
 			<div class="slider-container">
 				<div id="slideshow">
