@@ -287,11 +287,11 @@
 					</div>
 
 					<div class="main-strip-pack installedApps" style="display: none;" id="installedAppPages">
-						<div class="main-con" id="uninstalledAppPages">
+						<div class="main-con" id="uninstalledAppPages" style="max-height: 312px;overflow-y: scroll;overflow-x: hidden;width: 750px;">
 						</div>
 					</div>
 
-					<div class="main-strip-pack uninstalledApps" style="display: none;" id="uninstalledNewAppPages">
+					<div class="main-strip-pack uninstalledApps" style="display: none;max-height: 312px;overflow-y: scroll;overflow-x: hidden;width: 750px;" id="uninstalledNewAppPages">
 						
 					</div>
 
