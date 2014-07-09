@@ -36,7 +36,7 @@
 					<br><br><br><br>
                     <a href="javascript:void(0)" 
                         onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block';" 
-                        class="btn-gray">Pricing ?</a>
+                        class="btn-gray" style="margin-top: 10px;padding: 5px 50px 5px 50px;font-size: 18px;">Pricing ?</a>
 
 					<!-- <a href = "javascript:void(0)" 
 						onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
