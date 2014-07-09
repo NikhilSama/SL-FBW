@@ -34,7 +34,8 @@
 			<div class="pagebox-container">
 				<div class="pagebox" style="margin-left: 260px;">
 					<div class="upper">
-						<img src="<?= 'https://graph.facebook.com/'.$page_id.'/picture?height=100&width=100' ?>" class="icon-img">
+						<img src="<?= 'https://graph.facebook.com/'.$page_id.'/picture?height=100&width=100' ?>" class="icon-img"
+						style="width:100px;height:100px;">
 					</div>
 					<div class="lower">
 						<div class="radio-space-next">
