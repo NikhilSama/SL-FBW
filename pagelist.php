@@ -236,7 +236,7 @@
 									<h6 class="cata-likes pageLikes">10,451 likes</h6>
 								</div>
 							</div>
-							<a href="#" class="btn-orange buildapp appLinkDiv" data-id="">BUILD APP</a>
+							<a href="#" class="btn-orange buildapp appLinkDiv" data-id="" style="margin-top: 17px;">BUILD APP</a>
 						</div>	
 					</div>
 
@@ -287,11 +287,11 @@
 					</div>
 
 					<div class="main-strip-pack installedApps" style="display: none;" id="installedAppPages">
-						<div class="main-con" id="uninstalledAppPages" style="max-height: 250px;overflow-y: scroll;overflow-x: hidden;">
+						<div class="main-con" id="uninstalledAppPages" style="max-height: 250px;overflow-y: scroll;overflow-x: hidden; margin-bottom:20px;">
 						</div>
 					</div>
 
-					<div class="main-strip-pack uninstalledApps" style="display: none;max-height: 312px;overflow-y: scroll;overflow-x: hidden;width: 750px;" id="uninstalledNewAppPages">
+					<div class="main-strip-pack uninstalledApps" style="display: none;max-height: 312px;overflow-y: scroll;overflow-x: hidden;width: 750px; margin-bottom:20px;" id="uninstalledNewAppPages">
 						
 					</div>
 
