@@ -287,7 +287,7 @@
 					</div>
 
 					<div class="main-strip-pack installedApps" style="display: none;" id="installedAppPages">
-						<div class="main-con" id="uninstalledAppPages" style="max-height: 312px;overflow-y: scroll;overflow-x: hidden;width: 750px;">
+						<div class="main-con" id="uninstalledAppPages" style="max-height: 250px;overflow-y: scroll;overflow-x: hidden;">
 						</div>
 					</div>
 
