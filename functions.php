@@ -725,122 +725,92 @@ $post_count = 0;
 				/*if( strtotime($event_info['updated_time']) > strtotime($apptab_data['timestamp']) )
 				{*/	
 					//setting the flag if a new event has been added
-					$flag = 1;
+				$flag = 1;
 
-					//checking through the data if they are empty or not if not they are assigned
-					$event = array();
-					$event['apptab_id'] = $apptab_data['apptab_id'];     //apptab id
-		            $event['mobapp_id'] = $apptab_data['mobapp_id']; 	//mobapp id
+				//checking through the data if they are empty or not if not they are assigned
+				$event = array();
+				$event['apptab_id'] = $apptab_data['apptab_id'];     //apptab id
+	            $event['mobapp_id'] = $apptab_data['mobapp_id']; 	//mobapp id
 
-		 			//if we send an empty value to the snaplion api data will not be posted so if blocks are used
-		            if( !empty($event_info['name']) ) 
-		            {
-		            	$event['title'] = $event_info['name'];
-		            }
+	 			//if we send an empty value to the snaplion api data will not be posted so if blocks are used
+	            if( !empty($event_info['name']) ) {
+	            	$event['title'] = $event_info['name'];
+	            }
 
-		            if(!empty($event_info['description'])) 
-		            {
-		            	$event['description'] = $event_info['description'];
-		            }
+	            if(!empty($event_info['description'])) {
+	            	$event['description'] = $event_info['description'];
+	            }
 
-		            if( !empty($event_info['start_time']) ) 
-	            	{
-		            	if(strpos($event_info['start_time'], 'T') === false) 
-		            	{
-						    $event['startDate'] = $event_info['start_time']; 
-				   		} else 
-				   		{
-						    list($start_date, $start_time) = explode("T", $event_info['start_time']);
-						    $start_time = substr($start_time, 0, 8); 
-						    $event['startDate'] = $start_date.' '.$start_time;
-						}
-					}
-				
-					if(isset($event_info['end_time']))
-		            {
-	            		if(strpos($event_info['end_time'], 'T') === false) 
-		            	{
-						    $event['endDate'] = $event_info['end_time']; 
-				   		} else 
-				   		{
-						    list($end_date, $end_time) = explode("T", $event_info['end_time']);
-						    $end_time = substr($end_time, 0, 8); 
-						    $event['endDate'] = $end_date.' '.$end_time;
-						}
-					// $event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['end_time']));
-					} else 
-					{
-						$event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['startDate']  . '+ 3 hours'));
-					}
 
-		            $event['timezone'] = 0;
-		           	if( !empty($event_info['timezone']) ) 
-	            	{	
 
-		    			$dtz = new DateTimeZone( $event_info['timezone'] );
-						$temp_time = new DateTime('now', $dtz);
-						$offset = $dtz->getOffset( $temp_time ) / 60;
-		    			$event['timezone'] = $offset;
-
-		            	// $event['timezone'] = $event_info['timezone'];
-	            	}
-
-		               // facebook event id
-		            if( !empty($event_info['eid']) ) 
-		            {
-		            	$event['fbId'] = $event_info['eid'];
-		            }
-
-		             /*if(isset($event_info['end_time'])) 
-		            {
-						$event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['end_time']));
+	            if( !empty($event_info['start_time']) ) {
+		            if(strpos($event_info['start_time'], 'T') === false) {
+						$event['startDate'] = $event_info['start_time'];	
 					} else {
-						$event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['start_time']  . '+ 3 hours') );
-					}*/
-
-		            //venue beig itself an array in facebook api
-		            // $event['venue'] = ;
-
-		            if( !empty($event_info['venue']['latitude']) ) 
-		            {
-		            	$event['latitude'] = $event_info['venue']['latitude'];
-		            }
-
-		            if( !empty($event_info['venue']['city']) )
-		            {
-		            	$event['city'] = $event_info['venue']['city'];
-		            }
-
-		            if( !empty($event_info['venue']['longitude']) ) 
-		            {
-		            	$event['longitude'] = $event_info['venue']['longitude'];
-		            }
-
-		            $event['country_id']=102;
-		            if(!empty($event_info['venue']['country']))
-		            {
-		            	$event['country_id'] =  $countries[$event_info['venue']['country']];
-		            }
-
-	     
-		            if( !empty($event_info['ticket_uri']) ) 
-		            {
-		            	$event['ticketURL'] = $event_info['ticket_uri'];
-		            }
-
-		            if( !empty($event_info['pic']) ) 
-		            {
-		            	$event['img'] = $event_info['pic'];
-		            }
-
-		  //           echo '<pre>';
-				// print_r($event);
-				// echo '</pre>';
-		            // $event['imgThumb'] = ( !empty($events['']) ) ? $events[''] : ''; 
-		            $events[] = $event;
-		           
-				/*}*/
+						list($start_date, $start_time) = explode("T", $event_info['start_time']);
+						$start_time = substr($start_time, 0, 8); 
+						$event['startDate'] = $start_date.' '.$start_time;
+					}
+				}
 				
+				if(isset($event_info['end_time'])) {
+					if(strpos($event_info['start_time'], 'T') === false) {
+					    $event['startDate'] = $event_info['start_time']; 
+			   		} else {
+					    list($start_date, $start_time) = explode("T", $event_info['start_time']);
+					    $start_time = substr($start_time, 0, 8); 
+					    $event['startDate'] = $start_date.' '.$start_time;
+					}
+				} else {
+					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['start_time']  . '+ 3 hours'));
+				}
+				
+				$tempTimeZone = substr($event_info['start_time'], -5, 5);
+				$event['timezone'] = ($tempTimeZone / 100) * 60;
+
+	    //         $event['timezone'] = 0;
+	    //        	if( !empty($event_info['timezone']) ) {	
+
+	    // 			$dtz = new DateTimeZone( $event_info['timezone'] );
+					// $temp_time = new DateTime('now', $dtz);
+					// $offset = $dtz->getOffset( $temp_time ) / 60;
+	    // 			$event['timezone'] = $offset;
+
+	    //         	// $event['timezone'] = $event_info['timezone'];
+     //        	}
+
+	               // facebook event id
+	            if( !empty($event_info['eid']) ) {
+	            	$event['fbId'] = $event_info['eid'];
+	            }
+
+	            if( !empty($event_info['venue']['latitude']) ) {
+	            	$event['latitude'] = $event_info['venue']['latitude'];
+	            }
+
+	            if( !empty($event_info['venue']['city']) ) {
+	            	$event['city'] = $event_info['venue']['city'];
+	            }
+
+	            if( !empty($event_info['venue']['longitude']) ) {
+	            	$event['longitude'] = $event_info['venue']['longitude'];
+	            }
+
+	            $event['country_id']=102;
+	            if(!empty($event_info['venue']['country'])) {
+	            	$event['country_id'] =  $countries[$event_info['venue']['country']];
+	            }
+
+     
+	            if( !empty($event_info['ticket_uri']) ) {
+	            	$event['ticketURL'] = $event_info['ticket_uri'];
+	            }
+
+	            if( !empty($event_info['pic']) ) {
+	            	$event['img'] = $event_info['pic'];
+	            }
+
+	            $events[] = $event;
 			}
 
 			
