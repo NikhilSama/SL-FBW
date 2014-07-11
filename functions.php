@@ -719,9 +719,6 @@ $post_count = 0;
 			foreach ($events_data as $event_info)
 			{	
 				$event_count++;
-				echo '<pre>';
-				print_r($event_info);
-				echo '</pre>';
 				/*if( strtotime($event_info['updated_time']) > strtotime($apptab_data['timestamp']) )
 				{*/	
 					//setting the flag if a new event has been added
@@ -740,8 +737,6 @@ $post_count = 0;
 	            if(!empty($event_info['description'])) {
 	            	$event['description'] = $event_info['description'];
 	            }
-
-
 
 	            if( !empty($event_info['start_time']) ) {
 		            if(strpos($event_info['start_time'], 'T') === false) {
@@ -810,6 +805,7 @@ $post_count = 0;
 	            	$event['img'] = $event_info['pic'];
 	            }
 
+	            $event['event_info'] = $event_info;
 	            $events[] = $event;
 			}
 
