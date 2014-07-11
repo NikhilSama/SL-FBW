@@ -97,6 +97,7 @@
     var checkProfilePermissions = function() {
         FB.getLoginStatus(function(response) {
             //If authorized...
+            console.log(response);
             if(response.status=="connected") {
                 token = response.authResponse.accessToken;
                 FB.api('/me/permissions', function(response) {
@@ -104,8 +105,6 @@
                 });
             } else if (response.status === 'not_authorized') { //user is not authorized... Ask for permissions...
                 console.log("Not Authorized");
-            } else { //Not logged in in fb....
-                console.log("Not Login");
             }
         });
     };
