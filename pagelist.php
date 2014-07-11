@@ -41,7 +41,7 @@
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
 								We need your email to create your mobile app account. 
-								<br/>Please click ok when facebook asks for permissions.
+								<br/>Please click ok when Facebook asks for permissions.
 								<br/>
 								<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
 								<a href="#" class="btn-orange mt-10" id="cancelPermissions">Cancel</a>

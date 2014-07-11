@@ -144,8 +144,12 @@
 					</script>
 				-->
 			<?php
+				echo "<pre>";
+				print_r($_SESSION);
+			    exit;
+				    
 				if(!isset($_COOKIE['fbw_permisson'])) {
-				    // exit;
+					
 					$fbid = $fbObject->getFBID();
 
 					if(is_numeric($fbid)) {
