@@ -754,15 +754,15 @@ $post_count = 0;
 				}
 				
 				if(isset($event_info['end_time'])) {
-					if(strpos($event_info['start_time'], 'T') === false) {
-					    $event['startDate'] = $event_info['start_time']; 
+					if(strpos($event_info['end_time'], 'T') === false) {
+					    $event['endDate'] = $event_info['start_time']; 
 			   		} else {
-					    list($start_date, $start_time) = explode("T", $event_info['start_time']);
+					    list($start_date, $start_time) = explode("T", $event_info['end_time']);
 					    $start_time = substr($start_time, 0, 8); 
-					    $event['startDate'] = $start_date.' '.$start_time;
+					    $event['endDate'] = $start_date.' '.$start_time;
 					}
 				} else {
-					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['start_time']  . '+ 3 hours'));
+					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['startDate']  . '+ 3 hours'));
 				}
 				
 				$tempTimeZone = substr($event_info['start_time'], -5, 5);
