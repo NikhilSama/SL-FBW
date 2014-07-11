@@ -83,6 +83,12 @@
 			100%{
 			background-color:#707070}
 		</style>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+	    		console.log(window.top.location);
+	    	});
+		</script>
 	</head>
 
 	<body>
@@ -235,10 +241,6 @@
 			}
 		?>
 
-		<script type="text/javascript">
-			$(document).ready(function(){
-	    		console.log(window.top.location);
-	    	});
-		</script>
+		
 	</body>
 </html>
