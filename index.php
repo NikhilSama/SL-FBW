@@ -126,6 +126,8 @@
 
 				print_r($fbObject->request);
 
+				print_r($_SERVER);
+				print_r($_HTTP);
 
 
 				// $signed_request = $facebook->getSignedRequest();
