@@ -149,7 +149,7 @@
 
 
 				// exit;
-				// $fbid = $fbObject->getFBID();
+				$fbid = $fbObject->getFBID();
 				
 
 
