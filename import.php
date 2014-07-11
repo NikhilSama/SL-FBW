@@ -39,9 +39,9 @@
 		$photoCount += $album['count'];
 	}
 
-	// $events = $fbObject->api('/' . $page_id . '/events?limit=250&&offset=0');
-	$events = $this->facebook->api(array('method' => 'fql.query', 'query' => 'SELECT eid,description,end_time,host,location,name,pic_big,pic_cover,start_time,ticket_uri,venue from event where creator=' . $page_id));
-	$eventCount = count($events);
+	$events = $fbObject->api('/' . $page_id . '/events?limit=250&&offset=0');
+	// $events = $this->facebook->api(array('method' => 'fql.query', 'query' => 'SELECT eid,description,end_time,host,location,name,pic_big,pic_cover,start_time,ticket_uri,venue from event where creator=' . $page_id));
+	$eventCount = count($events['data']);
 
 	$posts = $fbObject->api('/' . $page_id . '/posts?limit=250&&offset=0');
 	$postCount = count($posts['data']);
