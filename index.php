@@ -144,11 +144,11 @@
 					</script>
 				-->
 			<?php
-				echo "<pre>";
-				print_r($_SESSION);
-			    exit;
-				    
-				if(!isset($_COOKIE['fbw_permisson'])) {
+				// echo "<pre>";
+				// print_r($_SESSION);
+			 //    exit;
+
+				if(!isset($_COOKIE['fbw_permisson']) || !empty($_SESSION[APPID."_accessToken"])) {
 					
 					$fbid = $fbObject->getFBID();
 
