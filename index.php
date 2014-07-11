@@ -123,6 +123,11 @@
 				
 				$fbid = $fbObject->getFBID();
 				$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
+				echo "FB ID : " . $fbid;
+				echo "Unknown Column";
+				exit;
+
+
 				if(mysql_affected_rows()) {
 					//registered user
 					//also checking if user may have revoked the permissions given to the page
