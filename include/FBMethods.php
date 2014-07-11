@@ -381,13 +381,13 @@ SCRIPT;
 	*/
 	public function getFBID()
 	{
-		if($this->initialized)
-		{
+		if($this->initialized) {
 			$data = self::api("me?fields=id");
 			return $data["id"];
-		}
-		else
+		} else {
+			exit;
 			return "";
+		}
 	}
 	/*
 	*	Function to get all the friends id of the current user in a single dimensional array....
