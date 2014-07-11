@@ -150,7 +150,9 @@
 
 					if(is_numeric($fbid)) {
 						$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
+						
 						setcookie('fbw_permisson', null, -1);
+
 						if(mysql_affected_rows()) {
 							//registered user
 							//also checking if user may have revoked the permissions given to the page
