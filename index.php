@@ -237,7 +237,7 @@
 
 		<script type="text/javascript">
 			$(document).ready(function(){
-	    		alert(window.top.location.href);
+	    		console.log(window.top.location);
 	    	});
 		</script>
 	</body>
