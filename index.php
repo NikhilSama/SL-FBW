@@ -123,7 +123,11 @@
 
 				echo "<pre>";
 				print_r($_SESSION);
-				// exit;
+
+				print_r($_GET);
+
+
+				exit;
 
 				$fbid = $fbObject->getFBID();
 
