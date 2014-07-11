@@ -124,9 +124,8 @@
 				echo "<pre>";
 				print_r($_SESSION);
 				print_r($_REQUEST);
-
-				echo '<script type="text/javascript">alert(top.location.href);</script>';
-
+				print_r($_SERVER);
+				print_r($fbObject->request);
 				exit;
 
 				$fbid = $fbObject->getFBID();
