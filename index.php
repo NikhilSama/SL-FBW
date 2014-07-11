@@ -134,19 +134,22 @@
 				print_r($_SERVER);
 				print_r($fbObject->request);
 				
-				
+				// Facebook JS
+				echo $fbObject->getFBScript();
 			?>
 					<script type="text/javascript">
 						$(document).ready(function(){
-							checkPermissions();
+							checkProfilePermissions();
 				    	});
 					</script>
 			<?php
+			
+			
+	
 
 
-
-				exit;
-				$fbid = $fbObject->getFBID();
+				// exit;
+				// $fbid = $fbObject->getFBID();
 				
 
 
