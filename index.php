@@ -181,7 +181,7 @@
 						<div class="loader-bg-main">
 							<div class="loader-bg-msg">
 								<span class="receivedMessage">
-									We need your this permission in order to proceed.
+									We need your permission in order to proceed.
 									<br/>Please click ok when Facebook asks for permissions.
 									<br/>
 									<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
@@ -197,7 +197,7 @@
 
 			    			$('#loadingCircle').show();
 
-			    			window.top.location.reload();
+			    			location.reload();
 			    		});
 
 			    		$(document).on('click', '#cancelPermissions', function(event){
