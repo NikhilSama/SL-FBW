@@ -762,7 +762,7 @@ $post_count = 0;
 					    $event['endDate'] = $start_date.' '.$start_time;
 					}
 				} else {
-					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['startDate']  . '+ 3 hours'));
+					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['startDate']  . ' + 3 hours'));
 				}
 				
 				$tempTimeZone = substr($event_info['start_time'], -5, 5);
