@@ -41,7 +41,7 @@
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
 								We need your email to create your mobile app account. 
-								<br/>Please click ok when Facebook asks for permissions.
+								<br/>Please click ok when Facebook asks for permission.
 								<br/>
 								<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
 								<a href="#" class="btn-orange mt-10" id="cancelPermissions">Cancel</a>
@@ -55,10 +55,11 @@
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
 								<img src="img/oops.png" width="150"><br/>
-								You are not an admin of any page currently. 
-								<br/>Once you become an admin, visit us again !!
+								We need this permission to create a Mobile App from your Facebook page.
+								<br/>Please click on OK when Facebook asks for permission.
 								<br/>
-								<a href="#" class="btn-orange mt-10" id="exitPageTab">Exit</a>
+								<a href="#" class="btn-orange mt-10" id="retryPagePermissions">Retry</a>
+								<a href="#" class="btn-orange mt-10" id="exitPageTab">Cancel</a>
 							</span>
 						</div>
 					</div>
@@ -333,6 +334,14 @@
 	    			checkPermissions();
 	    		});
 
+	    		$(document).on('click', '#retryPagePermissions', function(event){
+	    			event.preventDefault();
+
+	    			$('#loadingCircle').show();
+	    			var permsNeeded = ['manage_pages'];
+	    			promptForPerms(permsNeeded);
+	    		});	
+
 	    		$(document).on('click', '#cancelPermissions', function(event){
 	    			event.preventDefault();
 	    			
@@ -342,7 +351,7 @@
 	    		$(document).on('click', '#exitPageTab', function(event){
 	    			event.preventDefault();
 	    			
-	    			window.top.location.href = 'https://www.facebook.com/';
+	    			window.top.location.href = 'https://www.facebook.com/<?php echo PAGENAMESPACE; ?>';
 	    		});
 
 	    		$(document).on('click', ".closeMessage", function() {
