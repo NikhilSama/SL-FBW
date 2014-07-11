@@ -124,9 +124,11 @@
 				echo "<pre>";
 				print_r($_SESSION);
 
-				print_r($_GET);
+				print_r($fbObject->request);
 
 
+
+				// $signed_request = $facebook->getSignedRequest();
 				exit;
 
 				$fbid = $fbObject->getFBID();
