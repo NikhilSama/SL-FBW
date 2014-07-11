@@ -203,7 +203,7 @@
 			    		$(document).on('click', '#cancelPermissions', function(event){
 			    			event.preventDefault();
 			    			
-			    			window.top.location.href = 'https://www.facebook.com/';
+			    			window.top.location.href = 'https://www.facebook.com/<?php echo PAGENAMESPACE; ?>';
 			    		});
 					</script>
 			<?php
