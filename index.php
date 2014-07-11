@@ -123,19 +123,7 @@
 
 				echo "<pre>";
 				print_r($_SESSION);
-
-				print_r($fbObject->request);
-
-				print_r($_SERVER);
-				print_r($_HTTP);
-
-				try {
-					$fbid = $fbObject->api('me?fields=id');					
-				} catch (Exception $e) {
-					print_r($e);
-				}
-
-				// $signed_request = $facebook->getSignedRequest();
+				print_r($_REQUEST);
 				exit;
 
 				$fbid = $fbObject->getFBID();
