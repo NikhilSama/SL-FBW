@@ -122,7 +122,7 @@
 				// //checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
 				
 				$fbid = $fbObject->getFBID();
-				if(is_numeric($fbid)) {
+				if($fbid != 'A') {
 					$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
 					if(mysql_affected_rows()) {
 						//registered user
