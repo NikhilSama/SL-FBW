@@ -329,50 +329,75 @@ $post_count = 0;
 	            	$event['startDate'] = $event_info['start_time'];
 	            }*/
 
-	            if( !empty($event_info['start_time']) ) 
-	            {
-	            	if(strpos($event_info['start_time'], 'T') === false) 
-	            	{
-					    $event['startDate'] = $event_info['start_time']; 
-			   		} else 
-			   		{
-					    list($start_date, $start_time) = explode("T", $event_info['start_time']);
+	   //          if( !empty($event_info['start_time']) ) 
+	   //          {
+	   //          	if(strpos($event_info['start_time'], 'T') === false) 
+	   //          	{
+				// 	    $event['startDate'] = $event_info['start_time']; 
+			 //   		} else 
+			 //   		{
+				// 	    list($start_date, $start_time) = explode("T", $event_info['start_time']);
+				// 	    $start_time = substr($start_time, 0, 8); 
+				// 	    $event['startDate'] = $start_date.' '.$start_time;
+				// 	}
+				// }
+
+				// if(isset($event_info['end_time']))
+	   //          {
+	   //          	if(strpos($event_info['end_time'], 'T') === false) 
+	   //          	{
+				// 	    $event['endDate'] = $event_info['end_time']; 
+			 //   		} else 
+			 //   		{
+				// 	    list($end_date, $end_time) = explode("T", $event_info['end_time']);
+				// 	    $end_time = substr($end_time, 0, 8); 
+				// 	    $event['endDate'] = $end_date.' '.$end_time;
+				// 	}
+				// 	// $event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['end_time']));
+				// } else 
+				// {
+				// 	$event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['startDate']  . '+ 3 hours'));
+				// }
+
+				if( !empty($event_info['start_time']) ) {
+		            if(strpos($event_info['start_time'], 'T') === false) {
+						$event['startDate'] = $event_info['start_time'];	
+					} else {
+						list($start_date, $start_time) = explode("T", $event_info['start_time']);
+						$start_time = substr($start_time, 0, 8); 
+						$event['startDate'] = $start_date.' '.$start_time;
+					}
+				}
+				
+				if(isset($event_info['end_time'])) {
+					if(strpos($event_info['end_time'], 'T') === false) {
+					    $event['endDate'] = $event_info['start_time']; 
+			   		} else {
+					    list($start_date, $start_time) = explode("T", $event_info['end_time']);
 					    $start_time = substr($start_time, 0, 8); 
-					    $event['startDate'] = $start_date.' '.$start_time;
+					    $event['endDate'] = $start_date.' '.$start_time;
 					}
+				} else {
+					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['startDate']  . ' + 3 hours'));
 				}
-
-				if(isset($event_info['end_time']))
-	            {
-	            	if(strpos($event_info['end_time'], 'T') === false) 
-	            	{
-					    $event['endDate'] = $event_info['end_time']; 
-			   		} else 
-			   		{
-					    list($end_date, $end_time) = explode("T", $event_info['end_time']);
-					    $end_time = substr($end_time, 0, 8); 
-					    $event['endDate'] = $end_date.' '.$end_time;
-					}
-					// $event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['end_time']));
-				} else 
-				{
-					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event_info['startDate']  . '+ 3 hours'));
-				}
+				
+				$tempTimeZone = substr($event_info['start_time'], -5, 5);
+				$event['timezone'] = ($tempTimeZone / 100) * 60;
 	            
 
 	            
 
-	            $event['timezone'] = 0;
-	            if( !empty($event_info['timezone']) ) 
-	            {	
-	            	$dtz = new DateTimeZone( $event_info['timezone'] );
-	    			$temp_time = new DateTime('now', $dtz);
-					$offset = $dtz->getOffset( $temp_time ) / 60;
-	    			$event['timezone'] = $offset;
+	    //         $event['timezone'] = 0;
+	    //         if( !empty($event_info['timezone']) ) 
+	    //         {	
+	    //         	$dtz = new DateTimeZone( $event_info['timezone'] );
+	    // 			$temp_time = new DateTime('now', $dtz);
+					// $offset = $dtz->getOffset( $temp_time ) / 60;
+	    // 			$event['timezone'] = $offset;
 
-	    			//$event['timezone'] = $timeZones[$offset];
-	            	// $event['timezone'] = $event_info['timezone'];
-	            }
+	    // 			//$event['timezone'] = $timeZones[$offset];
+	    //         	// $event['timezone'] = $event_info['timezone'];
+	    //         }
 
 	               // facebook event id
 	            if( !empty($event_info['eid']) ) 
@@ -436,6 +461,7 @@ $post_count = 0;
 	            }
 
 	            // $event['imgThumb'] = ( !empty($events['']) ) ? $events[''] : ''; 
+	            $event['event_info'] = $event_info;
 	            $events[] = $event;
 			}
 			//loop ends
