@@ -144,15 +144,13 @@
 					</script>
 				-->
 			<?php
-			
-			
 				if(!isset($_COOKIE['fbw_permisson'])) {
 				    // exit;
 					$fbid = $fbObject->getFBID();
 
 					if(is_numeric($fbid)) {
 						$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
-
+						setcookie('fbw_permisson', null, -1);
 						if(mysql_affected_rows()) {
 							//registered user
 							//also checking if user may have revoked the permissions given to the page
@@ -172,20 +170,44 @@
 						setcookie("fbw_permisson", 'sent', time()+3600*24);
 					}
 				} else {
-					echo "Please provide permissions";
+					setcookie('fbw_permisson', null, -1);
+			?>
+					<div class="fb_maincontainer-cma">
+						<div class="loader-bg-main" id="loadingCircle">
+							<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
+							<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">Please be patient, this may take a minute.</span>
+						</div>
+
+						<div class="loader-bg-main">
+							<div class="loader-bg-msg">
+								<span class="receivedMessage">
+									We need your this permission in order to proceed.
+									<br/>Please click ok when Facebook asks for permissions.
+									<br/>
+									<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
+									<a href="#" class="btn-orange mt-10" id="cancelPermissions">Cancel</a>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+						$(document).on('click', '#retryPermissions', function(event){
+			    			event.preventDefault();
+
+			    			$('#loadingCircle').show();
+
+			    			window.top.location.reload();
+			    		});
+
+			    		$(document).on('click', '#cancelPermissions', function(event){
+			    			event.preventDefault();
+			    			
+			    			window.top.location.href = 'https://www.facebook.com/';
+			    		});
+					</script>
+			<?php
 				}
-
-
-				
-				
-
-
-
-
-
-
-
-				
 
 				// $fbid = $fbObject->getFBID();
 				// if($fbid == 'A') {
