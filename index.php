@@ -122,7 +122,7 @@
 				// //checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
 				
 				$fbid = $fbObject->getFBID();
-				$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
+				// $db->execute_query("select * from ".USERS." where fbid = ".$fbid);
 				echo "FB ID : " . $fbid;
 				echo "Unknown Column";
 				exit;
