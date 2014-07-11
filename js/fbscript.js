@@ -93,6 +93,22 @@
             }
         });
     };
+
+    var checkProfilePermissions = function() {
+        FB.getLoginStatus(function(response) {
+            //If authorized...
+            if(response.status=="connected") {
+                token = response.authResponse.accessToken;
+                FB.api('/me/permissions', function(response) {
+                    console.log(response);
+                });
+            } else if (response.status === 'not_authorized') { //user is not authorized... Ask for permissions...
+                console.log("Not Authorized");
+            } else { //Not logged in in fb....
+                console.log("Not Login");
+            }
+        });
+    };
     
     // Re-prompt user for missing permissions
     var promptForPerms = function(perms) {
