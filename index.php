@@ -86,7 +86,7 @@
 
 		<script type="text/javascript">
 			$(document).ready(function(){
-	    		console.log(document.referrer);
+	    		console.log(window.top);
 	    	});
 		</script>
 	</head>
