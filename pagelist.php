@@ -54,7 +54,7 @@
 					<div class="loader-bg-main">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
-								<img src="img/oops.png" width="150"><br/>
+								<!-- <img src="img/oops.png" width="150"><br/> -->
 								We need this permission to create a Mobile App from your Facebook page.
 								<br/>Please click on OK when Facebook asks for permission.
 								<br/>
