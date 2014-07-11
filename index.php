@@ -122,22 +122,17 @@
 				// //checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
 				
 				$fbid = $fbObject->getFBID();
-				if($fbid != 'A') {
-					$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
-					if(mysql_affected_rows()) {
-						//registered user
-						//also checking if user may have revoked the permissions given to the page
-						$wantPermissions = "email,manage_pages";
-						$permissions = $fbObject->isAuthorized($wantPermissions);
-						if($permissions!="true") {
-							$fbObject->login($permissions);
-							die();
-						} else {
-							header("location:pagelist.php");
-						}
+				$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
+				if(mysql_affected_rows()) {
+					//registered user
+					//also checking if user may have revoked the permissions given to the page
+					$wantPermissions = "email,manage_pages";
+					$permissions = $fbObject->isAuthorized($wantPermissions);
+					if($permissions!="true") {
+						$fbObject->login($permissions);
+						die();
 					} else {
-						//unregistered user
-						header("location:home.php");
+						header("location:pagelist.php");
 					}
 				} else {
 					//unregistered user
