@@ -188,7 +188,7 @@
 							<div class="loader-bg-msg">
 								<span class="receivedMessage">
 									We need your permission in order to proceed.
-									<br/>Please click ok when Facebook asks for permissions.
+									<br/>Please click OK when Facebook asks for permission.
 									<br/>
 									<a href="#" class="btn-orange mt-10" id="retryPermissions">Retry</a>
 									<a href="#" class="btn-orange mt-10" id="cancelPermissions">Cancel</a>
