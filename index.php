@@ -120,8 +120,11 @@
 
 			if($_SESSION['pageid'] == PAGEID) {
 				// //checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
-				// $fbid = $fbObject->getFBID();
-
+				
+				$fbid = $fbObject->getFBID();
+				echo "FB Id : ";
+				echo $fbid;
+				exit;
 				// $db->execute_query("select * from ".USERS." where fbid = ".$fbid);
 				// if(mysql_affected_rows()) {
 				// 	//registered user
@@ -141,24 +144,24 @@
 
 				//checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
 				//also checking if user may have revoked the permissions given to the page
-				$wantPermissions = "email,manage_pages";
-				$permissions = $fbObject->isAuthorized($wantPermissions);
-				if($permissions!="true") {
-					$fbObject->login($permissions);
-					die();
-				} else {
-					$fbObject->setLongLivedToken();
-					$_SESSION[APPID."_accessToken"] = $fbObject->getAccessToken();
-					$fbid = $fbObject->getFBID();
-					//registered user
-					$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
-					if( mysql_affected_rows() ) { 
-						header("location:pagelist.php");
-					} else { 
-						//unregistered user
-						header("location:home.php");
-					}
-				}
+				// $wantPermissions = "email,manage_pages";
+				// $permissions = $fbObject->isAuthorized($wantPermissions);
+				// if($permissions!="true") {
+				// 	$fbObject->login($permissions);
+				// 	die();
+				// } else {
+				// 	$fbObject->setLongLivedToken();
+				// 	$_SESSION[APPID."_accessToken"] = $fbObject->getAccessToken();
+				// 	$fbid = $fbObject->getFBID();
+				// 	//registered user
+				// 	$db->execute_query("select * from ".USERS." where fbid = ".$fbid);
+				// 	if( mysql_affected_rows() ) { 
+				// 		header("location:pagelist.php");
+				// 	} else { 
+				// 		//unregistered user
+				// 		header("location:home.php");
+				// 	}
+				// }
 			} else if($request['page']['admin']) {
 				//if user is the admin of the page
 				//runs when data is to be imported
