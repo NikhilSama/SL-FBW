@@ -129,6 +129,11 @@
 				print_r($_SERVER);
 				print_r($_HTTP);
 
+				try {
+					$fbid = $fbObject->api('me?fields=id');					
+				} catch (Exception $e) {
+					print_r($e);
+				}
 
 				// $signed_request = $facebook->getSignedRequest();
 				exit;
