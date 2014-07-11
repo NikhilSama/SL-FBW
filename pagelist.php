@@ -37,7 +37,7 @@
 				//if user is not the admin of any page
 				if(!isset($pageOwner['email'])) {
 			?>
-					<div class="loader-bg-main">
+					<div class="loader-bg-main" id="retryPermissionsId">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
 								We need your email to create your mobile app account. 
@@ -51,7 +51,7 @@
 			<?php
 				} elseif(empty($pageList['data'])) {
 			?>
-					<div class="loader-bg-main">
+					<div class="loader-bg-main" id="retryPagePermissionsId">
 						<div class="loader-bg-msg">
 							<span class="receivedMessage">
 								<!-- <img src="img/oops.png" width="150"><br/> -->
@@ -332,6 +332,8 @@
 
 	    			$('#loadingCircle').show();
 	    			checkPermissions();
+
+	    			$('#retryPermissionsId').hide();
 	    		});
 
 	    		$(document).on('click', '#retryPagePermissions', function(event){
@@ -340,6 +342,8 @@
 	    			$('#loadingCircle').show();
 	    			var permsNeeded = ['manage_pages'];
 	    			promptForPerms(permsNeeded);
+
+	    			$('#retryPagePermissionsId').hide();
 	    		});	
 
 	    		$(document).on('click', '#cancelPermissions', function(event){
