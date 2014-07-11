@@ -120,7 +120,10 @@
 
 			if($_SESSION['pageid'] == PAGEID) {
 				// //checking if the user is already registered on the page and if take user directly to the pagelist instead of home.php
-				
+
+				echo "<pre>";
+				print_r($_SESSION);
+
 				$fbid = $fbObject->getFBID();
 
 				if(is_numeric($fbid)) {
