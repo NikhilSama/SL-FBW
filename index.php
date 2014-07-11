@@ -126,9 +126,11 @@
 				print_r($_REQUEST);
 				print_r($_SERVER);
 				print_r($fbObject->request);
+				
+				
 				exit;
-
 				$fbid = $fbObject->getFBID();
+				
 
 
 
@@ -232,5 +234,11 @@
 		<?php
 			}
 		?>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+	    		alert(window.top.location.href);
+	    	});
+		</script>
 	</body>
 </html>
