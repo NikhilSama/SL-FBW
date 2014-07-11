@@ -86,8 +86,8 @@
 							<label for="checkbox2" name="checkbox1_lbl" class="css-label lite-green-check"></label>
 						</div>
 						<div class="strip-blue gradient-white">
-							<span class="blue-text fontcolor">Post</span>
-							<span class="strip-blue-text fontcolor">Total Post - <?php echo $postCount; ?></span>
+							<span class="blue-text fontcolor">Posts</span>
+							<span class="strip-blue-text fontcolor">Total Posts - <?php echo $postCount; ?></span>
 						</div>
 						<div class="strip-white dalign">&nbsp;</div>
 					</div>
