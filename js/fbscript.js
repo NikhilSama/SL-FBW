@@ -102,9 +102,11 @@
                 token = response.authResponse.accessToken;
                 FB.api('/me/permissions', function(response) {
                     console.log(response);
+                    window.location='index.php?auth=authorized';
                 });
             } else if (response.status === 'not_authorized') { //user is not authorized... Ask for permissions...
                 console.log("Not Authorized");
+                window.location='index.php?auth=not_authorized';
             }
         });
     };
