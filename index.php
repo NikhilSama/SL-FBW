@@ -197,7 +197,7 @@
 
 			    			$('#loadingCircle').show();
 
-			    			location.reload();
+			    			window.top.location.href = 'https://www.facebook.com/<?php echo PAGENAMESPACE; ?>/app_<?php echo APPID; ?>';
 			    		});
 
 			    		$(document).on('click', '#cancelPermissions', function(event){
