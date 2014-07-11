@@ -383,9 +383,12 @@ SCRIPT;
 	{
 		if($this->initialized) {
 			$data = self::api("me?fields=id");
-			return $data["id"];
+			if($data) {
+				return $data["id"];	
+			} else {
+				exit;
+			}
 		} else {
-			exit;
 			return "";
 		}
 	}
