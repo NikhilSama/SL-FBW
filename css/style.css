@@ -1279,7 +1279,7 @@ label.css-label {
     font-weight: 800;
 }
 .longpagename {
-	width: 205px;
+	width: 204px;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
