@@ -82,7 +82,9 @@
 			</iframe>
 
 			<div class="fb_left">
-				<div class="snap_odr"><?php echo $pageInfo['name']; ?></div>
+				<div class="snap_odr">
+					<div class="longpagename"><?php echo $pageInfo['name']; ?></div>
+				</div>
 				<div class="fb_left-inner">
 					<!-- About Section -->
 					<?php 
