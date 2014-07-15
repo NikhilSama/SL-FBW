@@ -305,7 +305,7 @@
 							<h4>will be installed on your selected Facebook Page</h4>
 						</div>
 						<div class="button-lower">
-							<a href="#" class="btn-orange selectedAppInstall">Next</a>
+							<a href="#" class="btn-orange selectedAppInstallFirst">Next</a>
 						</div>
 					</div>
 				

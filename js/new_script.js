@@ -253,6 +253,22 @@ $(document).on("click", ".selectedAppInstall", function(){
 	// }
 });
 
+$(document).on("click", ".selectedAppInstallFirst", function(){
+	circleLoader.show();
+
+	$(this).parents('.uninstalledAppPage').find('.newAppRadio').prop('checked', true);
+	var selectedRadio = $('input[type=radio]:checked.newAppRadio');
+	if(selectedRadio.length) {
+		pageInstall = new Object();
+		pageInstall.action = "install";
+		pageInstall.id = selectedRadio.data("id");
+		pageInstall.pname = selectedRadio.data("name");
+		sendAjaxRequest(pathToController, pageInstall, 'html', 'installApp');
+	} else {
+		alert("Please Select Atleast One Page To Install App on");
+	}
+});
+
 $("img.nextStep").on("click", function(){
 
 	if( !($("span.activeRadio").length) ) {
