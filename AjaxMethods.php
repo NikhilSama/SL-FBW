@@ -113,7 +113,14 @@
 			print_r($app_id);
 			$pageProfilePic = $fbObject->api($page_id."/picture?redirect=0&height=200&type=normal&width=200");
 
-			$new_app_data = array("key"=>KEY,"user_id"=>$snaplion_id,"category_id"=>$app_id,'profile_pic' => $pageProfilePic['data']['url']);
+			$name = $fbObject->getName();
+			$new_app_data = array(
+								"key"=>KEY,
+								"user_id"=>$snaplion_id,
+								"category_id"=>$app_id,
+								'profile_pic' => $pageProfilePic['data']['url'], 
+								'name' => $name
+							);
 			$url = ADD_APP_URL;
 			//sending the post request to0 create a new app with the existing user
 			$result = curlreq($new_app_data,$url);
@@ -127,7 +134,6 @@
 			//getting the mobapp_id , name and snaplion_id
 			$mobapp_id = $result_array['result']['data']['mobapp_id'];
 			$ingredient_id = $result_array['result']['data']['ingredient_id'];
-			$name = $fbObject->getName();
 			$snaplion_id = $result_array['result']['data']['user_id'];
 		
 			//insering into apptab table the value of apptab_id , mobapp_id
