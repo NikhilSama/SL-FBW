@@ -47,6 +47,7 @@ define("KEY","MMKSKAIzaSyA7bjgLuOCUMMKSK5BiLpMMKSK9KyuN0ynwBhiKCZ3RoMMKSK");
 define("REGISTER_URL","http://api.snaplion.com/users/registeration.json");
 define("ADD_DATA_URL","http://api.snaplion.com/users/add_content.json");
 define("ADD_APP_URL","http://api.snaplion.com/users/create_app.json");
+define("UPDATE_APP_FAN_URL","http://api.snaplion.com/users/update_fan.json");
 define("ADD_INGREDIENTS_URL","http://api.snaplion.com/users/add_ingredient.json");
 define("GET_INGREDIENTS_URL","http://api.snaplion.com/users/app_ingredients.json");
 define("SID_URL","http://api.snaplion.com/users/existing_user_login.json");

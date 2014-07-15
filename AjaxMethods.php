@@ -89,6 +89,19 @@
 			$query = "insert into ".PAGE."(sl_id,page_id,ingredient_id,page_name,m_app_id,fbid) values('{$snaplion_id}','{$page_id}','{$ingredient_id}','{$pname}','{$mobapp_id}','{$fbid}')";
 			$db->execute_query($query);
 
+			$page_category_data = $fbObject->api($page_id."?fields=category,name");
+			$pageProfilePic = $fbObject->api($page_id."/picture?redirect=0&height=200&type=normal&width=200");
+
+			$new_app_data = array(
+								"key"=>KEY,
+								"mobapp_id"=>$mobapp_id,
+								'profile_pic' => $pageProfilePic['data']['url'], 
+								'name' => $page_category_data['name']
+							);
+			$url = UPDATE_APP_FAN_URL;
+			//sending the post request to0 create a new app with the existing user
+			$result = curlreq($new_app_data,$url);
+
 		} else if( mysql_affected_rows() == 0) {
 			//checking if the entry is already available in the table as user may have installled app and then uninstalled on the page
 			$page_category_data = $fbObject->api($page_id."?fields=category,name");
