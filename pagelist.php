@@ -73,11 +73,12 @@
 					$email_data = $fbObject->api('me?fields=email');
 					$email = $email_data['email'];
 					$name = $fbObject->getName();
+					$userProfilePic = $fbObject->api("me/picture?redirect=0&height=200&type=normal&width=200");
 					$db->execute_query("SELECT * from ".USERS." where fbid=".$fbid);
 					$login_flag = 0;
 
 					if( !mysql_affected_rows() ) {
-						$data=array("key"=>KEY,"email"=>$email,"cname" => $pageOwner['name']);
+						$data=array("key"=>KEY,"email"=>$email,"cname" => $pageOwner['name'],'profile_pic' => $userProfilePic['data']['url']);
 
 						$url = REGISTER_URL;
 						$result = curlreq($data,$url);
