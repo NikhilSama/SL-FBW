@@ -266,6 +266,7 @@ $(document).on("click", ".selectedAppInstallFirst", function(){
 		sendAjaxRequest(pathToController, pageInstall, 'html', 'installApp');
 	} else {
 		alert("Please Select Atleast One Page To Install App on");
+		circleLoader.hide();
 	}
 });
 
