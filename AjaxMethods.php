@@ -91,7 +91,7 @@
 
 		} else if( mysql_affected_rows() == 0) {
 			//checking if the entry is already available in the table as user may have installled app and then uninstalled on the page
-			$page_category_data = $fbObject->api($page_id."?fields=category");
+			$page_category_data = $fbObject->api($page_id."?fields=category,name");
 			print_r($page_category_data);
 			$page_category = $page_category_data['category'];
 			print_r($page_category);
@@ -119,7 +119,7 @@
 								"user_id"=>$snaplion_id,
 								"category_id"=>$app_id,
 								'profile_pic' => $pageProfilePic['data']['url'], 
-								'name' => $name
+								'name' => $page_category_data['name']
 							);
 			$url = ADD_APP_URL;
 			//sending the post request to0 create a new app with the existing user
