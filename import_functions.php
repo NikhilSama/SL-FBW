@@ -381,19 +381,16 @@ $post_count = 0;
 					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['startDate']  . ' + 3 hours'));
 				}
 				
-				$tempTimeZone = substr($event_info['start_time'], -5, 5);
-				$event['timezone'] = ($tempTimeZone / 100) * 60;
-	            
-
-	            
-
+				// $tempTimeZone = substr($event_info['start_time'], -5, 5);
+				// $event['timezone'] = ($tempTimeZone / 100) * 60;
+	          
 	            $event['timezone'] = 0;
 	            if( !empty($event_info['timezone']) ) 
 	            {	
 	            	$dtz = new DateTimeZone( $event_info['timezone'] );
 	    			$temp_time = new DateTime('now', $dtz);
 					$offset = $dtz->getOffset( $temp_time ) / 60;
-	    			$event['timezone2'] = $offset;
+	    			$event['timezone'] = $offset;
 
 	    			//$event['timezone'] = $timeZones[$offset];
 	            	// $event['timezone'] = $event_info['timezone'];
