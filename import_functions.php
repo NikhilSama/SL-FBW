@@ -387,17 +387,17 @@ $post_count = 0;
 
 	            
 
-	    //         $event['timezone'] = 0;
-	    //         if( !empty($event_info['timezone']) ) 
-	    //         {	
-	    //         	$dtz = new DateTimeZone( $event_info['timezone'] );
-	    // 			$temp_time = new DateTime('now', $dtz);
-					// $offset = $dtz->getOffset( $temp_time ) / 60;
-	    // 			$event['timezone'] = $offset;
+	            $event['timezone'] = 0;
+	            if( !empty($event_info['timezone']) ) 
+	            {	
+	            	$dtz = new DateTimeZone( $event_info['timezone'] );
+	    			$temp_time = new DateTime('now', $dtz);
+					$offset = $dtz->getOffset( $temp_time ) / 60;
+	    			$event['timezone2'] = $offset;
 
-	    // 			//$event['timezone'] = $timeZones[$offset];
-	    //         	// $event['timezone'] = $event_info['timezone'];
-	    //         }
+	    			//$event['timezone'] = $timeZones[$offset];
+	            	// $event['timezone'] = $event_info['timezone'];
+	            }
 
 	               // facebook event id
 	            if( !empty($event_info['eid']) ) 
