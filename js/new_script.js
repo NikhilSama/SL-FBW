@@ -99,30 +99,48 @@ submitList.on("click", function(){
 $("body").on("click", ".laterImport", function(event){
 	event.preventDefault();
 
-	if(! ($(this).parents('.strip-12').find("input[type=checkbox]:checked.importSection").length) ) {
-		alert("Please select checkbox first");
-	} else {
-		circleLoader.show();
+	// if(! ($(this).parents('.strip-12').find("input[type=checkbox]:checked.importSection").length) ) {
+	// 	alert("Please select checkbox first");
+	// } else {
+	// 	circleLoader.show();
 
+	// 	itemList = {pageinfo : 0, events : 0, posts : 0, photos : 0, videos : 0}  //creating a new object
+
+	// 	$("input[type=checkbox]:checked.importSection").each(function() {
+	// 		var value = $(this).attr("name");
+	// 		//setting values to the object
+	// 		itemList[value] = 1;
+	// 	});
+
+	// 	// console.log(itemList);
+	// 	sendAjaxRequest("importprogress.php", itemList, 'text', 'importSuccess');
+	// 	// submitList.css("display","none");
+	// 	// imageIngredients.css("display","none");
+	// 	// progressbar.css("display","block");
+	// 	// responseText.css("display","none");
+	// 	FB.Canvas.setSize({width:800, height:800});
+	// 	window.location = "imported.php";
+
+	// 	circleLoader.hide();
+	// }
+	$(this).parents('.import-radio').find('.importSection').each(function() {
+		circleLoader.show();
 		itemList = {pageinfo : 0, events : 0, posts : 0, photos : 0, videos : 0}  //creating a new object
 
-		$("input[type=checkbox]:checked.importSection").each(function() {
+		// $("input[type=checkbox]:checked.importSection").each(function() {
 			var value = $(this).attr("name");
 			//setting values to the object
 			itemList[value] = 1;
-		});
+		// });
 
-		// console.log(itemList);
+		console.log(itemList);
 		sendAjaxRequest("importprogress.php", itemList, 'text', 'importSuccess');
 		// submitList.css("display","none");
 		// imageIngredients.css("display","none");
 		// progressbar.css("display","block");
 		// responseText.css("display","none");
-		FB.Canvas.setSize({width:800, height:800});
-		window.location = "imported.php";
-
-		circleLoader.hide();
-	}
+		FB.Canvas.setSize({width:800,height:800});
+	});
 });
 
 function importSuccess(msg) {	
