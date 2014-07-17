@@ -130,7 +130,7 @@
 							<div class="strip-green"><img src="img/tick.png"><br>Imported</div>
 							<div class="strip-blue">
 								<span class="blue-text">Posts</span>
-								<span class="strip-blue-text">Total Posts - <?php echo $postCount; ?></span>
+								<span class="strip-blue-text">Total Posts - <?php echo $item_count['Fan Wall']; ?></span>
 							</div>
 							<div class="strip-white">
 								<input type="checkbox" class="css-checkbox autoUpdate" id="checkbox2" name="posts"
@@ -148,7 +148,7 @@
 							</div>
 							<div class="strip-blue gradient-white">
 								<span class="blue-text fontcolor">Post</span>
-								<span class="strip-blue-text fontcolor">Total Post - <?php echo $item_count['Fan Wall']; ?></span>
+								<span class="strip-blue-text fontcolor">Total Post - <?php echo $postCount; ?></span>
 							</div>
 							<div class="strip-white dalign">
 								<a href="#" class="btn-orange btn-small laterImport">IMPORT</a>

@@ -198,6 +198,7 @@
 					</div>
 
 					<script type="text/javascript">
+						$('#loadingCircle').hide();
 						$(document).on('click', '#retryPermissions', function(event){
 			    			event.preventDefault();
 
