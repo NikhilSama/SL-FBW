@@ -328,6 +328,8 @@
 		<script type='text/javascript' src='js/fbscript.js'></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				$('#loadingCircle').hide();
+
 	    		$(document).on('click', '#retryPermissions', function(event){
 	    			event.preventDefault();
 
