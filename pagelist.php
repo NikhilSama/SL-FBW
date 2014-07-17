@@ -362,6 +362,7 @@
 	    		});
 
 	    		$(document).on('click', ".closeMessage", function() {
+	    			$('#loadingCircle').show();
 					$(".closeMessageOverlay").css("display","none");
 				});
 	    	});
