@@ -1412,7 +1412,8 @@ h4 small {
 	background-color: #000;
 	opacity: 0.8;
 	float: left;
-	height: 497px;
+	/*height: 497px;*/
+	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;

@@ -434,14 +434,14 @@ function ingredientsDataSent(msg) {
 	circleLoader.show();
 	console.log(msg);
 	if(msg == 1) {
-		alert("Data has been submitted successfully");
+		alert("Data has been submitted successfully. Now you can submit your App. Please click on Submit App to submit the App.");
 		if( $(".paymentLink").length ) {
 			window.location = "payment.php";
 		} else {
 			window.location = "imported.php";
 		}
 	} else {
-		alert("There was an error while submitting your data");
+		alert("There was an error while submitting your data.");
 	}
 	circleLoader.hide();
 }
@@ -519,13 +519,13 @@ function crop(blob, obj) {
 			switch(target_element)
 			{
 				case 'splashScreen':
-					circleLoader.css("top","690px");
+					// circleLoader.css("top","690px");
 				break;
 				case 'iconImage':
-					circleLoader.css("top","342px");
+					// circleLoader.css("top","342px");
 				break;
 				case 'homeScreen':
-					circleLoader.css("top","1290px");
+					// circleLoader.css("top","1290px");
 				break;
 			}
 			e.preventDefault();
