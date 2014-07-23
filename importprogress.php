@@ -50,7 +50,7 @@
 					case "pageinfo":
 						$keyvalues[] = "About";
 						// $pageinfo = $fbObject->api($page_id."?fields=name,description,location,cover");
-						$pageinfo = $fbObject->api($page_id."?fields=about,bio,description,phone,website,emails,press_contact,booking_agent,general_manager");
+						$pageinfo = $fbObject->api($page_id."?fields=about,bio,description,phone,website,emails,press_contact,booking_agent,general_manager,cover");
 						//getting the url of the thumbnail
 						$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
 						extract_page_info($pageinfo,$picture_small,$apptabs,$page_id);
