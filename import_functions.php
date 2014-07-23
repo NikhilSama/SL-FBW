@@ -598,12 +598,52 @@ $post_count = 0;
 		
 		// print_r($pageinfo);
 		$info['original_data'] = $pageinfo;
-		if( !empty($pageinfo['description']) ) 
-		{
-			$info['content'] = $pageinfo['description'];
-		} else {
-			$info['content'] = $pageinfo['about'];
+
+		$bioContent = "";
+		if(isset($pageinfo['about']) && !empty($pageinfo['about']) ) {
+			$bioContent .= "<div><strong>About : </strong> <br><span>" . $pageinfo['about'] . "</span></div><br>";
 		}
+
+		if(isset($pageinfo['bio']) && !empty($pageinfo['bio']) ) {
+			$bioContent .= "<div><strong>Bio : </strong> <br><span>" . $pageinfo['bio'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['description']) && !empty($pageinfo['description']) ) {
+			$bioContent .= "<div><strong>Description : </strong> <br><span>" . $pageinfo['description'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['phone']) && !empty($pageinfo['phone']) ) {
+			$bioContent .= "<div><strong>Phone : </strong> <br><span>" . $pageinfo['phone'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['website']) && !empty($pageinfo['website']) ) {
+			$bioContent .= "<div><strong>Website : </strong> <br><span>" . $pageinfo['website'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['emails']) && !empty($pageinfo['emails']) ) {
+			$bioContent .= "<div><strong>Email : </strong> <br><span>" . $pageinfo['emails'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['press_contact']) && !empty($pageinfo['press_contact']) ) {
+			$bioContent .= "<div><strong>Press Contact : </strong> <br><span>" . $pageinfo['press_contact'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['booking_agent']) && !empty($pageinfo['booking_agent']) ) {
+			$bioContent .= "<div><strong>Booking Agent : </strong> <br><span>" . $pageinfo['booking_agent'] . "</span></div><br>";
+		}
+
+		if(isset($pageinfo['general_manager']) && !empty($pageinfo['general_manager']) ) {
+			$bioContent .= "<div><strong>General Manager : </strong> <br><span>" . $pageinfo['general_manager'] . "</span></div><br>";
+		}
+
+		$info['content'] = $bioContent;
+		
+		// if( !empty($pageinfo['description']) ) 
+		// {
+		// 	$info['content'] = $pageinfo['description'];
+		// } else {
+		// 	$info['content'] = $pageinfo['about'];
+		// }
 
 		// $info['img'] = "https://graph.facebook.com/".$page_id."/picture?height=300&width=600";
 
