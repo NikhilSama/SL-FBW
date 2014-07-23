@@ -964,9 +964,11 @@ $post_count = 0;
 			$section['Album'] = $albums;
 
 			echo "Album Count : " . $album_count;
-			echo "Photo Count : " . $photo_count
+			echo "Photo Count : " . $photo_count;
+
 			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
 			$albums = '';
+			exit;
 		}
 		if( !empty($videos) )
 		{
