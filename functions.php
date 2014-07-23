@@ -962,6 +962,8 @@ $post_count = 0;
 		if( !empty($albums) )
 		{	
 			$section['Album'] = $albums;
+			$query = "UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ";
+			echo $query;
 			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
 			$albums = '';
 			
