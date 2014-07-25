@@ -45,7 +45,7 @@
 	$payment_flag = $payment_data[0]['payment_flag'];
 	$ingredients_flag = $payment_data[0]['ingredients_flag'];
 
-	$albums = $fbObject->api('/' . $page_id . '/albums?limit=250&&offset=0');
+	$albums = $fbObject->api('/' . $page_id . '/albums?limit=250&offset=0');
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
@@ -86,6 +86,11 @@
 					<div class="longpagename"><?php echo $pageInfo['name']; ?></div>
 				</div>
 				<div class="fb_left-inner">
+
+					<?php
+						echo "<pre>";
+						print_r($albums);
+					?>
 					<!-- About Section -->
 					<?php 
 						if(in_array('About',$imports,true)) {

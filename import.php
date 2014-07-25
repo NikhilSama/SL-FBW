@@ -32,7 +32,7 @@
 		$imports[] = $data['apptab_name'];
 	}
 
-	$albums = $fbObject->api('/' . $page_id . '/albums');
+	$albums = $fbObject->api('/' . $page_id . '/albums?limit=250&offset=0');
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
@@ -68,7 +68,6 @@
 			<?php
 				echo "<pre>";
 				print_r($albums);
-
 			?>
 			<div class="fb_left">
 				<div class="snap_odr">
