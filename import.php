@@ -65,10 +65,6 @@
 			<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">Please be patient, this may take a minute.</span>
 		</div>
 		<div class="fb_maincontainer">
-			<?php
-				echo "<pre>";
-				print_r($albums);
-			?>
 			<div class="fb_left">
 				<div class="snap_odr">
 					<div class="longpagename"><?php echo $pageInfo['name']; ?></div>
