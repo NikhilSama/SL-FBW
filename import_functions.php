@@ -621,7 +621,11 @@ $post_count = 0;
 		}
 
 		if(isset($pageinfo['emails']) && !empty($pageinfo['emails']) ) {
-			$bioContent .= "<div><strong>Email : </strong> <br><span>" . $pageinfo['emails'] . "</span></div><br>";
+			if(is_array($pageinfo['emails'])) {
+				$bioContent .= "<div><strong>Email : </strong> <br><span>" . implode(', ', $pageinfo['emails']) . "</span></div><br>";
+			} else {
+				$bioContent .= "<div><strong>Email : </strong> <br><span>" . $pageinfo['emails'] . "</span></div><br>";
+			}
 		}
 
 		if(isset($pageinfo['press_contact']) && !empty($pageinfo['press_contact']) ) {
@@ -679,7 +683,11 @@ $post_count = 0;
 
 		if( !empty($pageinfo['emails']) ) 
 		{
-			$location_info['email'] = $pageinfo['emails'];
+			if(is_array($pageinfo['emails'])) {
+				$location_info['email'] = implode(', ', $pageinfo['emails']);
+			} else {
+				$location_info['email'] = $pageinfo['emails'];
+			}
 		}
 
 		 
