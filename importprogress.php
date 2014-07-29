@@ -101,27 +101,43 @@
 
 	if(!empty($events) ) {
 		$section['Event'] = $events;
-		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$event_count." where page_id=".$page_id." and apptab_name='Events' ");
-		$item_count['events'] = $event_count;
+		// $db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$event_count." where page_id=".$page_id." and apptab_name='Events' ");
+		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ". count($events) ." where page_id=".$page_id." and apptab_name='Events' ");
+		// $item_count['events'] = $event_count;
+		$item_count['events'] = count($events);
 	}
 
 	if( !empty($albums) ) {
 		$section['Album'] = $albums;
-		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
-		$item_count['album'] = $album_count;
-		$item_count['photo'] = $photo_count;
+
+		$photoCount = 0;
+		foreach ($albums as $album) {
+			$photoCount += count($album['Photo']);
+		}
+
+		// $db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
+		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($albums).", subitem_count = ".$photoCount." where page_id=".$page_id." and apptab_name='Photos' ");
+		// $item_count['album'] = $album_count;
+		// $item_count['photo'] = $photo_count;
+
+		$item_count['album'] = count($albums);
+		$item_count['photo'] = $photoCount;
 	}
 
 	if( !empty($posts) ) {
 		$section['Post'] = $posts;
-		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$post_count." where page_id=".$page_id." and apptab_name='Fan Wall' ");
-		$item_count['posts'] = $post_count;
+		// $db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$post_count." where page_id=".$page_id." and apptab_name='Fan Wall' ");
+		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
+		// $item_count['posts'] = $post_count;
+		$item_count['posts'] = count($posts);
 	}
 
 	if( !(empty($videos)) ) {
 		$section['Video'] = $videos;
-		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$video_count." where page_id=".$page_id." and apptab_name='Videos' ");
-		$item_count['videos'] = $video_count;
+		// $db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$video_count." where page_id=".$page_id." and apptab_name='Videos' ");
+		$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($videos)." where page_id=".$page_id." and apptab_name='Videos' ");
+		// $item_count['videos'] = $video_count;
+		$item_count['videos'] = count($videos);
 	}
 
 	$data =  array();
