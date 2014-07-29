@@ -62,7 +62,10 @@
 	<body style="margin: 0 !important;">
 		<div class="loader-bg-main" id="loadingCircle">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
-			<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">Please be patient, this may take a minute.</span>
+			<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">
+				<!-- Please be patient, this may take a minute. -->
+				Pls be patient, this step may take upto 5 minutes.  It depends on the amount of data being imported from your Facebook page.
+			</span>
 		</div>
 		<div class="fb_maincontainer">
 			<div class="fb_left">
