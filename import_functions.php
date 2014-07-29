@@ -678,8 +678,6 @@ $post_count = 0;
 		{
 			$location_info['country_id'] = 102;
 		}
-		
-
 
 		if( !empty($pageinfo['emails']) ) 
 		{
@@ -689,8 +687,6 @@ $post_count = 0;
 				$location_info['email'] = $pageinfo['emails'];
 			}
 		}
-
-		 
 
 		if( !empty($pageinfo['location']['street']) ) 
 		{
