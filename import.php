@@ -78,13 +78,17 @@
 	// }
 	
 	$posts = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
-	foreach ($posts['data'] as &$post) {
-		if(!isset($post['message'])) {
-			unset($post);
+	echo "<pre>";
+	print_r($posts);
+
+	$newPosts = array();
+	foreach ($posts['data'] as $post) {
+		if(isset($post['message'])) {
+			$newPosts[] = $post;
 		}
 	}
-	echo "<pre>";
-	print_r(array_values($posts));
+
+	print_r($newPosts);
 
 	$postCount = count($posts['data']);
 	// feedCount($posts);
