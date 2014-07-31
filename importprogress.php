@@ -81,7 +81,7 @@
 							$newAlbums[$photo['album_object_id']][] = $photo;
 						}
 
-						foreach ($albums['data'] as &$album) {
+						foreach ($albums as &$album) {
 							$album['photos'] = $newAlbums[$album['object_id']];
 						}
 						// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");

@@ -36,10 +36,10 @@
 	// $albums = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
 
 	$albums = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, aid, name, link, photo_count from album WHERE owner = ' . $page_id . ' LIMIT 100000'));
-	// $photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
-	// echo "<pre>";
-	print_r($albums);exit;
-	// print_r($photos);
+	$photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
+	echo "<pre>";
+	print_r($albums);
+	print_r($photos);exit;
 
 	$albumCount = count($albums);
 	$photoCount = 0;
