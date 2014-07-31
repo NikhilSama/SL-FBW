@@ -85,6 +85,8 @@
 							$album['photos'] = $newAlbums[$album['object_id']];
 						}
 						// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
+						echo "<pre>";
+						print_r($albums);
 						extract_album_data($albums,$apptabs);
 						//print_r($albums);
 					break;
