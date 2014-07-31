@@ -57,18 +57,14 @@
 
 	$postCount = 0;
 	function feedCount($feeds) {
-		echo "<pre>";
-		print_r($feeds);
-
 		if(!empty($feeds['data'])) {
 			foreach ($feeds['data'] as &$post) {
 				if(!isset($post['message'])) {
 					unset($post);
 				}
 			}
-			print_r($feeds);
+
 			$postCount += count($feeds['data']);
-			
 			if(!empty($feeds['paging']['next'])) {
 				$link = $feeds['paging']['next'];
 				$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
