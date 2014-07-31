@@ -83,6 +83,9 @@
 			unset($post);
 		}
 	}
+	echo "<pre>";
+	print_r(array_values($posts));
+
 	$postCount = count($posts['data']);
 	// feedCount($posts);
 
