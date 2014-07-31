@@ -78,9 +78,6 @@
 	// }
 	
 	$posts = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
-	echo "<pre>";
-	print_r($posts);
-
 	$newPosts = array();
 	foreach ($posts['data'] as $post) {
 		if(isset($post['message'])) {
@@ -88,9 +85,7 @@
 		}
 	}
 
-	print_r($newPosts);
-
-	$postCount = count($posts['data']);
+	$postCount = count($newPosts);
 	// feedCount($posts);
 
 	$videos = $fbObject->api('/' . $page_id . '/videos?offset=0');
