@@ -47,8 +47,8 @@
 	$events = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT eid,description,end_time,host,location,name,pic_big,pic_cover,start_time,ticket_uri,venue from event where creator=' . $page_id));
 	$eventCount = count($events);
 
-	$posts = $fbObject->api($page_id . '/feed');
-	// $posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type");
+	// $posts = $fbObject->api($page_id . '/feed');
+	$posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type&limit=500");
 	echo "<pre>";
 	print_r($posts);
 	$postCount = count($posts['data']);
