@@ -58,7 +58,7 @@
 
 	$postCount = 0;
 	function feedCount($feeds, $postCount) {
-		if(!empty($feeds['data'])) {
+		if(isset($feeds['data']) && !empty($feeds['data'])) {
 			$newPosts = array();
 			foreach ($feeds['data'] as $post) {
 				if(isset($post['message'])) {
@@ -71,7 +71,7 @@
 				$link = $feeds['paging']['next'];
 				$link = str_replace("https://graph.facebook.com", "", $link);
 				$data = $fbObject->api($link);
-				if(!empty($data['data'])) {
+				if(!empty($data)) {
 					feedCount($data, $postCount);
 				}
 			}
