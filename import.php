@@ -59,7 +59,7 @@
 	if(!empty($posts['data'])) {
 		$postCount += count($posts['data']);
 		echo "<pre>";
-		print_r($posts['paging']);
+		print_r($posts);
 		// feedCount($posts);
 	}
 
