@@ -65,19 +65,27 @@
 
 					case "posts":
 						$keyvalues[] = "Fan Wall";
-						$post_data = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type");
-						echo "<pre>";
-						print_r($post_data);
+						// $post_data = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type");
+						$post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
 						extract_post_data($post_data,$apptabs);
 						//print_r($posts);
 					break;
 
 					case "photos":
 						$keyvalues[] = "Photos";
-						$album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
-						echo "<pre>";
-						print_r($album_data);
-						extract_album_data($album_data,$apptabs);
+						$albums = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, aid, name, link, photo_count from album WHERE owner = ' . $page_id . ' LIMIT 100000'));
+						$photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big, album_object_id, created from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
+
+						$newAlbums = array();
+						foreach ($photos['data'] as $photo) {
+							$newAlbums[$photo['album_object_id']][] = $photo;
+						}
+
+						foreach ($albums['data'] as &$album) {
+							$album['photos'] = $newAlbums[$album['object_id']];
+						}
+						// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
+						extract_album_data($albums,$apptabs);
 						//print_r($albums);
 					break;
 

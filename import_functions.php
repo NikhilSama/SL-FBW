@@ -498,69 +498,72 @@ $post_count = 0;
 
 		if( !empty($posts_data) )
 		{
-			foreach ($posts_data['data'] as $post_info)
+			$newPosts = array();
+			foreach ($posts_data['data'] as $post) {
+				if(isset($post['message'])) {
+					$newPosts[] = $post;
+				}
+			}
+
+			foreach ($newPosts as $post_info)
 			{	
 				$post_count++;
-				// if( !strpos($post_info['story'], 'created an event')) 
-				if( !strpos($post_info['story'], 'created an event') )
-				{
-					$post = array();
-					$post['apptab_id'] =  $apptabs['Fan Wall'];
-	                $post['mobapp_id'] =  $mobapp_id;
+				$post = array();
+				$post['apptab_id'] =  $apptabs['Fan Wall'];
+                $post['mobapp_id'] =  $mobapp_id;
 
-	        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
-	                if( !empty($post_info['message']) ) 
-	                {
-	                	$post['post'] =  $post_info['message'];    //message
-	                } else if( !empty($post_info['story']) )
-	                {
-	                	$post['post'] =  $post_info['story'];  
-	                }
+        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
+                if( !empty($post_info['message']) ) 
+                {
+                	$post['post'] =  $post_info['message'];    //message
+                } else if( !empty($post_info['story']) )
+                {
+                	$post['post'] =  $post_info['story'];  
+                }
 
-	                if( !empty($post_info['picture']) ) 
-	                {
-	                	$post['thumbImg'] = $post_info['picture'];   //thumb image
-	                	$post['img'] = $post_info['picture'];   //thumb image
-	                }
+                if( !empty($post_info['picture']) ) 
+                {
+                	$post['thumbImg'] = $post_info['picture'];   //thumb image
+                	$post['img'] = $post_info['picture'];   //thumb image
+                }
 
-	                if( !empty($post_info['full_picture']) ) 
-	                {	
-	                	//large image
-	                	$post['img'] =  $post_info['full_picture'];
-	                }
-	                if( !empty($post_info['created_time']) )
-	                {
-	                	$post['created'] = $post_info['created_time'];
-	                }
+                if( !empty($post_info['full_picture']) ) 
+                {	
+                	//large image
+                	$post['img'] =  $post_info['full_picture'];
+                }
+                if( !empty($post_info['created_time']) )
+                {
+                	$post['created'] = $post_info['created_time'];
+                }
 
-	                if( !empty($post_info['picture']) ) 
-	                {
-	                	$post['thumbImg'] = $post_info['picture'];   //thumb image
-	                }
+                if( !empty($post_info['picture']) ) 
+                {
+                	$post['thumbImg'] = $post_info['picture'];   //thumb image
+                }
 
 
-	                if( !empty($post_info['source']) ) 
-	                {
-	                	$post['video_url'] =  $post_info['source'];  // video url
-	                }
+                if( !empty($post_info['source']) ) 
+                {
+                	$post['video_url'] =  $post_info['source'];  // video url
+                }
 
-	                if( !empty($post_info['place']['location']['latitude']) ) 
-	                {
-	                	$post['latitude'] = $post_info['place']['location']['latitude'];
-	                }
+                if( !empty($post_info['place']['location']['latitude']) ) 
+                {
+                	$post['latitude'] = $post_info['place']['location']['latitude'];
+                }
 
-	                if( !empty($post_info['place']['location']['longitude']) ) 
-	                {
-	                	$post['longitude'] = $post_info['place']['location']['longitude'];
-	                }
+                if( !empty($post_info['place']['location']['longitude']) ) 
+                {
+                	$post['longitude'] = $post_info['place']['location']['longitude'];
+                }
 
-	                if( !empty($post_info['id']) ) 
-	                {
-	                	$post['post_id'] = $post_info['id'];
-	                }
+                if( !empty($post_info['id']) ) 
+                {
+                	$post['post_id'] = $post_info['object_id'];
+                }
 
-	                $posts[] = $post;
-            	} //check for relevant type ends
+                $posts[] = $post;
 			} //loop ends
 		} //if block ends
 
@@ -582,9 +585,6 @@ $post_count = 0;
 	} //function extract_post_data ends 
 
 
-	
-
-	
 	function extract_page_info($pageinfo, $picture_small,$apptabs,$page_id)
 	{	
 		// global $apptabs;
@@ -793,9 +793,7 @@ $post_count = 0;
 		}
 	}
 
-	
-	//to extract photos and album data from the page
-	function extract_album_data($albums_data,$apptabs)
+	function extract_album_data($albums,$apptabs)
 	{	
 		// global $apptabs;
 		global $album_count;
@@ -804,9 +802,9 @@ $post_count = 0;
 		global $albums;
 		global $fbObject;
 
-		if( !empty($albums_data['albums']['data']) )
+		if( !empty($albums) )
 		{
-			foreach ($albums_data['albums']['data'] as $album_info) 
+			foreach ($albums as $album_info) 
 			{	
 				$album_count++;
 				$album = array();
@@ -820,83 +818,159 @@ $post_count = 0;
 
 				if( !empty($album_info['id']) ) 
 				{
-					$album['facebookAlbumId'] = $album_info['id'];
+					$album['facebookAlbumId'] = $album_info['object_id'];
 				}
 
 				//checking if the album contains photos , if then extracting info of all the photos
-				if( !empty($album_info['photos']['data']) )
+				if( !empty($album_info['photos']) )
 				{	
 					
 					$photos = array();
-					foreach ($album_info['photos']['data'] as $photo_info) 
+					foreach ($album_info['photos'] as $photo_info) 
 					{	
 						$photo_count++;
 						$photo = array();
 						//getting all the attributes of the image
 						$photo['class'] = 'Album';
 
-						if( !empty($photo_info['picture']) ) 
+						if( !empty($photo_info['src']) ) 
 						{
-							$photo['thumbImg'] = $photo_info['picture'];
+							$photo['thumbImg'] = $photo_info['src'];
 						}
 
-						if( !empty($photo_info['created_time']) )
+						if( !empty($photo_info['created']) )
 						{
-							$photo['created'] = $photo_info['created_time'];
+							$photo['created'] = $photo_info['created'];
 						}
 
-						if( !empty($photo_info['source']) ) 
+						if( !empty($photo_info['src_big']) ) 
 						{
-							$photo['largeImg'] = $photo_info['source'];
+							$photo['largeImg'] = $photo_info['src_big'];
 						} 
 
-						if( !empty($photo_info['name']) ) 
+						if( !empty($photo_info['caption']) ) 
 						{
-							$photo['caption'] = $photo_info['name'];
+							$photo['caption'] = $photo_info['caption'];
 						}
 
 						//checking if there exists pagination for the photos
 						
 						$photos[] = $photo;
 						
-					} // loop ends  for photos
-					if( !empty($album_info['photos']['paging']['next']) )
-					{
-						$link = $album_info['photos']['paging']['next'];
-						$link = str_replace("https://graph.facebook.com", "", $link);
-						$data = $fbObject->api($link);
-						$additional_photos = array();
-						$additional_photos = extract_additional_photos($data);
-						$photos = array_merge($photos,$additional_photos);
 					}
 					$album['Photo'] = $photos;
-
 				}
 				$albums[] = $album;
 
 			} // loop ends  for albums
-		
-
-			//checking if the pagination link exists for the album
-			// if( !empty($album_info['paging']['next']) )
-			// {	
-			// 	//checking if the next link of the data exists
-			// 	$link  = $album_info['paging']['next'];
-
-			// 	//feeding the api with the paging next string
-			// 	$link = str_replace("https://graph.facebook.com", "", $link);
-
-			// 	$data = $fbObject->api($link);
-			// 	if(!empty($data))
-			// 	{	
-			// 		//calling the same function until the next link contains data
-			// 		extract_album_data($data,$apptabs);
-			// 	}
-			// }
 		}
 		
 
 	} //extract_album_data ends
+
+	//to extract photos and album data from the page
+	// function extract_album_data($albums_data,$apptabs)
+	// {	
+	// 	// global $apptabs;
+	// 	global $album_count;
+	// 	global $photo_count;
+	// 	global $mobapp_id;
+	// 	global $albums;
+	// 	global $fbObject;
+
+	// 	if( !empty($albums_data['albums']['data']) )
+	// 	{
+	// 		foreach ($albums_data['albums']['data'] as $album_info) 
+	// 		{	
+	// 			$album_count++;
+	// 			$album = array();
+	// 			$album['mobapp_id'] = $mobapp_id;
+	// 			$album['apptab_id'] = $apptabs['Photos'];
+
+	// 			if( !empty($album_info['name']) ) 
+	// 			{
+	// 				$album['albumName'] = $album_info['name'];
+	// 			}
+
+	// 			if( !empty($album_info['id']) ) 
+	// 			{
+	// 				$album['facebookAlbumId'] = $album_info['id'];
+	// 			}
+
+	// 			//checking if the album contains photos , if then extracting info of all the photos
+	// 			if( !empty($album_info['photos']['data']) )
+	// 			{	
+					
+	// 				$photos = array();
+	// 				foreach ($album_info['photos']['data'] as $photo_info) 
+	// 				{	
+	// 					$photo_count++;
+	// 					$photo = array();
+	// 					//getting all the attributes of the image
+	// 					$photo['class'] = 'Album';
+
+	// 					if( !empty($photo_info['picture']) ) 
+	// 					{
+	// 						$photo['thumbImg'] = $photo_info['picture'];
+	// 					}
+
+	// 					if( !empty($photo_info['created_time']) )
+	// 					{
+	// 						$photo['created'] = $photo_info['created_time'];
+	// 					}
+
+	// 					if( !empty($photo_info['source']) ) 
+	// 					{
+	// 						$photo['largeImg'] = $photo_info['source'];
+	// 					} 
+
+	// 					if( !empty($photo_info['name']) ) 
+	// 					{
+	// 						$photo['caption'] = $photo_info['name'];
+	// 					}
+
+	// 					//checking if there exists pagination for the photos
+						
+	// 					$photos[] = $photo;
+						
+	// 				} // loop ends  for photos
+	// 				if( !empty($album_info['photos']['paging']['next']) )
+	// 				{
+	// 					$link = $album_info['photos']['paging']['next'];
+	// 					$link = str_replace("https://graph.facebook.com", "", $link);
+	// 					$data = $fbObject->api($link);
+	// 					$additional_photos = array();
+	// 					$additional_photos = extract_additional_photos($data);
+	// 					$photos = array_merge($photos,$additional_photos);
+	// 				}
+	// 				$album['Photo'] = $photos;
+
+	// 			}
+	// 			$albums[] = $album;
+
+	// 		} // loop ends  for albums
+		
+
+	// 		//checking if the pagination link exists for the album
+	// 		// if( !empty($album_info['paging']['next']) )
+	// 		// {	
+	// 		// 	//checking if the next link of the data exists
+	// 		// 	$link  = $album_info['paging']['next'];
+
+	// 		// 	//feeding the api with the paging next string
+	// 		// 	$link = str_replace("https://graph.facebook.com", "", $link);
+
+	// 		// 	$data = $fbObject->api($link);
+	// 		// 	if(!empty($data))
+	// 		// 	{	
+	// 		// 		//calling the same function until the next link contains data
+	// 		// 		extract_album_data($data,$apptabs);
+	// 		// 	}
+	// 		// }
+	// 	}
+		
+
+	// } //extract_album_data ends
 
 
 
