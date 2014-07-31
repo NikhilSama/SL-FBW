@@ -62,7 +62,7 @@
 		print_r($posts);
 		// feedCount($posts);
 	}
-
+exit;
 	// function feedCount($posts) {
 	// 	if(!empty($posts['paging']['next'])) {
 	// 		$link = $posts['paging']['next'];
