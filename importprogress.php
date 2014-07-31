@@ -87,9 +87,7 @@
 							$albumPhotos[] = $album;
 						}
 						// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
-						// extract_album_data($albumPhotos,$apptabs);
-						echo "<pre>";
-						print_r($albumPhotos);
+						extract_album_data($albumPhotos,$apptabs);
 					break;
 
 					case "videos":

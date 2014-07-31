@@ -793,7 +793,7 @@ $post_count = 0;
 		}
 	}
 
-	function extract_album_data($albums,$apptabs)
+	function extract_album_data($albumPhotos,$apptabs)
 	{	
 		// global $apptabs;
 		global $album_count;
@@ -802,9 +802,9 @@ $post_count = 0;
 		global $albums;
 		global $fbObject;
 
-		if( !empty($albums) )
+		if( !empty($albumPhotos) )
 		{
-			foreach ($albums as $album_info) 
+			foreach ($albumPhotos as $album_info) 
 			{	
 				$album_count++;
 				$album = array();
