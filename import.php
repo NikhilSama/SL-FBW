@@ -32,8 +32,8 @@
 		$imports[] = $data['apptab_name'];
 	}
 
-	$albums = $fbObject->api('/' . $page_id . '/albums?offset=0');
-	// $albums = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
+	// $albums = $fbObject->api('/' . $page_id . '/albums?offset=0');
+	$albums = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
 	echo "<pre>";
 	print_r($albums);
 
