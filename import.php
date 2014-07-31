@@ -56,25 +56,29 @@
 	// $posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type&limit=500");
 
 	function feedCount($posts) {
-		echo "<pre>";
-		print_r($posts);
-		if(!empty($posts['paging']['next'])) {
-			$link = $posts['paging']['next'];
-			$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
-			$data = $fbObject->api($link);
-			if(!empty($data['data'])) {
-				$postCount += count($data['data']);
-				feedCount($data);
+		if(!empty($posts['data'])) {
+			foreach ($posts['data'] as &$post) {
+				if(!isset($post['message'])) {
+					unset($post);
+				}
+			}
+
+			$postCount += count($posts['data']);
+			
+			if(!empty($posts['paging']['next'])) {
+				$link = $posts['paging']['next'];
+				$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
+				$data = $fbObject->api($link);
+				if(!empty($data['data'])) {
+					feedCount($data);
+				}
 			}
 		}
 	}
 
 	$postCount = 0;
-	$posts = $fbObject->api($page_id."/feed?fields=picture,place,message,object_id,source,created_time,type&limit=5000");
-	if(!empty($posts['data'])) {
-		$postCount += count($posts['data']);
-		feedCount($posts);
-	}
+	$posts = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
+	feedCount($posts);
 
 	$videos = $fbObject->api('/' . $page_id . '/videos?offset=0');
 	$videoCount = count($videos['data']);
