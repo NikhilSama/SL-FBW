@@ -55,7 +55,11 @@
 	//129695797050125/feed?fields=message,full_picture,picture,object_id&until=1322123010&limit=5000
 	// $posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type&limit=500");
 
+	$postCount = 0;
 	function feedCount($posts) {
+		echo "<pre>";
+		print_r($posts);
+
 		if(!empty($posts['data'])) {
 			foreach ($posts['data'] as &$post) {
 				if(!isset($post['message'])) {
@@ -75,8 +79,7 @@
 			}
 		}
 	}
-
-	$postCount = 0;
+	
 	$posts = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
 	feedCount($posts);
 
