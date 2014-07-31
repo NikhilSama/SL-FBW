@@ -77,7 +77,7 @@
 						$photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big, album_object_id, created from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
 
 						$newAlbums = array();
-						foreach ($photos['data'] as $photo) {
+						foreach ($photos as $photo) {
 							$newAlbums[$photo['album_object_id']][] = $photo;
 						}
 
