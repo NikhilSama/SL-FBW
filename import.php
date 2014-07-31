@@ -51,33 +51,34 @@
 	$events = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT eid,description,end_time,host,location,name,pic_big,pic_cover,start_time,ticket_uri,venue from event where creator=' . $page_id));
 	$eventCount = count($events);
 
-	// $posts = $fbObject->api($page_id . '/feed');
+	$posts = $fbObject->api($page_id . '/feed');
 	//129695797050125/feed?fields=message,full_picture,picture,object_id&until=1322123010&limit=5000
 	// $posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type&limit=500");
 
 	$postCount = 0;
-	function feedCount($feeds) {
-		if(!empty($feeds['data'])) {
-			foreach ($feeds['data'] as &$post) {
-				if(!isset($post['message'])) {
-					unset($post);
-				}
-			}
+	// function feedCount($feeds) {
+	// 	if(!empty($feeds['data'])) {
+	// 		foreach ($feeds['data'] as &$post) {
+	// 			if(!isset($post['message'])) {
+	// 				unset($post);
+	// 			}
+	// 		}
 
-			$postCount += count($feeds['data']);
-			if(!empty($feeds['paging']['next'])) {
-				$link = $feeds['paging']['next'];
-				$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
-				$data = $fbObject->api($link);
-				if(!empty($data['data'])) {
-					feedCount($data);
-				}
-			}
-		}
-	}
+	// 		$postCount += count($feeds['data']);
+	// 		if(!empty($feeds['paging']['next'])) {
+	// 			$link = $feeds['paging']['next'];
+	// 			$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
+	// 			$data = $fbObject->api($link);
+	// 			if(!empty($data['data'])) {
+	// 				feedCount($data);
+	// 			}
+	// 		}
+	// 	}
+	// }
 	
 	$posts = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
-	feedCount($posts);
+	$postCount = count($posts['data']);
+	// feedCount($posts);
 
 	$videos = $fbObject->api('/' . $page_id . '/videos?offset=0');
 	$videoCount = count($videos['data']);
