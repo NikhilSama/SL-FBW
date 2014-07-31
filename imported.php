@@ -334,7 +334,7 @@
 					<?php
 						} else {
 					?>
-							<button class="btn-grey" disable>App Submited</button>	
+							<button class="btn-gray-dis" disable>App Submited</button>	
 					<?php
 						}
 					?>
