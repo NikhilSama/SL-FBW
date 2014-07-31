@@ -558,7 +558,7 @@ $post_count = 0;
                 	$post['longitude'] = $post_info['place']['location']['longitude'];
                 }
 
-                if( !empty($post_info['id']) ) 
+                if( !empty($post_info['object_id']) ) 
                 {
                 	$post['post_id'] = $post_info['object_id'];
                 }
@@ -816,7 +816,7 @@ $post_count = 0;
 					$album['albumName'] = $album_info['name'];
 				}
 
-				if( !empty($album_info['id']) ) 
+				if( !empty($album_info['object_id']) ) 
 				{
 					$album['facebookAlbumId'] = $album_info['object_id'];
 				}
