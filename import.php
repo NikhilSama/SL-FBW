@@ -58,6 +58,8 @@
 	$posts = $fbObject->api($page_id."/feed?fields=picture,place,message,object_id,source,created_time,type&limit=5000");
 	if(!empty($posts['data'])) {
 		$postCount += count($posts['data']);
+		echo "<pre>";
+		print_r($posts['paging']);
 		// feedCount($posts);
 	}
 
