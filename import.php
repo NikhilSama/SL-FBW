@@ -57,12 +57,15 @@
 
 	$postCount = 0;
 	function feedCount($posts) {
+		echo "<pre>";
+		print_r($posts);
+
 		if(!empty($posts['data'])) {
-			// foreach ($posts['data'] as &$post) {
-			// 	if(!isset($post['message'])) {
-			// 		unset($post);
-			// 	}
-			// }
+			foreach ($posts['data'] as &$post) {
+				if(!isset($post['message'])) {
+					unset($post);
+				}
+			}
 
 			$postCount += count($posts['data']);
 			
