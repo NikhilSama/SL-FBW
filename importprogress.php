@@ -66,6 +66,8 @@
 					case "posts":
 						$keyvalues[] = "Fan Wall";
 						$post_data = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type");
+						echo "<pre>";
+						print_r($post_data);
 						extract_post_data($post_data,$apptabs);
 						//print_r($posts);
 					break;
@@ -73,7 +75,8 @@
 					case "photos":
 						$keyvalues[] = "Photos";
 						$album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
-						
+						echo "<pre>";
+						print_r($album_data);
 						extract_album_data($album_data,$apptabs);
 						//print_r($albums);
 					break;

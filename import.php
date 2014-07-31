@@ -32,7 +32,11 @@
 		$imports[] = $data['apptab_name'];
 	}
 
-	$albums = $fbObject->api('/' . $page_id . '/albums?offset=0');
+	// $albums = $fbObject->api('/' . $page_id . '/albums?offset=0');
+	$albums = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
+	echo "<pre>";
+	print_r($albums);
+
 	$albumCount = count($albums['data']);
 	$photoCount = 0;
 	foreach ($albums['data'] as $album) {
@@ -43,7 +47,10 @@
 	$events = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT eid,description,end_time,host,location,name,pic_big,pic_cover,start_time,ticket_uri,venue from event where creator=' . $page_id));
 	$eventCount = count($events);
 
-	$posts = $fbObject->api('/' . $page_id . '/feed?offset=0');
+	// $posts = $fbObject->api($page_id . '/feed?offset=0');
+	$posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type");
+	echo "<pre>";
+	print_r($posts);
 	$postCount = count($posts['data']);
 
 	$videos = $fbObject->api('/' . $page_id . '/videos?offset=0');

@@ -332,6 +332,10 @@
 					?>
 							<a href="#" id="customButtonWithoutPayment" class="btn-orange">Submit App</a>
 					<?php
+						} else {
+					?>
+							<button class="btn-grey" disable>App Submited</button>	
+					<?php
 						}
 					?>
 				</div>
