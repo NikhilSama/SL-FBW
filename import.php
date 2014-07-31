@@ -35,17 +35,16 @@
 	// $albums = $fbObject->api('/' . $page_id . '/albums?offset=0');
 	// $albums = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
 
-	
 	$albums = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, aid, name, link, photo_count from album WHERE owner = ' . $page_id . ' LIMIT 100000'));
-	$photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
-	echo "<pre>";
-	print_r($albums);
-	print_r($photos);
+	// $photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
+	// echo "<pre>";
+	// print_r($albums);
+	// print_r($photos);
 
-	$albumCount = count($albums['albums']['data']);
+	$albumCount = count($albums);
 	$photoCount = 0;
-	foreach ($albums['albums']['data'] as $album) {
-		$photoCount += $album['photos']['count'];
+	foreach ($albums as $album) {
+		$photoCount += $album['photo_count'];
 	}
 
 	// $events = $fbObject->api('/' . $page_id . '/events?limit=250&&offset=0');
@@ -53,10 +52,23 @@
 	$eventCount = count($events);
 
 	// $posts = $fbObject->api($page_id . '/feed');
-	$posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type&limit=500");
-	echo "<pre>";
-	print_r($posts);
-	$postCount = count($posts['data']);
+	//129695797050125/feed?fields=message,full_picture,picture,object_id&until=1322123010&limit=5000
+	// $posts = $fbObject->api($page_id."/feed?fields=picture,place,message,id,source,created_time,story,type&limit=500");
+	$postCount = 0;
+	$posts = $fbObject->api($page_id."/feed?fields=picture,place,message,object_id,source,created_time,type&limit=5000");
+	if(!empty($posts['data'])) {
+		feedCount($posts);
+	}
+
+	function feedCount($posts) {
+		if( !empty($posts['paging']['next'])) {
+			$link = $posts['paging']['next'];
+			$link = str_replace("https://graph.facebook.com", "", $link);
+			$data = $fbObject->api($link);
+			$postCount += count($posts['data']);
+			feedCount($data);
+		}
+	}
 
 	$videos = $fbObject->api('/' . $page_id . '/videos?offset=0');
 	$videoCount = count($videos['data']);
