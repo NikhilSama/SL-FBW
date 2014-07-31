@@ -57,7 +57,7 @@
 	
 
 	$postCount = 0;
-	function feedCount($feeds, $postCount) {
+	function feedCount($feeds, &$postCount) {
 		if(isset($feeds['data']) && !empty($feeds['data'])) {
 			$newPosts = array();
 			foreach ($feeds['data'] as $post) {
