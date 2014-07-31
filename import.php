@@ -74,7 +74,7 @@
 				$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
 				$data = $fbObject->api($link);
 				if(!empty($data['data'])) {
-					// feedCount($data);
+					feedCount($data);
 				}
 			}
 		}
