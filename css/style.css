@@ -339,6 +339,7 @@ label.css-label {
 	text-transform: uppercase;
 	margin-right: 10px;
 	font-family: "DIN";
+	font-size: 16px;
 }
 .btn-gray-dis:hover {
 	background: #707070; /* Old browsers */
