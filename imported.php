@@ -282,7 +282,6 @@
 							<button class="btn-gray-dis" id="customButtonDis" style="display:none;" disable>App Submited</button>
 
 							<script>
-								$('#customButtonDis').hide();
 							  	var handler = StripeCheckout.configure({
 								    // key: 'pk_test_t18WSF7iWl1Ign6jilpRs3n3',
 								    key: 'pk_live_d1NrtHiXyRWMfJvvS9fxzxON',
