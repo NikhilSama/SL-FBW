@@ -62,9 +62,6 @@
 	}
 
 	function feedCount($posts) {
-		echo "<pre>";
-		print_r($posts);
-
 		if(!empty($posts['paging']['next'])) {
 			$link = $posts['paging']['next'];
 			$link = str_replace("https://graph.facebook.com/v1.0/", "", $link);
@@ -75,7 +72,7 @@
 			}
 		}
 	}
-exit;
+
 	$videos = $fbObject->api('/' . $page_id . '/videos?offset=0');
 	$videoCount = count($videos['data']);
 ?>
