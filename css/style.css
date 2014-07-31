@@ -331,15 +331,14 @@ label.css-label {
 	border:1px solid #3c3d3f;
 	display:inline-block;
 	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
 	font-style:normal;
-	height:50px;
-	line-height:50px;
+	padding: 14px 33px;
 	text-decoration:none;
 	text-align:center;
-	padding: 0 27px;
+	text-shadow:1px 1px 0px #5C5C5C;
+	text-transform: uppercase;
+	margin-right: 10px;
+	font-family: "DIN";
 }
 .btn-gray-dis:hover {
 	background: #707070; /* Old browsers */
