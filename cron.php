@@ -19,14 +19,30 @@
 		// var_dump($page_id);
 		if( $apptab_data['apptab_name'] == 'Photos' ) {	
 			//when the change type is images
-			$album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album,created_time))");
+			// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album,created_time))");
 			//function to update the photos on the snaplion website in case an update takes place
 
-			extractPhotoUpdate($album_data, $apptab_data);
+			$fbalbums = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, aid, name, link, photo_count from album WHERE owner = ' . $page_id . ' LIMIT 100000'));
+			$photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big, album_object_id, created from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
+
+			$newAlbums = array();
+			foreach ($photos as $photo) {
+				$newAlbums[$photo['album_object_id']][] = $photo;
+			}
+
+			$albumPhotos = array();
+			foreach ($fbalbums as $album) {
+				$album['photos'] = $newAlbums[$album['object_id']];
+				$albumPhotos[] = $album;
+			}
+			// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
+			// extractPhotoUpdate($album_data, $apptab_data);
+			extractPhotoUpdate($albumPhotos, $apptabs);
 			checkData($page_id);
 		} else if( $apptab_data['apptab_name'] == 'Events' ) {	
 			//when changes take place in events
-			$event_data = $fbObject->fql("SELECT name, eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
+			// $event_data = $fbObject->fql("SELECT name, eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
+			$event_data = $fbObject->fql("SELECT name,eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic,pic_big,pic_cover FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
 			
 			extractEventUpdate($event_data,$apptab_data);
 			checkData($page_id);

@@ -630,119 +630,201 @@ $post_count = 0;
 		}
 	}
 
-	function extractPhotoUpdate($albums_data,$apptab_data)
+	// function extractPhotoUpdate($albums_data,$apptab_data)
+	// {	
+	// 	global $album_count;
+	// 	global $photo_count;
+	// 	$flag = 1;
+	// 	global $db;
+	// 	global $albums;
+	// 	global $fbObject;
+	// 	foreach ($albums_data['albums']['data'] as $album_info) 
+	// 	{
+	// 		$album_count++;
+	// 		$album = array();
+	// 		$album['mobapp_id'] = $apptab_data['mobapp_id'];
+	// 		$album['apptab_id'] = $apptab_data['apptab_id'];
+
+	// 		if( !empty($album_info['name']) ) 
+	// 		{
+	// 			$album['albumName'] = $album_info['name'];
+	// 		}
+
+	// 		if( !empty($album_info['id']) ) 
+	// 		{
+	// 			$album['facebookAlbumId'] = $album_info['id'];
+	// 		}
+
+	// 		//checking if the album contains photos , if then extracting info of all the photos
+	// 		if( !empty($album_info['photos']['data']) )
+	// 		{	
+
+	// 			$photos = array();
+	// 			foreach ($album_info['photos']['data'] as $photo_info) 
+	// 			{	
+	// 				$photo_count++;
+	// 				/*if( strtotime($photo_info['created_time']) > strtotime($apptab_data['timestamp']) )
+	// 				{*/	
+
+	// 					//setting the flag if a new photo has been added
+	// 					$flag = 1;
+	// 					$photo = array();
+	// 					//getting all the attributes of the image
+	// 					$photo['class'] = 'Album';
+
+	// 					if( !empty($photo_info['picture']) ) 
+	// 					{
+	// 						$photo['thumbImg'] = $photo_info['picture'];
+	// 					}
+
+	// 					if( !empty($photo_info['created_time']) )
+	// 					{
+	// 						$photo['created'] = $photo_info['created_time'];
+	// 					}
+
+	// 					if( !empty($photo_info['source']) ) 
+	// 					{
+	// 						$photo['largeImg'] = $photo_info['source'];
+	// 					} 
+
+	// 					if( !empty($photo_info['name']) ) 
+	// 					{
+	// 						$photo['caption'] = $photo_info['name'];
+	// 					}
+
+	// 					$photos[] = $photo;
+					
+	// 				/*} else
+	// 				{
+	// 					break;
+	// 				}*/
+					
+	// 			} // loop ends  for photos
+	// 			if( !empty($album_info['photos']['paging']['next']) )
+	// 			{
+	// 				$link = $album_info['photos']['paging']['next'];
+	// 				$link = str_replace("https://graph.facebook.com", "", $link);
+	// 				$data = $fbObject->api($link);
+	// 				$additional_photos = array();
+	// 				$additional_photos = extract_additional_photos($data);
+	// 				$photos = array_merge($photos,$additional_photos);
+	// 			}
+	// 			$album['Photo'] = $photos;
+	// 		}
+	// 		$albums[] = $album;
+			
+
+	// 	} // loop ends  for albums
+		
+
+	// 	//checking if the pagination link exists for the album
+	// 	// if( !empty($album_info['paging']['next']) )
+	// 	// {	
+
+	// 	// 	//checking if the next link of the data exists
+	// 	// 	$link  = $album_info['paging']['next'];
+
+	// 	// 	//feeding the api with the paging next string
+	// 	// 	$link = str_replace("https://graph.facebook.com", "", $link);
+
+	// 	// 	$data = $fbObject->api($link);
+	// 	// 	if(!empty($data))
+	// 	// 	{	
+	// 	// 		//calling the same function until the next link contains data
+	// 	// 		extractPhotoUpdate($data,$apptab_data);
+	// 	// 	}
+	// 	// }
+
+	// 	//updating the table with the latest update time
+	// 	// if($flag == 1)
+	// 	// {	
+	// 	// 	$mobapp_id = $apptab_data['mobapp_id'];
+	// 	// 	$update_query="UPDATE ".APPTAB_ID." set timestamp = now()  where mobapp_id=".$mobapp_id." and apptab_name='Photos'";
+	// 	// 	$db->execute_query($update_query);
+	// 	// }
+
+	// }
+
+
+	function extractPhotoUpdate($albumPhotos,$apptabs)
 	{	
+		// global $apptabs;
 		global $album_count;
 		global $photo_count;
-		$flag = 1;
-		global $db;
+		global $mobapp_id;
 		global $albums;
 		global $fbObject;
-		foreach ($albums_data['albums']['data'] as $album_info) 
+
+		if( !empty($albumPhotos) )
 		{
-			$album_count++;
-			$album = array();
-			$album['mobapp_id'] = $apptab_data['mobapp_id'];
-			$album['apptab_id'] = $apptab_data['apptab_id'];
-
-			if( !empty($album_info['name']) ) 
-			{
-				$album['albumName'] = $album_info['name'];
-			}
-
-			if( !empty($album_info['id']) ) 
-			{
-				$album['facebookAlbumId'] = $album_info['id'];
-			}
-
-			//checking if the album contains photos , if then extracting info of all the photos
-			if( !empty($album_info['photos']['data']) )
+			foreach ($albumPhotos as $album_info) 
 			{	
+				$album_count++;
+				$album = array();
+				$album['mobapp_id'] = $mobapp_id;
+				$album['apptab_id'] = $apptabs['Photos'];
 
-				$photos = array();
-				foreach ($album_info['photos']['data'] as $photo_info) 
+				if( !empty($album_info['name']) ) 
+				{
+					$album['albumName'] = $album_info['name'];
+				}
+
+				if( !empty($album_info['object_id']) ) 
+				{
+					$album['facebookAlbumId'] = $album_info['object_id'];
+				}
+
+				//checking if the album contains photos , if then extracting info of all the photos
+				if( !empty($album_info['photos']) )
 				{	
-					$photo_count++;
-					/*if( strtotime($photo_info['created_time']) > strtotime($apptab_data['timestamp']) )
-					{*/	
-
-						//setting the flag if a new photo has been added
-						$flag = 1;
+					
+					$photos = array();
+					foreach ($album_info['photos'] as $photo_info) 
+					{	
+						$photo_count++;
 						$photo = array();
 						//getting all the attributes of the image
 						$photo['class'] = 'Album';
 
-						if( !empty($photo_info['picture']) ) 
+						if( !empty($photo_info['src']) ) 
 						{
-							$photo['thumbImg'] = $photo_info['picture'];
+							$photo['thumbImg'] = $photo_info['src'];
 						}
 
-						if( !empty($photo_info['created_time']) )
+						if( !empty($photo_info['created']) )
 						{
-							$photo['created'] = $photo_info['created_time'];
+							$photo['created'] = $photo_info['created'];
 						}
 
-						if( !empty($photo_info['source']) ) 
+						if( !empty($photo_info['src_big']) ) 
 						{
-							$photo['largeImg'] = $photo_info['source'];
+							$photo['largeImg'] = $photo_info['src_big'];
 						} 
 
-						if( !empty($photo_info['name']) ) 
+						if( !empty($photo_info['caption']) ) 
 						{
-							$photo['caption'] = $photo_info['name'];
+							$photo['caption'] = $photo_info['caption'];
 						}
 
+						//checking if there exists pagination for the photos
+						
 						$photos[] = $photo;
-					
-					/*} else
-					{
-						break;
-					}*/
-					
-				} // loop ends  for photos
-				if( !empty($album_info['photos']['paging']['next']) )
-				{
-					$link = $album_info['photos']['paging']['next'];
-					$link = str_replace("https://graph.facebook.com", "", $link);
-					$data = $fbObject->api($link);
-					$additional_photos = array();
-					$additional_photos = extract_additional_photos($data);
-					$photos = array_merge($photos,$additional_photos);
+						
+					}
+					$album['Photo'] = $photos;
 				}
-				$album['Photo'] = $photos;
+				$albums[] = $album;
+
+			} // loop ends  for albums
+
+			// updating the table with the latest update time
+			if($flag == 1)
+			{	
+				$mobapp_id = $apptabs['mobapp_id'];
+				$update_query="UPDATE ".APPTAB_ID." set timestamp = now()  where mobapp_id=".$mobapp_id." and apptab_name='Photos'";
+				$db->execute_query($update_query);
 			}
-			$albums[] = $album;
-			
-
-		} // loop ends  for albums
-		
-
-		//checking if the pagination link exists for the album
-		// if( !empty($album_info['paging']['next']) )
-		// {	
-
-		// 	//checking if the next link of the data exists
-		// 	$link  = $album_info['paging']['next'];
-
-		// 	//feeding the api with the paging next string
-		// 	$link = str_replace("https://graph.facebook.com", "", $link);
-
-		// 	$data = $fbObject->api($link);
-		// 	if(!empty($data))
-		// 	{	
-		// 		//calling the same function until the next link contains data
-		// 		extractPhotoUpdate($data,$apptab_data);
-		// 	}
-		// }
-
-		//updating the table with the latest update time
-		// if($flag == 1)
-		// {	
-		// 	$mobapp_id = $apptab_data['mobapp_id'];
-		// 	$update_query="UPDATE ".APPTAB_ID." set timestamp = now()  where mobapp_id=".$mobapp_id." and apptab_name='Photos'";
-		// 	$db->execute_query($update_query);
-		// }
-
+		}
 	}
 	
 
@@ -760,26 +842,23 @@ $post_count = 0;
 			foreach ($events_data as $event_info)
 			{	
 				$event_count++;
-				/*if( strtotime($event_info['updated_time']) > strtotime($apptab_data['timestamp']) )
-				{*/	
-					//setting the flag if a new event has been added
-				$flag = 1;
-
-				//checking through the data if they are empty or not if not they are assigned
+				//checkng through the data if they are empty or not if not they are assigned
 				$event = array();
-				$event['apptab_id'] = $apptab_data['apptab_id'];     //apptab id
-	            $event['mobapp_id'] = $apptab_data['mobapp_id']; 	//mobapp id
+				$event['apptab_id'] = $apptabs['Events'];     //apptab id
+	            $event['mobapp_id'] = $mobapp_id;	//mobapp id
 
 	 			//if we send an empty value to the snaplion api data will not be posted so if blocks are used
-	            if( !empty($event_info['name']) ) {
+	            if( !empty($event_info['name']) ) 
+	            {
 	            	$event['title'] = $event_info['name'];
 	            }
 
-	            if(!empty($event_info['description'])) {
+	            if(!empty($event_info['description'])) 
+	            {
 	            	$event['description'] = $event_info['description'];
 	            }
 
-	            if( !empty($event_info['start_time']) ) {
+				if( !empty($event_info['start_time']) ) {
 		            if(strpos($event_info['start_time'], 'T') === false) {
 						$event['startDate'] = $event_info['start_time'];	
 					} else {
@@ -801,56 +880,86 @@ $post_count = 0;
 					$event['endDate'] = date('Y-m-d H:i:s', strtotime($event['startDate']  . ' + 3 hours'));
 				}
 				
-				$tempTimeZone = substr($event_info['start_time'], -5, 5);
-				$event['timezone'] = ($tempTimeZone / 100) * 60;
+				// $tempTimeZone = substr($event_info['start_time'], -5, 5);
+				// $event['timezone'] = ($tempTimeZone / 100) * 60;
+	          
+	            $event['timezone'] = 0;
+	            if( !empty($event_info['timezone']) ) 
+	            {	
+	            	$dtz = new DateTimeZone( $event_info['timezone'] );
+	    			$temp_time = new DateTime('now', $dtz);
+					$offset = $dtz->getOffset( $temp_time ) / 60;
+	    			$event['timezone'] = $offset;
 
-	    //         $event['timezone'] = 0;
-	    //        	if( !empty($event_info['timezone']) ) {	
-
-	    // 			$dtz = new DateTimeZone( $event_info['timezone'] );
-					// $temp_time = new DateTime('now', $dtz);
-					// $offset = $dtz->getOffset( $temp_time ) / 60;
-	    // 			$event['timezone'] = $offset;
-
-	    //         	// $event['timezone'] = $event_info['timezone'];
-     //        	}
+	    			//$event['timezone'] = $timeZones[$offset];
+	            	// $event['timezone'] = $event_info['timezone'];
+	            }
 
 	               // facebook event id
-	            if( !empty($event_info['eid']) ) {
+	            if( !empty($event_info['eid']) ) 
+	            {
 	            	$event['fbId'] = $event_info['eid'];
 	            }
 
-	            if( !empty($event_info['venue']['latitude']) ) {
-	            	$event['latitude'] = $event_info['venue']['latitude'];
+	            //venue beig itself an array in facebook api
+	            // $event['venue'] = ;
+	            // print_r($event_info['venue']);
+				// die();
+				if( !empty($event_info['venue']['name']) )
+	            {
+	            	$event['venue'] = $event_info['venue']['name'];
+	            } else if( !empty($event_info['venue']['id']) )
+	            {	
+	            	$id = $event_info['venue']['id'];
+	            	$data = $fbObject->api($id."?fields=name");
+	            	$event['venue'] = $data['name'];
 	            }
 
-	            if( !empty($event_info['venue']['city']) ) {
+	            if( !empty($event_info['venue']['latitude']) ) 
+	            {
+	            	$event['latitude'] = $event_info['venue']['latitude'];
+	            }
+	            
+	            if( !empty($event_info['venue']['city']) )
+	            {
 	            	$event['city'] = $event_info['venue']['city'];
 	            }
 
-	            if( !empty($event_info['venue']['longitude']) ) {
+	            if( !empty($event_info['venue']['longitude']) ) 
+	            {
 	            	$event['longitude'] = $event_info['venue']['longitude'];
 	            }
-
-	            $event['country_id']=102;
-	            if(!empty($event_info['venue']['country'])) {
+	            // echo "helllo".$event_info['venue']['country'];
+	            if(!empty($event_info['venue']['country']))
+	            {
 	            	$event['country_id'] =  $countries[$event_info['venue']['country']];
+	            } else
+	            {
+	            	$event['country_id'] =102;
 	            }
 
-     
-	            if( !empty($event_info['ticket_uri']) ) {
+	            // echo "country".$event['country_id'];
+	            
+     			
+	            if( !empty($event_info['ticket_uri']) ) 
+	            {
 	            	$event['ticketURL'] = $event_info['ticket_uri'];
 	            }
 
-	            if( !empty($event_info['pic']) ) {
-	            	$event['img'] = $event_info['pic'];
+	            if( !empty($event_info['pic_big']) ) 
+	            {
+	            	$event['imgThumb'] = $event_info['pic_big'];
+	            }
+	                   
+	            if( !empty($event_info['pic_cover']) ) 
+	            {
+	            	$event['img'] = $event_info['pic_cover']['source'];
 	            }
 
+	            // $event['imgThumb'] = ( !empty($events['']) ) ? $events[''] : ''; 
 	            $event['event_info'] = $event_info;
 	            $events[] = $event;
 			}
-
-			
 			//loop ends
 			
 		}
@@ -997,20 +1106,26 @@ $post_count = 0;
 		if( !empty($events) )
 		{	
 			$section['Event'] = $events;
-			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$event_count." where page_id=".$page_id." and apptab_name='Events' ");
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($events)." where page_id=".$page_id." and apptab_name='Events' ");
 			$events = '';
 		}
 		if( !empty($albums) )
 		{	
 			$section['Album'] = $albums;
-			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
+
+			$photoCount = 0;
+			foreach ($albums as $album) {
+				$photoCount += count($album['Photo']);
+			}
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($albums).", subitem_count = ".$photoCount." where page_id=".$page_id." and apptab_name='Photos' ");
+			// $db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
 			$albums = '';
 			
 		}
 		if( !empty($videos) )
 		{
 			$section['Video'] = $videos;
-			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$video_count." where page_id=".$page_id." and apptab_name='Videos' ");
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($videos)." where page_id=".$page_id." and apptab_name='Videos' ");
 			$videos = '';
 		}
 
