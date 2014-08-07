@@ -613,7 +613,8 @@ label.css-label {
 }
 
 .app-container {
-	min-height: 720px;
+	/*min-height: 720px;*/
+	min-height: 543px;
 	/*width: 730px;*/
 	background-color: #0e1723;
 	padding: 40px 60px;
