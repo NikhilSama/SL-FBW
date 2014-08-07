@@ -71,7 +71,7 @@
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 		<style type="text/css">
 			.black_overlay{
-				height: 100% !important;
+				height: 67% !important;
 			}
 		</style>
 	</head>
