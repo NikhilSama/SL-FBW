@@ -27,7 +27,7 @@
 		</div>
 		<div class="app-container">
 			<div class="head-app">
-				<h1>Congtratulations!</h1>
+				<h1>Congratulations!</h1>
 				<h4>You are now ready to build an awesome mobile app for <br/><?php echo $pageInfo['name']; ?>!!</h4>
 			</div>
 
