@@ -99,6 +99,11 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/checkbox.css" rel="stylesheet">
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+		<style type="text/css">
+			.black_overlay{
+				height: 100% !important;
+			}
+		</style>
 	</head>
 
 	<body style="margin: 0 !important;">
