@@ -248,7 +248,7 @@
 					filepicker.pick(function(InkBlob){
 						filepicker.stat(InkBlob, {width: true, height: true},
 						function(metadata){
-						   // console.log(JSON.stringify(metadata));
+						   console.log(JSON.stringify(metadata));
 
 						   if(metadata.width >= 640 && metadata.height >= 1136) {
 								// splashUpload = new Object();
