@@ -564,7 +564,7 @@ function crop(blob, obj) {
 								// dummyImage.onload = hideLoader();
 								//attch here a function to handle the checking if the image has been sent to snaplion server without any error
 								dummyImage.attr("src",new_InkBlob.url);
-								dummyImage.css({"top":"0","left":"0"});
+								dummyImage.css({"top":"0","left":"0","margin":"0px 0px"});
 								// position: absolute;top: 50%;left: 50%;margin: -50px -60px;"
 								dummyImage.attr("data-value","1");
 							} else if(target_element == "iconImage" ) {
