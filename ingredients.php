@@ -26,6 +26,12 @@
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 		<link rel="stylesheet" href="css/jquery.Jcrop.css">
 		<title>SnapLion Facebook Wizard</title>
+
+		<style type="text/css">
+			#filepicker_dialog_container a {
+				color: #000 !important;
+			}
+		</style>
 	</head>
 
 	<body>
