@@ -326,7 +326,7 @@
 		return $apptabs;
 	}
 
-	function extract_post_data($posts_data,$apptabs) {	
+	function extract_post_dataold($posts_data,$apptabs) {	
 		// global $apptabs;
 		global $post_count;
 		global $mobapp_id;
