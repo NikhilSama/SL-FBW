@@ -1090,15 +1090,13 @@
 			$submitDataResult = array(
 				'mobapp_id' => $data['mobapp_id'],
 				'message' => "data has been submitted",
-				'status' => $result_data['result']['status'],
-				'data' => $data['section']
+				'status' => $result_data['result']['status']
 			);
 		} else {
 			$submitDataResult = array(
 				'mobapp_id' => $data['mobapp_id'],
 				'message' => "there was an error while submitting your data",
-				'status' => $result_data['result']['status'],
-				'data' => $data['section']
+				'status' => $result_data['result']['status']
 			);
 		}
 
