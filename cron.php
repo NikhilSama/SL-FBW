@@ -9,7 +9,7 @@
 	$videos = array();
 
 	require_once("functions.php");
-	$imported_data  = $db->execute_query("SELECT * from ".APPTAB_ID." where flag = 'true' and update_flag = 'true' and (apptab_name = 'Events' or apptab_name = 'Photos' or apptab_name = 'Videos' or apptab_name = 'About')") ;
+	$imported_data  = $db->execute_query("SELECT * from ".APPTAB_ID." where flag = 'true' and update_flag = 'true' and (apptab_name = 'Events' or apptab_name = 'Photos' or apptab_name = 'Videos' or apptab_name = 'About' or apptab_name = 'Fan Wall')") ;
 
 	//checking wheather the imported data is event or photos
 	foreach ($imported_data as $apptab_data) {
@@ -59,9 +59,9 @@
 			extract_page_info($page_data,$picture_small,$apptab_data);
 			checkData($page_id);
 		} else if( $apptab_data['apptab_name'] == 'Fan Wall' ) {
-			// $post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
-			// extract_post_data($post_data,$apptab_data);
-			// checkData($page_id);
+			$post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
+			extract_post_data($post_data,$apptab_data);
+			checkData($page_id);
 		}
 	}
 ?>
