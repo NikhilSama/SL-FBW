@@ -1083,19 +1083,19 @@
 			} //loop ends
 		} //if block ends
 
-		if( !empty($posts_data['paging']['next']) ) {
-			//checking if the next link of the data exists
-			$link  = $posts_data['paging']['next'];
+		// if( !empty($posts_data['paging']['next']) ) {
+		// 	//checking if the next link of the data exists
+		// 	$link  = $posts_data['paging']['next'];
 
-			//feeding the api with the paging next string
-			$link = str_replace("https://graph.facebook.com", "", $link);
+		// 	//feeding the api with the paging next string
+		// 	$link = str_replace("https://graph.facebook.com", "", $link);
 
-			$data = $fbObject->api($link);
-			if(!empty($data)) {
-				//calling the same function until the next link contains data
-				extract_post_data($data,$apptabs);
-			}
-		}
+		// 	$data = $fbObject->api($link);
+		// 	if(!empty($data)) {
+		// 		//calling the same function until the next link contains data
+		// 		extract_post_data($data,$apptabs);
+		// 	}
+		// }
 	} //function extract_post_data ends 
 
 	function checkData($page_id) {	
