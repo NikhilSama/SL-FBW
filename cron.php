@@ -51,7 +51,7 @@
 			$video_data = $fbObject->api($page_id."?fields=videos.fields(id,description,from,source,icon,picture,created_time)");
 			extractVideoUpdate($video_data,$apptab_data);
 			checkData($page_id);
-		} else if( $apptab_name['apptab_name'] == 'About' ) {
+		} else if( $apptab_data['apptab_name'] == 'About' ) {
 			// $page_data = $fbObject->api($page_id."?fields=name,description,location,cover");
 			$page_data = $fbObject->api($page_id."?fields=about,bio,description,phone,website,emails,press_contact,booking_agent,general_manager,cover,location");
 			
