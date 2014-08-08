@@ -57,6 +57,7 @@
 			
 			$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
 			extract_page_info($page_data,$picture_small,$apptab_data);
+			checkData($page_id);
 		}
 	}
 ?>
