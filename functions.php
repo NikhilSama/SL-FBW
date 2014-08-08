@@ -483,14 +483,14 @@
 		}
 
 		$info['mobapp_id'] = $mobapp_id;
-		$info['apptab_id'] = $apptabs['About'];
+		$info['apptab_id'] = $apptabs['apptab_id'];
 		$bio[] = $info;
 
 		// file_put_contents("data.txt", json_encode($info));
 		//works
 
 		$location_info = array();
-		$location_info['apptab_id'] = $apptabs['Locations'] ;
+		$location_info['apptab_id'] = $apptabs['apptab_id'] ;
 		$location_info['mobapp_id'] = $mobapp_id ;
 		// $location_info['currency_id'] =  '';
 		// $location_info['branch'] ;
