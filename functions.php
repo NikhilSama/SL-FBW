@@ -1103,6 +1103,8 @@ $post_count = 0;
 		global $albums;
 		global $mobapp_id;
 		global $section;
+		global $bio;
+		global $location;
 		if( !empty($events) )
 		{	
 			$section['Event'] = $events;
@@ -1127,6 +1129,14 @@ $post_count = 0;
 			$section['Video'] = $videos;
 			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($videos)." where page_id=".$page_id." and apptab_name='Videos' ");
 			$videos = '';
+		}
+
+		if(!empty($bio) ) {
+			$section['Bio'] = $bio;
+		}
+
+		if( !empty($location) ) {	
+			$section['Location'] = $location;
 		}
 
 		$data =  array();
