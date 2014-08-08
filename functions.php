@@ -746,7 +746,7 @@
 				$album_count++;
 				$album = array();
 				$album['mobapp_id'] = $mobapp_id;
-				$album['apptab_id'] = $apptabs['Photos'];
+				$album['apptab_id'] = $apptabs['apptab_id'];
 
 				if( !empty($album_info['name']) ) 
 				{
@@ -816,6 +816,7 @@
 		global $timeZones;
 		global $events;
 		global $fbObject;
+		global $mobapp_id;
 		global $db;
 		
 		if( !empty($events_data) ) {
@@ -824,7 +825,7 @@
 				$event_count++;
 				//checkng through the data if they are empty or not if not they are assigned
 				$event = array();
-				$event['apptab_id'] = $apptabs['Events'];     //apptab id
+				$event['apptab_id'] = $apptab_data['apptab_id'];     //apptab id
 	            $event['mobapp_id'] = $mobapp_id;	//mobapp id
 
 	 			//if we send an empty value to the snaplion api data will not be posted so if blocks are used
