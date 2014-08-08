@@ -37,7 +37,7 @@
 			}
 			// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
 			// extractPhotoUpdate($album_data, $apptab_data);
-			extractPhotoUpdate($albumPhotos, $apptabs);
+			extractPhotoUpdate($albumPhotos, $apptab_data);
 			checkData($page_id);
 		} else if( $apptab_data['apptab_name'] == 'Events' ) {	
 			//when changes take place in events
