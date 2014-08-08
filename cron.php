@@ -52,7 +52,9 @@
 			extractVideoUpdate($video_data,$apptab_data);
 			checkData($page_id);
 		} else if( $apptab_name['apptab_name'] == 'About' ) {
-			$page_data = $fbObject->api($page_id."?fields=name,description,location,cover");
+			// $page_data = $fbObject->api($page_id."?fields=name,description,location,cover");
+			$page_data = $fbObject->api($page_id."?fields=about,bio,description,phone,website,emails,press_contact,booking_agent,general_manager,cover,location");
+			
 			$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
 			extract_page_info($page_data,$picture_small,$apptab_data);
 		}
