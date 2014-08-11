@@ -908,19 +908,19 @@
 		global $bio;
 		global $location;
 
-		// if(!empty($bio) ) {
-		// 	$section['Bio'] = $bio;
-		// }
+		if(!empty($bio) ) {
+			$section['Bio'] = $bio;
+		}
 
-		// if( !empty($location) ) {	
-		// 	$section['Location'] = $location;
-		// }
+		if( !empty($location) ) {	
+			$section['Location'] = $location;
+		}
 
-		// if( !empty($events) ) {	
-		// 	$section['Event'] = $events;
-		// 	$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($events)." where page_id=".$page_id." and apptab_name='Events' ");
-		// 	$events = '';
-		// }
+		if( !empty($events) ) {	
+			$section['Event'] = $events;
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($events)." where page_id=".$page_id." and apptab_name='Events' ");
+			$events = '';
+		}
 
 		if( !empty($albums) ) {	
 			$section['Album'] = $albums;
@@ -933,17 +933,17 @@
 			$albums = '';
 		}
 
-		// if( !empty($videos) ) {
-		// 	$section['Video'] = $videos;
-		// 	$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($videos)." where page_id=".$page_id." and apptab_name='Videos' ");
-		// 	$videos = '';
-		// }
+		if( !empty($videos) ) {
+			$section['Video'] = $videos;
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($videos)." where page_id=".$page_id." and apptab_name='Videos' ");
+			$videos = '';
+		}
 
-		// if( !empty($posts) ) {
-		// 	$section['Post'] = $posts;
-		// 	$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
-		// 	$posts = '';
-		// }
+		if( !empty($posts) ) {
+			$section['Post'] = $posts;
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
+			$posts = '';
+		}
 
 		$data =  array();
 		$data['key'] = KEY;
