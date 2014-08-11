@@ -13,6 +13,12 @@
 
 	//checking wheather the imported data is event or photos
 	foreach ($imported_data as $apptab_data) {
+
+		echo "<pre>";
+		print_r($apptab_data);
+		continue;
+
+
 		$mobapp_id = $apptab_data['mobapp_id'];
 		//checking whether the event that has been imported is photo or event
 		$page_id = $apptab_data['page_id'];
