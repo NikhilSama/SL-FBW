@@ -34,45 +34,31 @@
 				$albumPhotos[] = $album;
 			}
 			extractPhotoUpdate($albumPhotos, $apptab_data);
-			echo "<pre>";
-			print_r($albumPhotos);
+			checkData($page_id);
+		} else if( $apptab_data['apptab_name'] == 'Events' ) {	
+			//when changes take place in events
+			// $event_data = $fbObject->fql("SELECT name, eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
+			$event_data = $fbObject->fql("SELECT name,eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic,pic_big,pic_cover FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
+			
+			extractEventUpdate($event_data,$apptab_data);
+			checkData($page_id);
+		} else if( $apptab_data['apptab_name'] == 'Videos' ) {	
+			//when the change type is video
+			$video_data = $fbObject->api($page_id."?fields=videos.fields(id,description,from,source,icon,picture,created_time)");
+			extractVideoUpdate($video_data,$apptab_data);
+			checkData($page_id);
+		} else if( $apptab_data['apptab_name'] == 'About' ) {
+			// $page_data = $fbObject->api($page_id."?fields=name,description,location,cover");
+			$page_data = $fbObject->api($page_id."?fields=about,bio,description,phone,website,emails,press_contact,booking_agent,general_manager,cover,location");
+			
+			$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
+			extract_page_info($page_data,$picture_small,$apptab_data);
+			checkData($page_id);
+		} else if( $apptab_data['apptab_name'] == 'Fan Wall' ) {
+			$post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
+
+			extract_post_data($post_data,$apptab_data);
 			checkData($page_id);
 		}
-
-
-		//  else if( $apptab_data['apptab_name'] == 'Events' ) {	
-		// 	//when changes take place in events
-		// 	// $event_data = $fbObject->fql("SELECT name, eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
-		// 	$event_data = $fbObject->fql("SELECT name,eid, start_time, end_time, location,description,venue ,ticket_uri,timezone,pic,pic_big,pic_cover FROM event WHERE eid IN ( SELECT eid FROM event_member WHERE uid =".$page_id." AND start_time >= '2000-08-24T02:07:43' ) ORDER BY start_time DESC");
-			
-		// 	extractEventUpdate($event_data,$apptab_data);
-		// 	echo "<pre>";
-		// 	print_r($event_data);
-		// 	// checkData($page_id);
-		// } else if( $apptab_data['apptab_name'] == 'Videos' ) {	
-		// 	//when the change type is video
-		// 	$video_data = $fbObject->api($page_id."?fields=videos.fields(id,description,from,source,icon,picture,created_time)");
-		// 	extractVideoUpdate($video_data,$apptab_data);
-		// 	echo "<pre>";
-		// 	print_r($video_data);
-		// 	// checkData($page_id);
-		// } else if( $apptab_data['apptab_name'] == 'About' ) {
-		// 	// $page_data = $fbObject->api($page_id."?fields=name,description,location,cover");
-		// 	$page_data = $fbObject->api($page_id."?fields=about,bio,description,phone,website,emails,press_contact,booking_agent,general_manager,cover,location");
-			
-		// 	$picture_small = $fbObject->api($page_id."?fields=picture.type(square)");
-		// 	extract_page_info($page_data,$picture_small,$apptab_data);
-		// 	echo "<pre>";
-		// 	print_r($page_data);
-		// 	// checkData($page_id);
-		// } else if( $apptab_data['apptab_name'] == 'Fan Wall' ) {
-		// 	$post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
-
-		// 	extract_post_data($post_data,$apptab_data);
-		// 	echo "<pre>";
-		// 	print_r($post_data);
-
-		// 	// checkData($page_id);
-		// }
 	}
 ?>
