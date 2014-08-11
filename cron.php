@@ -7,6 +7,7 @@
 	$events = array();
 	$section = array();
 	$videos = array();
+	$posts = array();
 
 	require_once("functions.php");
 	$imported_data  = $db->execute_query("SELECT * from ".APPTAB_ID." where flag = 'true' and update_flag = 'true' and (apptab_name = 'Events' or apptab_name = 'Photos' or apptab_name = 'Videos' or apptab_name = 'About' or apptab_name = 'Fan Wall')") ;
