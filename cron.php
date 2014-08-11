@@ -60,8 +60,13 @@
 			checkData($page_id);
 		} else if( $apptab_data['apptab_name'] == 'Fan Wall' ) {
 			$post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
-			extract_post_data($post_data,$apptab_data);
-			checkData($page_id);
+
+			$file = fopen("logs.log","w");
+			echo fwrite($file, $post_data);
+			fclose($file);
+
+			// extract_post_data($post_data,$apptab_data);
+			// checkData($page_id);
 		}
 	}
 ?>
