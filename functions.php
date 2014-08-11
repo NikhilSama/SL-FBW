@@ -943,11 +943,11 @@
 			$videos = '';
 		}
 
-		if( !empty($posts) ) {
-			$section['Post'] = $posts;
-			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
-			$posts = '';
-		}
+		// if( !empty($posts) ) {
+		// 	$section['Post'] = $posts;
+		// 	$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
+		// 	$posts = '';
+		// }
 
 		$data =  array();
 		$data['key'] = KEY;
