@@ -326,93 +326,6 @@
 		return $apptabs;
 	}
 
-	function extract_post_dataold($posts_data,$apptabs) {	
-		// global $apptabs;
-		global $post_count;
-		global $mobapp_id;
-		global $posts;
-		global $fbObject;
-
-		if( !empty($posts_data) )
-		{
-			foreach ($posts_data['data'] as $post_info) 
-			{	
-				// if( !strpos($post_info['story'], 'created an event') )
-				if( !strpos($post_info['story'], 'created an event') )
-				{	
-					$post_count++;
-					$post = array();
-					$post['apptab_id'] =  $apptabs['Fan Wall'];
-	                $post['mobapp_id'] =  $mobapp_id;
-
-	        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
-	                if( !empty($post_info['message']) ) 
-	                {
-	                	$post['post'] =  $post_info['message'];    //message
-	                } else if( !empty($post_info['story']) )
-	                {
-	                	$post['post'] =  $post_info['story'];  
-	                }
-
-	                if( !empty($post_info['picture']) ) 
-	                {
-	                	$post['thumbImg'] = $post_info['picture'];   //thumb image
-	                	$post['img'] = $post_info['picture'];   //thumb image
-	                }
-
-	                if( !empty($post_info['full_picture']) ) 
-	                {	
-	                	//large image
-	                	$post['img'] =  $post_info['full_picture'];
-	                }
-
-	                if( !empty($post_info['created_time']) )
-	                {
-	                	$post['created'] = $post_info['created_time'];
-	                }
-
-	                if( !empty($post_info['source']) ) 
-	                {
-	                	$post['video_url'] =  $post_info['source'];  // video url
-	                }
-
-	                if( !empty($post_info['place']['location']['latitude']) )
-	                {
-	                	$post['latitude'] = $post_info['place']['location']['latitude'];
-	                }
-
-	                if( !empty($post_info['place']['location']['longitude']) ) 
-	                {
-	                	$post['longitude'] = $post_info['place']['location']['longitude'];
-	                }
-
-	                if( !empty($post_info['id']) ) 
-	                {
-	                	$post['post_id'] = $post_info['id'];
-	                }
-
-	                $posts[] = $post;
-                } //check for relevant type ends
-			} //loop ends
-		} //if block ends
-
-		if( !empty($posts_data['paging']['next']) )
-		{
-			//checking if the next link of the data exists
-			$link  = $posts_data['paging']['next'];
-
-			//feeding the api with the paging next string
-			$link = str_replace("https://graph.facebook.com", "", $link);
-
-			$data = $fbObject->api($link);
-			if(!empty($data))
-			{	
-				//calling the same function until the next link contains data
-				extract_post_data($data,$apptabs);				
-			}
-		}
-	} //function extract_post_data ends 
-
 	function extract_page_info($pageinfo, $picture_small,$apptabs) {	
 		// file_put_contents("data.txt", json_encode($pageinfo));    
 		//works
@@ -615,121 +528,6 @@
 			return $additional_photos_array;
 		}
 	}
-
-	// function extractPhotoUpdate($albums_data,$apptab_data)
-	// {	
-	// 	global $album_count;
-	// 	global $photo_count;
-	// 	$flag = 1;
-	// 	global $db;
-	// 	global $albums;
-	// 	global $fbObject;
-	// 	foreach ($albums_data['albums']['data'] as $album_info) 
-	// 	{
-	// 		$album_count++;
-	// 		$album = array();
-	// 		$album['mobapp_id'] = $apptab_data['mobapp_id'];
-	// 		$album['apptab_id'] = $apptab_data['apptab_id'];
-
-	// 		if( !empty($album_info['name']) ) 
-	// 		{
-	// 			$album['albumName'] = $album_info['name'];
-	// 		}
-
-	// 		if( !empty($album_info['id']) ) 
-	// 		{
-	// 			$album['facebookAlbumId'] = $album_info['id'];
-	// 		}
-
-	// 		//checking if the album contains photos , if then extracting info of all the photos
-	// 		if( !empty($album_info['photos']['data']) )
-	// 		{	
-
-	// 			$photos = array();
-	// 			foreach ($album_info['photos']['data'] as $photo_info) 
-	// 			{	
-	// 				$photo_count++;
-	// 				/*if( strtotime($photo_info['created_time']) > strtotime($apptab_data['timestamp']) )
-	// 				{*/	
-
-	// 					//setting the flag if a new photo has been added
-	// 					$flag = 1;
-	// 					$photo = array();
-	// 					//getting all the attributes of the image
-	// 					$photo['class'] = 'Album';
-
-	// 					if( !empty($photo_info['picture']) ) 
-	// 					{
-	// 						$photo['thumbImg'] = $photo_info['picture'];
-	// 					}
-
-	// 					if( !empty($photo_info['created_time']) )
-	// 					{
-	// 						$photo['created'] = $photo_info['created_time'];
-	// 					}
-
-	// 					if( !empty($photo_info['source']) ) 
-	// 					{
-	// 						$photo['largeImg'] = $photo_info['source'];
-	// 					} 
-
-	// 					if( !empty($photo_info['name']) ) 
-	// 					{
-	// 						$photo['caption'] = $photo_info['name'];
-	// 					}
-
-	// 					$photos[] = $photo;
-					
-	// 				/*} else
-	// 				{
-	// 					break;
-	// 				}*/
-					
-	// 			} // loop ends  for photos
-	// 			if( !empty($album_info['photos']['paging']['next']) )
-	// 			{
-	// 				$link = $album_info['photos']['paging']['next'];
-	// 				$link = str_replace("https://graph.facebook.com", "", $link);
-	// 				$data = $fbObject->api($link);
-	// 				$additional_photos = array();
-	// 				$additional_photos = extract_additional_photos($data);
-	// 				$photos = array_merge($photos,$additional_photos);
-	// 			}
-	// 			$album['Photo'] = $photos;
-	// 		}
-	// 		$albums[] = $album;
-			
-
-	// 	} // loop ends  for albums
-		
-
-	// 	//checking if the pagination link exists for the album
-	// 	// if( !empty($album_info['paging']['next']) )
-	// 	// {	
-
-	// 	// 	//checking if the next link of the data exists
-	// 	// 	$link  = $album_info['paging']['next'];
-
-	// 	// 	//feeding the api with the paging next string
-	// 	// 	$link = str_replace("https://graph.facebook.com", "", $link);
-
-	// 	// 	$data = $fbObject->api($link);
-	// 	// 	if(!empty($data))
-	// 	// 	{	
-	// 	// 		//calling the same function until the next link contains data
-	// 	// 		extractPhotoUpdate($data,$apptab_data);
-	// 	// 	}
-	// 	// }
-
-	// 	//updating the table with the latest update time
-	// 	// if($flag == 1)
-	// 	// {	
-	// 	// 	$mobapp_id = $apptab_data['mobapp_id'];
-	// 	// 	$update_query="UPDATE ".APPTAB_ID." set timestamp = now()  where mobapp_id=".$mobapp_id." and apptab_name='Photos'";
-	// 	// 	$db->execute_query($update_query);
-	// 	// }
-
-	// }
 
 	function extractPhotoUpdate($albumPhotos,$apptabs) {
 		// global $apptabs;
@@ -1016,87 +814,87 @@
 		}
 	}
 
-	// function extract_post_data($posts_data,$apptabs) {	
-	// 	// global $apptabs;
-	// 	global $post_count;
-	// 	global $mobapp_id;
-	// 	global $posts;
-	// 	global $fbObject;
+	function extract_post_data($posts_data,$apptabs) {	
+		// global $apptabs;
+		global $post_count;
+		global $mobapp_id;
+		global $posts;
+		global $fbObject;
 
-	// 	if( !empty($posts_data) ) {
-	// 		$newPosts = array();
-	// 		foreach ($posts_data['data'] as $post) {
-	// 			if(isset($post['message'])) {
-	// 				$newPosts[] = $post;
-	// 			}
-	// 		}
+		if( !empty($posts_data) ) {
+			$newPosts = array();
+			foreach ($posts_data['data'] as $post) {
+				if(isset($post['message'])) {
+					$newPosts[] = $post;
+				}
+			}
 
-	// 		foreach ($newPosts as $post_info) {	
-	// 			$post_count++;
-	// 			$post = array();
-	// 			$post['apptab_id'] =  $apptabs['apptab_id'];
- //                $post['mobapp_id'] =  $mobapp_id;
+			foreach ($newPosts as $post_info) {	
+				$post_count++;
+				$post = array();
+				$post['apptab_id'] =  $apptabs['apptab_id'];
+                $post['mobapp_id'] =  $mobapp_id;
 
- //        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
- //                if( !empty($post_info['message']) ) {
- //                	$post['post'] =  $post_info['message'];    //message
- //                } else if( !empty($post_info['story']) ) {
- //                	$post['post'] =  $post_info['story'];  
- //                }
+        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
+                if( !empty($post_info['message']) ) {
+                	$post['post'] =  $post_info['message'];    //message
+                } else if( !empty($post_info['story']) ) {
+                	$post['post'] =  $post_info['story'];  
+                }
 
- //                if( !empty($post_info['picture']) ) {
- //                	$post['thumbImg'] = $post_info['picture'];   //thumb image
- //                	$post['img'] = $post_info['picture'];   //thumb image
- //                }
+                if( !empty($post_info['picture']) ) {
+                	$post['thumbImg'] = $post_info['picture'];   //thumb image
+                	$post['img'] = $post_info['picture'];   //thumb image
+                }
 
- //                if( !empty($post_info['full_picture']) ) {	
- //                	//large image
- //                	$post['img'] =  $post_info['full_picture'];
- //                }
+                if( !empty($post_info['full_picture']) ) {	
+                	//large image
+                	$post['img'] =  $post_info['full_picture'];
+                }
 
- //                if( !empty($post_info['created_time']) ) {
- //                	$post['created'] = $post_info['created_time'];
- //                }
+                if( !empty($post_info['created_time']) ) {
+                	$post['created'] = $post_info['created_time'];
+                }
 
- //                if( !empty($post_info['picture']) ) {
- //                	$post['thumbImg'] = $post_info['picture'];   //thumb image
- //                }
+                if( !empty($post_info['picture']) ) {
+                	$post['thumbImg'] = $post_info['picture'];   //thumb image
+                }
 
 
- //                if( !empty($post_info['source']) ) {
- //                	$post['video_url'] =  $post_info['source'];  // video url
- //                }
+                if( !empty($post_info['source']) ) {
+                	$post['video_url'] =  $post_info['source'];  // video url
+                }
 
- //                if( !empty($post_info['place']['location']['latitude']) ) {
- //                	$post['latitude'] = $post_info['place']['location']['latitude'];
- //                }
+                if( !empty($post_info['place']['location']['latitude']) ) {
+                	$post['latitude'] = $post_info['place']['location']['latitude'];
+                }
 
- //                if( !empty($post_info['place']['location']['longitude']) ) {
- //                	$post['longitude'] = $post_info['place']['location']['longitude'];
- //                }
+                if( !empty($post_info['place']['location']['longitude']) ) {
+                	$post['longitude'] = $post_info['place']['location']['longitude'];
+                }
 
- //                if( !empty($post_info['object_id']) ) {
- //                	$post['post_id'] = $post_info['object_id'];
- //                }
+                if( !empty($post_info['object_id']) ) {
+                	$post['post_id'] = $post_info['object_id'];
+                }
 
- //                $posts[] = $post;
-	// 		} //loop ends
-	// 	} //if block ends
+                $posts[] = $post;
+			} //loop ends
+		} //if block ends
 
-	// 	if( !empty($posts_data['paging']['next']) ) {
-	// 		//checking if the next link of the data exists
-	// 		$link  = $posts_data['paging']['next'];
+		if( !empty($posts_data['paging']['next']) ) {
+			//checking if the next link of the data exists
+			$link  = $posts_data['paging']['next'];
 
-	// 		//feeding the api with the paging next string
-	// 		$link = str_replace("https://graph.facebook.com", "", $link);
+			//feeding the api with the paging next string
+			$link = str_replace("https://graph.facebook.com", "", $link);
 
-	// 		$data = $fbObject->api($link);
-	// 		if(!empty($data)) {
-	// 			//calling the same function until the next link contains data
-	// 			extract_post_data($data,$apptabs);
-	// 		}
-	// 	}
-	// } //function extract_post_data ends 
+			$data = $fbObject->api($link);
+			if(!empty($data)) {
+				//calling the same function until the next link contains data
+				extract_post_data($data,$apptabs);
+			}
+		}
+	} //function extract_post_data ends 
 
 	function checkData($page_id) {	
 		//here we declare all the global variables
@@ -1127,7 +925,6 @@
 				$photoCount += count($album['Photo']);
 			}
 			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($albums).", subitem_count = ".$photoCount." where page_id=".$page_id." and apptab_name='Photos' ");
-			// $db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".$album_count.", subitem_count = ".$photo_count." where page_id=".$page_id." and apptab_name='Photos' ");
 			$albums = '';
 		}
 
