@@ -63,10 +63,6 @@
 
 			echo "<pre>";
 			print_r($post_data);
-			
-			$file = fopen("logs.log","w+");
-			fwrite($file, $post_data);
-			fclose($file);
 
 			// extract_post_data($post_data,$apptab_data);
 			// checkData($page_id);
