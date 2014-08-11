@@ -1,6 +1,8 @@
 <?php 
 	//here we only need to check the events and the photos rest of the updates are handled by the realtime updates
 	require_once ("header.php");
+	error_reporting(E_ALL);
+	
 	$fbObject = new FBMethods();
 	$db = new db_connect();
 	$albums = array();
@@ -58,12 +60,10 @@
 			extract_page_info($page_data,$picture_small,$apptab_data);
 			checkData($page_id);
 		} else if( $apptab_data['apptab_name'] == 'Fan Wall' ) {
-			echo "<pre>";
-			print_r($apptab_data);
-			// $post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
+			$post_data = $fbObject->api($page_id."/feed?fields=picture,message,object_id,source,created_time,type&limit=5000");
 
-			// extract_post_data($post_data,$apptab_data);
-			// checkData($page_id);
+			extract_post_data($post_data,$apptab_data);
+			checkData($page_id);
 		}
 	}
 ?>
