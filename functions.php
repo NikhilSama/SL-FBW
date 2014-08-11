@@ -814,87 +814,87 @@
 		}
 	}
 
-	function extract_post_data($posts_data,$apptabs) {	
-		// global $apptabs;
-		global $post_count;
-		global $mobapp_id;
-		global $posts;
-		global $fbObject;
+	// function extract_post_data($posts_data,$apptabs) {	
+	// 	// global $apptabs;
+	// 	global $post_count;
+	// 	global $mobapp_id;
+	// 	global $posts;
+	// 	global $fbObject;
 
-		if( !empty($posts_data) ) {
-			$newPosts = array();
-			foreach ($posts_data['data'] as $post) {
-				if(isset($post['message'])) {
-					$newPosts[] = $post;
-				}
-			}
+	// 	if( !empty($posts_data) ) {
+	// 		$newPosts = array();
+	// 		foreach ($posts_data['data'] as $post) {
+	// 			if(isset($post['message'])) {
+	// 				$newPosts[] = $post;
+	// 			}
+	// 		}
 
-			foreach ($newPosts as $post_info) {	
-				$post_count++;
-				$post = array();
-				$post['apptab_id'] =  $apptabs['apptab_id'];
-                $post['mobapp_id'] =  $mobapp_id;
+	// 		foreach ($newPosts as $post_info) {	
+	// 			$post_count++;
+	// 			$post = array();
+	// 			$post['apptab_id'] =  $apptabs['apptab_id'];
+ //                $post['mobapp_id'] =  $mobapp_id;
 
-        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
-                if( !empty($post_info['message']) ) {
-                	$post['post'] =  $post_info['message'];    //message
-                } else if( !empty($post_info['story']) ) {
-                	$post['post'] =  $post_info['story'];  
-                }
+ //        		//we are using if blocks because we cannot send a blank field in the array which makes it not to post        
+ //                if( !empty($post_info['message']) ) {
+ //                	$post['post'] =  $post_info['message'];    //message
+ //                } else if( !empty($post_info['story']) ) {
+ //                	$post['post'] =  $post_info['story'];  
+ //                }
 
-                if( !empty($post_info['picture']) ) {
-                	$post['thumbImg'] = $post_info['picture'];   //thumb image
-                	$post['img'] = $post_info['picture'];   //thumb image
-                }
+ //                if( !empty($post_info['picture']) ) {
+ //                	$post['thumbImg'] = $post_info['picture'];   //thumb image
+ //                	$post['img'] = $post_info['picture'];   //thumb image
+ //                }
 
-                if( !empty($post_info['full_picture']) ) {	
-                	//large image
-                	$post['img'] =  $post_info['full_picture'];
-                }
+ //                if( !empty($post_info['full_picture']) ) {	
+ //                	//large image
+ //                	$post['img'] =  $post_info['full_picture'];
+ //                }
 
-                if( !empty($post_info['created_time']) ) {
-                	$post['created'] = $post_info['created_time'];
-                }
+ //                if( !empty($post_info['created_time']) ) {
+ //                	$post['created'] = $post_info['created_time'];
+ //                }
 
-                if( !empty($post_info['picture']) ) {
-                	$post['thumbImg'] = $post_info['picture'];   //thumb image
-                }
+ //                if( !empty($post_info['picture']) ) {
+ //                	$post['thumbImg'] = $post_info['picture'];   //thumb image
+ //                }
 
 
-                if( !empty($post_info['source']) ) {
-                	$post['video_url'] =  $post_info['source'];  // video url
-                }
+ //                if( !empty($post_info['source']) ) {
+ //                	$post['video_url'] =  $post_info['source'];  // video url
+ //                }
 
-                if( !empty($post_info['place']['location']['latitude']) ) {
-                	$post['latitude'] = $post_info['place']['location']['latitude'];
-                }
+ //                if( !empty($post_info['place']['location']['latitude']) ) {
+ //                	$post['latitude'] = $post_info['place']['location']['latitude'];
+ //                }
 
-                if( !empty($post_info['place']['location']['longitude']) ) {
-                	$post['longitude'] = $post_info['place']['location']['longitude'];
-                }
+ //                if( !empty($post_info['place']['location']['longitude']) ) {
+ //                	$post['longitude'] = $post_info['place']['location']['longitude'];
+ //                }
 
-                if( !empty($post_info['object_id']) ) {
-                	$post['post_id'] = $post_info['object_id'];
-                }
+ //                if( !empty($post_info['object_id']) ) {
+ //                	$post['post_id'] = $post_info['object_id'];
+ //                }
 
-                $posts[] = $post;
-			} //loop ends
-		} //if block ends
+ //                $posts[] = $post;
+	// 		} //loop ends
+	// 	} //if block ends
 
-		if( !empty($posts_data['paging']['next']) ) {
-			//checking if the next link of the data exists
-			$link  = $posts_data['paging']['next'];
+	// 	if( !empty($posts_data['paging']['next']) ) {
+	// 		//checking if the next link of the data exists
+	// 		$link  = $posts_data['paging']['next'];
 
-			//feeding the api with the paging next string
-			$link = str_replace("https://graph.facebook.com", "", $link);
+	// 		//feeding the api with the paging next string
+	// 		$link = str_replace("https://graph.facebook.com", "", $link);
 
-			$data = $fbObject->api($link);
-			if(!empty($data)) {
-				//calling the same function until the next link contains data
-				extract_post_data($data,$apptabs);
-			}
-		}
-	} //function extract_post_data ends 
+	// 		$data = $fbObject->api($link);
+	// 		if(!empty($data)) {
+	// 			//calling the same function until the next link contains data
+	// 			extract_post_data($data,$apptabs);
+	// 		}
+	// 	}
+	// } //function extract_post_data ends 
 
 	function checkData($page_id) {	
 		//here we declare all the global variables
@@ -934,11 +934,11 @@
 			$videos = '';
 		}
 
-		if( !empty($posts) ) {
-			$section['Post'] = $posts;
-			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
-			$posts = '';
-		}
+		// if( !empty($posts) ) {
+		// 	$section['Post'] = $posts;
+		// 	$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
+		// 	$posts = '';
+		// }
 
 		if(!empty($bio) ) {
 			$section['Bio'] = $bio;

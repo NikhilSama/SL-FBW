@@ -19,9 +19,7 @@
 		// var_dump($page_id);
 		if( $apptab_data['apptab_name'] == 'Photos' ) {	
 			//when the change type is images
-			// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album,created_time))");
 			//function to update the photos on the snaplion website in case an update takes place
-
 			$fbalbums = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, aid, name, link, photo_count from album WHERE owner = ' . $page_id . ' LIMIT 100000'));
 			$photos = $fbObject->api(array('method' => 'fql.query', 'query' => 'SELECT object_id, src, caption, src_big, album_object_id, created from photo WHERE album_object_id IN (SELECT object_id from album WHERE owner = ' . $page_id . ') LIMIT 100000'));
 
@@ -35,8 +33,6 @@
 				$album['photos'] = $newAlbums[$album['object_id']];
 				$albumPhotos[] = $album;
 			}
-			// $album_data = $fbObject->api($page_id."?fields=albums.fields(name,id,photos.fields(source,picture,name,album))");
-			// extractPhotoUpdate($album_data, $apptab_data);
 			extractPhotoUpdate($albumPhotos, $apptab_data);
 			checkData($page_id);
 		} else if( $apptab_data['apptab_name'] == 'Events' ) {	
