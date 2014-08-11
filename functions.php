@@ -948,10 +948,8 @@
 		$data['key'] = KEY;
 		$data['mobapp_id'] = $mobapp_id;
 		$data['section'] = $section;
-
-		echo "<pre>";
-		print_r($data);
-		// submitData($data);
+		
+		submitData($data);
 	}
 
 	//to send the post request 
