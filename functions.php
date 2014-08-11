@@ -911,6 +911,15 @@
 		global $section;
 		global $bio;
 		global $location;
+
+		if(!empty($bio) ) {
+			$section['Bio'] = $bio;
+		}
+
+		if( !empty($location) ) {	
+			$section['Location'] = $location;
+		}
+
 		if( !empty($events) ) {	
 			$section['Event'] = $events;
 			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($events)." where page_id=".$page_id." and apptab_name='Events' ");
@@ -934,18 +943,10 @@
 			$videos = '';
 		}
 
-		// if( !empty($posts) ) {
-		// 	$section['Post'] = $posts;
-		// 	$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
-		// 	$posts = '';
-		// }
-
-		if(!empty($bio) ) {
-			$section['Bio'] = $bio;
-		}
-
-		if( !empty($location) ) {	
-			$section['Location'] = $location;
+		if( !empty($posts) ) {
+			$section['Post'] = $posts;
+			$db->execute_query("UPDATE ".APPTAB_ID." set item_count = ".count($posts)." where page_id=".$page_id." and apptab_name='Fan Wall' ");
+			$posts = '';
 		}
 
 		$data =  array();
@@ -955,8 +956,8 @@
 
 		echo "<pre>";
 		print_r($data);
-		
-		submitData($data);
+
+		// submitData($data);
 	}
 
 	//to send the post request 
