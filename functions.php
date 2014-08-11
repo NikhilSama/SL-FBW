@@ -950,7 +950,10 @@
 		$data['mobapp_id'] = $mobapp_id;
 		$data['section'] = $section;
 
-		submitData($data);
+		echo "<pre>";
+		print_r($data);
+
+		// submitData($data);
 	}
 
 	//to send the post request 
