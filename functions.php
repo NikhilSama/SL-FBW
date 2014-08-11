@@ -953,6 +953,9 @@
 		$data['mobapp_id'] = $mobapp_id;
 		$data['section'] = $section;
 
+		echo "<pre>";
+		print_r($data);
+		
 		submitData($data);
 	}
 
