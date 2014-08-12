@@ -182,7 +182,7 @@
 						</div>
 					</div>  <!-- ingredients form ends -->
 					<div class="span12 text-center mb-10">
-						<a href="imported.php" class="btn-orange">Cancel</a>
+						<a href="imported.php" class="btn btn-large btn-orange">Cancel</a>
 
 						<button type="button" class="btn btn-large btn-primary ingredientFinish">Save</button>
 					</div>
