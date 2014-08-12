@@ -2,6 +2,7 @@
 	//here we only need to check the events and the photos rest of the updates are handled by the realtime updates
 	require_once ("header.php");
 	error_reporting(E_ALL);
+	set_time_limit(0);
 	
 	$fbObject = new FBMethods();
 	$db = new db_connect();

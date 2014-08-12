@@ -73,10 +73,53 @@
 			.black_overlay{
 				height: 67% !important;
 			}
+
+			.thanks_content {
+				position: absolute;
+				top: 5%;
+				left: 5%;
+				width: 730px;
+				/* height: 470px; */
+				background-color: #D5D5D5;
+				z-index: 1002;
+				overflow: auto;
+			}
+			.thanks_content h1 {
+				font-size: 30px;
+				font-family: 'din';
+				color: #000;
+				text-align: center;
+				margin-bottom: 10px;
+			}
+			.thanks_content h6 {
+				font-size: 18px;
+				font-family: 'DIN';
+				color: #226FA9;
+				text-align: center;
+				margin: 0;
+			}
+			.thanks_content p {
+				font-size: 12px;
+				font-family: 'calibri';
+				color: #575757;
+				text-align: center;
+			}
+			.closebutton {
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				height: 15px;
+			}
 		</style>
 	</head>
 
 	<body style="margin: 0 !important;">
+		<div class="thanks_content" style="display:none;">
+	    	<img src="img/close-button.png" class="closebutton">
+	        <h1>Thank you!</h1>
+	        <h6>Your app has been submitted and its in under review !!</h6>
+	        <p>We will inform you when your app is live</p>
+	    </div>
 		<div class="loader-bg-main" id="loadingCircle">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
 			<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">
@@ -292,8 +335,6 @@
 								    key: 'pk_live_d1NrtHiXyRWMfJvvS9fxzxON',
 								    image: 'img/snaplion_round_logo.jpg',
 								    token: function(token, args) {
-								    	console.log(token);
-								    	console.log(args);
 
 								    	$('#loadingCircle').show();
 										var stripePayment 		= new Object();
@@ -313,12 +354,13 @@
 												var res = JSON.parse(response);
 												if(res['result']['status']) {
 													alert(res['result']['message']);
+													$('.thanks_content').show();
 													$('#customButton').hide();
 													$('#customButtonDis').show();
 												} else {
 													alert(res['result']['message']);
 												}
-												console.log(res);
+
 												$('#loadingCircle').hide();
 									  		}
 										});
