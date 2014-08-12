@@ -131,7 +131,7 @@
 	    			<img src="img/close-button.png" class="closebutton">
 	    		</a>
 	        	<h1>Thank you!!</h1>
-	        	<h6 class="thanks_h6">Your app has been submitted and its in under review !!</h6>
+	        	<h6 class="thanks_h6">Payment has been successfully processed. Please check your email for details!!</h6>
 	    	</div>
 		</div>
 
@@ -140,8 +140,8 @@
 				<a href = "javascript:void(0)" onclick = "document.getElementById('sorry_outer').style.display='none';">
 	    			<img src="img/close-button.png" class="closebutton">
 	    		</a>
-	        	<h1>Sorry!!</h1>
-	        	<h6 class="sorry_h6">Your app has been submitted and its in under review !!</h6>
+	        	<h1>Oops!!</h1>
+	        	<h6 class="sorry_h6">Payment has been declined, Please try again!!</h6>
 	    	</div>
 		</div>
 
