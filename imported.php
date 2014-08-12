@@ -74,15 +74,18 @@
 				height: 67% !important;
 			}
 
+			
+
 			.thanks_content {
 				position: absolute;
-				top: 5%;
-				left: 5%;
-				width: 730px;
-				/* height: 470px; */
-				background-color: #D5D5D5;
+				top: 20%;
+				left: 50%;
+				width: 650px;
+				background-color: #fff;
 				z-index: 1002;
 				overflow: auto;
+				padding: 30px;
+				margin-left: -355px;
 			}
 			.thanks_content h1 {
 				font-size: 30px;
@@ -110,16 +113,30 @@
 				top: 5px;
 				height: 15px;
 			}
+			.thanks_outer {
+				background-color: #000;
+				opacity: 0.95;
+				float: left;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				z-index: 100;
+			}
 		</style>
 	</head>
 
 	<body style="margin: 0 !important;">
-		<div class="thanks_content" style="display:none;">
+		<div class="thanks_outer" style="display:none;">
+			<div class="thanks_content">
 	    	<img src="img/close-button.png" class="closebutton">
 	        <h1>Thank you!</h1>
 	        <h6>Your app has been submitted and its in under review !!</h6>
 	        <p>We will inform you when your app is live</p>
-	    </div>
+	    	</div>
+		</div>
+
 		<div class="loader-bg-main" id="loadingCircle">
 			<div class="loader-bg"><img src="img/loader.GIF" width="40"></div>
 			<span style="position: absolute;color: #fff;top: 50%;left: 50%;margin-left: -138px;margin-top: 58px;font-family: sans-serif;font-size: 16px;">
@@ -354,7 +371,7 @@
 												var res = JSON.parse(response);
 												if(res['result']['status']) {
 													alert(res['result']['message']);
-													$('.thanks_content').show();
+													$('.thanks_outer').show();
 													$('#customButton').hide();
 													$('#customButtonDis').show();
 												} else {
