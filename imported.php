@@ -125,14 +125,23 @@
 	</head>
 
 	<body style="margin: 0 !important;">
-		<div class="thanks_outer" style="display:none;">
+		<div class="thanks_outer" style="display:none;" id="thanks_outer">
 			<div class="thanks_content">
-				<a href = "javascript:void(0)" onclick = "document.getElementById('light').style. display='none';document.getElementById('fade').style.display='none'">
+				<a href = "javascript:void(0)" onclick = "document.getElementById('thanks_outer').style.display='none';">
 	    			<img src="img/close-button.png" class="closebutton">
 	    		</a>
-	        	<h1>Thank you!</h1>
-	        	<h6>Your app has been submitted and its in under review !!</h6>
-	        	<p>We will inform you when your app is live</p>
+	        	<h1>Thank you!!</h1>
+	        	<h6 class="thanks_h6">Your app has been submitted and its in under review !!</h6>
+	    	</div>
+		</div>
+
+		<div class="thanks_outer" style="display:none;" id="sorry_outer">
+			<div class="thanks_content">
+				<a href = "javascript:void(0)" onclick = "document.getElementById('sorry_outer').style.display='none';">
+	    			<img src="img/close-button.png" class="closebutton">
+	    		</a>
+	        	<h1>Sorry!!</h1>
+	        	<h6 class="sorry_h6">Your app has been submitted and its in under review !!</h6>
 	    	</div>
 		</div>
 
@@ -366,15 +375,18 @@
 									      	data	: stripePayment,
 									      	dataType: 'html',
 											success	: function(response) {
-												console.log(response);
+												// console.log(response);
 												var res = JSON.parse(response);
 												if(res['result']['status']) {
-													alert(res['result']['message']);
-													$('.thanks_outer').show();
+													// alert(res['result']['message']);
+													$('.thanks_h6').text(res['result']['message']);
+													$('#thanks_outer').show();
 													$('#customButton').hide();
 													$('#customButtonDis').show();
 												} else {
-													alert(res['result']['message']);
+													// alert(res['result']['message']);
+													$('.sorry_h6').text(res['result']['message']);
+													$('#sorry_outer').show();
 												}
 
 												$('#loadingCircle').hide();
@@ -418,7 +430,7 @@
 		</div>
 
 		<div id="light" class="white_content">
-	        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style. display='none';document.getElementById('fade').style.display='none'">
+	        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
 	        <img src="img/close-button.png" class="closebutton"></a>
 	        <h1>Convert your Facebook Page to a Mobile App</h1>
 	        <h6>Your fans are all mobile. So should you !!</h6>
