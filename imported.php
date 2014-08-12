@@ -74,8 +74,6 @@
 				height: 67% !important;
 			}
 
-			
-
 			.thanks_content {
 				position: absolute;
 				top: 20%;
@@ -115,7 +113,6 @@
 			}
 			.thanks_outer {
 				background-color: #000;
-				opacity: 0.95;
 				float: left;
 				height: 100%;
 				position: absolute;
@@ -130,10 +127,12 @@
 	<body style="margin: 0 !important;">
 		<div class="thanks_outer" style="display:none;">
 			<div class="thanks_content">
-	    	<img src="img/close-button.png" class="closebutton">
-	        <h1>Thank you!</h1>
-	        <h6>Your app has been submitted and its in under review !!</h6>
-	        <p>We will inform you when your app is live</p>
+				<a href = "javascript:void(0)" onclick = "document.getElementById('light').style. display='none';document.getElementById('fade').style.display='none'">
+	    			<img src="img/close-button.png" class="closebutton">
+	    		</a>
+	        	<h1>Thank you!</h1>
+	        	<h6>Your app has been submitted and its in under review !!</h6>
+	        	<p>We will inform you when your app is live</p>
 	    	</div>
 		</div>
 
