@@ -352,7 +352,7 @@
 							<a href="#" id="customButton" class="btn-orange">Submit App</a>
 							<!-- <a href="payment.php"><img src="img/makePayment.png" alt=""></a> -->
 
-							<button class="btn-gray-dis" id="customButtonDis" style="display:none;" disable>App Submited</button>
+							<button class="btn-gray-dis" id="customButtonDis" style="display:none;" disable>App Submitted</button>
 
 							<script>
 							  	var handler = StripeCheckout.configure({
