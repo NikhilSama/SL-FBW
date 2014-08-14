@@ -966,7 +966,7 @@
 		);
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
-		$result_data = json_decode($result,true);
+		$result_data = json_decode($result, true);
 
 		if( $result_data['result']['status'] ) {
 			$submitDataResult = array(
