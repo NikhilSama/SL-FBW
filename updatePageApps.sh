@@ -4,5 +4,5 @@ pages=$(echo "select page_id from snaplion_page;" | mysql -h snaplion.cck6cwihhy
 
 for page in $pages
 do
-    curl http://snaplionfbw.localhost/cron.php?page_id=$page
+    curl http://fbw.snaplion.com/cron.php?page_id=$page
 done
